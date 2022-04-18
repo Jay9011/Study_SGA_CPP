@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{44b580ba-c742-4bb6-914c-6b052ae687f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainGame">
+      <UniqueIdentifier>{1f3570d1-cff5-43f7-a268-7dfc32f855f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility">
+      <UniqueIdentifier>{25c0fb29-eebd-45b4-a6bd-9ae4442b9111}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{ac111d73-82d5-4892-ab04-f76a4a103c0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DodgeGame">
+      <UniqueIdentifier>{4661b0af-c12e-4ff2-a629-9d76d7eca3bd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="PaintScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="MainGame.h">
+      <Filter>MainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Main.h">
+      <Filter>MainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Rect.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Circle.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Projectile.h">
+      <Filter>DodgeGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="ProjectileList.h">
+      <Filter>DodgeGame</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PaintScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="MainGame.cpp">
+      <Filter>MainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>MainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Point.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Rect.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Circle.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Math.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Projectile.cpp">
+      <Filter>DodgeGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="ProjectileList.cpp">
+      <Filter>DodgeGame</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="29_WindowAPI.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="29_WindowAPI.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
