@@ -63,6 +63,9 @@
     <ClInclude Include="Math.h">
       <Filter>Utility</Filter>
     </ClInclude>
+    <ClInclude Include="Line.h">
+      <Filter>Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PaintScene.cpp">
@@ -91,6 +94,9 @@
     </ClCompile>
     <ClCompile Include="Math.cpp">
       <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Line.cpp">
+      <Filter>Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -143,6 +143,7 @@
   <ItemGroup>
     <ClInclude Include="Circle.h" />
     <ClInclude Include="CollisionScene.h" />
+    <ClInclude Include="Line.h" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="Framework.h" />
     <ClInclude Include="MainGame.h" />
@@ -157,6 +158,7 @@
   <ItemGroup>
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="CollisionScene.cpp" />
+    <ClCompile Include="Line.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Framework.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

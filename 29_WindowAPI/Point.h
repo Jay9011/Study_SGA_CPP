@@ -13,6 +13,16 @@ public:
 	{
 	}
 
+	Point operator - (const Point& point)
+	{
+		return Point(this->x - point.x, this->y - point.y);
+	}
+
+	double Cross(const Point& other)
+	{
+		return (this->x * other.y) - (this->y * other.x);
+	}
+
 	~Point()
 	{
 	}

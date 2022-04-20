@@ -24,6 +24,9 @@ public:
 	//원과 사각형의 충돌
 	bool Collision(Circle* circle, Rect* rect);
 
+	// 선과 선의 충돌
+	bool Collision(Line* line1, Line* line2);
+
 private:
 	Rect* rect1;
 	Rect* rect2;
@@ -31,9 +34,15 @@ private:
 	Circle* circle1;
 	Circle* circle2;
 
+	Line* line1;
+	Line* line2;
+
 	double speed;
 
 	HBRUSH   redBrush;
 	HBRUSH greenBrush;
 	HBRUSH  blueBrush;
+	
+	HPEN	  redPen;
+	HPEN	greenPen;
 };

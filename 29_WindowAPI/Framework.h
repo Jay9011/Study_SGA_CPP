@@ -30,6 +30,7 @@ using namespace std;
 #include "Point.h"
 #include "Rect.h"
 #include "Circle.h"
+#include "Line.h"
 
 //Utility
 #include "Math.h"

@@ -10,9 +10,15 @@ CollisionScene::CollisionScene()
 	circle1 = new Circle(Point(300, 300), 50);
 	circle2 = new Circle({ 500, 300 }, 50);
 
+	line1 = new Line();
+	line2 = new Line(Point(400, 100), Point(100, 400));
+
 	  redBrush = CreateSolidBrush(COLOR_RED);
 	greenBrush = CreateSolidBrush(COLOR_GREEN);
 	 blueBrush = CreateSolidBrush(COLOR_BLUE);
+
+	   redPen  = CreatePen(PS_SOLID, 2, COLOR_RED);
+	 greenPen  = CreatePen(PS_SOLID, 2, COLOR_GREEN);
 }
 
 CollisionScene::~CollisionScene()
@@ -22,6 +28,9 @@ CollisionScene::~CollisionScene()
 
 	delete circle1;
 	delete circle2;
+
+	delete line1;
+	delete line2;
 
 	DeleteObject(  redBrush);
 	DeleteObject(greenBrush);
@@ -47,7 +56,9 @@ void CollisionScene::Update()
 		rect1->Pos().y += speed;
 	}
 
-	circle1->Pos() = mousePos;
+	//circle1->Pos() = mousePos;
+
+	line1->End() = mousePos;
 
 }
 
@@ -81,6 +92,15 @@ void CollisionScene::Render(HDC hdc)
 
 	circle1->Render(hdc);
 	circle2->Render(hdc);
+
+	// Line
+	if (Collision(line1, line2))
+		SelectObject(hdc, redPen);
+	else
+		SelectObject(hdc, greenPen);
+
+	line1->Render(hdc);
+	line2->Render(hdc);
 }
 
 bool CollisionScene::Collision(Rect* rect, Point point)
@@ -167,4 +187,9 @@ bool CollisionScene::Collision(Circle* circle, Rect* rect)
 	}
 
 	return false;
+}
+
+bool CollisionScene::Collision(Line* line1, Line* line2)
+{
+	return line1->IsBetween(line2) && line2->IsBetween(line1);
 }
