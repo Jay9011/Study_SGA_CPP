@@ -66,6 +66,9 @@
     <ClInclude Include="Line.h">
       <Filter>Object</Filter>
     </ClInclude>
+    <ClInclude Include="Vector2.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PaintScene.cpp">
@@ -97,6 +100,9 @@
     </ClCompile>
     <ClCompile Include="Line.cpp">
       <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
