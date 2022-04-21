@@ -26,11 +26,17 @@ using namespace std;
 #define COLOR_GREEN RGB(  0, 255,   0)
 #define COLOR_BLUE  RGB(  0,   0, 255)
 
+//Utility
+#include "Vector2.h"
+
 //Object
 #include "Point.h"
 #include "Rect.h"
 #include "Circle.h"
 #include "Line.h"
+
+//GameObject
+#include "Tank.h"
 
 //Utility
 #include "Math.h"
@@ -41,6 +47,7 @@ using namespace Math;
 #include "Scene.h"
 #include "PaintScene.h"
 #include "CollisionScene.h"
+#include "FortressScene.h"
 
 #include "MainGame.h"
 

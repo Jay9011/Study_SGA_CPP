@@ -4,7 +4,8 @@
 MainGame::MainGame()
 {
 	//scene = new PaintScene();
-	scene = new CollisionScene();
+	//scene = new CollisionScene();
+	scene = new FortressScene();
 }
 
 MainGame::~MainGame()

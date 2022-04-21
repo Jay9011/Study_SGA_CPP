@@ -143,6 +143,7 @@
   <ItemGroup>
     <ClInclude Include="Circle.h" />
     <ClInclude Include="CollisionScene.h" />
+    <ClInclude Include="FortressScene.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="Framework.h" />
@@ -153,12 +154,14 @@
     <ClInclude Include="Rect.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="Tank.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Vector2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="CollisionScene.cpp" />
+    <ClCompile Include="FortressScene.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Framework.cpp">
@@ -169,6 +172,7 @@
     <ClCompile Include="PaintScene.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="Rect.cpp" />
+    <ClCompile Include="Tank.cpp" />
     <ClCompile Include="Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
