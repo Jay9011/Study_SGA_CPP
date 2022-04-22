@@ -78,6 +78,9 @@
     <ClInclude Include="Tank.h">
       <Filter>GameObject</Filter>
     </ClInclude>
+    <ClInclude Include="CannonBall.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PaintScene.cpp">
@@ -117,6 +120,9 @@
       <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="Tank.cpp">
+      <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="CannonBall.cpp">
       <Filter>GameObject</Filter>
     </ClCompile>
   </ItemGroup>

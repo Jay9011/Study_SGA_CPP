@@ -36,6 +36,7 @@ using namespace std;
 #include "Line.h"
 
 //GameObject
+#include "CannonBall.h"
 #include "Tank.h"
 
 //Utility

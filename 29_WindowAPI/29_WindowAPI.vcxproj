@@ -141,6 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CannonBall.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="CollisionScene.h" />
     <ClInclude Include="FortressScene.h" />
@@ -159,6 +160,7 @@
     <ClInclude Include="Vector2.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CannonBall.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="CollisionScene.cpp" />
     <ClCompile Include="FortressScene.cpp" />

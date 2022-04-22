@@ -12,6 +12,14 @@ private:
 	Circle*   body;	// 차체
 	Line*	barrel;	// 포신
 
+	CannonBall* cannonBall;
+
 	double angle;
+	double speed;
 	double barrelLength;
+
+	double power;
+	double deltaPower;
+
+	bool isPush;
 };
