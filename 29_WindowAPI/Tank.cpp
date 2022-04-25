@@ -28,11 +28,14 @@ Tank::~Tank()
 
 void Tank::Update()
 {
-	if (GetAsyncKeyState(VK_UP))
+	/*if (GetAsyncKeyState(VK_UP))
 		angle += 0.05;
 	else if (GetAsyncKeyState(VK_DOWN))
-		angle -= 0.05;
+		angle -= 0.05;*/
 	
+	Point temp = mousePos - body->Pos();
+	angle = atan2(-temp.y, temp.x);
+
 	if (GetAsyncKeyState(VK_LEFT))
 		body->Pos().x -= speed;
 	else if (GetAsyncKeyState(VK_RIGHT))
