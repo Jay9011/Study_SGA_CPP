@@ -13,3 +13,13 @@ double Math::Distance(Point p1, Point p2)
 
 	return distance;
 }
+
+double Math::DegreeToRadian(double degree)
+{
+	return degree / 180 * PI;
+}
+
+double Math::RadianToDegree(double radian)
+{
+	return radian / PI * 180;
+}

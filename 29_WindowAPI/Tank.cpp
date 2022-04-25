@@ -79,4 +79,11 @@ void Tank::Render(HDC hdc)
 	
 	SelectObject(hdc, magentaBrush);
 	powerBarFront->Render(hdc);
+
+	wstring str = L"";
+
+	str += L"Angle : ";
+	str += to_wstring(RadianToDegree(angle));
+
+	TextOut(hdc, 0, 0, str.c_str(), str.length());
 }

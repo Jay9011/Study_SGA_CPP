@@ -34,6 +34,8 @@ using namespace std;
 #define COLOR_ORANGE   RGB(255, 168,   0)
 #define COLOR_PINK     RGB(255, 192, 203)
 
+#define PI	3.1415926536
+
 //Utility
 #include "Vector2.h"
 
