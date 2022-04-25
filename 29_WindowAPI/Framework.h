@@ -19,12 +19,20 @@
 
 using namespace std;
 
-#define COLOR_WHITE RGB(255, 255, 255)
-#define COLOR_BLACK RGB(  0,   0,   0)
-
-#define COLOR_RED   RGB(255,   0,   0)
-#define COLOR_GREEN RGB(  0, 255,   0)
-#define COLOR_BLUE  RGB(  0,   0, 255)
+#define COLOR_WHITE	   RGB(255, 255, 255)
+#define COLOR_BLACK	   RGB(  0,   0,   0)
+					   
+#define COLOR_RED	   RGB(255,   0,   0)
+#define COLOR_GREEN	   RGB(  0, 255,   0)
+#define COLOR_BLUE	   RGB(  0,   0, 255)
+					   
+#define COLOR_CYAN	   RGB(  0, 255, 255)
+#define COLOR_MAGENTA  RGB(255,   0, 255)
+#define COLOR_YELLOW   RGB(255, 255,   0)
+					   
+#define COLOR_GRAY 	   RGB(128, 128, 128)
+#define COLOR_ORANGE   RGB(255, 168,   0)
+#define COLOR_PINK     RGB(255, 192, 203)
 
 //Utility
 #include "Vector2.h"

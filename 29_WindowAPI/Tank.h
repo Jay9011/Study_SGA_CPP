@@ -1,4 +1,7 @@
 #pragma once
+
+#define MAX_POWER	650
+
 class Tank
 {
 public:
@@ -22,4 +25,13 @@ private:
 	double deltaPower;
 
 	bool isPush;
+
+	// 파워 게이지
+	Rect* powerBarFront;
+	Rect* powerBarBack;
+
+	// 색상 브러쉬
+	HBRUSH     oldBrush;
+	HBRUSH    grayBrush;
+	HBRUSH magentaBrush;
 };

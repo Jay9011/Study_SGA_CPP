@@ -11,6 +11,8 @@ public:
 
 	void Render(HDC hdc);
 
+	void SetRect(double left, double top, double right, double bottom);
+
 	double Left()   { return this->pos.x - size.x * 0.5; }
 	double Right()  { return this->pos.x + size.x * 0.5; }
 	double Top()    { return this->pos.y - size.y * 0.5; }

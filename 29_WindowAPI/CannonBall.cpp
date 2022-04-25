@@ -40,5 +40,5 @@ void CannonBall::Fire(Point pos, double angle, double power)
 
 	gravity = 0;
 
-	speed = power;
+	speed = power * 0.1;
 }
