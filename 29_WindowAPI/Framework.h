@@ -36,6 +36,9 @@ using namespace std;
 
 #define PI	3.1415926536
 
+#define	WIN_WIDTH	1280
+#define	WIN_HEIGHT	720
+
 //Utility
 #include "Vector2.h"
 

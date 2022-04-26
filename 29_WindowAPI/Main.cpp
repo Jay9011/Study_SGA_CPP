@@ -79,7 +79,9 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_MY29WINDOWAPI));
     wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW);
     wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
-    wcex.lpszMenuName   = MAKEINTRESOURCEW(IDC_MY29WINDOWAPI);
+    // 메뉴바 제거
+    wcex.lpszMenuName   = nullptr;
+    //wcex.lpszMenuName   = MAKEINTRESOURCEW(IDC_MY29WINDOWAPI);
     wcex.lpszClassName  = szWindowClass;
     wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
@@ -100,8 +102,15 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
+   // 지정된 사각형 크기 만큼의 그리기 공간을 포함하여 윈도우 크기 차이를 계산해 LPRECT에 담아준다.
+   RECT rect = { 0, 0, WIN_WIDTH, WIN_HEIGHT };
+   AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
+
+   long width  = rect.right - rect.left;    // LPRECT에서 계산된 left, right로 width를 계산
+   long height = rect.bottom - rect.top;    // LPRECT에서 계산된 top, bottom으로 width를 계산
+
    hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+      CW_USEDEFAULT, 0, width, height, nullptr, nullptr, hInstance, nullptr);
 
    if (!hWnd)
    {

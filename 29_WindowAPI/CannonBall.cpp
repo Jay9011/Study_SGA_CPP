@@ -20,8 +20,8 @@ void CannonBall::Update()
 	ball->Pos().x += cos(angle) * speed;
 	ball->Pos().y -= sin(angle) * speed;
 
-	gravity += 0.98;
-	ball->Pos().y += gravity;
+	/*gravity += 0.98;
+	ball->Pos().y += gravity;*/
 }
 
 void CannonBall::Render(HDC hdc)
@@ -38,7 +38,6 @@ void CannonBall::Fire(Point pos, double angle, double power)
 	ball->Pos() = pos;
 	this->angle = angle;
 
-	gravity = 0;
-
-	speed = power * 0.1;
+	/*gravity = 0;
+	speed = power * 0.1;*/
 }

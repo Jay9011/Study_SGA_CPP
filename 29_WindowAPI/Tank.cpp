@@ -86,4 +86,12 @@ void Tank::Render(HDC hdc)
 	str += to_wstring(RadianToDegree(angle));
 
 	TextOut(hdc, 0, 0, str.c_str(), str.length());
+
+	str = L"";
+	str += L"MousePos: ";
+	str += to_wstring(mousePos.x);
+	str += L" , ";
+	str += to_wstring(mousePos.y);
+
+	TextOut(hdc, 0, 20, str.c_str(), str.length());
 }
