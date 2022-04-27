@@ -36,8 +36,8 @@ using namespace std;
 
 #define PI	3.1415926536
 
-#define	WIN_WIDTH	1280
-#define	WIN_HEIGHT	720
+#define	WIN_WIDTH	1280	// 설정한 윈도우 가로
+#define	WIN_HEIGHT	720		// 설정한 윈도우 세로
 
 //Utility
 #include "Vector2.h"
@@ -50,6 +50,7 @@ using namespace std;
 
 //GameObject
 #include "CannonBall.h"
+#include "CannonBallManager.h"
 #include "Tank.h"
 
 //Utility

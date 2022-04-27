@@ -81,6 +81,9 @@
     <ClInclude Include="CannonBall.h">
       <Filter>GameObject</Filter>
     </ClInclude>
+    <ClInclude Include="CannonBallManager.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PaintScene.cpp">
@@ -123,6 +126,9 @@
       <Filter>GameObject</Filter>
     </ClCompile>
     <ClCompile Include="CannonBall.cpp">
+      <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="CannonBallManager.cpp">
       <Filter>GameObject</Filter>
     </ClCompile>
   </ItemGroup>

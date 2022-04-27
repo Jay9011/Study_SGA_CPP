@@ -8,6 +8,7 @@ public:
 	void Update();
 	void Render(HDC hdc);
 
+	bool IsFire() { return isFire; }
 	void Fire(Point pos, double angle, double power);
 
 private:

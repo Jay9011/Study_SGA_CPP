@@ -15,7 +15,8 @@ private:
 	Circle*   body;	// 차체
 	Line*	barrel;	// 포신
 
-	CannonBall* cannonBall;
+	//CannonBall* cannonBall;
+	CannonBallManager* cbManager;
 
 	double angle;
 	double speed;

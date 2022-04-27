@@ -7,7 +7,8 @@ Tank::Tank()
 	body	= new Circle(Point(200, 500), 100);
 	barrel  = new Line(body->Pos(), Point( 0, 0));
 
-	cannonBall = new CannonBall();
+	//cannonBall = new CannonBall();
+	cbManager = new CannonBallManager(100);
 
 	powerBarFront = new Rect(50, 650, 50            , 700);
 	powerBarBack  = new Rect(50, 650, 50 + MAX_POWER, 700);
@@ -18,9 +19,10 @@ Tank::Tank()
 
 Tank::~Tank()
 {
-	delete cannonBall;
 	delete barrel;
 	delete body;
+	//delete cannonBall;
+	delete cbManager;
 	
 	DeleteObject(   grayBrush);
 	DeleteObject(magentaBrush);
@@ -37,9 +39,31 @@ void Tank::Update()
 	angle = atan2(-temp.y, temp.x);
 
 	if (GetAsyncKeyState(VK_LEFT))
+	{
 		body->Pos().x -= speed;
+
+		//if (body->Left() < 0)
+		//{
+		//	body->Pos().x = body->Radius();
+		//}
+		if (body->Pos().x < barrelLength)
+		{
+			body->Pos().x = barrelLength;
+		}
+	}
 	else if (GetAsyncKeyState(VK_RIGHT))
+	{
 		body->Pos().x += speed;
+
+		//if (body->Right() > WIN_WIDTH)
+		//{
+		//	body->Pos().x = WIN_WIDTH - body->Radius();
+		//}
+		if (body->Pos().x > WIN_WIDTH - barrelLength)
+		{
+			body->Pos().x = WIN_WIDTH - barrelLength;
+		}
+	}
 
 	if (GetAsyncKeyState(VK_SPACE))
 	{
@@ -57,7 +81,8 @@ void Tank::Update()
 	else if (isPush)
 	{
 		isPush = false;
-		cannonBall->Fire(barrel->End(), angle, power);
+		//cannonBall->Fire(barrel->End(), angle, power);
+		cbManager->Fire(barrel->End(), angle, power);
 		power = 3;
 	}
 
@@ -65,14 +90,16 @@ void Tank::Update()
 	barrel->End().x =  cos(angle) * barrelLength + body->Pos().x;
 	barrel->End().y = -sin(angle) * barrelLength + body->Pos().y;
 
-	cannonBall->Update();
+	//cannonBall->Update();
+	cbManager->Update();
 }
 
 void Tank::Render(HDC hdc)
 {
 	body->Render(hdc);
 	barrel->Render(hdc);
-	cannonBall->Render(hdc);
+	//cannonBall->Render(hdc);
+	cbManager->Render(hdc);
 
 	SelectObject(hdc, grayBrush);
 	powerBarBack->Render(hdc);

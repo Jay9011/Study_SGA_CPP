@@ -22,6 +22,34 @@ void CannonBall::Update()
 
 	/*gravity += 0.98;
 	ball->Pos().y += gravity;*/
+
+	/*
+	*	공이 화면에 튕기는 설정
+	*/
+	// 왼쪽 벽 반사
+	if (ball->Left() < 0)
+	{
+		angle = PI - angle;
+		ball->Pos().x = ball->Radius();
+	}
+	// 오른쪽 벽 반사
+	if (ball->Right() > WIN_WIDTH)
+	{
+		angle = PI - angle;
+		ball->Pos().x = WIN_WIDTH - ball->Radius();
+	}
+	// 위쪽 벽 반사
+	if (ball->Top() < 0)
+	{
+		angle = -angle;
+		ball->Pos().y = ball->Radius();
+	}
+	// 아래쪽 벽 반사
+	if (ball->Bottom() > WIN_HEIGHT)
+	{
+		angle *= -1;
+		ball->Pos().y = WIN_HEIGHT - ball->Radius();
+	}
 }
 
 void CannonBall::Render(HDC hdc)
@@ -38,6 +66,6 @@ void CannonBall::Fire(Point pos, double angle, double power)
 	ball->Pos() = pos;
 	this->angle = angle;
 
-	/*gravity = 0;
-	speed = power * 0.1;*/
+	/*gravity = 0;*/
+	speed = power * 0.1;
 }
