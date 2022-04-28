@@ -96,16 +96,19 @@ void Tank::Update()
 
 void Tank::Render(HDC hdc)
 {
+	SelectObject(hdc, oldBrush);
 	body->Render(hdc);
 	barrel->Render(hdc);
 	//cannonBall->Render(hdc);
 	cbManager->Render(hdc);
 
-	SelectObject(hdc, grayBrush);
+	oldBrush = (HBRUSH)SelectObject(hdc, grayBrush);
 	powerBarBack->Render(hdc);
-	
-	SelectObject(hdc, magentaBrush);
+	SelectObject(hdc, oldBrush);
+
+	oldBrush = (HBRUSH)SelectObject(hdc, magentaBrush);
 	powerBarFront->Render(hdc);
+	SelectObject(hdc, oldBrush);
 
 	wstring str = L"";
 
