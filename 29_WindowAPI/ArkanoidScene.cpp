@@ -15,6 +15,8 @@ ArkanoidScene::~ArkanoidScene()
 
 void ArkanoidScene::Update()
 {
+	arkanoidUI->Update();
+	arkanoidPlayer->Update();
 }
 
 void ArkanoidScene::Render(HDC hdc)

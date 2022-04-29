@@ -10,7 +10,7 @@ private:
 			 
 	Rect*	 body;
 	double	 speed;
-			 
+
 	HBRUSH	 oldBrush;
 	HPEN	 oldPen;
 			 
@@ -21,5 +21,6 @@ public:
 	void Update();
 	void Render(HDC hdc);
 
+	Vector2 GetCore() { return Vector2((body->Left() + body->Right()) / 2.0, body->Bottom()); }
 };
 
