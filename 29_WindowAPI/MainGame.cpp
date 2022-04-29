@@ -13,7 +13,8 @@ MainGame::MainGame()
 
 	//scene = new PaintScene();
 	//scene = new CollisionScene();
-	scene = new FortressScene();
+	//scene = new FortressScene();
+	scene = new ArkanoidScene();
 }
 
 MainGame::~MainGame()

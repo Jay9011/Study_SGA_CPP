@@ -52,6 +52,8 @@ using namespace std;
 #include "CannonBall.h"
 #include "CannonBallManager.h"
 #include "Tank.h"
+#include "AKUI.h"
+#include "AKPlayer.h"
 
 //Utility
 #include "Math.h"
@@ -63,6 +65,7 @@ using namespace Math;
 #include "PaintScene.h"
 #include "CollisionScene.h"
 #include "FortressScene.h"
+#include "ArkanoidScene.h"
 
 #include "MainGame.h"
 

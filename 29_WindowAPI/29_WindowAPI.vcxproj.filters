@@ -84,6 +84,15 @@
     <ClInclude Include="CannonBallManager.h">
       <Filter>GameObject</Filter>
     </ClInclude>
+    <ClInclude Include="ArkanoidScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="AKUI.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="AKPlayer.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PaintScene.cpp">
@@ -129,6 +138,15 @@
       <Filter>GameObject</Filter>
     </ClCompile>
     <ClCompile Include="CannonBallManager.cpp">
+      <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="ArkanoidScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="AKUI.cpp">
+      <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="AKPlayer.cpp">
       <Filter>GameObject</Filter>
     </ClCompile>
   </ItemGroup>
