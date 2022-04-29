@@ -60,7 +60,7 @@ void CannonBall::Render(HDC hdc)
 	ball->Render(hdc);
 }
 
-void CannonBall::Fire(Point pos, double angle, double power)
+void CannonBall::Fire(Vector2 pos, double angle, double power)
 {
 	isFire = true;
 	ball->Pos() = pos;

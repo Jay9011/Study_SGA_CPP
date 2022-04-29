@@ -4,8 +4,8 @@
 Tank::Tank()
 	: angle(0), speed(5), barrelLength(200), power(3), deltaPower(3), isPush(false)
 {
-	body	= new Circle(Point(200, 500), 100);
-	barrel  = new Line(body->Pos(), Point( 0, 0));
+	body	= new Circle(Vector2(200, 500), 100);
+	barrel  = new Line(body->Pos(), Vector2( 0, 0));
 
 	//cannonBall = new CannonBall();
 	cbManager = new CannonBallManager(100);
@@ -35,8 +35,7 @@ void Tank::Update()
 	else if (GetAsyncKeyState(VK_DOWN))
 		angle -= 0.05;*/
 	
-	Point temp = mousePos - body->Pos();
-	angle = atan2(-temp.y, temp.x);
+	
 
 	if (GetAsyncKeyState(VK_LEFT))
 	{
@@ -86,10 +85,16 @@ void Tank::Update()
 		power = 3;
 	}
 
-	barrel->Start() = body->Pos();
+	// 마우스 위치로 각도 찾아서 포신 이동시키기
+	Vector2 temp = mousePos - body->Pos();
+	angle = atan2(-temp.y, temp.x);
+
 	barrel->End().x =  cos(angle) * barrelLength + body->Pos().x;
 	barrel->End().y = -sin(angle) * barrelLength + body->Pos().y;
-
+	
+	
+	
+	barrel->Start() = body->Pos();
 	//cannonBall->Update();
 	cbManager->Update();
 }

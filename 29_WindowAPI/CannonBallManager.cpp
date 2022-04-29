@@ -36,7 +36,7 @@ void CannonBallManager::Render(HDC hdc)
 	}
 }
 
-void CannonBallManager::Fire(Point pos, double angle, double power)
+void CannonBallManager::Fire(Vector2 pos, double angle, double power)
 {
 	for (CannonBall* c : cannonBalls)
 	{

@@ -3,16 +3,16 @@ class Line
 {
 public:
 	Line();
-	Line(Point start, Point end);
+	Line(Vector2 start, Vector2 end);
 	~Line();
 
 	void Render(HDC hdc);
 	bool IsBetween(Line* other);
 
-	Point& Start() { return start; }
-	Point&   End() { return   end; }
+	Vector2& Start() { return start; }
+	Vector2&   End() { return   end; }
 
 private:
-	Point start;
-	Point	end;
+	Vector2 start;
+	Vector2	end;
 };

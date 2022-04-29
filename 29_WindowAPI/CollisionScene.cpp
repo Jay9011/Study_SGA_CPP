@@ -5,13 +5,13 @@ CollisionScene::CollisionScene()
 	:speed(5)
 {
 	rect1 = new Rect(100, 100, 200, 200);
-	rect2 = new Rect(Point(300, 150), Point(100, 50));
+	rect2 = new Rect(Vector2(300, 150), Vector2(100, 50));
 
-	circle1 = new Circle(Point(300, 300), 50);
+	circle1 = new Circle(Vector2(300, 300), 50);
 	circle2 = new Circle({ 500, 300 }, 50);
 
 	line1 = new Line();
-	line2 = new Line(Point(400, 100), Point(100, 400));
+	line2 = new Line(Vector2(400, 100), Vector2(100, 400));
 
 	  redBrush = CreateSolidBrush(COLOR_RED);
 	greenBrush = CreateSolidBrush(COLOR_GREEN);
@@ -103,7 +103,7 @@ void CollisionScene::Render(HDC hdc)
 	line2->Render(hdc);
 }
 
-bool CollisionScene::Collision(Rect* rect, Point point)
+bool CollisionScene::Collision(Rect* rect, Vector2 point)
 {
 	if 
 	(
@@ -131,7 +131,7 @@ bool CollisionScene::Collision(Rect* r1, Rect* r2)
 	return false;
 }
 
-bool CollisionScene::Collision(Circle* circle, Point point)
+bool CollisionScene::Collision(Circle* circle, Vector2 point)
 {
 	/*double distance;
 
@@ -158,7 +158,7 @@ bool CollisionScene::Collision(Circle* c1, Circle* c2)
 
 bool CollisionScene::Collision(Circle* circle, Rect* rect)
 {
-	Point center = circle->Pos();
+	Vector2 center = circle->Pos();
 
 	if
 	(
@@ -172,7 +172,7 @@ bool CollisionScene::Collision(Circle* circle, Rect* rect)
 	}
 	else
 	{
-		Point edges[4];
+		Vector2 edges[4];
 
 		edges[0] = { rect->Left(),  rect->Top() };
 		edges[1] = { rect->Right(), rect->Top() }; 

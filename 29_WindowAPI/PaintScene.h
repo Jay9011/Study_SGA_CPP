@@ -23,8 +23,8 @@ class PaintScene : public Scene
 		Type  type;
 		Color color;
 		
-		Point startPos;
-		Point   endPos;		
+		Vector2 startPos;
+		Vector2   endPos;		
 	};
 
 public:
@@ -44,8 +44,8 @@ public:
 	void Preview();
 
 private:
-	Point startPos;
-	Point   endPos;
+	Vector2 startPos;
+	Vector2   endPos;
 
 	HPEN     hPen[3];
 	HBRUSH hBrush[3];

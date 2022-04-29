@@ -66,5 +66,5 @@ using namespace Math;
 
 #include "MainGame.h"
 
-extern Point mousePos;
+extern Vector2 mousePos;
 extern HWND hWnd;

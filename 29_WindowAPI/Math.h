@@ -2,7 +2,7 @@
 
 namespace Math
 {
-	double Distance(Point p1, Point p2);
+	double Distance(Vector2 p1, Vector2 p2);
 	double DegreeToRadian(double degree);
 	double RadianToDegree(double radian);
 }

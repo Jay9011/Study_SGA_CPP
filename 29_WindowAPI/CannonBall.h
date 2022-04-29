@@ -9,7 +9,7 @@ public:
 	void Render(HDC hdc);
 
 	bool IsFire() { return isFire; }
-	void Fire(Point pos, double angle, double power);
+	void Fire(Vector2 pos, double angle, double power);
 
 private:
 	Circle* ball;

@@ -4,7 +4,7 @@ class Rect
 {
 public:
 	Rect();
-	Rect(Point pos, Point size);
+	Rect(Vector2 pos, Vector2 size);
 	Rect(double left, double top, double right, double bottom);
 
 	~Rect();
@@ -18,10 +18,10 @@ public:
 	double Top()    { return this->pos.y - size.y * 0.5; }
 	double Bottom() { return this->pos.y + size.y * 0.5; }
 
-	Point&  Pos() { return pos; }
-	Point& Size() { return size; }
+	Vector2&  Pos() { return pos; }
+	Vector2& Size() { return size; }
 
 private:
-	Point pos;
-	Point size;
+	Vector2 pos;
+	Vector2 size;
 };

@@ -8,7 +8,7 @@ public:
 	void Update();
 	void Render(HDC hdc);
 
-	void Fire(Point pos, double angle, double power);
+	void Fire(Vector2 pos, double angle, double power);
 
 private:
 	vector<CannonBall*> cannonBalls;

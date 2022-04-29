@@ -10,13 +10,13 @@ public:
 	virtual void Render(HDC hdc) override;
 
 	//사각형과 점의 충돌
-	bool Collision(Rect* rect, Point point);
+	bool Collision(Rect* rect, Vector2 point);
 
 	//사각형과 사각형의 충돌
 	bool Collision(Rect* r1, Rect* r2);
 
 	//원과 점의 충돌
-	bool Collision(Circle* circle, Point point);
+	bool Collision(Circle* circle, Vector2 point);
 
 	//원과 원의 충돌
 	bool Collision(Circle* c1, Circle* c2);

@@ -6,7 +6,7 @@ Line::Line()
 {
 }
 
-Line::Line(Point start, Point end)
+Line::Line(Vector2 start, Vector2 end)
 	: start(start), end(end)
 {
 }
@@ -23,9 +23,9 @@ void Line::Render(HDC hdc)
 
 bool Line::IsBetween(Line* other)
 {
-	Point vec1 = other->start - this->start;
-	Point vec2 = other->  end - this->start;
-	Point vec3 =  this->  end - this->start;
+	Vector2 vec1 = other->start - this->start;
+	Vector2 vec2 = other->  end - this->start;
+	Vector2 vec3 =  this->  end - this->start;
 
 	return (vec1.Cross(vec3) * vec2.Cross(vec3)) < 0;	// - - => +, + + => + (부호가 다르면 => -)
 }
