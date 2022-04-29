@@ -34,12 +34,23 @@ void Tank::Update()
 		angle += 0.05;
 	else if (GetAsyncKeyState(VK_DOWN))
 		angle -= 0.05;*/
-	
-	
+
+	// 마우스 위치로 각도 찾아서 포신 이동시키기
+	/*Vector2 temp = mousePos - body->Pos();
+	angle = atan2(-temp.y, temp.x);
+	barrel->End().x =  cos(angle) * barrelLength + body->Pos().x;
+	barrel->End().y = -sin(angle) * barrelLength + body->Pos().y;*/
+
+	Vector2 dir = mousePos - body->Pos();
+	dir.Normalize();
+
+	barrel->End() = body->Pos() + dir * barrelLength;
+	barrel->Start() = body->Pos();
 
 	if (GetAsyncKeyState(VK_LEFT))
 	{
-		body->Pos().x -= speed;
+		//body->Pos().x -= speed;
+		body->Pos() += Vector2(-1, 0) * speed;
 
 		//if (body->Left() < 0)
 		//{
@@ -52,7 +63,8 @@ void Tank::Update()
 	}
 	else if (GetAsyncKeyState(VK_RIGHT))
 	{
-		body->Pos().x += speed;
+		//body->Pos().x += speed;
+		body->Pos() += Vector2(1, 0) * speed;
 
 		//if (body->Right() > WIN_WIDTH)
 		//{
@@ -81,20 +93,11 @@ void Tank::Update()
 	{
 		isPush = false;
 		//cannonBall->Fire(barrel->End(), angle, power);
-		cbManager->Fire(barrel->End(), angle, power);
+		//cbManager->Fire(barrel->End(), angle, power);
+		cbManager->Fire(barrel->End(), dir, power);
 		power = 3;
 	}
 
-	// 마우스 위치로 각도 찾아서 포신 이동시키기
-	Vector2 temp = mousePos - body->Pos();
-	angle = atan2(-temp.y, temp.x);
-
-	barrel->End().x =  cos(angle) * barrelLength + body->Pos().x;
-	barrel->End().y = -sin(angle) * barrelLength + body->Pos().y;
-	
-	
-	
-	barrel->Start() = body->Pos();
 	//cannonBall->Update();
 	cbManager->Update();
 }

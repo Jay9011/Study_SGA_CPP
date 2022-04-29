@@ -48,3 +48,16 @@ void CannonBallManager::Fire(Vector2 pos, double angle, double power)
 		}
 	}
 }
+
+void CannonBallManager::Fire(Vector2 pos, Vector2 dir, double power)
+{
+	for (CannonBall* c : cannonBalls)
+	{
+		// 발사가 안 된 객체를 발사시킨다.
+		if (!c->IsFire())
+		{
+			c->Fire(pos, dir, power);
+			return;	// 발사가 안 된 하나의 객체를 발사시켰다면 종료시킨다.
+		}
+	}
+}
