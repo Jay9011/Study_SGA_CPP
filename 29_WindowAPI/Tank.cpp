@@ -2,7 +2,7 @@
 #include "Tank.h"
 
 Tank::Tank()
-	: angle(0), speed(5), barrelLength(200), power(3), deltaPower(3), isPush(false)
+	: angle(0), speed(5), barrelLength(200), power(3), deltaPower(3), isCharging(false)
 {
 	body	= new Circle(Vector2(200, 500), 100);
 	barrel  = new Line(body->Pos(), Vector2( 0, 0));
@@ -78,7 +78,7 @@ void Tank::Update()
 
 	if (GetAsyncKeyState(VK_SPACE))
 	{
-		isPush = true;
+		isCharging = true;
 		power += deltaPower;
 
 		if (power > MAX_POWER)
@@ -89,9 +89,9 @@ void Tank::Update()
 			                   powerBarFront->  Left() + power,	// 파워 만큼 길이를 늘린다.
 			                   powerBarFront->Bottom()        );
 	}
-	else if (isPush)
+	else if (isCharging)
 	{
-		isPush = false;
+		isCharging = false;
 		//cannonBall->Fire(barrel->End(), angle, power);
 		//cbManager->Fire(barrel->End(), angle, power);
 		cbManager->Fire(barrel->End(), dir, power);

@@ -18,6 +18,9 @@ public:
 	void operator *= (const double& other);
 	void operator /= (const double& other);
 
+	double  VectorToAngle();
+	Vector2 AngleToVector(double angle);
+
 	double	   Length();
 	void	Normalize();
 

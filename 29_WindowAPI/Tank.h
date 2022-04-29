@@ -25,7 +25,7 @@ private:
 	double power;
 	double deltaPower;
 
-	bool isPush;
+	bool   isCharging;
 
 	// 파워 게이지
 	Rect* powerBarFront;

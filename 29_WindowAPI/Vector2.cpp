@@ -59,6 +59,16 @@ void Vector2::operator/=(const double& other)
 	this->y /= other;
 }
 
+double Vector2::VectorToAngle()
+{
+	return atan2(-y, x);
+}
+
+Vector2 Vector2::AngleToVector(double angle)
+{
+	return Vector2(cos(angle), -sin(angle));
+}
+
 double Vector2::Length()
 {
 	return sqrt(pow(x, 2) + pow(y, 2));
