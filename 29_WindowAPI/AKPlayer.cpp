@@ -1,9 +1,11 @@
 #include "Framework.h"
 #include "AKPlayer.h"
 
-AKPlayer::AKPlayer(AKUI& _akui)
+AKPlayer::AKPlayer(AKUI& _akui, AKBallManager& _akbm)
 	: speed(15)
 	, arkanoidUI(&_akui)
+	, arkanoidBallManager(&_akbm)
+	, readyBall(nullptr)
 	, oldBrush(nullptr)
 	, oldPen(nullptr)
 {
@@ -36,6 +38,14 @@ void AKPlayer::Update()
 		{
 			body->Pos().x = arkanoidUI->GetStageLeft() + (body->Size().x / 2);
 		}
+		else
+		{
+			if (readyBall)
+			{
+				readyBall->SetPos(readyBall->Pos() + (Vector2(-1, 0) * speed));
+			}
+		}
+
 	}
 	else if (GetAsyncKeyState(VK_RIGHT))
 	{
@@ -45,6 +55,25 @@ void AKPlayer::Update()
 		{
 			body->Pos().x = arkanoidUI->GetStageRight() - (body->Size().x / 2);
 		}
+		else 
+		{
+			if (readyBall)
+			{
+				readyBall->SetPos(readyBall->Pos() + (Vector2(1, 0) * speed));
+			}
+		}
+
+	}
+
+	if (GetAsyncKeyState(VK_SPACE))
+	{
+		arkanoidBallManager->Fire(Vector2(0, -1));
+		readyBall = nullptr;
+	}
+
+	if (!arkanoidBallManager->GetReady())
+	{
+		readyBall = arkanoidBallManager->SetReady(GetTopCenter() + Vector2(0, -10));
 	}
 }
 

@@ -141,6 +141,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AKBall.h" />
+    <ClInclude Include="AKBallManager.h" />
+    <ClInclude Include="AKCollisionManager.h" />
     <ClInclude Include="AKPlayer.h" />
     <ClInclude Include="AKUI.h" />
     <ClInclude Include="ArkanoidScene.h" />
@@ -164,6 +167,9 @@
     <ClInclude Include="Vector2.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AKBall.cpp" />
+    <ClCompile Include="AKBallManager.cpp" />
+    <ClCompile Include="AKCollisionManager.cpp" />
     <ClCompile Include="AKPlayer.cpp" />
     <ClCompile Include="AKUI.cpp" />
     <ClCompile Include="ArkanoidScene.cpp" />

@@ -28,6 +28,9 @@
     <Filter Include="GameObject">
       <UniqueIdentifier>{1aae0961-71b3-42d3-b496-8684efb19430}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ArkanoidObject">
+      <UniqueIdentifier>{78a862d9-bf2c-4c3c-9f92-6b1fa6c65d9c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -87,11 +90,20 @@
     <ClInclude Include="ArkanoidScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="AKUI.h">
-      <Filter>GameObject</Filter>
-    </ClInclude>
     <ClInclude Include="AKPlayer.h">
-      <Filter>GameObject</Filter>
+      <Filter>ArkanoidObject</Filter>
+    </ClInclude>
+    <ClInclude Include="AKUI.h">
+      <Filter>ArkanoidObject</Filter>
+    </ClInclude>
+    <ClInclude Include="AKBall.h">
+      <Filter>ArkanoidObject</Filter>
+    </ClInclude>
+    <ClInclude Include="AKBallManager.h">
+      <Filter>ArkanoidObject</Filter>
+    </ClInclude>
+    <ClInclude Include="AKCollisionManager.h">
+      <Filter>ArkanoidObject</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -143,11 +155,20 @@
     <ClCompile Include="ArkanoidScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="AKUI.cpp">
-      <Filter>GameObject</Filter>
-    </ClCompile>
     <ClCompile Include="AKPlayer.cpp">
-      <Filter>GameObject</Filter>
+      <Filter>ArkanoidObject</Filter>
+    </ClCompile>
+    <ClCompile Include="AKUI.cpp">
+      <Filter>ArkanoidObject</Filter>
+    </ClCompile>
+    <ClCompile Include="AKBall.cpp">
+      <Filter>ArkanoidObject</Filter>
+    </ClCompile>
+    <ClCompile Include="AKBallManager.cpp">
+      <Filter>ArkanoidObject</Filter>
+    </ClCompile>
+    <ClCompile Include="AKCollisionManager.cpp">
+      <Filter>ArkanoidObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

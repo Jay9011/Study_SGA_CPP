@@ -10,7 +10,9 @@ public:
 	virtual void Render(HDC hdc) override;
 
 private:
-	AKUI*		arkanoidUI;
-	AKPlayer*	arkanoidPlayer;
+	AKUI*				arkanoidUI;
+	AKBallManager*		arkanoidBallManager;
+	AKPlayer*			arkanoidPlayer;
+	AKCollisionManager* arkanoidCollisionManager;
 };
 

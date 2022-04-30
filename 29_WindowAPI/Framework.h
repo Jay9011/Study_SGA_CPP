@@ -53,7 +53,11 @@ using namespace std;
 #include "CannonBallManager.h"
 #include "Tank.h"
 #include "AKUI.h"
+#include "AKBall.h"
+#include "AKBallManager.h"
 #include "AKPlayer.h"
+
+#include "AKCollisionManager.h"
 
 //Utility
 #include "Math.h"
