@@ -19,23 +19,7 @@ void AKCollisionManager::Update()
 	// UI & Ball Collision Check
 	for (AKBall* ball : ballManager->Balls())
 	{
-		if (ball->Left() < ui->GetStageLeft())
-		{
-			ball->ChangeDirection(true, false);
-		}
-		else if (ball->Right() > ui->GetStageRight())
-		{
-			ball->ChangeDirection(true, false);
-		}
-
-		if (ball->Top() < ui->GetStageTop())
-		{
-			ball->ChangeDirection(false, true);
-		}
-		else if (ball->Bottom() > ui->GetStageBottom())
-		{
-			ball->DeleteBall();
-		}
+		Collision(ball, ui);
 	}
 
 	// Player & Ball Collision Check
@@ -43,11 +27,7 @@ void AKCollisionManager::Update()
 	{
 		if (ball->IsFire())
 		{
-			Circle circle = Circle(ball->Pos(), ball->Radius());
-			Rect rect = Rect(player->GetPos(), player->GetSize());
-			Collision(&circle, &rect);
-
-			ball->ChangeDirection(false, true);
+			Collision(ball, player);
 		}
 	}
 }
@@ -71,17 +51,9 @@ void AKCollisionManager::Render(HDC hdc)
 /// <summary>
 /// Collision
 /// </summary>
-bool AKCollisionManager::Collision(Rect* rect, Vector2 point)
-{
-	if (point.x > rect->Left() && point.x < rect->Right() && point.y > rect->Top() && point.y < rect->Bottom())
-		return true;
-
-	return false;
-}
-
 bool AKCollisionManager::Collision(Rect* r1, Rect* r2)
 {
-	if(r1->Right() > r2->Left() && r1->Left() < r2->Right() && r1->Bottom() > r2->Top() && r1->Top() < r2->Bottom())
+	if (r1->Right() > r2->Left() && r1->Left() < r2->Right() && r1->Bottom() > r2->Top() && r1->Top() < r2->Bottom())
 		return true;
 
 	return false;
@@ -97,37 +69,71 @@ bool AKCollisionManager::Collision(Circle* circle, Vector2 point)
 	return false;
 }
 
-bool AKCollisionManager::Collision(Circle* c1, Circle* c2)
+bool AKCollisionManager::Collision(AKBall* _ball, AKUI* _ui)
 {
-	if (c1->Radius() + c2->Radius() > Distance(c1->Pos(), c2->Pos()))
-		return true;
+	bool isCollision = false;
 
-	return false;
+	if (_ball->Left() < _ui->GetStageLeft())
+	{
+		_ball->ChangeDirection(true, false);
+		isCollision = true;
+	}
+	else if (_ball->Right() > _ui->GetStageRight())
+	{
+		_ball->ChangeDirection(true, false);
+		isCollision = true;
+	}
+
+	if (_ball->Top() < _ui->GetStageTop())
+	{
+		_ball->ChangeDirection(false, true);
+		isCollision = true;
+	}
+	else if (_ball->Bottom() > _ui->GetStageBottom())
+	{
+		_ball->DeleteBall();
+		isCollision = true;
+	}
+
+	return isCollision;
 }
 
-bool AKCollisionManager::Collision(Circle* circle, Rect* rect)
+bool AKCollisionManager::Collision(AKBall* _ball, AKPlayer* _player)
 {
-	Vector2 center = circle->Pos();
+	Vector2 bCenter = _ball->Pos();
+	Rect* pRect = _player->GetRect();
 
-	if ((center.x > rect->Left() && center.x < rect->Right()) || (center.y > rect->Top() && center.y < rect->Bottom()))
+	if ((bCenter.x > pRect->Left() && bCenter.x < pRect->Right()) || (bCenter.y > pRect->Top() && bCenter.y < pRect->Bottom()))
 	{
-		Rect cRect(center, { circle->Radius() * 2 , circle->Radius() * 2 });
+		Rect bRect(bCenter, { _ball->Radius() * 2, _ball->Radius() * 2 });
+		if (Collision(&bRect, pRect))
+		{
+			Vector2 dir = Vector2(_ball->Pos().x, pRect->Top()) - _player->GetCore();
+			dir.Normalize();
+			_ball->SetDir(dir);
 
-		return Collision(&cRect, rect);
+			return true;
+		}
 	}
 	else
 	{
 		Vector2 edges[4];
 
-		edges[0] = { rect->Left(),  rect->Top() };
-		edges[1] = { rect->Right(), rect->Top() };
-		edges[2] = { rect->Left(),  rect->Bottom() };
-		edges[3] = { rect->Right(), rect->Bottom() };
+		edges[0] = { pRect->Left(),  pRect->Top() };
+		edges[1] = { pRect->Right(), pRect->Top() };
+		edges[2] = { pRect->Left(),  pRect->Bottom() };
+		edges[3] = { pRect->Right(), pRect->Bottom() };
 
 		for (UINT i = 0; i < 4; i++)
 		{
-			if (Collision(circle, edges[i]))
+			if (Collision(_ball->GetCircle(), edges[i]))
+			{
+				Vector2 dir = Vector2(_ball->Pos().x, pRect->Top()) - _player->GetCore();
+				dir.Normalize();
+				_ball->SetDir(dir);
+
 				return true;
+			}
 		}
 	}
 

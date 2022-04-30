@@ -35,14 +35,20 @@ public:
 	bool	IsReady()	{ return isReady; }
 	bool	IsFire()	{ return isFire; }
 
-	void	SetPos(Vector2 pos) { ball->Pos() = pos; };
+	void	SetPos(Vector2 _pos) 
+						{ ball->Pos() = _pos; }
 	Vector2 Pos()		{ return ball->Pos(); }
+	void	SetDir(Vector2 _dir) 
+						{ direction = _dir; }
+	Vector2 Dir()		{ return direction; }
 	double	Radius()	{ return ball->Radius(); };
 	
 	double	Left()		{ return ball->Left(); }
 	double	Right()		{ return ball->Right(); }
 	double	Top()		{ return ball->Top(); }
 	double	Bottom()	{ return ball->Bottom(); }
+
+	Circle* GetCircle() { return ball; }
 	
 	void	ChangeDirection(bool _cXPos, bool _cYPos);
 	void	DeleteBall()

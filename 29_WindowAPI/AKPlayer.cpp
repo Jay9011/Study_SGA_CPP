@@ -73,7 +73,7 @@ void AKPlayer::Update()
 
 	if (!arkanoidBallManager->GetReady())
 	{
-		readyBall = arkanoidBallManager->SetReady(GetTopCenter() + Vector2(0, -10));
+		readyBall = arkanoidBallManager->SetReady(GetTopCenter());
 	}
 }
 
@@ -82,9 +82,6 @@ void AKPlayer::Render(HDC hdc)
 	oldPen = (HPEN)SelectObject(hdc, borderColor);
 	oldBrush = (HBRUSH)SelectObject(hdc, bodyColor);
 	body->Render(hdc);
-	// Core È®ÀÎ¿ë
-	Rectangle(hdc, GetCore().x - 4, GetCore().y - 4, GetCore().x + 4, GetCore().y + 4);
-
 	SelectObject(hdc, oldPen);
 	SelectObject(hdc, oldBrush);
 }

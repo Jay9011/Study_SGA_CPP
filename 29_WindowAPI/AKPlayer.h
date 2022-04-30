@@ -28,5 +28,7 @@ public:
 
 	Vector2 GetPos()	{ return body->Pos(); }
 	Vector2 GetSize()	{ return body->Size(); }
+
+	Rect*	GetRect()	{ return body; }
 };
 

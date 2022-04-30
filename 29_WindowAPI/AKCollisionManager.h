@@ -18,10 +18,9 @@ public:
 	void Render(HDC hdc);
 
 private:
-	bool Collision(Rect* rect, Vector2 point);
 	bool Collision(Rect* r1, Rect* r2);
 	bool Collision(Circle* circle, Vector2 point);
-	bool Collision(Circle* c1, Circle* c2);
-	bool Collision(Circle* circle, Rect* rect);
+	bool Collision(AKBall* _ball, AKUI* _ui);
+	bool Collision(AKBall* _ball, AKPlayer* _player);
 };
 
