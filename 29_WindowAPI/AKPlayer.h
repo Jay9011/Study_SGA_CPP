@@ -2,22 +2,23 @@
 class AKPlayer
 {
 public:
-	AKPlayer(AKUI& _akui, AKBallManager& _akbm);
+	AKPlayer(AKUI* _akui, AKBallManager* _akbm);
 	~AKPlayer();
 
 private:
 	AKUI*			arkanoidUI;
 	AKBallManager*	arkanoidBallManager;
-			 
-	Rect*	 body;
-	double	 speed;
-	AKBall*	 readyBall;
 
-	HBRUSH	 oldBrush;
-	HPEN	 oldPen;
-			 
-	HBRUSH	 bodyColor;
-	HPEN	 borderColor;
+	Rect*	body;
+	double	speed;
+	int		life;
+	AKBall*	readyBall;
+
+	HBRUSH	oldBrush;
+	HPEN	oldPen;
+			
+	HBRUSH	bodyColor;
+	HPEN	borderColor;
 
 public:
 	void Update();
@@ -30,5 +31,8 @@ public:
 	Vector2 GetSize()	{ return body->Size(); }
 
 	Rect*	GetRect()	{ return body; }
+
+	int		GetLife()			{ return life; }
+	void	AddLife(int _life)	{ life += _life; }
 };
 

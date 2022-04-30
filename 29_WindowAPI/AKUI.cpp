@@ -53,6 +53,8 @@ void AKUI::Render(HDC hdc)
 			, str.length()
 			);
 
+	
+
 	oldPen = (HPEN)SelectObject(hdc, blackPen);
 	stageBox->Render(hdc);
 	SelectObject(hdc, oldPen);

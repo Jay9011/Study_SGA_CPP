@@ -27,7 +27,6 @@ AKBall::~AKBall()
 	DeleteObject(cyanBrush);
 	DeleteObject(blueBrush);
 
-
 	delete ball;
 }
 

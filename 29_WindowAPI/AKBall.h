@@ -37,7 +37,7 @@ public:
 
 	void	SetPos(Vector2 _pos) 
 						{ ball->Pos() = _pos; }
-	Vector2 Pos()		{ return ball->Pos(); }
+	Vector2& Pos()		{ return ball->Pos(); }
 	void	SetDir(Vector2 _dir) 
 						{ direction = _dir; }
 	Vector2 Dir()		{ return direction; }

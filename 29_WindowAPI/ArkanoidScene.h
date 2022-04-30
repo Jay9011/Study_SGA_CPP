@@ -13,6 +13,10 @@ private:
 	AKUI*				arkanoidUI;
 	AKBallManager*		arkanoidBallManager;
 	AKPlayer*			arkanoidPlayer;
+	AKStageManager*		arkanoidStageManager;
 	AKCollisionManager* arkanoidCollisionManager;
+
+	bool	gameover;
+	int		life;
 };
 

@@ -27,9 +27,14 @@ public:
 
 	void SetScore(int _addScore);
 
-	double GetStageLeft() { return stageBox->Left(); }
-	double GetStageTop() { return stageBox->Top(); }
-	double GetStageRight() { return stageBox->Right(); }
+	double GetStageLeft()	{ return stageBox->Left(); }
+	double GetStageTop()	{ return stageBox->Top(); }
+	double GetStageRight()	{ return stageBox->Right(); }
 	double GetStageBottom() { return stageBox->Bottom(); }
+
+	double GetScoreLeft()	{ return scoreBox->Left(); }
+	double GetScoreTop()	{ return scoreBox->Top(); }
+	double GetScoreRight()	{ return scoreBox->Right(); }
+	double GetScoreBottom() { return scoreBox->Bottom(); }
 };
 

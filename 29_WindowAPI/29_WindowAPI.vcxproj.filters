@@ -105,6 +105,12 @@
     <ClInclude Include="AKCollisionManager.h">
       <Filter>ArkanoidObject</Filter>
     </ClInclude>
+    <ClInclude Include="AKBrick.h">
+      <Filter>ArkanoidObject</Filter>
+    </ClInclude>
+    <ClInclude Include="AKStageManager.h">
+      <Filter>ArkanoidObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PaintScene.cpp">
@@ -168,6 +174,12 @@
       <Filter>ArkanoidObject</Filter>
     </ClCompile>
     <ClCompile Include="AKCollisionManager.cpp">
+      <Filter>ArkanoidObject</Filter>
+    </ClCompile>
+    <ClCompile Include="AKBrick.cpp">
+      <Filter>ArkanoidObject</Filter>
+    </ClCompile>
+    <ClCompile Include="AKStageManager.cpp">
       <Filter>ArkanoidObject</Filter>
     </ClCompile>
   </ItemGroup>

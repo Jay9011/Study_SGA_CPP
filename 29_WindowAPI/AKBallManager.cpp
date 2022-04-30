@@ -34,6 +34,16 @@ void AKBallManager::Render(HDC hdc)
 	}
 }
 
+bool AKBallManager::ResetBall()
+{
+	for (AKBall* ball : arkanoidBalls)
+	{
+		ball->DeleteBall();
+	}
+
+	return false;
+}
+
 bool AKBallManager::GetReady()
 {
 	for (AKBall* ball : arkanoidBalls)
@@ -80,19 +90,4 @@ void AKBallManager::Fire(Vector2 pos, Vector2 dir)
 			return;
 		}
 	}
-}
-
-vector<AKBall*> AKBallManager::Balls()
-{
-	vector<AKBall*> useBalls;
-
-	for (AKBall* ball : arkanoidBalls)
-	{
-		if (ball->IsReady())
-		{
-			useBalls.push_back(ball);
-		}
-	}
-
-	return useBalls;
 }

@@ -1,10 +1,11 @@
 #include "Framework.h"
 #include "AKPlayer.h"
 
-AKPlayer::AKPlayer(AKUI& _akui, AKBallManager& _akbm)
-	: speed(15)
-	, arkanoidUI(&_akui)
-	, arkanoidBallManager(&_akbm)
+AKPlayer::AKPlayer(AKUI* _akui, AKBallManager* _akbm)
+	: speed(10)
+	, life(2)
+	, arkanoidUI(_akui)
+	, arkanoidBallManager(_akbm)
 	, readyBall(nullptr)
 	, oldBrush(nullptr)
 	, oldPen(nullptr)
