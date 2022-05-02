@@ -36,8 +36,10 @@ using namespace std;
 
 #define PI	3.1415926536
 
-#define	WIN_WIDTH	1280	// 설정한 윈도우 가로
-#define	WIN_HEIGHT	720		// 설정한 윈도우 세로
+//#define	WIN_WIDTH	1280	// 설정한 윈도우 가로
+//#define	WIN_HEIGHT	720		// 설정한 윈도우 세로
+#define	WIN_WIDTH		600		// SGA Arkanoid 전용 윈도우 가로 크기
+#define	WIN_HEIGHT		800		// SGA Arkanoid 전용 윈도우 세로 크기
 
 //Utility
 #include "Vector2.h"
@@ -48,23 +50,26 @@ using namespace std;
 #include "Circle.h"
 #include "Line.h"
 
+//Utility
+#include "Math.h"
+using namespace Math;
+#include "Collision.h"
+
 //GameObject
 #include "CannonBall.h"
 #include "CannonBallManager.h"
 #include "Tank.h"
+
 #include "AKUI.h"
 #include "AKBrick.h"
 #include "AKBall.h"
 #include "AKBallManager.h"
 #include "AKPlayer.h"
 #include "AKStageManager.h"
-
 #include "AKCollisionManager.h"
 
-//Utility
-#include "Math.h"
-
-using namespace Math;
+#include "SGABar.h"
+#include "SGABall.h"
 
 //Scene
 #include "Scene.h"
@@ -72,6 +77,7 @@ using namespace Math;
 #include "CollisionScene.h"
 #include "FortressScene.h"
 #include "ArkanoidScene.h"
+#include "SGAArkanoidScene.h"
 
 #include "MainGame.h"
 

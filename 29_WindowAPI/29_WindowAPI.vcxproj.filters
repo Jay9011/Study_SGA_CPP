@@ -31,6 +31,12 @@
     <Filter Include="ArkanoidObject">
       <UniqueIdentifier>{78a862d9-bf2c-4c3c-9f92-6b1fa6c65d9c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Fortress">
+      <UniqueIdentifier>{e151bd08-4c86-447b-af97-bc1c107a465d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\SGAArkanoid">
+      <UniqueIdentifier>{c2bc4cbf-0fc8-4f7c-8c47-c61e939b55e2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -78,15 +84,6 @@
     <ClInclude Include="FortressScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Tank.h">
-      <Filter>GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="CannonBall.h">
-      <Filter>GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="CannonBallManager.h">
-      <Filter>GameObject</Filter>
-    </ClInclude>
     <ClInclude Include="ArkanoidScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
@@ -110,6 +107,27 @@
     </ClInclude>
     <ClInclude Include="AKStageManager.h">
       <Filter>ArkanoidObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="SGAArkanoidScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="CannonBall.h">
+      <Filter>GameObject\Fortress</Filter>
+    </ClInclude>
+    <ClInclude Include="CannonBallManager.h">
+      <Filter>GameObject\Fortress</Filter>
+    </ClInclude>
+    <ClInclude Include="Tank.h">
+      <Filter>GameObject\Fortress</Filter>
+    </ClInclude>
+    <ClInclude Include="SGABar.h">
+      <Filter>GameObject\SGAArkanoid</Filter>
+    </ClInclude>
+    <ClInclude Include="SGABall.h">
+      <Filter>GameObject\SGAArkanoid</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -149,15 +167,6 @@
     <ClCompile Include="FortressScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Tank.cpp">
-      <Filter>GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="CannonBall.cpp">
-      <Filter>GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="CannonBallManager.cpp">
-      <Filter>GameObject</Filter>
-    </ClCompile>
     <ClCompile Include="ArkanoidScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
@@ -181,6 +190,27 @@
     </ClCompile>
     <ClCompile Include="AKStageManager.cpp">
       <Filter>ArkanoidObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="SGAArkanoidScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="CannonBall.cpp">
+      <Filter>GameObject\Fortress</Filter>
+    </ClCompile>
+    <ClCompile Include="CannonBallManager.cpp">
+      <Filter>GameObject\Fortress</Filter>
+    </ClCompile>
+    <ClCompile Include="Tank.cpp">
+      <Filter>GameObject\Fortress</Filter>
+    </ClCompile>
+    <ClCompile Include="SGABar.cpp">
+      <Filter>GameObject\SGAArkanoid</Filter>
+    </ClCompile>
+    <ClCompile Include="SGABall.cpp">
+      <Filter>GameObject\SGAArkanoid</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
