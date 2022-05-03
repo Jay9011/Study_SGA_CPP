@@ -168,6 +168,7 @@
     <ClInclude Include="SGAArkanoidScene.h" />
     <ClInclude Include="SGABall.h" />
     <ClInclude Include="SGABar.h" />
+    <ClInclude Include="SGABrick.h" />
     <ClInclude Include="Tank.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Vector2.h" />
@@ -200,6 +201,7 @@
     <ClCompile Include="SGAArkanoidScene.cpp" />
     <ClCompile Include="SGABall.cpp" />
     <ClCompile Include="SGABar.cpp" />
+    <ClCompile Include="SGABrick.cpp" />
     <ClCompile Include="Tank.cpp" />
     <ClCompile Include="Vector2.cpp" />
   </ItemGroup>

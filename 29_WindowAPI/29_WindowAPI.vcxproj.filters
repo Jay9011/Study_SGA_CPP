@@ -28,14 +28,14 @@
     <Filter Include="GameObject">
       <UniqueIdentifier>{1aae0961-71b3-42d3-b496-8684efb19430}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ArkanoidObject">
-      <UniqueIdentifier>{78a862d9-bf2c-4c3c-9f92-6b1fa6c65d9c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameObject\Fortress">
       <UniqueIdentifier>{e151bd08-4c86-447b-af97-bc1c107a465d}</UniqueIdentifier>
     </Filter>
     <Filter Include="GameObject\SGAArkanoid">
       <UniqueIdentifier>{c2bc4cbf-0fc8-4f7c-8c47-c61e939b55e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\ArkanoidObject">
+      <UniqueIdentifier>{78a862d9-bf2c-4c3c-9f92-6b1fa6c65d9c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -88,25 +88,25 @@
       <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="AKPlayer.h">
-      <Filter>ArkanoidObject</Filter>
+      <Filter>GameObject\ArkanoidObject</Filter>
     </ClInclude>
     <ClInclude Include="AKUI.h">
-      <Filter>ArkanoidObject</Filter>
+      <Filter>GameObject\ArkanoidObject</Filter>
     </ClInclude>
     <ClInclude Include="AKBall.h">
-      <Filter>ArkanoidObject</Filter>
+      <Filter>GameObject\ArkanoidObject</Filter>
     </ClInclude>
     <ClInclude Include="AKBallManager.h">
-      <Filter>ArkanoidObject</Filter>
+      <Filter>GameObject\ArkanoidObject</Filter>
     </ClInclude>
     <ClInclude Include="AKCollisionManager.h">
-      <Filter>ArkanoidObject</Filter>
+      <Filter>GameObject\ArkanoidObject</Filter>
     </ClInclude>
     <ClInclude Include="AKBrick.h">
-      <Filter>ArkanoidObject</Filter>
+      <Filter>GameObject\ArkanoidObject</Filter>
     </ClInclude>
     <ClInclude Include="AKStageManager.h">
-      <Filter>ArkanoidObject</Filter>
+      <Filter>GameObject\ArkanoidObject</Filter>
     </ClInclude>
     <ClInclude Include="Collision.h">
       <Filter>Utility</Filter>
@@ -127,6 +127,9 @@
       <Filter>GameObject\SGAArkanoid</Filter>
     </ClInclude>
     <ClInclude Include="SGABall.h">
+      <Filter>GameObject\SGAArkanoid</Filter>
+    </ClInclude>
+    <ClInclude Include="SGABrick.h">
       <Filter>GameObject\SGAArkanoid</Filter>
     </ClInclude>
   </ItemGroup>
@@ -171,25 +174,25 @@
       <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="AKPlayer.cpp">
-      <Filter>ArkanoidObject</Filter>
+      <Filter>GameObject\ArkanoidObject</Filter>
     </ClCompile>
     <ClCompile Include="AKUI.cpp">
-      <Filter>ArkanoidObject</Filter>
+      <Filter>GameObject\ArkanoidObject</Filter>
     </ClCompile>
     <ClCompile Include="AKBall.cpp">
-      <Filter>ArkanoidObject</Filter>
+      <Filter>GameObject\ArkanoidObject</Filter>
     </ClCompile>
     <ClCompile Include="AKBallManager.cpp">
-      <Filter>ArkanoidObject</Filter>
+      <Filter>GameObject\ArkanoidObject</Filter>
     </ClCompile>
     <ClCompile Include="AKCollisionManager.cpp">
-      <Filter>ArkanoidObject</Filter>
+      <Filter>GameObject\ArkanoidObject</Filter>
     </ClCompile>
     <ClCompile Include="AKBrick.cpp">
-      <Filter>ArkanoidObject</Filter>
+      <Filter>GameObject\ArkanoidObject</Filter>
     </ClCompile>
     <ClCompile Include="AKStageManager.cpp">
-      <Filter>ArkanoidObject</Filter>
+      <Filter>GameObject\ArkanoidObject</Filter>
     </ClCompile>
     <ClCompile Include="Collision.cpp">
       <Filter>Utility</Filter>
@@ -210,6 +213,9 @@
       <Filter>GameObject\SGAArkanoid</Filter>
     </ClCompile>
     <ClCompile Include="SGABall.cpp">
+      <Filter>GameObject\SGAArkanoid</Filter>
+    </ClCompile>
+    <ClCompile Include="SGABrick.cpp">
       <Filter>GameObject\SGAArkanoid</Filter>
     </ClCompile>
   </ItemGroup>

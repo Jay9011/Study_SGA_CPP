@@ -10,6 +10,7 @@ public:
 	virtual void Render(HDC hdc) override;
 
 private:
-	SGABar*  player;
-	SGABall* ball;
+	SGABar*		player;
+	SGABall*	ball;
+	SGABrick*	brick;
 };

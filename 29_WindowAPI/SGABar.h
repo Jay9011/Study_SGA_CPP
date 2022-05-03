@@ -10,6 +10,8 @@ public:
 
 	void Move();
 
+	Rect* GetRect() { return rect; }
+
 private:
 	Rect*	rect;
 	double	speed;
