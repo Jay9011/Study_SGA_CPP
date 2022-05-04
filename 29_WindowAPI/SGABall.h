@@ -1,4 +1,8 @@
 #pragma once
+
+class SGABrick;
+class SGABrickManager;
+
 class SGABall
 {
 public:
@@ -8,7 +12,9 @@ public:
 	void Update();
 	void Render(HDC hdc);
 
-	void SetBarRect(Rect* rect) { this->barRect = rect; };
+	void SetBarRect		(Rect* rect)			{ this->barRect = rect; }
+	//void SetBrick		(SGABrick* brick)		{ this->brick = brick; }
+	void SetBrickManager(SGABrickManager* bm)	{ this->bm = bm; }
 
 	void CollisionBar();
 	void CollisionWall();
@@ -25,6 +31,8 @@ private:
 
 	bool	isPlay;
 
-	Rect*	barRect;
+	Rect*			 barRect;
+	//SGABrick*		 brick;
+	SGABrickManager* bm;
 };
 

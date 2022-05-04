@@ -73,6 +73,7 @@ using namespace Math;
 #include "SGABar.h"
 #include "SGABall.h"
 #include "SGABrick.h"
+#include "SGABrickManager.h"
 
 //Scene
 #include "Scene.h"

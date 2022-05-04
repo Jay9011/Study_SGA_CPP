@@ -84,4 +84,29 @@ void SGABall::CollisionWall()
 
 void SGABall::CollisionBrick()
 {
+	Direction result = bm->CollisionDir(circle);
+
+	switch (result)
+	{
+	case Direction::LEFT:
+	case Direction::RIGHT:
+		dir.x *= -1;
+		break;
+	case Direction::UP:
+	case Direction::DOWN:
+		dir.y *= -1;
+		break;
+	case Direction::END:
+		break;
+	default:
+		break;
+	}
+
+	if (!bm->GetRemainBricks())
+	{
+		isPlay = false;
+		dir = initDir;
+		bm->ClearStage();
+		bm->CreateStage2();
+	}
 }

@@ -132,6 +132,9 @@
     <ClInclude Include="SGABrick.h">
       <Filter>GameObject\SGAArkanoid</Filter>
     </ClInclude>
+    <ClInclude Include="SGABrickManager.h">
+      <Filter>GameObject\SGAArkanoid</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PaintScene.cpp">
@@ -216,6 +219,9 @@
       <Filter>GameObject\SGAArkanoid</Filter>
     </ClCompile>
     <ClCompile Include="SGABrick.cpp">
+      <Filter>GameObject\SGAArkanoid</Filter>
+    </ClCompile>
+    <ClCompile Include="SGABrickManager.cpp">
       <Filter>GameObject\SGAArkanoid</Filter>
     </ClCompile>
   </ItemGroup>

@@ -15,13 +15,14 @@ class SGABrick
 {
 public:
 	SGABrick();
+	SGABrick(Vector2 pos, Vector2 size, UINT hp);
 	~SGABrick();
 
 	void Render(HDC hdc);
 
 	UINT GetHP() { return curHP; }
 
-	Direction Collision(Circle* circle);
+	Direction CollisionDir(Circle* circle);
 
 private:
 	Rect*	rect;

@@ -13,6 +13,18 @@ SGABrick::SGABrick()
 	brushes[4] = CreateSolidBrush(COLOR_RED);
 }
 
+SGABrick::SGABrick(Vector2 pos, Vector2 size, UINT hp)
+	: curHP(hp)
+{
+	rect = new Rect(pos, size);
+
+	brushes[0] = CreateSolidBrush(COLOR_YELLOW);
+	brushes[1] = CreateSolidBrush(COLOR_ORANGE);
+	brushes[2] = CreateSolidBrush(COLOR_PINK);
+	brushes[3] = CreateSolidBrush(COLOR_MAGENTA);
+	brushes[4] = CreateSolidBrush(COLOR_RED);
+}
+
 SGABrick::~SGABrick()
 {
 	delete rect;
@@ -33,8 +45,11 @@ void SGABrick::Render(HDC hdc)
 
 }
 
-Direction SGABrick::Collision(Circle* circle)
+Direction SGABrick::CollisionDir(Circle* circle)
 {
+	if (curHP <= 0)
+		return Direction::END;
+
 	Vector2 dir = circle->Pos() - rect->Pos();
 
 	Vector2 leftUp	  = Vector2(rect->Size().x * (-0.5), rect->Size().y * (-0.5));
@@ -44,6 +59,8 @@ Direction SGABrick::Collision(Circle* circle)
 
 	if (Collision::Collision(circle, rect))
 	{
+		--curHP;
+
 		if (dir.IsBetween(leftDown, leftUp))
 			return Direction::LEFT;
 		else if (dir.IsBetween(leftUp, rightUp))
