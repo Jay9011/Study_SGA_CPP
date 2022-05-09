@@ -1,4 +1,5 @@
 #pragma once
+
 class ImageScene : public Scene
 {
 public:
@@ -9,7 +10,13 @@ public:
 	virtual void Render(HDC hdc) override;
 
 private:
-	HDC memDC;
+	HDC		memDC;
 	HBITMAP hBitmap;
+	HBITMAP	siva;
 
+	POINT	imageSize;
+	POINT	frame;
+
+	int		time;
+	int		curFrame;
 };
