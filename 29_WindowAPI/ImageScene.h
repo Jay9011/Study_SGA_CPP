@@ -19,4 +19,10 @@ private:
 
 	int		time;
 	int		curFrame;
+	
+	// Gdi ¼³Á¤
+	ULONG_PTR token;
+	Gdiplus::GdiplusStartupInput input;
+	Gdiplus::Graphics* graphics;
+	Gdiplus::Image* image;
 };

@@ -4,7 +4,7 @@
 MainGame::MainGame()
 {
 	HDC hdc = GetDC(hWnd);
-	backDC = CreateCompatibleDC(hdc);
+	backDC  = CreateCompatibleDC(hdc);
 	hBitmap = CreateCompatibleBitmap(hdc, WIN_WIDTH, WIN_HEIGHT);
 
 	SelectObject(backDC, hBitmap);

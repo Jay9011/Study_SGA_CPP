@@ -6,6 +6,7 @@
 // 전역 변수:
 MainGame* mainGame = nullptr;
 
+HDC  backDC;
 HWND hWnd;
 Vector2 mousePos;
 HINSTANCE hInst;                                // 현재 인스턴스입니다.

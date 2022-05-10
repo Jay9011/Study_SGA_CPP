@@ -12,6 +12,6 @@ public:
 private:
 	Scene* scene;
 
-	HDC		backDC;
+	//HDC		backDC;
 	HBITMAP hBitmap;
 };

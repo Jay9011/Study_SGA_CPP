@@ -11,6 +11,13 @@
 #include <vector>
 #include <map>
 
+// GDI+
+#include <Ole2.h>
+#include <gdiplus.h>
+
+// 링커의 종속성에 추가
+#pragma comment(lib, "Gdiplus.lib")
+
 #include <iostream>
 #include <string>
 #include <stdlib.h>
@@ -89,3 +96,5 @@ using namespace Math;
 extern Vector2 mousePos;
 extern HWND hWnd;
 extern HINSTANCE hInst;
+
+extern HDC backDC;

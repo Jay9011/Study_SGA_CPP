@@ -30,6 +30,13 @@ ImageScene::ImageScene()
 		448, 104,
 		LR_LOADFROMFILE
 	);
+
+	// GDI+
+	Gdiplus::GdiplusStartup(&token, &input, nullptr);
+
+	graphics = new Gdiplus::Graphics(backDC);
+	image = Gdiplus::Image::FromFile(L"Textures/ºò¹ð.png");
+	
 }
 
 ImageScene::~ImageScene()
@@ -37,6 +44,8 @@ ImageScene::~ImageScene()
 	DeleteDC(memDC);
 	DeleteObject(hBitmap);
 	DeleteObject(siva);
+
+	Gdiplus::GdiplusShutdown(token);
 }
 
 void ImageScene::Update()
@@ -87,5 +96,16 @@ void ImageScene::Render(HDC hdc)
 		COLOR_MAGENTA
 	);
 
+	// GDI+
+	Gdiplus::Rect destRect = Gdiplus::Rect(200, 100, 350, 300);
+	graphics->DrawImage
+	(
+		image,
+		destRect,
+		0, 0,
+		image->GetWidth(), image->GetHeight(),
+		Gdiplus::Unit::UnitPixel
+	);
+	
 }
 
