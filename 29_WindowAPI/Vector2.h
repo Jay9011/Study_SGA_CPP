@@ -1,4 +1,10 @@
 #pragma once
+
+#define V_LEFT	Vector2(-1,  0)
+#define V_RIGHT	Vector2(+1,  0)
+#define V_UP  	Vector2( 0, -1)
+#define V_DOWN	Vector2( 0, +1)
+
 class Vector2
 {
 public:

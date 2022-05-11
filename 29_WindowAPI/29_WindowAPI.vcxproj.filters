@@ -37,6 +37,9 @@
     <Filter Include="GameObject\ArkanoidObject">
       <UniqueIdentifier>{78a862d9-bf2c-4c3c-9f92-6b1fa6c65d9c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Framework">
+      <UniqueIdentifier>{aa0b7825-c60d-422a-bd0c-c6a294461dfe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -138,6 +141,12 @@
     <ClInclude Include="ImageScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PaintScene.cpp">
@@ -228,6 +237,12 @@
       <Filter>GameObject\SGAArkanoid</Filter>
     </ClCompile>
     <ClCompile Include="ImageScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
   </ItemGroup>

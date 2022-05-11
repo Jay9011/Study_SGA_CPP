@@ -16,7 +16,8 @@ MainGame::MainGame()
 	//scene = new FortressScene();
 	//scene = new ArkanoidScene();
 	//scene = new SGAArkanoidScene();
-	scene = new ImageScene();
+	//scene = new ImageScene();
+	scene = new TextureScene();
 }
 
 MainGame::~MainGame()

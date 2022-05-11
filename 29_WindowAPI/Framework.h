@@ -59,6 +59,9 @@ using namespace std;
 #include "Circle.h"
 #include "Line.h"
 
+//Framework
+#include "Texture.h"
+
 //Utility
 #include "Math.h"
 using namespace Math;
@@ -90,6 +93,7 @@ using namespace Math;
 #include "ArkanoidScene.h"
 #include "SGAArkanoidScene.h"
 #include "ImageScene.h"
+#include "TextureScene.h"
 
 #include "MainGame.h"
 
