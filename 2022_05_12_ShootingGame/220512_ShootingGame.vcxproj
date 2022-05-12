@@ -172,6 +172,7 @@
     <ClInclude Include="SGABar.h" />
     <ClInclude Include="SGABrick.h" />
     <ClInclude Include="SGABrickManager.h" />
+    <ClInclude Include="ShootingScene.h" />
     <ClInclude Include="Tank.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Texture.h" />
@@ -210,6 +211,7 @@
     <ClCompile Include="SGABar.cpp" />
     <ClCompile Include="SGABrick.cpp" />
     <ClCompile Include="SGABrickManager.cpp" />
+    <ClCompile Include="ShootingScene.cpp" />
     <ClCompile Include="Tank.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureManager.cpp" />

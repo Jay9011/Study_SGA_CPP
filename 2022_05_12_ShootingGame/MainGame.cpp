@@ -17,7 +17,8 @@ MainGame::MainGame()
 	//scene = new ArkanoidScene();
 	//scene = new SGAArkanoidScene();
 	//scene = new ImageScene();
-	scene = new TextureScene();
+	//scene = new TextureScene();
+	scene = new ShootingScene();
 }
 
 MainGame::~MainGame()

@@ -43,10 +43,13 @@ using namespace std;
 
 #define PI	3.1415926536
 
-#define	WIN_WIDTH	1280	// 설정한 윈도우 가로
-#define	WIN_HEIGHT	720		// 설정한 윈도우 세로
+//#define	WIN_WIDTH	1280	// 설정한 윈도우 가로
+//#define	WIN_HEIGHT	720		// 설정한 윈도우 세로
 //#define	WIN_WIDTH		600					// SGA Arkanoid 전용 윈도우 가로 크기
 //#define	WIN_HEIGHT		800					// SGA Arkanoid 전용 윈도우 세로 크기
+#define WIN_WIDTH	256		// Shooting 전용 윈도우 가로
+#define WIN_HEIGHT	608		// Shooting 전용 윈도우 세로
+
 #define WIN_CENTER_X	WIN_WIDTH  * 0.5
 #define WIN_CENTER_Y	WIN_HEIGHT * 0.5
 
@@ -95,6 +98,7 @@ using namespace Math;
 #include "SGAArkanoidScene.h"
 #include "ImageScene.h"
 #include "TextureScene.h"
+#include "ShootingScene.h"
 
 #include "MainGame.h"
 

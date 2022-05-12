@@ -40,6 +40,9 @@
     <Filter Include="Framework">
       <UniqueIdentifier>{aa0b7825-c60d-422a-bd0c-c6a294461dfe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Shooting">
+      <UniqueIdentifier>{8f680248-16d7-4591-a864-3d585941b07c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -150,6 +153,9 @@
     <ClInclude Include="TextureManager.h">
       <Filter>Framework</Filter>
     </ClInclude>
+    <ClInclude Include="ShootingScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PaintScene.cpp">
@@ -250,6 +256,9 @@
     </ClCompile>
     <ClCompile Include="TextureManager.cpp">
       <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="ShootingScene.cpp">
+      <Filter>Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
