@@ -147,6 +147,9 @@
     <ClInclude Include="TextureScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PaintScene.cpp">
@@ -244,6 +247,9 @@
     </ClCompile>
     <ClCompile Include="TextureScene.cpp">
       <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Framework</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

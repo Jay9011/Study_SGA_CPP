@@ -61,6 +61,7 @@ using namespace std;
 
 //Framework
 #include "Texture.h"
+#include "TextureManager.h"
 
 //Utility
 #include "Math.h"

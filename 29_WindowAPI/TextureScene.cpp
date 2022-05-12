@@ -8,19 +8,25 @@ TextureScene::TextureScene()
 {
 	Gdiplus::GdiplusStartup(&token, &input, nullptr);
 
-	background  = new Texture(L"Textures/BTS.bmp");
-	bgRect      = new Rect(0, 0, WIN_WIDTH, WIN_HEIGHT);
+	TextureManager::Create();
 
-	siva     = new Texture(L"Textures/siva_run.bmp", 8, 2);
+	background	= TextureManager::Get()->AddTexture("BTS", L"Textures/BTS.bmp");
+	siva		= TextureManager::Get()->AddTexture("siva", L"Textures/siva_run.bmp", 8, 2);
+
+	//background  = new Texture(L"Textures/BTS.bmp");
+	//siva        = new Texture(L"Textures/siva_run.bmp", 8, 2);
+	bgRect   = new Rect(0, 0, WIN_WIDTH, WIN_HEIGHT);
 	sivaRect = new Rect({ WIN_CENTER_X, WIN_CENTER_Y }, { 100, 100 });
 }
 
 TextureScene::~TextureScene()
 {
-	delete background;
+	delete sivaRect;
 	delete bgRect;
 	delete siva;
-	delete sivaRect;
+	delete background;
+
+	TextureManager::Delete();
 
 	Gdiplus::GdiplusShutdown(token);
 }
