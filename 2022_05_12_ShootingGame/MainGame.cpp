@@ -10,16 +10,6 @@ MainGame::MainGame()
 	SelectObject(backDC, hBitmap);
 	
 	ReleaseDC(hWnd, hdc);
-
-	//scene = new PaintScene();
-	//scene = new CollisionScene();
-	//scene = new FortressScene();
-	//scene = new ArkanoidScene();
-	//scene = new SGAArkanoidScene();
-	//scene = new ImageScene();
-	//scene = new TextureScene();
-
-
 	srand((unsigned int)time(NULL));
 	scene = new ShootingScene();
 }

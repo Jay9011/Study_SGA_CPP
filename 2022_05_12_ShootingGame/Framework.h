@@ -72,23 +72,6 @@ using namespace Math;
 #include "Collision.h"
 
 //GameObject
-#include "CannonBall.h"
-#include "CannonBallManager.h"
-#include "Tank.h"
-
-#include "AKUI.h"
-#include "AKBrick.h"
-#include "AKBall.h"
-#include "AKBallManager.h"
-#include "AKPlayer.h"
-#include "AKStageManager.h"
-#include "AKCollisionManager.h"
-
-#include "SGABar.h"
-#include "SGABall.h"
-#include "SGABrick.h"
-#include "SGABrickManager.h"
-
 #include "GameObject.h"
 #include "UIManager.h"
 #include "Player.h"
@@ -102,12 +85,6 @@ using namespace Math;
 
 //Scene
 #include "Scene.h"
-#include "CollisionScene.h"
-#include "FortressScene.h"
-#include "ArkanoidScene.h"
-#include "SGAArkanoidScene.h"
-#include "ImageScene.h"
-#include "TextureScene.h"
 #include "ShootingScene.h"
 
 #include "MainGame.h"

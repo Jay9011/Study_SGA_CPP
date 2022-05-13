@@ -142,27 +142,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="AKBall.h" />
-    <ClInclude Include="AKBallManager.h" />
-    <ClInclude Include="AKBrick.h" />
-    <ClInclude Include="AKCollisionManager.h" />
-    <ClInclude Include="AKPlayer.h" />
-    <ClInclude Include="AKStageManager.h" />
-    <ClInclude Include="AKUI.h" />
-    <ClInclude Include="ArkanoidScene.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="BulletManager.h" />
-    <ClInclude Include="CannonBall.h" />
-    <ClInclude Include="CannonBallManager.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Collision.h" />
-    <ClInclude Include="CollisionScene.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyBullet.h" />
     <ClInclude Include="EnemyManager.h" />
-    <ClInclude Include="FortressScene.h" />
     <ClInclude Include="GameObject.h" />
-    <ClInclude Include="ImageScene.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="Macro.h" />
     <ClInclude Include="Main.h" />
@@ -176,42 +163,22 @@
     <ClInclude Include="Rect.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scene.h" />
-    <ClInclude Include="SGAArkanoidScene.h" />
-    <ClInclude Include="SGABall.h" />
-    <ClInclude Include="SGABar.h" />
-    <ClInclude Include="SGABrick.h" />
-    <ClInclude Include="SGABrickManager.h" />
     <ClInclude Include="ShootingScene.h" />
-    <ClInclude Include="Tank.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureManager.h" />
-    <ClInclude Include="TextureScene.h" />
     <ClInclude Include="UIManager.h" />
     <ClInclude Include="Vector2.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AKBall.cpp" />
-    <ClCompile Include="AKBallManager.cpp" />
-    <ClCompile Include="AKBrick.cpp" />
-    <ClCompile Include="AKCollisionManager.cpp" />
-    <ClCompile Include="AKPlayer.cpp" />
-    <ClCompile Include="AKStageManager.cpp" />
-    <ClCompile Include="AKUI.cpp" />
-    <ClCompile Include="ArkanoidScene.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="BulletManager.cpp" />
-    <ClCompile Include="CannonBall.cpp" />
-    <ClCompile Include="CannonBallManager.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Collision.cpp" />
-    <ClCompile Include="CollisionScene.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyBullet.cpp" />
     <ClCompile Include="EnemyManager.cpp" />
-    <ClCompile Include="FortressScene.cpp" />
     <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="ImageScene.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Framework.cpp">
@@ -224,16 +191,9 @@
     <ClCompile Include="PlayerManager.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="Rect.cpp" />
-    <ClCompile Include="SGAArkanoidScene.cpp" />
-    <ClCompile Include="SGABall.cpp" />
-    <ClCompile Include="SGABar.cpp" />
-    <ClCompile Include="SGABrick.cpp" />
-    <ClCompile Include="SGABrickManager.cpp" />
     <ClCompile Include="ShootingScene.cpp" />
-    <ClCompile Include="Tank.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureManager.cpp" />
-    <ClCompile Include="TextureScene.cpp" />
     <ClCompile Include="UIManager.cpp" />
     <ClCompile Include="Vector2.cpp" />
   </ItemGroup>
