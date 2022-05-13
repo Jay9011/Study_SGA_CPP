@@ -27,9 +27,8 @@ Player::Player()
 	graphics = new Gdiplus::Graphics(backDC);
 
 	// Debug
-	pen = CreatePen(PS_SOLID, 1, COLOR_RED);
-	brush = (HBRUSH)GetStockObject(NULL_BRUSH);
-	OutputDebugString(L"Player »ý¼º\n");
+	//pen = CreatePen(PS_SOLID, 1, COLOR_RED);
+	//brush = (HBRUSH)GetStockObject(NULL_BRUSH);
 }
 
 Player::~Player()
@@ -39,8 +38,7 @@ Player::~Player()
 	delete bodyImgRect;
 
 	// Debug
-	DeleteObject(pen);
-	OutputDebugString(L"~Player ¼Ò¸ê\n");
+	//DeleteObject(pen);
 }
 
 void Player::Update()
@@ -173,9 +171,9 @@ void Player::Render(HDC hdc)
 	SetTextAlign(hdc, TA_CENTER);
 
 	// Debug
-	oldpen   = (HPEN)	SelectObject(hdc, pen);
-	oldbrush = (HBRUSH) SelectObject(hdc, brush);
-	collider->Render(hdc);
-	SelectObject(hdc, oldpen);
-	SelectObject(hdc, oldbrush);
+	//oldpen   = (HPEN)	SelectObject(hdc, pen);
+	//oldbrush = (HBRUSH) SelectObject(hdc, brush);
+	//collider->Render(hdc);
+	//SelectObject(hdc, oldpen);
+	//SelectObject(hdc, oldbrush);
 }

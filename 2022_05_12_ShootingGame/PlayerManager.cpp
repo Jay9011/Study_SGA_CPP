@@ -6,15 +6,11 @@ PlayerManager* PlayerManager::instance = nullptr;
 PlayerManager::PlayerManager()
 {
 	player = new Player();
-
-	OutputDebugString(L"PlayerManager »ý¼º\n");
 }
 
 PlayerManager::~PlayerManager()
 {
 	delete player;
-
-	OutputDebugString(L"~PlayerManager ¼Ò¸ê\n");
 }
 
 void PlayerManager::Update()

@@ -17,8 +17,6 @@ BulletManager::BulletManager()
 	{
 		enemyBullet.push_back(new EnemyBullet(bulletImg, destroyImg));
 	}
-
-	OutputDebugString(L"BulletManager »ý¼º\n");
 }
 
 BulletManager::~BulletManager()
@@ -35,8 +33,6 @@ BulletManager::~BulletManager()
 
 	playerBullet.clear();
 	enemyBullet.clear();
-
-	OutputDebugString(L"BulletManager ¼Ò¸ê\n");
 }
 
 void BulletManager::Update()

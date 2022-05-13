@@ -33,9 +33,6 @@ EnemyManager::EnemyManager()
 	{
 		enemies.push_back(new Enemy());
 	}
-
-	// Debug
-	OutputDebugString(L"EnemyManager »ý¼º\n");
 }
 
 EnemyManager::~EnemyManager()
@@ -57,9 +54,6 @@ EnemyManager::~EnemyManager()
 		delete point;
 	}
 	arrivalPoint.clear();
-
-	// Debug
-	OutputDebugString(L"EnemyManager ¼Ò¸ê\n");
 }
 
 void EnemyManager::Update()
@@ -87,12 +81,6 @@ void EnemyManager::EnemySpawn()
 	{
 		++timer;
 	}
-
-	// Debug
-	wstring str = L"timer : ";
-	str += to_wstring(timer);
-	str += L"\n";
-	OutputDebugString(str.c_str());
 
 	// Check spawn Timer
 	int newTimer = maxTimer - (PlayerManager::Get()->player->GetScore() / 2);

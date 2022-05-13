@@ -24,9 +24,8 @@ Bullet::Bullet(Texture* _bulletImg, Texture* _destroyImg)
 	collider = new Circle({ 0, 0 }, 8);
 
 	// Debug
-	pen = CreatePen(PS_SOLID, 1, COLOR_RED);
-	brush = (HBRUSH)GetStockObject(NULL_BRUSH);
-	OutputDebugString(L"Bullet »ý¼º\n");
+	//pen = CreatePen(PS_SOLID, 1, COLOR_RED);
+	//brush = (HBRUSH)GetStockObject(NULL_BRUSH);
 }
 
 Bullet::~Bullet()
@@ -37,8 +36,6 @@ Bullet::~Bullet()
 	
 	// Debug
 	DeleteObject(pen);
-	
-	OutputDebugString(L"~Bullet ¼Ò¸ê\n");
 }
 
 void Bullet::Update()
@@ -75,11 +72,11 @@ void Bullet::Render(HDC hdc)
 	if (isUse)
 	{
 		// Debug
-		oldpen = (HPEN)SelectObject(hdc, pen);
-		oldbrush = (HBRUSH)SelectObject(hdc, brush);
-		collider->Render(hdc);
-		SelectObject(hdc, oldpen);
-		SelectObject(hdc, oldbrush);
+		//oldpen = (HPEN)SelectObject(hdc, pen);
+		//oldbrush = (HBRUSH)SelectObject(hdc, brush);
+		//collider->Render(hdc);
+		//SelectObject(hdc, oldpen);
+		//SelectObject(hdc, oldbrush);
 	}
 }
 

@@ -7,15 +7,10 @@ PlayerBullet::PlayerBullet(Texture* _bulletImg, Texture* _destroyImg)
 	velocity = 8;
 	bulletFrame.y = 1;
 	collider->Radius() = 4;
-
-	// Debug
-	OutputDebugString(L"PlayerBullet »ý¼º\n");
 }
 
 PlayerBullet::~PlayerBullet()
 {
-	// Debug
-	OutputDebugString(L"~PlayerBullet ¼Ò¸ê\n");
 }
 
 void PlayerBullet::Update()

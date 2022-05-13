@@ -20,9 +20,8 @@ Enemy::Enemy()
 	bodyImgRect = new Rect({ 0, 0 }, { 0, 0 });
 
 	// Debug
-	pen = CreatePen(PS_SOLID, 1, COLOR_RED);
-	brush = (HBRUSH)GetStockObject(NULL_BRUSH);
-	OutputDebugString(L"Enemy »ý¼º\n");
+	//pen = CreatePen(PS_SOLID, 1, COLOR_RED);
+	//brush = (HBRUSH)GetStockObject(NULL_BRUSH);
 }
 
 Enemy::~Enemy()
@@ -31,8 +30,7 @@ Enemy::~Enemy()
 	delete collider;
 
 	// Debug
-	DeleteObject(pen);
-	OutputDebugString(L"~Enemy ¼Ò¸ê\n");
+	//DeleteObject(pen);
 }
 
 void Enemy::Update()
@@ -103,11 +101,11 @@ void Enemy::Render(HDC hdc)
 		bodyImg->Render(bodyImgRect, bodyFrame);
 
 		// Debug
-		oldpen = (HPEN)SelectObject(hdc, pen);
-		oldbrush = (HBRUSH)SelectObject(hdc, brush);
-		collider->Render(hdc);
-		SelectObject(hdc, oldpen);
-		SelectObject(hdc, oldbrush);
+		//oldpen = (HPEN)SelectObject(hdc, pen);
+		//oldbrush = (HBRUSH)SelectObject(hdc, brush);
+		//collider->Render(hdc);
+		//SelectObject(hdc, oldpen);
+		//SelectObject(hdc, oldbrush);
 	}
 }
 

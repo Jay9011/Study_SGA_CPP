@@ -7,15 +7,10 @@ EnemyBullet::EnemyBullet(Texture* _bulletImg, Texture* _destroyImg)
 	velocity = 5;
 	bulletFrame.y = 0;
 	collider->Radius() = 3;
-
-	// Debug
-	OutputDebugString(L"EnemyBullet »ý¼º\n");
 }
 
 EnemyBullet::~EnemyBullet()
 {
-	// Debug
-	OutputDebugString(L"~EnemyBullet ¼Ò¸ê\n");
 }
 
 void EnemyBullet::Update()
