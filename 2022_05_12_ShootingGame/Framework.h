@@ -7,6 +7,7 @@
 #include <malloc.h>
 #include <memory.h>
 #include <tchar.h>
+#include <time.h>
 
 #include <vector>
 #include <map>
@@ -92,6 +93,7 @@ using namespace Math;
 #include "Player.h"
 #include "PlayerManager.h"
 #include "Enemy.h"
+#include "EnemyManager.h"
 #include "Bullet.h"
 #include "PlayerBullet.h"
 #include "BulletManager.h"

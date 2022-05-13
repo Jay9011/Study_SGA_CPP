@@ -9,6 +9,14 @@ enum class ObjectType
 	END
 };
 
+enum class ENEMY_TYPE
+{
+	S,
+	M,
+	L,
+	END
+};
+
 class GameObject
 {
 public:

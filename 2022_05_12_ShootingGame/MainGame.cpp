@@ -18,6 +18,9 @@ MainGame::MainGame()
 	//scene = new SGAArkanoidScene();
 	//scene = new ImageScene();
 	//scene = new TextureScene();
+
+
+	srand((unsigned int)time(NULL));
 	scene = new ShootingScene();
 }
 

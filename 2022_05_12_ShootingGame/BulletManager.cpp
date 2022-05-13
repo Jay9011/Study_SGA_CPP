@@ -22,6 +22,9 @@ BulletManager::~BulletManager()
 		delete bullet;
 	}
 
+	playerBullet.clear();
+	enemyBullet.clear();
+
 	OutputDebugString(L"BulletManager ¼Ò¸ê\n");
 }
 
