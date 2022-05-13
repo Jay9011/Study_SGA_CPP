@@ -19,16 +19,23 @@ public:
 
 private:
 	// Player Setting
+	int			maxHp;
+	int			curHp;
+	int			maxScore;
+	int			score;
+	bool		invincibility;
+
+	double		velocity;
+	PLAYERSTATE	state;
+
 	Rect*		collider;
 	Texture*	bodyImg;
 	Rect*		bodyImgRect;
 	POINT		bodyFrame;
 
-	double		velocity;
 	int			curReloadTime;
 	int			maxReloadTime;
 	int			frameTime;
-	PLAYERSTATE	state;
 	
 
 	// Debug Object

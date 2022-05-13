@@ -157,6 +157,7 @@
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="CollisionScene.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="FortressScene.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="ImageScene.h" />
@@ -202,6 +203,7 @@
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="CollisionScene.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="FortressScene.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="ImageScene.cpp" />

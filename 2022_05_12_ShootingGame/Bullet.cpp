@@ -1,7 +1,7 @@
 #include "Framework.h"
 #include "Bullet.h"
 
-Bullet::Bullet()
+Bullet::Bullet(Texture* texture)
 	: isUse(false)
 	, bulletFrame({ 0, 0 })
 	, velocity(5)
@@ -10,7 +10,7 @@ Bullet::Bullet()
 	, oldbrush(nullptr)
 {
 	bulletImgRect = new Rect({ 0, 0 }, { 16, 16 });
-	bulletImg = TextureManager::Get()->AddTexture("Bullet", L"Textures/Bullet.png", 2, 2);
+	bulletImg = texture;
 
 	collider = new Circle({ 0, 0 }, 8);
 

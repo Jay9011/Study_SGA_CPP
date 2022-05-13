@@ -16,5 +16,7 @@ public:
 private:
 	vector<Bullet*> playerBullet;
 	vector<Bullet*> enemyBullet;
+
+	Texture* bulletImg;
 };
 

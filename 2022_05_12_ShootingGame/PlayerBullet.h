@@ -2,7 +2,7 @@
 class PlayerBullet : public Bullet
 {
 public:
-	PlayerBullet();
+	PlayerBullet(Texture* texture);
 	virtual ~PlayerBullet();
 
 	virtual void Update() override;

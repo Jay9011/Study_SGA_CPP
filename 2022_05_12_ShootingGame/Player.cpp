@@ -2,7 +2,12 @@
 #include "Player.h"
 
 Player::Player()
-	: bodyFrame({ 2, 0 })
+	: maxHp(3)
+	, curHp(maxHp)
+	, maxScore(999999999)
+	, score(0)
+	, invincibility(false)
+	, bodyFrame({ 2, 0 })
 	, velocity(3)
 	, curReloadTime(0)
 	, maxReloadTime(10)

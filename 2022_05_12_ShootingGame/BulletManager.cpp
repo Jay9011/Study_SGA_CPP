@@ -5,11 +5,12 @@ BulletManager* BulletManager::instance = nullptr;
 
 BulletManager::BulletManager()
 {
+	bulletImg = TextureManager::Get()->AddTexture("Bullet", L"Textures/Bullet.png", 2, 2);
+
 	for (UINT i = 0; i < 10; i++)
 	{
-		playerBullet.push_back(new PlayerBullet());
+		playerBullet.push_back(new PlayerBullet(bulletImg));
 	}
-
 
 	OutputDebugString(L"BulletManager »ý¼º\n");
 }

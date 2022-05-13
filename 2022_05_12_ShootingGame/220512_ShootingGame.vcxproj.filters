@@ -186,6 +186,9 @@
     <ClInclude Include="PlayerManager.h">
       <Filter>GameObject\Shooting\Palyer</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainGame.cpp">
@@ -304,6 +307,9 @@
     </ClCompile>
     <ClCompile Include="PlayerManager.cpp">
       <Filter>GameObject\Shooting\Palyer</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
