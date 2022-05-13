@@ -45,8 +45,6 @@ using namespace std;
 
 //#define	WIN_WIDTH	1280	// 설정한 윈도우 가로
 //#define	WIN_HEIGHT	720		// 설정한 윈도우 세로
-//#define	WIN_WIDTH		600					// SGA Arkanoid 전용 윈도우 가로 크기
-//#define	WIN_HEIGHT		800					// SGA Arkanoid 전용 윈도우 세로 크기
 #define WIN_WIDTH	256		// Shooting 전용 윈도우 가로
 #define WIN_HEIGHT	608		// Shooting 전용 윈도우 세로
 
@@ -65,6 +63,7 @@ using namespace std;
 //Framework
 #include "Texture.h"
 #include "TextureManager.h"
+#include "Macro.h"
 
 //Utility
 #include "Math.h"
@@ -89,9 +88,15 @@ using namespace Math;
 #include "SGABrick.h"
 #include "SGABrickManager.h"
 
+#include "GameObject.h"
+#include "Player.h"
+#include "PlayerManager.h"
+#include "Bullet.h"
+#include "PlayerBullet.h"
+#include "BulletManager.h"
+
 //Scene
 #include "Scene.h"
-#include "PaintScene.h"
 #include "CollisionScene.h"
 #include "FortressScene.h"
 #include "ArkanoidScene.h"
