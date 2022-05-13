@@ -95,7 +95,11 @@ void EnemyManager::EnemySpawn()
 	OutputDebugString(str.c_str());
 
 	// Check spawn Timer
-	if (timer < maxTimer)
+	int newTimer = maxTimer - (PlayerManager::Get()->player->GetScore() / 2);
+	if (newTimer < 10)
+		newTimer = 10;
+
+	if (timer < newTimer)
 		return;
 
 	// Check usable Arrival Point

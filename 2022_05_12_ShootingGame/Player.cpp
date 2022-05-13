@@ -9,6 +9,7 @@ Player::Player()
 	, invincibility(false)
 	, inviTime(0)
 	, bodyFrame({ 2, 0 })
+	, bodyHide(false)
 	, velocity(3)
 	, curReloadTime(0)
 	, maxReloadTime(10)
@@ -168,9 +169,7 @@ void Player::Render(HDC hdc)
 
 	wstring scoreText = to_wstring(score);
 	SetTextAlign(hdc, TA_RIGHT);
-	SetBkMode(hdc, TRANSPARENT);
-	TextOut(hdc, WIN_WIDTH - 20, WIN_HEIGHT - 20, scoreText.c_str(), scoreText.length());
-	SetBkMode(hdc, OPAQUE);
+	TextOut(hdc, WIN_WIDTH - 20, WIN_HEIGHT - 20, scoreText.c_str(), (int)scoreText.length());
 	SetTextAlign(hdc, TA_CENTER);
 
 	// Debug

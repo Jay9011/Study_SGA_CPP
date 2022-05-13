@@ -90,6 +90,7 @@ using namespace Math;
 #include "SGABrickManager.h"
 
 #include "GameObject.h"
+#include "UIManager.h"
 #include "Player.h"
 #include "PlayerManager.h"
 #include "Enemy.h"
