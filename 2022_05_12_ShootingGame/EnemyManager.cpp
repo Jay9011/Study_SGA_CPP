@@ -1,7 +1,12 @@
 #include "Framework.h"
 #include "EnemyManager.h"
 
+EnemyManager* EnemyManager::instance = nullptr;
+
 EnemyManager::EnemyManager()
+	: timer(0)
+	, maxTimer(100)
+	, usableAPoint(0)
 {
 	SetSpawnPoint();
 	SetArrivalPoint();
@@ -24,7 +29,7 @@ EnemyManager::EnemyManager()
 		}
 	}
 
-	for (UINT i = 0; i < 5; i++)
+	for (UINT i = 0; i < arrivalPoint.size(); i++)
 	{
 		enemies.push_back(new Enemy());
 	}
@@ -41,12 +46,26 @@ EnemyManager::~EnemyManager()
 	}
 	enemies.clear();
 
+	for (PointFlag* point : spawnPoint)
+	{
+		delete point;
+	}
+	spawnPoint.clear();
+
+	for (PointFlag* point : arrivalPoint)
+	{
+		delete point;
+	}
+	arrivalPoint.clear();
+
 	// Debug
 	OutputDebugString(L"EnemyManager ¼Ò¸ê\n");
 }
 
 void EnemyManager::Update()
 {
+	EnemySpawn();
+
 	// Enemy Update
 	for (Enemy* enemy : enemies)
 	{
@@ -64,46 +83,102 @@ void EnemyManager::Render(HDC hdc)
 
 void EnemyManager::EnemySpawn()
 {
-	// Spawn Timer
-	++timer;
-	if (timer > 30)
+	if (timer < maxTimer)
 	{
-		timer = 0;
-		int typeNum = rand() % (int)ENEMY_TYPE::END;
-		ENEMY_TYPE type = (ENEMY_TYPE)typeNum;
+		++timer;
+	}
 
-		for (Enemy* enemy : enemies)
+	// Debug
+	wstring str = L"timer : ";
+	str += to_wstring(timer);
+	str += L"\n";
+	OutputDebugString(str.c_str());
+
+	// Check spawn Timer
+	if (timer < maxTimer)
+		return;
+
+	// Check usable Arrival Point
+	usableAPoint = 0;
+	for (PointFlag* point : arrivalPoint)
+	{
+		if (!point->isUse) 
+			++usableAPoint;
+	}
+	
+	if (usableAPoint > 1)
+	{
+		while (true)
 		{
-			if (enemy->GetType() != ENEMY_TYPE::END)
+			int randNum = rand() % arrivalPoint.size();
+			if (arrivalPoint[randNum]->isUse)
 				continue;
-			
-			enemy->Setting(type, enemyImg[typeNum]);
-			break;
+
+			if (EnemySetting(arrivalPoint[randNum]))
+			{
+				timer = 0;
+				return;
+			}
 		}
 	}
+	else if (usableAPoint == 1)
+	{
+		for (PointFlag* point : arrivalPoint)
+		{
+			if (point->isUse)
+				continue;
+
+			if (EnemySetting(point))
+			{
+				timer = 0;
+				return;
+			}
+		}
+	}
+	
 }
 
 void EnemyManager::SetSpawnPoint()
 {
-	spawnPoint.push_back({ false, {(LONG)(WIN_WIDTH * 0.3), (-10)} });
-	spawnPoint.push_back({ false, {(LONG)(WIN_WIDTH * 0.6), (-10)} });
-	spawnPoint.push_back({ false, {(LONG)(WIN_WIDTH * 0.9), (-10)} });
-	spawnPoint.push_back({ false, {WIN_WIDTH - 10 , (LONG)(WIN_HEIGHT * 0.3) } });
-	spawnPoint.push_back({ false, {WIN_WIDTH + 10 , (LONG)(WIN_HEIGHT * 0.3) } });
+	spawnPoint.push_back(new PointFlag{ false, {(WIN_WIDTH * 0.3), (-10)} });
+	spawnPoint.push_back(new PointFlag{ false, {(WIN_WIDTH * 0.6), (-10)} });
+	spawnPoint.push_back(new PointFlag{ false, {(WIN_WIDTH * 0.9), (-10)} });
+	spawnPoint.push_back(new PointFlag{ false, {(WIN_WIDTH - 10.0) , (WIN_HEIGHT * 0.3) } });
+	spawnPoint.push_back(new PointFlag{ false, {(WIN_WIDTH + 10.0) , (WIN_HEIGHT * 0.3) } });
 }
 
 void EnemyManager::SetArrivalPoint()
 {
-	arrivalPoint.push_back({ false, {(LONG)(WIN_WIDTH * 0.3), (LONG)(WIN_HEIGHT * 0.1)} });
-	arrivalPoint.push_back({ false, {(LONG)(WIN_WIDTH * 0.6), (LONG)(WIN_HEIGHT * 0.1)} });
-	arrivalPoint.push_back({ false, {(LONG)(WIN_WIDTH * 0.9), (LONG)(WIN_HEIGHT * 0.1)} });
+	arrivalPoint.push_back(new PointFlag{ false, {(WIN_WIDTH * 0.3), (WIN_HEIGHT * 0.1)} });
+	arrivalPoint.push_back(new PointFlag{ false, {(WIN_WIDTH * 0.5), (WIN_HEIGHT * 0.1)} });
+	arrivalPoint.push_back(new PointFlag{ false, {(WIN_WIDTH * 0.7), (WIN_HEIGHT * 0.1)} });
 
-	arrivalPoint.push_back({ false, {(LONG)(WIN_WIDTH * 0.2), (LONG)(WIN_HEIGHT * 0.2)} });
-	arrivalPoint.push_back({ false, {(LONG)(WIN_WIDTH * 0.4), (LONG)(WIN_HEIGHT * 0.2)} });
-	arrivalPoint.push_back({ false, {(LONG)(WIN_WIDTH * 0.6), (LONG)(WIN_HEIGHT * 0.2)} });
-	arrivalPoint.push_back({ false, {(LONG)(WIN_WIDTH * 0.8), (LONG)(WIN_HEIGHT * 0.2)} });
+	arrivalPoint.push_back(new PointFlag{ false, {(WIN_WIDTH * 0.2), (WIN_HEIGHT * 0.2)} });
+	arrivalPoint.push_back(new PointFlag{ false, {(WIN_WIDTH * 0.4), (WIN_HEIGHT * 0.2)} });
+	arrivalPoint.push_back(new PointFlag{ false, {(WIN_WIDTH * 0.6), (WIN_HEIGHT * 0.2)} });
+	arrivalPoint.push_back(new PointFlag{ false, {(WIN_WIDTH * 0.8), (WIN_HEIGHT * 0.2)} });
 	
-	arrivalPoint.push_back({ false, {(LONG)(WIN_WIDTH * 0.3), (LONG)(WIN_HEIGHT * 0.3)} });
-	arrivalPoint.push_back({ false, {(LONG)(WIN_WIDTH * 0.6), (LONG)(WIN_HEIGHT * 0.3)} });
-	arrivalPoint.push_back({ false, {(LONG)(WIN_WIDTH * 0.9), (LONG)(WIN_HEIGHT * 0.3)} });
+	arrivalPoint.push_back(new PointFlag{ false, {(WIN_WIDTH * 0.3), (WIN_HEIGHT * 0.3)} });
+	arrivalPoint.push_back(new PointFlag{ false, {(WIN_WIDTH * 0.5), (WIN_HEIGHT * 0.3)} });
+	arrivalPoint.push_back(new PointFlag{ false, {(WIN_WIDTH * 0.7), (WIN_HEIGHT * 0.3)} });
+}
+
+bool EnemyManager::EnemySetting(PointFlag* point)
+{
+	int typeNum = rand() % (int)ENEMY_TYPE::END;
+	ENEMY_TYPE type = (ENEMY_TYPE)typeNum;
+
+	int spawnNum = rand() % spawnPoint.size();
+	PointFlag* spawn = spawnPoint[spawnNum];
+
+	for (Enemy* enemy : enemies)
+	{
+		if (enemy->GetType() != ENEMY_TYPE::END)
+			continue;
+
+		enemy->Setting(type, enemyImg[typeNum], spawn, point);
+		return true;
+	}
+
+	return false;
 }

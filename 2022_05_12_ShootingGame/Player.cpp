@@ -7,6 +7,7 @@ Player::Player()
 	, maxScore(999999999)
 	, score(0)
 	, invincibility(false)
+	, inviTime(0)
 	, bodyFrame({ 2, 0 })
 	, velocity(3)
 	, curReloadTime(0)
@@ -22,6 +23,8 @@ Player::Player()
 
 	collider = new Rect(bodyImgRect->Pos(), {15, 15});
 
+	graphics = new Gdiplus::Graphics(backDC);
+
 	// Debug
 	pen = CreatePen(PS_SOLID, 1, COLOR_RED);
 	brush = (HBRUSH)GetStockObject(NULL_BRUSH);
@@ -30,6 +33,7 @@ Player::Player()
 
 Player::~Player()
 {
+	delete graphics;
 	delete collider;
 	delete bodyImgRect;
 
@@ -46,6 +50,7 @@ void Player::Update()
 		++curReloadTime;
 	}
 
+	// Key State
 	if (GetAsyncKeyState(VK_LEFT))
 	{
 		bodyImgRect->Pos() += Vector2(-1, 0) * velocity;
@@ -107,12 +112,67 @@ void Player::Update()
 			break;
 		}
 	}
+
+	if (invincibility)
+	{
+		++inviTime;
+		if (inviTime > 50)
+		{
+			invincibility = false;
+			inviTime = 0;
+		}
+		else if (inviTime % 10 == 1)
+		{
+			bodyHide = !bodyHide;
+		}
+	}
+	else
+	{
+		if (bodyHide)
+			bodyHide = false;
+
+		// Collision Check
+		for (auto& bullet : BulletManager::Get()->enemyBullet)
+		{
+			if (!(bullet->IsUse()))
+				continue;
+
+			if (Collision::Collision(collider, bullet->GetCollider()))
+			{
+				bullet->Destroy();
+				--curHp;
+				invincibility = true;
+			}
+		}
+	}
 }
 
 void Player::Render(HDC hdc)
 {
-	bodyImg->Render(bodyImgRect, bodyFrame);
-	
+	if (bodyHide)
+	{
+		bodyImg->Render(bodyImgRect, { -1, -1 });
+	}
+	else
+	{
+		bodyImg->Render(bodyImgRect, bodyFrame);
+	}
+
+	Rect LifeRect = Rect({20.0, WIN_HEIGHT - 20.0}, { 11, 16 });
+
+	for (int i = 0; i < curHp; i++)
+	{
+		bodyImg->Render(&LifeRect, { 2, 0 });
+		LifeRect.Pos().x += LifeRect.Size().x + 3;
+	}
+
+	wstring scoreText = to_wstring(score);
+	SetTextAlign(hdc, TA_RIGHT);
+	SetBkMode(hdc, TRANSPARENT);
+	TextOut(hdc, WIN_WIDTH - 20, WIN_HEIGHT - 20, scoreText.c_str(), scoreText.length());
+	SetBkMode(hdc, OPAQUE);
+	SetTextAlign(hdc, TA_CENTER);
+
 	// Debug
 	oldpen   = (HPEN)	SelectObject(hdc, pen);
 	oldbrush = (HBRUSH) SelectObject(hdc, brush);

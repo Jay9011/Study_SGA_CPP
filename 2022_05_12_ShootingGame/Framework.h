@@ -96,6 +96,7 @@ using namespace Math;
 #include "EnemyManager.h"
 #include "Bullet.h"
 #include "PlayerBullet.h"
+#include "EnemyBullet.h"
 #include "BulletManager.h"
 
 //Scene

@@ -10,8 +10,7 @@ public:
 	void Update();
 	void Render(HDC hdc);
 
-private:
-	GameObject* player;
+	Player* player;
 
 };
 

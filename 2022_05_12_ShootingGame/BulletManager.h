@@ -13,10 +13,11 @@ public:
 	void PlayerFire(Vector2 pos, Vector2 dir);
 	void EnemyFire (Vector2 pos, Vector2 dir);
 
-private:
 	vector<Bullet*> playerBullet;
 	vector<Bullet*> enemyBullet;
 
+private:
 	Texture* bulletImg;
+	Texture* destroyImg;
 };
 

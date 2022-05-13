@@ -195,6 +195,12 @@
     <ClInclude Include="Enemy.h">
       <Filter>GameObject\Shooting\Enemy</Filter>
     </ClInclude>
+    <ClInclude Include="EnemyBullet.h">
+      <Filter>GameObject\Shooting\Bullet\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="UIManager.h">
+      <Filter>GameObject\Shooting</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainGame.cpp">
@@ -319,6 +325,12 @@
     </ClCompile>
     <ClCompile Include="Enemy.cpp">
       <Filter>GameObject\Shooting\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBullet.cpp">
+      <Filter>GameObject\Shooting\Bullet\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="UIManager.cpp">
+      <Filter>GameObject\Shooting</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

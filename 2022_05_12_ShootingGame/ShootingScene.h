@@ -14,5 +14,6 @@ private:
 	ULONG_PTR	token;
 
 	int			time;
+	bool		gameover;
 };
 

@@ -1,9 +1,9 @@
 #pragma once
-class PlayerBullet : public Bullet
+class EnemyBullet : public Bullet
 {
 public:
-	PlayerBullet(Texture* _bulletImg, Texture* _destroyImg);
-	virtual ~PlayerBullet();
+	EnemyBullet(Texture* _bulletImg, Texture* _destroyImg);
+	virtual ~EnemyBullet();
 
 	virtual void Update() override;
 	virtual void Render(HDC hdc) override;

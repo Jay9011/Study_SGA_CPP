@@ -2,8 +2,8 @@
 
 struct PointFlag
 {
-	bool	isUse;
-	POINT	pos;
+	bool isUse;
+	const Vector2 pos;
 };
 
 class Enemy : public GameObject
@@ -18,10 +18,14 @@ public:
 	void Init();
 	void Setting(ENEMY_TYPE type);
 	void Setting(ENEMY_TYPE type, Texture* texture);
+	void Setting(ENEMY_TYPE type, Texture* texture, PointFlag* spawn, PointFlag* arrive);
 
 	ENEMY_TYPE GetType() { return type; }
 
 private:
+	void Move();
+	void Destroy();
+
 	// Enemy Setting
 	ENEMY_TYPE	type;
 
@@ -29,6 +33,8 @@ private:
 	int			curHp;
 
 	double		velocity;
+	Vector2		direction;
+
 	PointFlag*	spawnPoint;
 	PointFlag*	arrivalPoint;
 
@@ -38,6 +44,7 @@ private:
 	POINT		bodyFrame;
 
 	int			frameTime;
+	int			reloadTime;
 
 	// Debug Object
 	HPEN	oldpen;

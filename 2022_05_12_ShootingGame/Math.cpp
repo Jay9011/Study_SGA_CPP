@@ -1,7 +1,7 @@
 #include "Framework.h"
 #include "Math.h"
 
-double Math::Distance(Vector2 p1, Vector2 p2)
+double Math::Distance(const Vector2 p1, const Vector2 p2)
 {
 	double distance;
 

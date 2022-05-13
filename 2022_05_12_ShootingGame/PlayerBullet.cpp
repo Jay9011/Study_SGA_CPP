@@ -1,8 +1,8 @@
 #include "Framework.h"
 #include "PlayerBullet.h"
 
-PlayerBullet::PlayerBullet(Texture* texture)
-	: Bullet(texture)
+PlayerBullet::PlayerBullet(Texture* _bulletImg, Texture* _destroyImg)
+	: Bullet(_bulletImg, _destroyImg)
 {
 	velocity = 8;
 	bulletFrame.y = 1;
