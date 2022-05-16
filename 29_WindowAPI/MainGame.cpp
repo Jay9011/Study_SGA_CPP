@@ -8,8 +8,9 @@ MainGame::MainGame()
 	hBitmap = CreateCompatibleBitmap(hdc, WIN_WIDTH, WIN_HEIGHT);
 
 	SelectObject(backDC, hBitmap);
-	
 	ReleaseDC(hWnd, hdc);
+
+	Gdiplus::GdiplusStartup(&token, &input, nullptr);
 
 	//scene = new PaintScene();
 	//scene = new CollisionScene();
@@ -23,6 +24,8 @@ MainGame::MainGame()
 MainGame::~MainGame()
 {
 	delete scene;
+
+	Gdiplus::GdiplusShutdown(token);
 }
 
 void MainGame::Update()

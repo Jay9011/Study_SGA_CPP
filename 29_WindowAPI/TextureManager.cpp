@@ -11,6 +11,8 @@ TextureManager::~TextureManager()
 {
 	for (pair<string, Texture*> texture : textures)
 		delete texture.second;
+
+	textures.clear();
 }
 
 void TextureManager::Create()

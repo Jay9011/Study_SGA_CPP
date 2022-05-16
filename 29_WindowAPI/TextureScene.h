@@ -19,8 +19,5 @@ private:
 	POINT		sivaFrame;
 	double		sivaSpeed;
 
-	Gdiplus::GdiplusStartupInput input;
-	ULONG_PTR token;
-
 	int time;
 };

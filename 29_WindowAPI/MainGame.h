@@ -14,4 +14,7 @@ private:
 
 	//HDC		backDC;
 	HBITMAP hBitmap;
+
+	Gdiplus::GdiplusStartupInput input;
+	ULONG_PTR token;
 };

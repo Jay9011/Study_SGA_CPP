@@ -6,8 +6,6 @@ TextureScene::TextureScene()
 	, sivaSpeed(10)
 	, time(0)
 {
-	Gdiplus::GdiplusStartup(&token, &input, nullptr);
-
 	TextureManager::Create();
 
 	background	= TextureManager::Get()->AddTexture("BTS", L"Textures/BTS.bmp");
@@ -23,12 +21,8 @@ TextureScene::~TextureScene()
 {
 	delete sivaRect;
 	delete bgRect;
-	delete siva;
-	delete background;
 
 	TextureManager::Delete();
-
-	Gdiplus::GdiplusShutdown(token);
 }
 
 void TextureScene::Update()
