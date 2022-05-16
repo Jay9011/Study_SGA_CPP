@@ -68,11 +68,11 @@ using namespace std;
 using namespace Math;
 #include "Collision.h"
 
-//GameObject
+//GameObject - Fortress
 #include "CannonBall.h"
 #include "CannonBallManager.h"
 #include "Tank.h"
-
+//GameObject - Arkanoid
 #include "AKUI.h"
 #include "AKBrick.h"
 #include "AKBall.h"
@@ -80,11 +80,13 @@ using namespace Math;
 #include "AKPlayer.h"
 #include "AKStageManager.h"
 #include "AKCollisionManager.h"
-
+//GameObject - Arkanoid2
 #include "SGABar.h"
 #include "SGABall.h"
 #include "SGABrick.h"
 #include "SGABrickManager.h"
+//GameObject - Shooting
+#include "Enemy.h"
 
 //Scene
 #include "Scene.h"

@@ -3,11 +3,14 @@
 
 MainGame::MainGame()
 {
+	srand(time(NULL));
+
 	HDC hdc = GetDC(hWnd);
 	backDC  = CreateCompatibleDC(hdc);
 	hBitmap = CreateCompatibleBitmap(hdc, WIN_WIDTH, WIN_HEIGHT);
 
 	SelectObject(backDC, hBitmap);
+
 	ReleaseDC(hWnd, hdc);
 
 	Gdiplus::GdiplusStartup(&token, &input, nullptr);

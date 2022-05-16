@@ -19,5 +19,7 @@ private:
 	POINT		sivaFrame;
 	double		sivaSpeed;
 
+	Enemy*		enemy;
+
 	int time;
 };

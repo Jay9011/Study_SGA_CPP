@@ -10,7 +10,8 @@ public:
 	void Render(Rect* rect);
 	void Render(Rect* rect, POINT curFrame);
 
-	POINT GetMaxFrame() { return maxFrame; }
+	POINT GetMaxFrame()  { return maxFrame; }
+	POINT GetFrameSize() { return frameSize; }
 
 private:
 	Gdiplus::Image*		image;

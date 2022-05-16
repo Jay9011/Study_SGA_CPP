@@ -8,19 +8,23 @@ TextureScene::TextureScene()
 {
 	TextureManager::Create();
 
-	background	= TextureManager::Get()->AddTexture("BTS", L"Textures/BTS.bmp");
-	siva		= TextureManager::Get()->AddTexture("siva", L"Textures/siva_run.bmp", 8, 2);
-
 	//background  = new Texture(L"Textures/BTS.bmp");
 	//siva        = new Texture(L"Textures/siva_run.bmp", 8, 2);
+
+	background	= TextureManager::Get()->AddTexture("BTS", L"Textures/BTS.bmp");
+	siva		= TextureManager::Get()->AddTexture("siva", L"Textures/siva_run.bmp", 8, 2);
 	bgRect   = new Rect(0, 0, WIN_WIDTH, WIN_HEIGHT);
 	sivaRect = new Rect({ WIN_CENTER_X, WIN_CENTER_Y }, { 100, 100 });
+
+	enemy = new Enemy;
 }
 
 TextureScene::~TextureScene()
 {
 	delete sivaRect;
 	delete bgRect;
+
+	delete enemy;
 
 	TextureManager::Delete();
 }
@@ -51,4 +55,6 @@ void TextureScene::Render(HDC hdc)
 {
 	background->Render(bgRect);
 	      siva->Render(sivaRect, sivaFrame);
+
+		 enemy->Render();
 }
