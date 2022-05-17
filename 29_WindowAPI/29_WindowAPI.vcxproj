@@ -155,6 +155,7 @@
     <ClInclude Include="Collision.h" />
     <ClInclude Include="CollisionScene.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyManager.h" />
     <ClInclude Include="FortressScene.h" />
     <ClInclude Include="ImageScene.h" />
     <ClInclude Include="Line.h" />
@@ -163,6 +164,7 @@
     <ClInclude Include="MainGame.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="PaintScene.h" />
+    <ClInclude Include="Plane.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Rect.h" />
     <ClInclude Include="Resource.h" />
@@ -194,6 +196,7 @@
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="CollisionScene.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyManager.cpp" />
     <ClCompile Include="FortressScene.cpp" />
     <ClCompile Include="ImageScene.cpp" />
     <ClCompile Include="Line.cpp" />
@@ -204,6 +207,7 @@
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="PaintScene.cpp" />
+    <ClCompile Include="Plane.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="Rect.cpp" />
     <ClCompile Include="SGAArkanoidScene.cpp" />

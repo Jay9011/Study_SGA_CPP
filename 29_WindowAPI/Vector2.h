@@ -4,6 +4,10 @@
 #define V_RIGHT	Vector2(+1,  0)
 #define V_UP  	Vector2( 0, -1)
 #define V_DOWN	Vector2( 0, +1)
+#define V_LDOWN	Vector2(-1, +1).Normalize()
+#define V_RDOWN	Vector2(+1, +1).Normalize()
+#define V_LUP	Vector2(-1, -1).Normalize()
+#define V_RUP	Vector2(+1, -1).Normalize()
 
 class Vector2
 {
@@ -19,7 +23,7 @@ public:
 	Vector2 AngleToVector(double angle);
 
 	double	   Length();
-	void	Normalize();
+	Vector2&   Normalize();
 
 	double	  Dot(Vector2& other);
 	double	Cross(Vector2& other);

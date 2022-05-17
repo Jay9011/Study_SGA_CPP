@@ -19,7 +19,7 @@ private:
 	POINT		sivaFrame;
 	double		sivaSpeed;
 
-	Enemy*		enemy;
+	EnemyManager* enemies;
 
 	int time;
 };

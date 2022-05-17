@@ -30,12 +30,13 @@ double Vector2::Length()
 	return sqrt(pow(x, 2) + pow(y, 2));
 }
 
-void Vector2::Normalize()
+Vector2& Vector2::Normalize()
 {
 	if (Length() >= 1)
 	{
 		(*this) /= Length();
 	}
+	return *this;
 }
 
 double Vector2::Dot(Vector2& other)

@@ -156,6 +156,12 @@
     <ClInclude Include="Enemy.h">
       <Filter>GameObject\Shooting</Filter>
     </ClInclude>
+    <ClInclude Include="EnemyManager.h">
+      <Filter>GameObject\Shooting</Filter>
+    </ClInclude>
+    <ClInclude Include="Plane.h">
+      <Filter>GameObject\Shooting</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PaintScene.cpp">
@@ -258,6 +264,12 @@
       <Filter>Framework</Filter>
     </ClCompile>
     <ClCompile Include="Enemy.cpp">
+      <Filter>GameObject\Shooting</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyManager.cpp">
+      <Filter>GameObject\Shooting</Filter>
+    </ClCompile>
+    <ClCompile Include="Plane.cpp">
       <Filter>GameObject\Shooting</Filter>
     </ClCompile>
   </ItemGroup>

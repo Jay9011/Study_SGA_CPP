@@ -10,12 +10,13 @@ Enemy::Enemy()
 {
 	texture = TextureManager::Get()->AddTexture("Enemy", L"Textures/ufo.png", 10, 1);
 
-	rect = new Rect
-	(
-		{ WIN_CENTER_X      , WIN_CENTER_Y * 0.1 }, 
-		{ (double)texture->GetFrameSize().x, (double)texture->GetFrameSize().y }
-	);
+	bool random = rand() % 2;
+	if (random)
+		dir = V_LDOWN;
+	else
+		dir = V_RDOWN;
 
+	rect = new Rect({ WIN_CENTER_X, WIN_CENTER_Y * 0.1 }, texture->GetFrameSize());
 }
 
 Enemy::Enemy(Vector2 _pos)
@@ -27,7 +28,13 @@ Enemy::Enemy(Vector2 _pos)
 {
 	texture = TextureManager::Get()->AddTexture("Enemy", L"Textures/ufo.png", 10, 1);
 
-	rect = new Rect(_pos, { (double)texture->GetFrameSize().x, (double)texture->GetFrameSize().y });
+	bool random = rand() % 2;
+	if (random)
+		dir = V_LDOWN;
+	else
+		dir = V_RDOWN;
+
+	rect = new Rect(_pos, texture->GetFrameSize());
 }
 
 Enemy::~Enemy()
@@ -40,12 +47,23 @@ void Enemy::Update()
 	if (!isActive)
 		return;
 
+	++frame.x %= texture->GetMaxFrame().x;
+
+	rect->Pos() += dir * speed;
+
+	++time;
+	if (time > randomTime)
+	{
+		dir.x *= -1;
+		time = 0;
+		randomTime = Math::Random(10.0, 15.0);
+	}
 }
 
 void Enemy::Render()
 {
-	/*if (!isActive)
-		return;*/
+	if (!isActive)
+		return;
 
 	texture->Render(rect, frame);
 }

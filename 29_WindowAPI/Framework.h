@@ -87,6 +87,7 @@ using namespace Math;
 #include "SGABrickManager.h"
 //GameObject - Shooting
 #include "Enemy.h"
+#include "EnemyManager.h"
 
 //Scene
 #include "Scene.h"

@@ -10,10 +10,13 @@ public:
 	void Update();
 	void Render();
 
+	bool& IsActive() { return isActive; }
+
 private:
 	Texture* texture;
 	Rect*	 rect;
 
+	Vector2	 dir;
 	double	 speed;
 
 	POINT	 frame;
