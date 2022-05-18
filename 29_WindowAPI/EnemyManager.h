@@ -10,6 +10,8 @@ public:
 
 	void SpawnEnemy();
 
+	vector<Enemy*>& GetEnemies() { return enemies; }
+
 private:
 	vector<Enemy*> enemies;
 

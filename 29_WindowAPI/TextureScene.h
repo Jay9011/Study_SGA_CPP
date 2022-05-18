@@ -14,12 +14,8 @@ private:
 	Texture*	background;
 	Rect*		bgRect;
 
-	Texture*	siva;
-	Rect*		sivaRect;
-	POINT		sivaFrame;
-	double		sivaSpeed;
-
 	EnemyManager* enemies;
+	Plane*		  plane;
 
 	int time;
 };

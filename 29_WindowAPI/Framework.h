@@ -11,6 +11,8 @@
 #include <vector>
 #include <map>
 
+#include <bitset>
+
 // GDI+
 #include <Ole2.h>
 #include <gdiplus.h>
@@ -52,6 +54,7 @@ using namespace std;
 
 //Utility
 #include "Vector2.h"
+#include "Keyboard.h"
 
 //Object
 #include "Point.h"
@@ -88,6 +91,7 @@ using namespace Math;
 //GameObject - Shooting
 #include "Enemy.h"
 #include "EnemyManager.h"
+#include "Plane.h"
 
 //Scene
 #include "Scene.h"

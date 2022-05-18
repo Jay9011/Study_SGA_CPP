@@ -9,11 +9,7 @@ EnemyManager::EnemyManager(UINT _count)
 
 	for (UINT i = 0; i < _count; i++)
 	{
-		Vector2 pos;
-		pos.x = Math::Random(texture->GetFrameSize().x, WIN_WIDTH - texture->GetFrameSize().x);
-		pos.y = -(texture->GetFrameSize().y);
-
-		enemies.push_back(new Enemy(pos));
+		enemies.push_back(new Enemy());
 	}
 }
 
@@ -55,6 +51,12 @@ void EnemyManager::SpawnEnemy()
 	{
 		if (!enemy->IsActive())
 		{
+			Vector2 pos;
+			pos.x = Math::Random(enemy->GetRect()->Size().x, WIN_WIDTH - enemy->GetRect()->Size().x);
+			pos.y = -(enemy->GetRect()->Size().y);
+
+			enemy->GetRect()->Pos() = pos;
+
 			enemy->IsActive() = true;
 
 			break;

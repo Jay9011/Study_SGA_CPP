@@ -10,6 +10,8 @@ public:
 
 	void Move();
 
+	void Collision(EnemyManager* enemies);
+
 private:
 	Texture* texture;
 	Rect*	 rect;

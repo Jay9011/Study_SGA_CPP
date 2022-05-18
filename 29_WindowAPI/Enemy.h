@@ -11,6 +11,7 @@ public:
 	void Render();
 
 	bool& IsActive() { return isActive; }
+	Rect* GetRect() { return rect; }
 
 private:
 	Texture* texture;

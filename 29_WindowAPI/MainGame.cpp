@@ -15,6 +15,9 @@ MainGame::MainGame()
 
 	Gdiplus::GdiplusStartup(&token, &input, nullptr);
 
+	TextureManager::Create();
+		  Keyboard::Create();
+
 	//scene = new PaintScene();
 	//scene = new CollisionScene();
 	//scene = new FortressScene();
@@ -27,6 +30,9 @@ MainGame::MainGame()
 MainGame::~MainGame()
 {
 	delete scene;
+
+		  Keyboard::Delete();
+	TextureManager::Delete();
 
 	Gdiplus::GdiplusShutdown(token);
 }

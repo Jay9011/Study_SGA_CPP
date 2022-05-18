@@ -162,6 +162,9 @@
     <ClInclude Include="Plane.h">
       <Filter>GameObject\Shooting</Filter>
     </ClInclude>
+    <ClInclude Include="Keyboard.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PaintScene.cpp">
@@ -271,6 +274,9 @@
     </ClCompile>
     <ClCompile Include="Plane.cpp">
       <Filter>GameObject\Shooting</Filter>
+    </ClCompile>
+    <ClCompile Include="Keyboard.cpp">
+      <Filter>Utility</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
