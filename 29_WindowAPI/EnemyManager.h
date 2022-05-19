@@ -1,4 +1,7 @@
 #pragma once
+
+class Plane;
+
 class EnemyManager
 {
 public:
@@ -9,6 +12,8 @@ public:
 	void Render();
 
 	void SpawnEnemy();
+
+	void Collision(Plane* player);
 
 	vector<Enemy*>& GetEnemies() { return enemies; }
 

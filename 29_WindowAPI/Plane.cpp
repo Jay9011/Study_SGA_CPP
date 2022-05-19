@@ -7,21 +7,27 @@ Plane::Plane()
 	texture = TextureManager::Get()->AddTexture("Plane", L"Textures/airplane.png");
 
 	rect = new Rect({ WIN_CENTER_X, WIN_HEIGHT * 0.8 }, { 100, 100 });
+
+	bullets = new BulletManager;
 }
 
 Plane::~Plane()
 {
 	delete rect;
+	delete bullets;
 }
 
 void Plane::Update()
 {
 	Move();
+	Shoot();
+	bullets->Update();
 }
 
 void Plane::Render()
 {
 	texture->Render(rect);
+	bullets->Render();
 }
 
 void Plane::Move()
@@ -45,15 +51,35 @@ void Plane::Move()
 	}
 }
 
+void Plane::Shoot()
+{
+	if (KEY_DOWN(VK_SPACE))
+	{
+		bullets->Fire(Vector2(rect->Pos().x, rect->Top()), V_UP, 10);
+	}
+}
+
 void Plane::Collision(EnemyManager* enemies)
 {
 	for (Enemy* enemy : enemies->GetEnemies())
 	{
 		if (enemy->IsActive())
 		{
+			// Enemy vs Plane
 			if (Collision::Collision(this->rect, enemy->GetRect()))
 			{
 				enemy->IsActive() = false;
+			}
+
+			// EnemyBullet vs Plane
+			for (Bullet* bullet : enemy->GetBulletManager()->GetBullets())
+			{
+				if (Collision::Collision(rect, bullet->GetRect()))
+				{
+					bullet->IsFire() = false;
+
+					break;
+				}
 			}
 		}
 	}

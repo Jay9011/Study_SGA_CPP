@@ -21,9 +21,11 @@ TextureScene::~TextureScene()
 
 void TextureScene::Update()
 {
-	enemies->Update();
 	  plane->Update();
+	enemies->Update();
+
 	  plane->Collision(enemies);
+	enemies->Collision(plane);
 }
 
 void TextureScene::Render(HDC hdc)

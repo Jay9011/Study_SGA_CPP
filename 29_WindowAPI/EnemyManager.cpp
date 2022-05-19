@@ -63,3 +63,11 @@ void EnemyManager::SpawnEnemy()
 		}
 	}
 }
+
+void EnemyManager::Collision(Plane* player)
+{
+	for (Enemy* enemy : enemies)
+	{
+		enemy->Collision(player);
+	}
+}

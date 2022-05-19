@@ -9,8 +9,11 @@ public:
 	void Render();
 
 	void Move();
+	void Shoot();
 
 	void Collision(EnemyManager* enemies);
+
+	BulletManager* GetBulletManager() { return bullets; }
 
 private:
 	Texture* texture;
@@ -18,5 +21,6 @@ private:
 
 	double	 speed;
 
+	BulletManager* bullets;
 };
 

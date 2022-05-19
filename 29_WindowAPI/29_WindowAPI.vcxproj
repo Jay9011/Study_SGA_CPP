@@ -149,6 +149,8 @@
     <ClInclude Include="AKStageManager.h" />
     <ClInclude Include="AKUI.h" />
     <ClInclude Include="ArkanoidScene.h" />
+    <ClInclude Include="Bullet.h" />
+    <ClInclude Include="BulletManager.h" />
     <ClInclude Include="CannonBall.h" />
     <ClInclude Include="CannonBallManager.h" />
     <ClInclude Include="Circle.h" />
@@ -191,6 +193,8 @@
     <ClCompile Include="AKStageManager.cpp" />
     <ClCompile Include="AKUI.cpp" />
     <ClCompile Include="ArkanoidScene.cpp" />
+    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="BulletManager.cpp" />
     <ClCompile Include="CannonBall.cpp" />
     <ClCompile Include="CannonBallManager.cpp" />
     <ClCompile Include="Circle.cpp" />
