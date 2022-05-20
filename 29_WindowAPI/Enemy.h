@@ -17,7 +17,10 @@ public:
 
 	bool& IsActive() { return isActive; }
 	Rect* GetRect() { return rect; }
+	
+	void SetHp(int _hp) { hp = _hp; }
 
+	void SetPlayer(Plane* player);
 	void Collision(Plane* player);
 
 	BulletManager* GetBulletManager() { return bullets; }
@@ -28,6 +31,7 @@ private:
 
 	Vector2	 dir;
 	double	 speed;
+	int		 hp;
 
 	POINT	 frame;
 
@@ -37,5 +41,6 @@ private:
 	double	 randomTime;
 
 	BulletManager* bullets;
+	Plane* player;
 };
 

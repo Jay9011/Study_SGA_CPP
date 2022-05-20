@@ -17,7 +17,7 @@ MainGame::MainGame()
 
 	TextureManager::Create();
 		  Keyboard::Create();
-
+		      Time::Create();
 	//scene = new PaintScene();
 	//scene = new CollisionScene();
 	//scene = new FortressScene();
@@ -30,7 +30,8 @@ MainGame::MainGame()
 MainGame::~MainGame()
 {
 	delete scene;
-
+	
+	          Time::Delete();
 		  Keyboard::Delete();
 	TextureManager::Delete();
 
@@ -39,6 +40,8 @@ MainGame::~MainGame()
 
 void MainGame::Update()
 {
+	Time::Get()->Update();
+
 	scene->Update();
 }
 
@@ -51,6 +54,7 @@ void MainGame::Render(HDC hdc)
 		  );
 
 	scene->Render(backDC);
+	Time::Get()->Render();
 
 	BitBlt(	   hdc, 0, 0, WIN_WIDTH, WIN_HEIGHT, 
 			backDC, 0, 0, 

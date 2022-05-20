@@ -2,7 +2,9 @@
 #include "Plane.h"
 
 Plane::Plane()
-	: speed(20)
+	: speed(200)
+	, hp(3)
+	, dead(false)
 {
 	texture = TextureManager::Get()->AddTexture("Plane", L"Textures/airplane.png");
 
@@ -19,6 +21,9 @@ Plane::~Plane()
 
 void Plane::Update()
 {
+	if (dead)
+		return;
+
 	Move();
 	Shoot();
 	bullets->Update();
@@ -26,6 +31,9 @@ void Plane::Update()
 
 void Plane::Render()
 {
+	if (dead)
+		return;
+	
 	texture->Render(rect);
 	bullets->Render();
 }
@@ -34,20 +42,20 @@ void Plane::Move()
 {
 	if (KEY_PRESS(VK_LEFT))
 	{
-		rect->Pos() += V_LEFT * speed;
+		rect->Pos() += V_LEFT * speed * Time::Delta();
 	}
 	if (KEY_PRESS(VK_RIGHT))
 	{
-		rect->Pos() += V_RIGHT * speed;
+		rect->Pos() += V_RIGHT * speed * Time::Delta();
 	}
 
 	if (KEY_PRESS(VK_UP))
 	{
-		rect->Pos() += V_UP * speed;
+		rect->Pos() += V_UP * speed * Time::Delta();
 	}
 	if (KEY_PRESS(VK_DOWN))
 	{
-		rect->Pos() += V_DOWN * speed;
+		rect->Pos() += V_DOWN * speed * Time::Delta();
 	}
 }
 
@@ -55,12 +63,15 @@ void Plane::Shoot()
 {
 	if (KEY_DOWN(VK_SPACE))
 	{
-		bullets->Fire(Vector2(rect->Pos().x, rect->Top()), V_UP, 10);
+		bullets->Fire(Vector2(rect->Pos().x, rect->Top()), V_UP, 400);
 	}
 }
 
 void Plane::Collision(EnemyManager* enemies)
 {
+	if (dead)
+		return;
+
 	for (Enemy* enemy : enemies->GetEnemies())
 	{
 		if (enemy->IsActive())
@@ -76,7 +87,16 @@ void Plane::Collision(EnemyManager* enemies)
 			{
 				if (Collision::Collision(rect, bullet->GetRect()))
 				{
+					if (!bullet->IsFire())
+						return;
+
+					--hp;
 					bullet->IsFire() = false;
+
+					if (hp <= 0)
+					{
+						dead = true;
+					}
 
 					break;
 				}

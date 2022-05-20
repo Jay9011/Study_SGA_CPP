@@ -55,6 +55,7 @@ using namespace std;
 //Utility
 #include "Vector2.h"
 #include "Keyboard.h"
+#include "Time.h"
 
 //Object
 #include "Point.h"

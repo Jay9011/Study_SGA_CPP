@@ -28,12 +28,12 @@ void EnemyManager::Update()
 		enemy->Update();
 	}
 	
-	++time;
+	time += Time::Delta();
 	if (time > randomTime)
 	{
 		SpawnEnemy();
 		time = 0;
-		randomTime = Math::Random(10.0, 30.0);
+		randomTime = Math::Random(1.0, 3.0);
 	}
 }
 
@@ -56,6 +56,7 @@ void EnemyManager::SpawnEnemy()
 			pos.y = -(enemy->GetRect()->Size().y);
 
 			enemy->GetRect()->Pos() = pos;
+			enemy->SetHp(2);
 
 			enemy->IsActive() = true;
 
@@ -69,5 +70,13 @@ void EnemyManager::Collision(Plane* player)
 	for (Enemy* enemy : enemies)
 	{
 		enemy->Collision(player);
+	}
+}
+
+void EnemyManager::SetPlayer(Plane* player)
+{
+	for (Enemy* enemy : enemies)
+	{
+		enemy->SetPlayer(player);
 	}
 }

@@ -2,7 +2,7 @@
 #include "Bullet.h"
 
 Bullet::Bullet()
-	: speed(10)
+	: speed(200)
 	, dir(V_UP)
 	, isFire(false)
 {
@@ -21,7 +21,7 @@ void Bullet::Update()
 	if (!isFire)
 		return;
 
-	rect->Pos() += dir * speed;
+	rect->Pos() += dir * speed * Time::Delta();
 
 	// 화면 밖으로 나가는 경우
 	if (   rect->Bottom() < 0

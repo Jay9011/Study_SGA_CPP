@@ -13,6 +13,7 @@ public:
 
 	void Collision(EnemyManager* enemies);
 
+	Rect* GetRect() { return rect; }
 	BulletManager* GetBulletManager() { return bullets; }
 
 private:
@@ -20,6 +21,8 @@ private:
 	Rect*	 rect;
 
 	double	 speed;
+	int			hp;
+	bool	  dead;
 
 	BulletManager* bullets;
 };

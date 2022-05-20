@@ -4,11 +4,12 @@
 TextureScene::TextureScene()
 	: time(0)
 {
-	background	= TextureManager::Get()->AddTexture("BTS", L"Textures/BTS.bmp");
-	bgRect   = new Rect(0, 0, WIN_WIDTH, WIN_HEIGHT);
+	background	= TextureManager::Get()->AddTexture("Space", L"Textures/Space.jpg");
+	bgRect   = new Rect(0, 0, background->GetFrameSize().x, background->GetFrameSize().y);
 
 	enemies = new EnemyManager(30);
 	plane = new Plane();
+	enemies->SetPlayer(plane);
 }
 
 TextureScene::~TextureScene()
