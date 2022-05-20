@@ -49,6 +49,8 @@ Enemy::~Enemy()
 
 void Enemy::Update()
 {
+	bullets->Update();
+
 	if (!isActive)
 		return;
 
@@ -62,17 +64,16 @@ void Enemy::Update()
 		Shoot();
 		Move();
 	}
-
-	bullets->Update();
 }
 
 void Enemy::Render()
 {
+	bullets->Render();
+
 	if (!isActive)
 		return;
 
 	texture->Render(rect, frame);
-	bullets->Render();
 }
 
 void Enemy::Move()
