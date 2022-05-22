@@ -37,8 +37,8 @@ protected:
 	Vector2		destroyImgRectSize;
 	POINT		destroyFrame;
 
-	int			frameTime;
-	int			destroyTime;
+	double		frameTime;
+	double		destroyTime;
 
 private:
 	// Debug Object

@@ -5,7 +5,8 @@ EnemyManager* EnemyManager::instance = nullptr;
 
 EnemyManager::EnemyManager()
 	: timer(0)
-	, maxTimer(100)
+	, maxTimer(1.6)
+	, deltaScoreTimer(0.1)
 	, usableAPoint(0)
 {
 	SetSpawnPoint();
@@ -79,13 +80,13 @@ void EnemyManager::EnemySpawn()
 {
 	if (timer < maxTimer)
 	{
-		++timer;
+		timer += Time::Delta();
 	}
 
 	// Check spawn Timer
-	int newTimer = maxTimer - (PlayerManager::Get()->player->GetScore() / 2);
-	if (newTimer < 10)
-		newTimer = 10;
+	double newTimer = maxTimer - (PlayerManager::Get()->player->GetScore() * 0.5 * deltaScoreTimer);
+	if (newTimer < .2)
+		newTimer = .2;
 
 	if (timer < newTimer)
 		return;

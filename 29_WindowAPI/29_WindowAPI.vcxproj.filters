@@ -169,10 +169,10 @@
       <Filter>GameObject\Shooting</Filter>
     </ClInclude>
     <ClInclude Include="BulletManager.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>GameObject\Shooting</Filter>
     </ClInclude>
     <ClInclude Include="Time.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>Utility</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -291,10 +291,10 @@
       <Filter>GameObject\Shooting</Filter>
     </ClCompile>
     <ClCompile Include="BulletManager.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>GameObject\Shooting</Filter>
     </ClCompile>
     <ClCompile Include="Time.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>Utility</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

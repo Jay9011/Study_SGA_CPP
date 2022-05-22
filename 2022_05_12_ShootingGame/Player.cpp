@@ -8,11 +8,13 @@ Player::Player()
 	, score(0)
 	, invincibility(false)
 	, inviTime(0)
+	, dtInviTime(0)
+	, chInviTime(.2)
 	, bodyFrame({ 2, 0 })
 	, bodyHide(false)
-	, velocity(3)
+	, velocity(180)
 	, curReloadTime(0)
-	, maxReloadTime(10)
+	, maxReloadTime(.16)
 	, frameTime(0)
 	, oldpen(nullptr)
 	, oldbrush(nullptr)
@@ -46,13 +48,13 @@ void Player::Update()
 	state = PLAYERSTATE::NONE;
 	if (curReloadTime < maxReloadTime)
 	{
-		++curReloadTime;
+		curReloadTime += Time::Delta();
 	}
 
 	// Key State
-	if (GetAsyncKeyState(VK_LEFT))
+	if (KEY_PRESS(VK_LEFT))
 	{
-		bodyImgRect->Pos() += Vector2(-1, 0) * velocity;
+		bodyImgRect->Pos() += Vector2(-1, 0) * velocity * Time::Delta();
 
 		if (bodyImgRect->Left() < 0)
 		{
@@ -61,9 +63,9 @@ void Player::Update()
 
 		state = PLAYERSTATE::MOVE_LEFT;
 	}
-	else if (GetAsyncKeyState(VK_RIGHT))
+	else if (KEY_PRESS(VK_RIGHT))
 	{
-		bodyImgRect->Pos() += Vector2(+1, 0) * velocity;
+		bodyImgRect->Pos() += Vector2(+1, 0) * velocity * Time::Delta();
 
 		if (bodyImgRect->Right() > WIN_WIDTH)
 		{
@@ -73,7 +75,7 @@ void Player::Update()
 		state = PLAYERSTATE::MOVE_RIGHT;
 	}
 
-	if (GetAsyncKeyState(VK_SPACE))
+	if (KEY_PRESS(VK_SPACE))
 	{
 		if (curReloadTime >= maxReloadTime)
 		{
@@ -86,8 +88,8 @@ void Player::Update()
 	collider->Pos() = { bodyImgRect->Pos().x, bodyImgRect->Pos().y - 2 };
 
 	// frame Change
-	++frameTime;
-	if (frameTime > 10)
+	frameTime += Time::Delta();
+	if (frameTime > 0.16)
 	{
 		frameTime = 0;
 		++bodyFrame.y %= 2;
@@ -114,15 +116,19 @@ void Player::Update()
 
 	if (invincibility)
 	{
-		++inviTime;
-		if (inviTime > 50)
+		dtInviTime += Time::Delta();
+		inviTime += Time::Delta();
+		if (inviTime > 1.)
 		{
 			invincibility = false;
 			inviTime = 0;
+			dtInviTime = 0;
 		}
-		else if (inviTime % 10 == 1)
+
+		if (dtInviTime > chInviTime)
 		{
 			bodyHide = !bodyHide;
+			dtInviTime = 0;
 		}
 	}
 	else
@@ -140,6 +146,7 @@ void Player::Update()
 			{
 				bullet->Destroy();
 				--curHp;
+				dtInviTime = chInviTime;
 				invincibility = true;
 			}
 		}
@@ -168,7 +175,7 @@ void Player::Render(HDC hdc)
 	wstring scoreText = to_wstring(score);
 	SetTextAlign(hdc, TA_RIGHT);
 	TextOut(hdc, WIN_WIDTH - 20, WIN_HEIGHT - 20, scoreText.c_str(), (int)scoreText.length());
-	SetTextAlign(hdc, TA_CENTER);
+	SetTextAlign(hdc, TA_NOUPDATECP);
 
 	// Debug
 	//oldpen   = (HPEN)	SelectObject(hdc, pen);

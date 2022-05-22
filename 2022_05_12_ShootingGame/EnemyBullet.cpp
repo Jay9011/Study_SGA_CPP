@@ -4,7 +4,7 @@
 EnemyBullet::EnemyBullet(Texture* _bulletImg, Texture* _destroyImg)
 	: Bullet(_bulletImg, _destroyImg)
 {
-	velocity = 5;
+	velocity = 300;
 	bulletFrame.y = 0;
 	collider->Radius() = 3;
 }
@@ -20,8 +20,8 @@ void EnemyBullet::Update()
 	bulletImgRect->Pos() = collider->Pos();
 	if (isUse)
 	{
-		++frameTime;
-		if (frameTime > 3)
+		frameTime += Time::Delta();
+		if (frameTime > .05)
 		{
 			frameTime = 0;
 			++bulletFrame.x %= 2;

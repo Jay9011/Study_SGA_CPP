@@ -132,6 +132,12 @@
     <ClInclude Include="UIManager.h">
       <Filter>GameObject\Shooting</Filter>
     </ClInclude>
+    <ClInclude Include="Time.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Keyboard.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainGame.cpp">
@@ -202,6 +208,12 @@
     </ClCompile>
     <ClCompile Include="UIManager.cpp">
       <Filter>GameObject\Shooting</Filter>
+    </ClCompile>
+    <ClCompile Include="Time.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Keyboard.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

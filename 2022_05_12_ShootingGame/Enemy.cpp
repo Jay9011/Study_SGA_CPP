@@ -5,7 +5,7 @@ Enemy::Enemy()
 	: type(ENEMY_TYPE::END)
 	, maxHp(1)
 	, curHp(maxHp)
-	, velocity(3)
+	, velocity(180)
 	, direction({ 0, 0 })
 	, spawnPoint(nullptr)
 	, arrivalPoint(nullptr)
@@ -37,8 +37,8 @@ void Enemy::Update()
 {
 	if (type != ENEMY_TYPE::END)
 	{
-		++frameTime;
-		if (frameTime > 7)
+		frameTime += Time::Delta();
+		if (frameTime > 0.2)
 		{
 			frameTime = 0;
 			++bodyFrame.x %= 2;
@@ -52,8 +52,8 @@ void Enemy::Update()
 		bodyImgRect->Pos() = collider->Pos();
 
 		// Enemy Fire
-		++reloadTime;
-		if (reloadTime > 80)
+		reloadTime += Time::Delta();
+		if (reloadTime > 1.3)
 		{
 			reloadTime = 0;
 			Vector2 bulletPos = { collider->Pos().x
@@ -115,7 +115,7 @@ void Enemy::Init()
 	maxHp = 1;
 	curHp = maxHp;
 
-	velocity = 3;
+	velocity = 180;
 
 	spawnPoint->isUse = false;
 	spawnPoint = nullptr;
@@ -196,15 +196,15 @@ void Enemy::Move()
 	double distance = Math::Distance(arrivalPoint->pos, collider->Pos());
 	if (distance > 50)
 	{
-		velocity = 3;
+		velocity = 180;
 	}
 	else if (distance > 20)
 	{
-		velocity = 2;
+		velocity = 120;
 	}
 	else if (distance > 10)
 	{
-		velocity = 1;
+		velocity = 60;
 	}
 	else
 	{
@@ -214,7 +214,7 @@ void Enemy::Move()
 	direction = arrivalPoint->pos - collider->Pos();
 	direction.Normalize();
 
-	collider->Pos() += direction * velocity;
+	collider->Pos() += direction * velocity * Time::Delta();
 }
 
 void Enemy::Destroy()

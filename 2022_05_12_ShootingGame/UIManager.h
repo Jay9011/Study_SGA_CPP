@@ -17,8 +17,10 @@ private:
 	Texture*	bgImg;
 	Rect*		bgImgRect[bgCnt];
 	POINT		bgFrame;
+	double		bgSpeed;
 
 	Texture*	cloudsImg;
 	Rect*		cloudsImgRect[cloudCnt];
+	double		cloudsSpeed;
 };
 

@@ -43,8 +43,8 @@ private:
 	Rect*		bodyImgRect;
 	POINT		bodyFrame;
 
-	int			frameTime;
-	int			reloadTime;
+	double		frameTime;
+	double		reloadTime;
 
 	// Debug Object
 	HPEN	oldpen;

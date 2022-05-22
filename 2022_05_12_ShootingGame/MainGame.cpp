@@ -11,16 +11,24 @@ MainGame::MainGame()
 	
 	ReleaseDC(hWnd, hdc);
 	srand((unsigned int)time(NULL));
+
+	Keyboard::Create();
+	Time::Create();
+
 	scene = new ShootingScene();
 }
 
 MainGame::~MainGame()
 {
 	delete scene;
+
+	Time::Delete();
+	Keyboard::Delete();
 }
 
 void MainGame::Update()
 {
+	Time::Get()->Update();
 	scene->Update();
 }
 
@@ -33,6 +41,7 @@ void MainGame::Render(HDC hdc)
 		  );
 
 	scene->Render(backDC);
+	Time::Get()->Render();
 
 	BitBlt(	   hdc, 0, 0, WIN_WIDTH, WIN_HEIGHT, 
 			backDC, 0, 0, 

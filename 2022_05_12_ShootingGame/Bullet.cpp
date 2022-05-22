@@ -5,7 +5,7 @@ Bullet::Bullet(Texture* _bulletImg, Texture* _destroyImg)
 	: isUse(false)
 	, isDestroying(false)
 	, damage(1)
-	, velocity(5)
+	, velocity(300)
 	, bulletImgRectSize({ 16, 16 })
 	, bulletFrame({ 0, 0 })
 	, destroyImgRectSize({ 16, 16 })
@@ -48,7 +48,7 @@ void Bullet::Update()
 
 	if (isUse)
 	{
-		collider->Pos() += direction * velocity;
+		collider->Pos() += direction * velocity * Time::Delta();
 		bulletImgRect->Pos() = collider->Pos();
 
 		if (	bulletImgRect->Bottom() < 0
@@ -89,7 +89,7 @@ void Bullet::Fire(Vector2 pos, Vector2 dir)
 
 void Bullet::Destroy()
 {
-	++destroyTime;
+	destroyTime += Time::Delta();
 
 	if (!isDestroying)
 	{
@@ -100,7 +100,7 @@ void Bullet::Destroy()
 		collider->Pos() = { -100, -100 };
 	}
 
-	if (destroyTime > 2)
+	if (destroyTime > .05)
 	{
 		destroyTime = 0;
 		++destroyFrame.x;

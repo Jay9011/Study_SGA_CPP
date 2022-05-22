@@ -5,10 +5,12 @@ UIManager* UIManager::instance = nullptr;
 
 UIManager::UIManager()
 	: bgFrame({0 ,0})
+	, bgSpeed(60)
+	, cloudsSpeed(120)
 {
 	bgImg	  = TextureManager::Get()->AddTexture("background", L"Textures/background.png");
 	cloudsImg = TextureManager::Get()->AddTexture("clouds", L"Textures/clouds.png");
-
+	
 	for (int i = 0; i < bgCnt; i++)
 	{
 		bgImgRect[i] = new Rect({ WIN_CENTER_X, (272.0 * (i + 1.0)) - 272.0 }, { 256, 272 });
@@ -37,7 +39,7 @@ void UIManager::Update()
 {
 	for (int i = 0; i < bgCnt; i++)
 	{
-		bgImgRect[i]->Pos() += Vector2(0, 1);
+		bgImgRect[i]->Pos() += Vector2(0, bgSpeed * Time::Delta());
 
 		// Over Screen
 		if (bgImgRect[i]->Top() >= (double)WIN_HEIGHT + 20)
@@ -57,7 +59,7 @@ void UIManager::Update()
 	
 	for (int i = 0; i < cloudCnt; i++)
 	{
-		cloudsImgRect[i]->Pos() += Vector2(0, 2);
+		cloudsImgRect[i]->Pos() += Vector2(0, cloudsSpeed * Time::Delta());
 
 		// Over Screen
 		if (cloudsImgRect[i]->Top() >= (double)WIN_HEIGHT + 20)

@@ -29,7 +29,9 @@ private:
 	int			maxScore;
 	int			score;
 	bool		invincibility;
-	int			inviTime;
+	double		inviTime;
+	double		dtInviTime;
+	double		chInviTime;
 
 	double		velocity;
 	PLAYERSTATE	state;
@@ -40,9 +42,9 @@ private:
 	POINT		bodyFrame;
 	bool		bodyHide;
 
-	int			curReloadTime;
-	int			maxReloadTime;
-	int			frameTime;
+	double		curReloadTime;
+	double		maxReloadTime;
+	double		frameTime;
 	
 	// GdiPlus
 	Gdiplus::Graphics* graphics;

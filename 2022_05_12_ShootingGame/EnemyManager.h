@@ -20,8 +20,10 @@ private:
 	void SetArrivalPoint();
 	bool EnemySetting(PointFlag* point);
 
-	int	timer;
-	int maxTimer;
+	double	timer;
+	double	maxTimer;
+	double	deltaScoreTimer;
+
 	int usableAPoint;
 	Texture*		enemyImg[(int)ENEMY_TYPE::END];
 
