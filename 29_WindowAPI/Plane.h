@@ -21,8 +21,6 @@ private:
 	Rect*	 rect;
 
 	double	 speed;
-	int			hp;
-	bool	  dead;
 
 	BulletManager* bullets;
 };

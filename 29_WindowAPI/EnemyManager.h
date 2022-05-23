@@ -13,10 +13,9 @@ public:
 
 	void SpawnEnemy();
 
-	void Collision(Plane* player);
+	void GetPlayer(Plane* player);
 
 	vector<Enemy*>& GetEnemies() { return enemies; }
-	void SetPlayer(Plane* player);
 
 private:
 	vector<Enemy*> enemies;

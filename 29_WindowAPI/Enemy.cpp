@@ -51,21 +51,21 @@ Enemy::~Enemy()
 
 void Enemy::Update()
 {
+	time += Time::Delta();
+
 	bullets->Update();
 
 	if (!isActive)
 		return;
 
 	++frame.x %= texture->GetMaxFrame().x;
-
-	rect->Pos() += dir * speed * Time::Delta();
-
-	time += Time::Delta();
+	
+	Move();
 
 	if (time > randomTime)
 	{
 		Shoot();
-		Move();
+		ChangeDirection();
 	}
 }
 
@@ -81,22 +81,27 @@ void Enemy::Render()
 
 void Enemy::Move()
 {
+	rect->Pos() += dir * speed * Time::Delta();
+
+	if (rect->Top() > WIN_HEIGHT)
+	{
+		isActive = false;
+	}
+}
+
+void Enemy::ChangeDirection()
+{
 	dir.x *= -1;
 	time = 0;
-	randomTime = Math::Random(1.0, 2.0);
+	randomTime = Math::Random(0.5, 1.0);
 }
 
 void Enemy::Shoot()
 {
 	if (time > randomTime)
 	{
-		bullets->Fire(Vector2(rect->Pos().x, rect->Bottom()), (player->GetRect()->Pos() - rect->Pos()).Normalize(), 300);
+		bullets->Fire(Vector2(rect->Pos().x, rect->Bottom()), targetDir, 300);
 	}
-}
-
-void Enemy::SetPlayer(Plane* player)
-{
-	this->player = player;
 }
 
 void Enemy::Collision(Plane* player)
@@ -122,4 +127,19 @@ void Enemy::Collision(Plane* player)
 			return;
 		}
 	}
+}
+
+void Enemy::SetTarget(Plane* player)
+{
+	for (Bullet* bullet : bullets->GetBullets())
+	{
+		targetDir = (player->GetRect()->Pos() - bullet->GetRect()->Pos()).Normal();
+		bullet->SetDir(targetDir);
+	}
+}
+
+void Enemy::GetPlayer(Plane* player)
+{
+	SetTarget(player);
+	Collision(player);
 }

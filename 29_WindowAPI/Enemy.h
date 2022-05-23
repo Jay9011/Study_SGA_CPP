@@ -13,6 +13,7 @@ public:
 	void Render();
 
 	void Move();
+	void ChangeDirection();
 	void Shoot();
 
 	bool& IsActive() { return isActive; }
@@ -20,10 +21,13 @@ public:
 	
 	void SetHp(int _hp) { hp = _hp; }
 
-	void SetPlayer(Plane* player);
+	void GetPlayer(Plane* player);
 	void Collision(Plane* player);
 
 	BulletManager* GetBulletManager() { return bullets; }
+
+	void SetTarget(Plane* player);
+	void SetTargetDir(Vector2 _dir) { this->targetDir = _dir; }
 
 private:
 	Texture* texture;
@@ -41,6 +45,6 @@ private:
 	double	 randomTime;
 
 	BulletManager* bullets;
-	Plane* player;
+	Vector2 targetDir;
 };
 

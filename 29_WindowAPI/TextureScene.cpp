@@ -9,7 +9,6 @@ TextureScene::TextureScene()
 
 	enemies = new EnemyManager(30);
 	plane = new Plane();
-	enemies->SetPlayer(plane);
 }
 
 TextureScene::~TextureScene()
@@ -22,11 +21,17 @@ TextureScene::~TextureScene()
 
 void TextureScene::Update()
 {
+	// update 전 처리
+	enemies->GetPlayer(plane);
+
+	/*
+		본격 update
+	*/
 	  plane->Update();
 	enemies->Update();
 
+	// update 이후 처리
 	  plane->Collision(enemies);
-	enemies->Collision(plane);
 }
 
 void TextureScene::Render(HDC hdc)

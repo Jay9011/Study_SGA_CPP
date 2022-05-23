@@ -12,6 +12,8 @@ public:
 	bool& IsFire() { return isFire; }
 	Rect* GetRect() { return rect; }
 
+	void SetDir(Vector2 _dir) { this->dir = _dir; }
+
 private:
 	Texture* texture;
 	Rect*	 rect;

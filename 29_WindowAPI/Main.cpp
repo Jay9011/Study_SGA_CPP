@@ -46,15 +46,34 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     mainGame = new MainGame();
 
-    // 기본 메시지 루프입니다:
-    while (GetMessage(&msg, nullptr, 0, 0))
+    while (true)
     {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
         {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
+            if (msg.message == WM_QUIT)
+                break;
+
+            if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+            {
+                TranslateMessage(&msg);
+                DispatchMessage(&msg);
+            }
+        }
+        else
+        {
+            mainGame->Update();
+            InvalidateRect(hWnd, nullptr, false);
         }
     }
+    //// 기본 메시지 루프입니다:
+    //while (GetMessage(&msg, nullptr, 0, 0))
+    //{
+    //    if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+    //    {
+    //        TranslateMessage(&msg);
+    //        DispatchMessage(&msg);
+    //    }
+    //}
 
     return (int) msg.wParam;
 }
@@ -140,13 +159,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     {
     case WM_CREATE: //생성자
         {
-            SetTimer(hWnd, 1, 1000/144, nullptr);
+            //SetTimer(hWnd, 1, 1000/144, nullptr);
         }
         break;
     case WM_TIMER:
         {
-            mainGame->Update();
-            InvalidateRect(hWnd, nullptr, false);
+            // 타이머 메시지 수신시
         }
         break;
     case WM_COMMAND:

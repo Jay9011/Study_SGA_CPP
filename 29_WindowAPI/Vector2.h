@@ -22,8 +22,9 @@ public:
 	double  VectorToAngle();
 	Vector2 AngleToVector(double angle);
 
-	double	   Length();
-	Vector2&   Normalize();
+	double		Length();
+	Vector2&	Normalize();
+	Vector2		Normal();
 
 	double	  Dot(Vector2& other);
 	double	Cross(Vector2& other);
@@ -33,12 +34,12 @@ public:
 	Vector2 operator + (const Vector2& other) const;
 	Vector2 operator - (const Vector2& other) const;
 
-	void operator += (const Vector2& other);
-	void operator -= (const Vector2& other);
+	void	operator += (const Vector2& other);
+	void	operator -= (const Vector2& other);
 
 	Vector2 operator * (const double& other) const;
 	Vector2 operator / (const double& other) const;
 
-	void operator *= (const double& other);
-	void operator /= (const double& other);
+	void	operator *= (const double& other);
+	void	operator /= (const double& other);
 };

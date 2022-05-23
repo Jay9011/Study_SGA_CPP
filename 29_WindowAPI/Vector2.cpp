@@ -39,6 +39,11 @@ Vector2& Vector2::Normalize()
 	return *this;
 }
 
+Vector2 Vector2::Normal()
+{
+	return Vector2(this->x, this->y) / Length();
+}
+
 double Vector2::Dot(Vector2& other)
 {
 	return (this->x * other.x) + (this->y * other.y);

@@ -65,18 +65,10 @@ void EnemyManager::SpawnEnemy()
 	}
 }
 
-void EnemyManager::Collision(Plane* player)
+void EnemyManager::GetPlayer(Plane* player)
 {
 	for (Enemy* enemy : enemies)
 	{
-		enemy->Collision(player);
-	}
-}
-
-void EnemyManager::SetPlayer(Plane* player)
-{
-	for (Enemy* enemy : enemies)
-	{
-		enemy->SetPlayer(player);
+		enemy->GetPlayer(player);
 	}
 }

@@ -3,8 +3,6 @@
 
 Plane::Plane()
 	: speed(200)
-	, hp(3)
-	, dead(false)
 {
 	texture = TextureManager::Get()->AddTexture("Plane", L"Textures/airplane.png");
 
@@ -21,9 +19,6 @@ Plane::~Plane()
 
 void Plane::Update()
 {
-	if (dead)
-		return;
-
 	Move();
 	Shoot();
 	bullets->Update();
@@ -31,9 +26,6 @@ void Plane::Update()
 
 void Plane::Render()
 {
-	if (dead)
-		return;
-	
 	texture->Render(rect);
 	bullets->Render();
 }
@@ -69,9 +61,6 @@ void Plane::Shoot()
 
 void Plane::Collision(EnemyManager* enemies)
 {
-	if (dead)
-		return;
-
 	for (Enemy* enemy : enemies->GetEnemies())
 	{
 		if (enemy->IsActive())
@@ -90,13 +79,7 @@ void Plane::Collision(EnemyManager* enemies)
 					if (!bullet->IsFire())
 						return;
 
-					--hp;
 					bullet->IsFire() = false;
-
-					if (hp <= 0)
-					{
-						dead = true;
-					}
 
 					break;
 				}
