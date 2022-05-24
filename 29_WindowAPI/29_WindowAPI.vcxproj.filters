@@ -171,8 +171,14 @@
     <ClInclude Include="BulletManager.h">
       <Filter>GameObject\Shooting</Filter>
     </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
     <ClInclude Include="Time.h">
       <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationScene.h">
+      <Filter>Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -293,8 +299,14 @@
     <ClCompile Include="BulletManager.cpp">
       <Filter>GameObject\Shooting</Filter>
     </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
     <ClCompile Include="Time.cpp">
       <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationScene.cpp">
+      <Filter>Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

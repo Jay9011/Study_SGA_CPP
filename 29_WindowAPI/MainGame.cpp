@@ -17,14 +17,17 @@ MainGame::MainGame()
 
 	TextureManager::Create();
 		  Keyboard::Create();
-		      Time::Create();
+	          Time::Create();
+	{}
 	//scene = new PaintScene();
 	//scene = new CollisionScene();
 	//scene = new FortressScene();
 	//scene = new ArkanoidScene();
 	//scene = new SGAArkanoidScene();
 	//scene = new ImageScene();
-	scene = new TextureScene();
+	//scene = new TextureScene();
+	scene = new AnimationScene();
+
 }
 
 MainGame::~MainGame()

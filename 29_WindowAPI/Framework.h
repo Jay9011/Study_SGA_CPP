@@ -66,6 +66,7 @@ using namespace std;
 //Framework
 #include "Texture.h"
 #include "TextureManager.h"
+#include "Animation.h"
 
 //Utility
 #include "Math.h"
@@ -105,6 +106,7 @@ using namespace Math;
 #include "SGAArkanoidScene.h"
 #include "ImageScene.h"
 #include "TextureScene.h"
+#include "AnimationScene.h"
 
 #include "MainGame.h"
 
