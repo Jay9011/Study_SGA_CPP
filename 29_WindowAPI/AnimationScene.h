@@ -13,5 +13,7 @@ private:
 	
 	Texture* texture;
 	Rect* rect;
+
+	Mario* mario;
 };
 

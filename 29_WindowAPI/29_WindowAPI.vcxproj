@@ -167,6 +167,7 @@
     <ClInclude Include="Main.h" />
     <ClInclude Include="Framework.h" />
     <ClInclude Include="MainGame.h" />
+    <ClInclude Include="Mario.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="PaintScene.h" />
     <ClInclude Include="Plane.h" />
@@ -216,6 +217,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="MainGame.cpp" />
+    <ClCompile Include="Mario.cpp" />
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="PaintScene.cpp" />
     <ClCompile Include="Plane.cpp" />

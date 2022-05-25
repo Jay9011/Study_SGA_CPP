@@ -43,6 +43,9 @@
     <Filter Include="GameObject\Shooting">
       <UniqueIdentifier>{74982828-e75c-4fcf-8158-4da25a78508c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Mario">
+      <UniqueIdentifier>{bb86c25f-9373-4090-90c4-ad316eab278c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -180,6 +183,9 @@
     <ClInclude Include="AnimationScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
+    <ClInclude Include="Mario.h">
+      <Filter>GameObject\Mario</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PaintScene.cpp">
@@ -307,6 +313,9 @@
     </ClCompile>
     <ClCompile Include="AnimationScene.cpp">
       <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Mario.cpp">
+      <Filter>GameObject\Mario</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -96,6 +96,8 @@ using namespace Math;
 #include "Enemy.h"
 #include "EnemyManager.h"
 #include "Plane.h"
+//GameObject - Mario
+#include "Mario.h"
 
 //Scene
 #include "Scene.h"
