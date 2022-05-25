@@ -5,6 +5,7 @@ Animation::Animation(Texture* texture, double updateTime)
 	: curPlayIndex(0)
 	, isPlay(false)
 	, isLoop(false)
+	, isRewind(false)
 	, time(0)
 	, updateTime(updateTime)
 {
@@ -49,26 +50,58 @@ void Animation::Update()
 	}
 }
 
-void Animation::SetDefault(bool isLoop)
+void Animation::SetDefault(bool isLoop, bool isRewind)
 {
 	actions.clear();
 
 	this->isLoop = isLoop;
+	this->isRewind = isRewind;
 
 	for (UINT i = 0; i < maxPlayIndex; i++)
 	{
 		actions.push_back(i);
 	}
+
+	SetRewind();
 }
 
-void Animation::SetPart(UINT start, UINT end, bool isLoop)
+void Animation::SetPart(UINT start, UINT end, bool isLoop, bool isRewind)
 {
 	actions.clear();
 
 	this->isLoop = isLoop;
+	this->isRewind = isRewind;
 
 	for (UINT i = start; i <= end; i++)
 	{
 		actions.push_back(i);
+	}
+
+	SetRewind();
+}
+
+void Animation::SetArray(UINT* arr, UINT arrSize, bool isLoop, bool isRewind)
+{
+	actions.clear();
+
+	this->isLoop = isLoop;
+	this->isRewind = isRewind;
+
+	for (UINT i = 0; i < arrSize / sizeof(UINT); i++)
+	{
+		actions.push_back(arr[i]);
+	}
+
+	SetRewind();
+}
+
+void Animation::SetRewind()
+{
+	if (!isRewind)
+		return;
+
+	for (int i = actions.size() - 2; i >= 0; i--)
+	{
+		actions.push_back(actions[i]);
 	}
 }

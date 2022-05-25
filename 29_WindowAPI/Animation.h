@@ -9,9 +9,13 @@ public:
 	void Update();
 
 	// 첫 프레임부터 끝 프레임까지 전부 사용하도록 세팅
-	void SetDefault(bool isLoop = false);
+	void SetDefault(bool isLoop = false, bool isRewind = false);
 	// 일부 프레임들만 사용하도록 세팅
-	void SetPart(UINT start, UINT end, bool isLoop = false);
+	void SetPart(UINT start, UINT end, bool isLoop = false, bool isRewind = false);
+	// 특정 프레임들만 사용하도록 세팅
+	void SetArray(UINT* arr, UINT arrSize, bool isLoop = false, bool isRewind = false);
+
+	void SetRewind();
 
 	void Play()
 	{
@@ -41,6 +45,7 @@ private:
 
 	bool isPlay;
 	bool isLoop;
+	bool isRewind;
 
 	double time;
 	double updateTime;
