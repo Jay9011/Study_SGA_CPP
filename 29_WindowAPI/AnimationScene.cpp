@@ -9,8 +9,8 @@ AnimationScene::AnimationScene()
 	//animation->SetDefault(true);
 	//animation->SetPart(0, 1, true);
 	
-	UINT arr[] = { 0, 15, 2, 8 };
-	animation->SetArray(arr, sizeof(arr), true, true);
+	vector<UINT> arr = { 0, 15, 2, 8 };
+	animation->SetVector(arr, true, true);
 	animation->Play();
 
 	rect = new Rect({ WIN_CENTER_X, WIN_CENTER_Y }, texture->GetFrameSize());

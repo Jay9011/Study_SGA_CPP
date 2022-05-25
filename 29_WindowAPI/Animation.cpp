@@ -80,17 +80,14 @@ void Animation::SetPart(UINT start, UINT end, bool isLoop, bool isRewind)
 	SetRewind();
 }
 
-void Animation::SetArray(UINT* arr, UINT arrSize, bool isLoop, bool isRewind)
+void Animation::SetVector(vector<UINT> vector, bool isLoop, bool isRewind)
 {
 	actions.clear();
 
 	this->isLoop = isLoop;
 	this->isRewind = isRewind;
 
-	for (UINT i = 0; i < arrSize / sizeof(UINT); i++)
-	{
-		actions.push_back(arr[i]);
-	}
+	actions = vector;
 
 	SetRewind();
 }

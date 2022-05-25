@@ -13,7 +13,7 @@ public:
 	// 일부 프레임들만 사용하도록 세팅
 	void SetPart(UINT start, UINT end, bool isLoop = false, bool isRewind = false);
 	// 특정 프레임들만 사용하도록 세팅
-	void SetArray(UINT* arr, UINT arrSize, bool isLoop = false, bool isRewind = false);
+	void SetVector(vector<UINT> vector, bool isLoop = false, bool isRewind = false);
 
 	void SetRewind();
 
