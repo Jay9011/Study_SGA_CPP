@@ -161,6 +161,7 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyManager.h" />
     <ClInclude Include="FortressScene.h" />
+    <ClInclude Include="Landscape.h" />
     <ClInclude Include="ImageScene.h" />
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Line.h" />
@@ -209,6 +210,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyManager.cpp" />
     <ClCompile Include="FortressScene.cpp" />
+    <ClCompile Include="Landscape.cpp" />
     <ClCompile Include="ImageScene.cpp" />
     <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="Line.cpp" />

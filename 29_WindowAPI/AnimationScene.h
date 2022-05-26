@@ -15,5 +15,6 @@ private:
 	Rect* rect;
 
 	Mario* mario;
+	Landscape* landscape;
 };
 
