@@ -31,6 +31,11 @@ public:
         cout << "Defense!" << endl;
     }
 
+    int Add(int a, int b)
+    {
+        cout << (a + b) << endl;
+        return a + b;
+    }
 private:
 
 };
@@ -68,10 +73,14 @@ int main()
     Game game;
 
     void (Game:: * GameFunction)();
+    int (Game:: * GameAdd)(int, int);
 
     GameFunction = &Game::Attack;
     (game.*GameFunction)();
 
     GameFunction = &Game::Defense;
     (game.*GameFunction)();
+
+    GameAdd = &Game::Add;
+    (game.*GameAdd)(10, 20);
 }
