@@ -25,7 +25,7 @@ public:
 	void Attack();
 	void Jump();
 
-	void SetAction(State state);
+	void SetAction(int state);
 	
 	void AddAction();
 

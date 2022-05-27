@@ -6,7 +6,7 @@ Mario::Mario()
 {}
 
 Mario::Mario(Landscape* landscape)
-	: moveSpeed(200)
+	: moveSpeed(500)
 	, state(IDLE_R)
 	, isJump(false)
 	, jumpSpeed(0)
@@ -81,12 +81,12 @@ void Mario::Move()
 	}
 }
 
-void Mario::SetAction(State state)
+void Mario::SetAction(int state)
 {
-	if (this->state == state)
+	if (this->state == (State)state)
 		return;
 
-	this->state = state;
+	this->state = (State)state;
 	curAction = actions[state];
 	curAction->Play();
 }
@@ -180,14 +180,18 @@ void Mario::AddAction()
 	actions[RUN_R]->SetPart(9, 11, true);
 	// JUMP_L
 	actions.push_back(new Animation(texture));
-	actions[JUMP_L]->SetVector({ 4, 5, 6, 7 }, true);
+	actions[JUMP_L]->SetVector({ 4, 5, 6, 7 });
 	// JUMP_R
 	actions.push_back(new Animation(texture));
-	actions[JUMP_R]->SetVector({ 0, 1, 2, 3 }, true);
+	actions[JUMP_R]->SetVector({ 0, 1, 2, 3 });
 	// ATK_L
 	actions.push_back(new Animation(texture));
 	actions[ATK_L]->SetPart(28, 30);
+	//actions[ATK_L]->SetEndEvent(bind(&Mario::SetIdle, this));
+	actions[ATK_L]->SetNextEvent([this](int a) {this->SetAction(JUMP_L); });
 	// ATK_R
 	actions.push_back(new Animation(texture));
 	actions[ATK_R]->SetPart(24, 26);
+	//actions[ATK_R]->SetEndEvent(bind(&Mario::SetIdle, this));
+	actions[ATK_R]->SetNextEvent(bind(&Mario::SetAction, this, JUMP_R));
 }

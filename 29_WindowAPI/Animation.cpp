@@ -8,6 +8,7 @@ Animation::Animation(Texture* texture, double updateTime)
 	, isRewind(false)
 	, time(0)
 	, updateTime(updateTime)
+	, EndEvent(nullptr)
 {
 	maxFrame = texture->GetMaxFrame();
 	maxPlayIndex = maxFrame.x * maxFrame.y;
@@ -45,6 +46,12 @@ void Animation::Update()
 			{
 				curPlayIndex = actions.size() - 1;
 				isPlay = false;
+
+				if (EndEvent != nullptr)
+					EndEvent();
+
+				if (NextEvent != nullptr)
+					NextEvent(nextIndex);
 			}
 		}
 	}

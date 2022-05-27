@@ -31,9 +31,13 @@ public:
 		Get / Set
 	*/
 
-	void SetUpdateTime(double updateTime) { this->updateTime = updateTime; }
-	POINT GetFrame() { return frames[actions[curPlayIndex]]; }
+	void  SetUpdateTime(double updateTime)	  { this->updateTime = updateTime; }
+	POINT GetFrame() const					  { return frames[actions[curPlayIndex]]; }
 
+	void SetEndEvent (function<void()> _func)    { this-> EndEvent = _func; }
+	void SetNextEvent(function<void(int)> _func) { this-> NextEvent = _func; }
+	void SetNextIndex(int _index)				 { nextIndex = _index; }
+	
 private:
 	vector<POINT>	frames;
 	vector<UINT>	actions;
@@ -50,5 +54,9 @@ private:
 	double time;
 	double updateTime;
 
+	int nextIndex;
+
+	function<void()>    EndEvent;
+	function<void(int)> NextEvent;
 };
 

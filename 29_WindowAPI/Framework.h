@@ -25,6 +25,7 @@
 #include <stdlib.h>
 #include <Windows.h>
 #include <cmath>
+#include <functional>
 
 using namespace std;
 
