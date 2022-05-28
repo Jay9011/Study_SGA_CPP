@@ -60,13 +60,13 @@ void Mario::Move()
 {
 	if (KEY_PRESS(VK_LEFT))
 	{
-		rect->Pos() += V_LEFT * moveSpeed * Time::Delta();
+		//rect->Pos() += V_LEFT * moveSpeed * Time::Delta();
 		if (!isJump)
 			SetAction(RUN_L);
 	}
 	if (KEY_PRESS(VK_RIGHT))
 	{
-		rect->Pos() += V_RIGHT * moveSpeed * Time::Delta();
+		//rect->Pos() += V_RIGHT * moveSpeed * Time::Delta();
 		if (!isJump)
 			SetAction(RUN_R);
 	}
@@ -181,17 +181,27 @@ void Mario::AddAction()
 	// JUMP_L
 	actions.push_back(new Animation(texture));
 	actions[JUMP_L]->SetVector({ 4, 5, 6, 7 });
+	actions[JUMP_L]->SetNextEvent(bind(&Mario::SetAction, this, SPIN_L));
 	// JUMP_R
 	actions.push_back(new Animation(texture));
 	actions[JUMP_R]->SetVector({ 0, 1, 2, 3 });
+	actions[JUMP_R]->SetNextEvent(bind(&Mario::SetAction, this, SPIN_R));
 	// ATK_L
 	actions.push_back(new Animation(texture));
 	actions[ATK_L]->SetPart(28, 30);
 	//actions[ATK_L]->SetEndEvent(bind(&Mario::SetIdle, this));
-	actions[ATK_L]->SetNextEvent([this](int a) {this->SetAction(JUMP_L); });
+	actions[ATK_L]->SetNextEvent(bind(&Mario::SetAction, this, JUMP_L));
 	// ATK_R
 	actions.push_back(new Animation(texture));
 	actions[ATK_R]->SetPart(24, 26);
 	//actions[ATK_R]->SetEndEvent(bind(&Mario::SetIdle, this));
 	actions[ATK_R]->SetNextEvent(bind(&Mario::SetAction, this, JUMP_R));
+	// SPIN_L
+	actions.push_back(new Animation(texture));
+	actions[SPIN_L]->SetVector({28, 27, 24, 30, 28});
+	actions[SPIN_L]->SetNextEvent(bind(&Mario::SetIdle, this));
+	// SPIN_R
+	actions.push_back(new Animation(texture));
+	actions[SPIN_R]->SetVector({ 28, 27, 24, 30, 28 });
+	actions[SPIN_R]->SetNextEvent(bind(&Mario::SetIdle, this));
 }

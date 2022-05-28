@@ -10,7 +10,9 @@ class Mario
 		JUMP_L,
 		JUMP_R,
 		ATK_L,
-		ATK_R
+		ATK_R,
+		SPIN_L,
+		SPIN_R
 	} state;
 
 public:
