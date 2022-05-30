@@ -32,6 +32,7 @@ public:
 	void AddAction();
 
 	void SetIdle();
+	void SetSpin(int isSpin) { this->isSpin = isSpin; }
 
 	void Debug();
 	
@@ -52,5 +53,7 @@ private:
 	UINT	jumpCount;
 
 	Landscape* landscape;
+
+	bool	isSpin;
 };
 

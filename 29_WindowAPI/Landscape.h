@@ -6,9 +6,9 @@ namespace MarioLandscape
 	constexpr int TILE_X_COUNT = (WIN_WIDTH / TILE_SIZE) + 2;
 
 	constexpr int BACKGROUND_X_SIZE = 740;
-	constexpr int BACKGROUND_Y_SIZE = 164;
+	constexpr int BACKGROUND_Y_SIZE = 720;
 	constexpr int BACKGROUND_X_COUNT = (WIN_WIDTH / BACKGROUND_X_SIZE) + 2;
-	constexpr int BACKGROUND_Y_COUNT = (WIN_HEIGHT / BACKGROUND_Y_SIZE);
+	constexpr int BACKGROUND_Y_COUNT = 1;
 
 	constexpr int CLOUD_X_SIZE = 344;
 	constexpr int CLOUD_Y_SIZE = 128;

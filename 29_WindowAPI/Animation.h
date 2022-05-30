@@ -30,6 +30,7 @@ public:
 	/*
 		Get / Set
 	*/
+	bool  IsPlay()   const					  { return isPlay; }
 
 	void  SetUpdateTime(double updateTime)	  { this->updateTime = updateTime; }
 	POINT GetFrame() const					  { return frames[actions[curPlayIndex]]; }
