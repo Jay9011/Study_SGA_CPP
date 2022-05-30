@@ -170,6 +170,7 @@
     <ClInclude Include="MainGame.h" />
     <ClInclude Include="Mario.h" />
     <ClInclude Include="Math.h" />
+    <ClInclude Include="Object.h" />
     <ClInclude Include="PaintScene.h" />
     <ClInclude Include="Plane.h" />
     <ClInclude Include="Point.h" />
@@ -221,6 +222,7 @@
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="Mario.cpp" />
     <ClCompile Include="Math.cpp" />
+    <ClCompile Include="Object.cpp" />
     <ClCompile Include="PaintScene.cpp" />
     <ClCompile Include="Plane.cpp" />
     <ClCompile Include="Point.cpp" />

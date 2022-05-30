@@ -189,6 +189,9 @@
     <ClInclude Include="Landscape.h">
       <Filter>GameObject\Mario</Filter>
     </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PaintScene.cpp">
@@ -322,6 +325,9 @@
     </ClCompile>
     <ClCompile Include="Landscape.cpp">
       <Filter>GameObject\Mario</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>GameObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

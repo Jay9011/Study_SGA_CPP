@@ -74,6 +74,9 @@ using namespace std;
 using namespace Math;
 #include "Collision.h"
 
+//GameObject
+#include "Object.h"
+
 //GameObject - Fortress
 #include "CannonBall.h"
 #include "CannonBallManager.h"
