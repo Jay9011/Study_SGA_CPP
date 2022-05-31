@@ -192,6 +192,9 @@
     <ClInclude Include="Object.h">
       <Filter>GameObject</Filter>
     </ClInclude>
+    <ClInclude Include="Block.h">
+      <Filter>GameObject\Mario</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PaintScene.cpp">
@@ -328,6 +331,9 @@
     </ClCompile>
     <ClCompile Include="Object.cpp">
       <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Block.cpp">
+      <Filter>GameObject\Mario</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

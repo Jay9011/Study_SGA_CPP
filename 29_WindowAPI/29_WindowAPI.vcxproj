@@ -151,6 +151,7 @@
     <ClInclude Include="Animation.h" />
     <ClInclude Include="AnimationScene.h" />
     <ClInclude Include="ArkanoidScene.h" />
+    <ClInclude Include="Block.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="BulletManager.h" />
     <ClInclude Include="CannonBall.h" />
@@ -201,6 +202,7 @@
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="AnimationScene.cpp" />
     <ClCompile Include="ArkanoidScene.cpp" />
+    <ClCompile Include="Block.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="BulletManager.cpp" />
     <ClCompile Include="CannonBall.cpp" />

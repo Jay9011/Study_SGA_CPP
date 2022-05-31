@@ -16,7 +16,7 @@ Mario::Mario(Landscape* landscape)
 	this->landscape = landscape;
 
 	texture = TextureManager::Get()->AddTexture("Mario", L"Textures/mario_all.png", 8, 4);
-	rect = new Rect({ WIN_CENTER_X, WIN_HEIGHT - (texture->GetFrameSize().y / 2.) }, texture->GetFrameSize());
+	rect = new Rect({ WIN_CENTER_X, landscape->GetLands()[0]->GetRect()->Top() - (texture->GetFrameSize().y / 2.) }, texture->GetFrameSize());
 
 	AddAction();
 
@@ -57,13 +57,13 @@ void Mario::Move()
 {
 	if (KEY_PRESS(VK_LEFT))
 	{
-		//rect->Pos() += V_LEFT * moveSpeed * Time::Delta();
+		rect->Pos() += V_LEFT * moveSpeed * Time::Delta();
 		if (!isJump && !isSpin)
 			SetAction(RUN_L);
 	}
 	if (KEY_PRESS(VK_RIGHT))
 	{
-		//rect->Pos() += V_RIGHT * moveSpeed * Time::Delta();
+		rect->Pos() += V_RIGHT * moveSpeed * Time::Delta();
 		if (!isJump && !isSpin)
 			SetAction(RUN_R);
 	}
@@ -121,21 +121,23 @@ void Mario::Jump()
 		}
 	}
 
-	if (!isJump)
-		return;
-
 	jumpSpeed -= gravity * Time::Delta();
-
 	rect->Pos().y -= jumpSpeed * Time::Delta();
 
-	if (rect->Bottom() > WIN_HEIGHT)
+	// ¶¥¿¡ ´ê¾ÒÀ» ¶§
+	if (Collision())
 	{
+		jumpSpeed = 0;
+
+		if (!isJump)
+			return;
+
 		isJump = false;
 		jumpCount = 0;
 
-		rect->Pos().y = WIN_HEIGHT - (rect->Size().y * 0.5);
-
+		//rect->Pos().y = WIN_HEIGHT - (rect->Size().y * 0.5);
 		//SetIdle();
+		
 		if (state % 2)
 			SetAction(SPIN_R);
 		else
@@ -143,14 +145,6 @@ void Mario::Jump()
 
 		isSpin = true;
 	}
-}
-
-void Mario::Debug()
-{
-	wstring str;
-
-	str = L"JumpSpeed: " + to_wstring(jumpSpeed);
-	TextOut(backDC, 0, 60, str.c_str(), str.size());
 }
 
 void Mario::SetIdle()
@@ -164,6 +158,29 @@ void Mario::SetIdle()
 		SetAction(IDLE_L);
 	}
 }
+
+bool Mario::Collision()
+{
+	for (Object* land : landscape->GetLands())
+	{
+		if (Collision::Collision(this->rect, land->GetRect()))
+		{
+			rect->Pos().y = land->GetRect()->Top() - rect->Size().y * 0.5;
+			return true;
+		}
+	}
+
+	return false;
+}
+
+void Mario::Debug()
+{
+	wstring str;
+
+	str = L"JumpSpeed: " + to_wstring(jumpSpeed);
+	TextOut(backDC, 0, 60, str.c_str(), str.size());
+}
+
 
 void Mario::AddAction()
 {

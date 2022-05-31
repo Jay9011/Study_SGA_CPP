@@ -102,6 +102,7 @@ using namespace Math;
 #include "Plane.h"
 //GameObject - Mario
 #include "Landscape.h"
+#include "Block.h"
 #include "Mario.h"
 
 //Scene

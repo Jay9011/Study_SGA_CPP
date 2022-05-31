@@ -34,10 +34,11 @@ public:
 	void SetIdle();
 	void SetSpin(int isSpin) { this->isSpin = isSpin; }
 
-	void Debug();
-	
 	void SetLandscape(Landscape* landscape) { this->landscape = landscape; }
+	
+	bool Collision();
 
+	void Debug();
 private:
 	Texture* texture;
 	Rect* rect;

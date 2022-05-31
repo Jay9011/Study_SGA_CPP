@@ -3,14 +3,14 @@ class Object
 {
 public:
 	Object(Texture* _texture);
-	~Object();
+	virtual ~Object();
 
 	virtual void Render();
 	virtual void Render(POINT frame);
 
 	Rect* GetRect() const { return rect; }
 
-private:
+protected:
 	Texture* texture;
 	Rect*    rect;
 };
