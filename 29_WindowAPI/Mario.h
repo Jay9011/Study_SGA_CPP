@@ -1,4 +1,5 @@
 #pragma once
+
 class Mario
 {
 	enum State
@@ -36,9 +37,11 @@ public:
 
 	void SetLandscape(Landscape* landscape) { this->landscape = landscape; }
 	
-	bool Collision();
+	bool CollisionLand();
+	bool CollisionBlock(BlockManager* blocks);
 
 	void Debug();
+
 private:
 	Texture* texture;
 	Rect* rect;

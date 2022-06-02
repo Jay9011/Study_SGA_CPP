@@ -105,3 +105,18 @@ bool Collision::Collision(Line* line1, Line* line2)
 {
 	return line1->IsBetween(line2) && line2->IsBetween(line1);
 }
+
+bool Collision::Collision(OUT Rect* overlap, IN Rect* r1, IN Rect* r2)
+{
+	double left   = max(r1->Left(),   r2->Left());
+	double top    = max(r1->Top(),    r2->Top());
+	double right  = min(r1->Right(),  r2->Right());
+	double bottom = min(r1->Bottom(), r2->Bottom());
+
+	overlap->SetRect(left, top, right, bottom);
+
+	if (left < right && top < bottom)
+		return true;
+
+	return false;
+}

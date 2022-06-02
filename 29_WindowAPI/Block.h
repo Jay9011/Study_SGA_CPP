@@ -8,6 +8,8 @@ public:
 	void Update();
 	void Render();
 
+	bool& IsActive() { return isActive; }
+
 private:
 	bool isActive;
 

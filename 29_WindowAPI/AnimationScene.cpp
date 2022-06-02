@@ -4,31 +4,28 @@
 AnimationScene::AnimationScene()
 {
 	landscape = new Landscape;
-	mario = new Mario(landscape);
-	
-	block = new Block(TextureManager::Get()->AddTexture("Block", L"Textures/BrickBlock.png", Gdiplus::Color::White));
+	mario     = new Mario(landscape);
+	blocks    = new BlockManager(TextureManager::Get()->AddTexture("Block", L"Textures/BrickBlock_50.png", Gdiplus::Color::White), 10);
 }
 
 AnimationScene::~AnimationScene()
 {
 	delete mario;
 	delete landscape;
-	
-	delete block;
+	delete blocks;
 }
 
 void AnimationScene::Update()
 {
 	landscape->Update();
 	mario->Update();
-
-	block->Update();
+	mario->CollisionBlock(blocks);
+	blocks->Update();
 }
 
 void AnimationScene::Render(HDC hdc)
 {
 	landscape->Render();
 	mario->Render();
-
-	block->Render();
+	blocks->Render();
 }

@@ -47,10 +47,10 @@ void AKUI::Render(HDC hdc)
 	wstring str = L"현재 점수 : ";
 	str += to_wstring(score);
 	TextOut(hdc
-			, scoreBox->Left() + 10
-			, (scoreBox->Bottom() - scoreBox->Top()) / 2
+			, (int)(scoreBox->Left() + 10.)
+			, (int)((scoreBox->Bottom() - scoreBox->Top()) / 2.)
 			, str.c_str()
-			, str.length()
+			, (int)str.length()
 			);
 
 	

@@ -103,6 +103,7 @@ using namespace Math;
 //GameObject - Mario
 #include "Landscape.h"
 #include "Block.h"
+#include "BlockManager.h"
 #include "Mario.h"
 
 //Scene

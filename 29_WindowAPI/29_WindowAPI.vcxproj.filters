@@ -195,6 +195,9 @@
     <ClInclude Include="Block.h">
       <Filter>GameObject\Mario</Filter>
     </ClInclude>
+    <ClInclude Include="BlockManager.h">
+      <Filter>GameObject\Mario</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PaintScene.cpp">
@@ -333,6 +336,9 @@
       <Filter>GameObject</Filter>
     </ClCompile>
     <ClCompile Include="Block.cpp">
+      <Filter>GameObject\Mario</Filter>
+    </ClCompile>
+    <ClCompile Include="BlockManager.cpp">
       <Filter>GameObject\Mario</Filter>
     </ClCompile>
   </ItemGroup>

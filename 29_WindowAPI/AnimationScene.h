@@ -9,8 +9,8 @@ public:
 	virtual void Render(HDC hdc) override;
 
 private:
-	Mario*     mario;
-	Landscape* landscape;
-	Block*     block;
+	Mario*        mario;
+	Landscape*    landscape;
+	BlockManager* blocks;
 };
 

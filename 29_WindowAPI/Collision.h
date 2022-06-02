@@ -21,4 +21,9 @@ namespace Collision
 
 	// 선과 선의 충돌
 	bool Collision(Line* line1, Line* line2);
+
+	/* * * * * * * * * * * * * * * * *
+	*	충돌에서 방향 추측하기
+	* * * * * * * * * * * * * * * * */
+	bool Collision(OUT Rect* overlap, IN Rect* r1, IN Rect* r2);
 }

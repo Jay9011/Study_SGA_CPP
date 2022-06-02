@@ -5,7 +5,7 @@ Block::Block(Texture* texture)
 	: Object(texture)
 	, isActive(false)
 {
-	rect->Size() = { 50, 50 };
+	rect->Size() = texture->GetFrameSize();
 	rect->Pos() = { WIN_CENTER_X, WIN_CENTER_Y };
 }
 
@@ -18,5 +18,8 @@ void Block::Update()
 
 void Block::Render()
 {
+	if (!isActive)
+		return;
+
 	Object::Render();
 }

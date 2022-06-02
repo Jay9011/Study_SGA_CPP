@@ -125,7 +125,7 @@ void Mario::Jump()
 	rect->Pos().y -= jumpSpeed * Time::Delta();
 
 	// 땅에 닿았을 때
-	if (Collision())
+	if (CollisionLand())
 	{
 		jumpSpeed = 0;
 
@@ -159,7 +159,7 @@ void Mario::SetIdle()
 	}
 }
 
-bool Mario::Collision()
+bool Mario::CollisionLand()
 {
 	for (Object* land : landscape->GetLands())
 	{
@@ -167,6 +167,44 @@ bool Mario::Collision()
 		{
 			rect->Pos().y = land->GetRect()->Top() - rect->Size().y * 0.5;
 			return true;
+		}
+	}
+
+	return false;
+}
+
+bool Mario::CollisionBlock(BlockManager* blocks)
+{
+	for (Block* block : blocks->GetBlocks())
+	{
+		Rect cRect;
+
+		if (block->IsActive() && Collision::Collision(&cRect, this->rect, block->GetRect()))
+		{
+			if (cRect.Size().x > cRect.Size().y) // 상하 충돌
+			{
+				if (rect->Pos().y > cRect.Pos().y)	// 아래에서 충돌
+				{
+					block->IsActive() = false;
+					rect->Pos().y += cRect.Size().y;
+					jumpSpeed = 0;	// 위로 올라가지 않고 중력을 받아야 한다.
+				}
+				else                                // 위에서 충돌
+				{
+					rect->Pos().y -= cRect.Size().y;
+				}
+			}
+			else                                 // 좌우 충돌
+			{
+				if (rect->Pos().x > cRect.Pos().x)	// 오른쪽에서 충돌
+				{
+					rect->Pos().x += cRect.Size().x;
+				}
+				else                                // 왼쪽에서 충돌
+				{
+					rect->Pos().x -= cRect.Size().x;
+				}
+			}
 		}
 	}
 
