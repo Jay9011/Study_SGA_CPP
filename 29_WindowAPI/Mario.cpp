@@ -188,10 +188,23 @@ bool Mario::CollisionBlock(BlockManager* blocks)
 					block->IsActive() = false;
 					rect->Pos().y += cRect.Size().y;
 					jumpSpeed = 0;	// 위로 올라가지 않고 중력을 받아야 한다.
+					jumpCount = 2;
 				}
 				else                                // 위에서 충돌
 				{
 					rect->Pos().y -= cRect.Size().y;
+					jumpSpeed = 0;	// 땅에 닿았을 때에는 내려가는 속도가 커지지 않아야 한다.
+
+					if (!isJump)
+						break;
+
+					isJump = false;
+					jumpCount = 0;
+
+					if (state % 2)
+						SetAction(SPIN_R);
+					else
+						SetAction(SPIN_L);
 				}
 			}
 			else                                 // 좌우 충돌
