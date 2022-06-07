@@ -9,6 +9,7 @@ public:
 
 	void Render(Rect* rect);
 	void Render(Rect* rect, POINT curFrame);
+	void Render(Rect* rect, RECT xmlFrame);
 
 	POINT	GetMaxFrame()  { return maxFrame; }
 	Vector2 GetFrameSize() { return Vector2((double)frameSize.x, (double)frameSize.y); }

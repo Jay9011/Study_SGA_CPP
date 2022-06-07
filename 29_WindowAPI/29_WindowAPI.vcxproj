@@ -163,6 +163,7 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyManager.h" />
     <ClInclude Include="FortressScene.h" />
+    <ClInclude Include="Knight.h" />
     <ClInclude Include="Landscape.h" />
     <ClInclude Include="ImageScene.h" />
     <ClInclude Include="Keyboard.h" />
@@ -191,6 +192,8 @@
     <ClInclude Include="TextureScene.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="Vector2.h" />
+    <ClInclude Include="XML.h" />
+    <ClInclude Include="XMLScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AKBall.cpp" />
@@ -215,6 +218,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyManager.cpp" />
     <ClCompile Include="FortressScene.cpp" />
+    <ClCompile Include="Knight.cpp" />
     <ClCompile Include="Landscape.cpp" />
     <ClCompile Include="ImageScene.cpp" />
     <ClCompile Include="Keyboard.cpp" />
@@ -242,6 +246,8 @@
     <ClCompile Include="TextureScene.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Vector2.cpp" />
+    <ClCompile Include="XML.cpp" />
+    <ClCompile Include="XMLScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="29_WindowAPI.rc" />
@@ -249,6 +255,10 @@
   <ItemGroup>
     <Image Include="29_WindowAPI.ico" />
     <Image Include="small.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Textures\Knight_All.xml" />
+    <Xml Include="Textures\Knight_Attack.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

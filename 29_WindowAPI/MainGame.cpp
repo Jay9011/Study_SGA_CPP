@@ -26,7 +26,8 @@ MainGame::MainGame()
 	//scene = new SGAArkanoidScene();
 	//scene = new ImageScene();
 	//scene = new TextureScene();
-	scene = new AnimationScene();
+	//scene = new AnimationScene();
+	scene = new XMLScene();
 
 }
 

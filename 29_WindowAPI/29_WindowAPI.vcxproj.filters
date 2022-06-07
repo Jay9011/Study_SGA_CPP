@@ -46,6 +46,9 @@
     <Filter Include="GameObject\Mario">
       <UniqueIdentifier>{bb86c25f-9373-4090-90c4-ad316eab278c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Character">
+      <UniqueIdentifier>{6daa3311-5bfb-474f-9fbd-4e6f9244d6b1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -198,6 +201,15 @@
     <ClInclude Include="BlockManager.h">
       <Filter>GameObject\Mario</Filter>
     </ClInclude>
+    <ClInclude Include="XML.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="XMLScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Knight.h">
+      <Filter>GameObject\Character</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PaintScene.cpp">
@@ -341,6 +353,15 @@
     <ClCompile Include="BlockManager.cpp">
       <Filter>GameObject\Mario</Filter>
     </ClCompile>
+    <ClCompile Include="XML.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="XMLScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Knight.cpp">
+      <Filter>GameObject\Character</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="29_WindowAPI.rc">
@@ -354,5 +375,9 @@
     <Image Include="29_WindowAPI.ico">
       <Filter>리소스 파일</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Textures\Knight_Attack.xml" />
+    <Xml Include="Textures\Knight_All.xml" />
   </ItemGroup>
 </Project>

@@ -57,6 +57,7 @@ using namespace std;
 #include "Vector2.h"
 #include "Keyboard.h"
 #include "Time.h"
+#include "XML.h"
 
 //Object
 #include "Point.h"
@@ -105,6 +106,8 @@ using namespace Math;
 #include "Block.h"
 #include "BlockManager.h"
 #include "Mario.h"
+//GameObject - Character
+#include "Knight.h"
 
 //Scene
 #include "Scene.h"
@@ -116,6 +119,7 @@ using namespace Math;
 #include "ImageScene.h"
 #include "TextureScene.h"
 #include "AnimationScene.h"
+#include "XMLScene.h"
 
 #include "MainGame.h"
 

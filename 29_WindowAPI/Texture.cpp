@@ -73,3 +73,23 @@ void Texture::Render(Rect* rect, POINT curFrame)
 		&attributes
 	);
 }
+
+void Texture::Render(Rect* rect, RECT xmlFrame)
+{
+	destRect.X = rect->Left();
+	destRect.Y = rect->Top();
+	destRect.Width = rect->Size().x;
+	destRect.Height = rect->Size().y;
+
+	graphics->DrawImage
+	(
+		image,
+		destRect,
+		xmlFrame.left,
+		xmlFrame.top,
+		xmlFrame.right,
+		xmlFrame.bottom,
+		Gdiplus::Unit::UnitPixel,
+		&attributes
+	);
+}

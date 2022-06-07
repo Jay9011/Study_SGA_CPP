@@ -1,6 +1,17 @@
 #include "Framework.h"
 #include "Animation.h"
 
+Animation::Animation(double updateTime)
+	: curPlayIndex(0)
+	, isPlay(false)
+	, isLoop(false)
+	, isRewind(false)
+	, time(0)
+	, updateTime(updateTime)
+	, EndEvent(nullptr)
+{
+}
+
 Animation::Animation(Texture* texture, double updateTime)
 	: curPlayIndex(0)
 	, isPlay(false)
@@ -108,4 +119,11 @@ void Animation::SetRewind()
 	{
 		actions.push_back(actions[i]);
 	}
+}
+
+void Animation::SetXMLFrame(int left, int top, int width, int height)
+{
+	RECT rect = { left, top, width, height };
+	xmlFrames.push_back(rect);
+	actions.push_back(actions.size());
 }

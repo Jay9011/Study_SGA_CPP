@@ -3,6 +3,7 @@
 class Animation
 {
 public:
+	Animation(double updateTime = 0.1);
 	Animation(Texture* texture, double updateTime = 0.1);
 	~Animation();
 
@@ -31,6 +32,8 @@ public:
 		Get / Set
 	*/
 	bool  IsPlay()   const					  { return isPlay; }
+	bool& IsLoop()							  { return isLoop; }
+	bool& IsRewind()                          { return isRewind; }
 
 	void  SetUpdateTime(double updateTime)	  { this->updateTime = updateTime; }
 	POINT GetFrame() const					  { return frames[actions[curPlayIndex]]; }
@@ -38,10 +41,15 @@ public:
 	void SetEndEvent (function<void()> _func)    { this-> EndEvent = _func; }
 	void SetNextEvent(function<void(int)> _func) { this-> NextEvent = _func; }
 	void SetNextIndex(int _index)				 { nextIndex = _index; }
+
+	RECT GetXMLFrame() { return xmlFrames[curPlayIndex]; }
+	void SetXMLFrame(int left, int top, int width, int height);
 	
 private:
 	vector<POINT>	frames;
 	vector<UINT>	actions;
+
+	vector<RECT>	xmlFrames;
 
 	UINT curPlayIndex;
 	UINT maxPlayIndex;
