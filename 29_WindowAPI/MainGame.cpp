@@ -16,6 +16,7 @@ MainGame::MainGame()
 	Gdiplus::GdiplusStartup(&token, &input, nullptr);
 
 	TextureManager::Create();
+	 EffectManager::Create();
 		  Keyboard::Create();
 	          Time::Create();
 	{}
@@ -27,7 +28,8 @@ MainGame::MainGame()
 	//scene = new ImageScene();
 	//scene = new TextureScene();
 	//scene = new AnimationScene();
-	scene = new XMLScene();
+	//scene = new XMLScene();
+	scene = new EffectScene();
 
 }
 
@@ -37,6 +39,7 @@ MainGame::~MainGame()
 	
 	          Time::Delete();
 		  Keyboard::Delete();
+	 EffectManager::Delete();
 	TextureManager::Delete();
 
 	Gdiplus::GdiplusShutdown(token);
@@ -44,7 +47,8 @@ MainGame::~MainGame()
 
 void MainGame::Update()
 {
-	Time::Get()->Update();
+	EffectManager::Get()->Update();
+	         Time::Get()->Update();
 
 	scene->Update();
 }
@@ -58,7 +62,8 @@ void MainGame::Render(HDC hdc)
 		  );
 
 	scene->Render(backDC);
-	Time::Get()->Render();
+	EffectManager::Get()->Render();
+	         Time::Get()->Render();
 
 	BitBlt(	   hdc, 0, 0, WIN_WIDTH, WIN_HEIGHT, 
 			backDC, 0, 0, 

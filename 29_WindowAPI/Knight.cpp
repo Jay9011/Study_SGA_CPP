@@ -97,3 +97,10 @@ void Knight::LoadXML(string file)
 	}
 
 }
+
+void Knight::PlayAction()
+{
+	++curAction %= 14;
+	state = (STATE)curAction;
+	actions[state]->Play();
+}

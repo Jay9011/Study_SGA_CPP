@@ -69,6 +69,8 @@ using namespace std;
 #include "Texture.h"
 #include "TextureManager.h"
 #include "Animation.h"
+#include "Effect.h"
+#include "EffectManager.h"
 
 //Utility
 #include "Math.h"
@@ -108,6 +110,8 @@ using namespace Math;
 #include "Mario.h"
 //GameObject - Character
 #include "Knight.h"
+#include "Button.h"
+
 
 //Scene
 #include "Scene.h"
@@ -120,6 +124,7 @@ using namespace Math;
 #include "TextureScene.h"
 #include "AnimationScene.h"
 #include "XMLScene.h"
+#include "EffectScene.h"
 
 #include "MainGame.h"
 

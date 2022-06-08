@@ -19,11 +19,14 @@ public:
 
 	void LoadXML(string file);
 
+	void PlayAction();
+
 private:
 	Texture* texture;
 	vector<Animation*> actions;
 
 	Rect* rect;
 
+	int curAction;
 };
 
