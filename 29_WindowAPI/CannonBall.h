@@ -23,4 +23,7 @@ private:
 	double gravity;
 
 	Vector2 direction;
+
+	HPEN   hPen;
+	HBRUSH hBrush;
 };

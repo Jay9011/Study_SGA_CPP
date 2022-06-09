@@ -17,6 +17,8 @@ public:
 
 	virtual double GetLandY(double posX) { return 0.0; }
 
+	virtual HDC GetMemDC() { return nullptr; }
+
 protected:
 	POINT	 frameSize;
 	POINT	originSize;

@@ -5,11 +5,17 @@ CannonBall::CannonBall()
 	: angle(0), speed(30), isFire(false), gravity(0)
 {
 	ball = new Circle({ 0, 0 }, 10);
+
+	hPen   = CreatePen(PS_SOLID, 1, COLOR_MAGENTA);
+	hBrush = CreateSolidBrush(COLOR_MAGENTA);
 }
 
 CannonBall::~CannonBall()
 {
 	delete ball;
+
+	DeleteObject(hPen);
+	DeleteObject(hBrush);
 }
 
 void CannonBall::Update()
@@ -60,6 +66,18 @@ void CannonBall::Update()
 		direction.y *= -1;
 
 		ball->Pos().y = WIN_HEIGHT - ball->Radius();
+	}
+
+	Texture* land = TextureManager::Get()->Find("Mountain");
+	// Pixel Collision
+	if (ball->Pos().y > land->GetLandY(ball->Pos().x))
+	{
+		isFire = false;
+		EffectManager::Get()->Play("Effect4", ball->Pos());
+
+		SelectObject(land->GetMemDC(), hPen);
+		SelectObject(land->GetMemDC(), hBrush);
+		Ellipse(land->GetMemDC(), ball->Left(), ball->Top(), ball->Right(), ball->Bottom());
 	}
 }
 

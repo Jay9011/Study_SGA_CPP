@@ -10,6 +10,7 @@ public:
 	void Render(Rect* rect, POINT curFrame) override;
 
 	double GetLandY(double posX) override;
+	HDC GetMemDC() override { return this->memDC; }
 
 private:
 	HDC     memDC;
