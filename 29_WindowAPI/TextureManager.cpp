@@ -64,3 +64,33 @@ Texture* TextureManager::AddTexture(string key, wstring path, long frameX, long 
 
 	return texture;
 }
+
+Texture* TextureManager::AddBitMap(string key, wstring _file, long _width, long _height, COLORREF _transColor)
+{
+	if (textures.count(key) > 0)
+		return textures[key];
+
+	Texture* texture = new BitMap(_file, _width, _height, _transColor);
+	textures.emplace(key, texture);
+
+	return texture;
+}
+
+Texture* TextureManager::AddBitMap(string key, wstring _file, long _width, long _height, long _frameX, long _frameY, COLORREF _transColor)
+{
+	if (textures.count(key) > 0)
+		return textures[key];
+
+	Texture* texture = new BitMap(_file, _width, _height, _frameX, _frameY, _transColor);
+	textures.emplace(key, texture);
+
+	return texture;
+}
+
+Texture* TextureManager::Find(string key)
+{
+	if (textures.count(key) > 0)
+		return textures[key];
+
+	return nullptr;
+}

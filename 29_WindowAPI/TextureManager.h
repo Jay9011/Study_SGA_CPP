@@ -22,6 +22,11 @@ public:
 	Texture* AddTexture(string key, wstring path, Gdiplus::Color transColor = Gdiplus::Color::Magenta);
 	Texture* AddTexture(string key, wstring path, long frameX, long frameY, Gdiplus::Color transColor = Gdiplus::Color::Magenta);
 
+	Texture* AddBitMap(string key, wstring _file, long _width, long _height, COLORREF _transColor = COLOR_MAGENTA);
+	Texture* AddBitMap(string key, wstring _file, long _width, long _height, long _frameX, long _frameY, COLORREF _transColor = COLOR_MAGENTA);
+
+	Texture* Find(string key);
+
 private:
 	static TextureManager* instance;
 

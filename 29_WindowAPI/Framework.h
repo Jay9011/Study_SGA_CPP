@@ -67,6 +67,7 @@ using namespace std;
 
 //Framework
 #include "Texture.h"
+#include "BitMap.h"
 #include "TextureManager.h"
 #include "Animation.h"
 #include "Effect.h"

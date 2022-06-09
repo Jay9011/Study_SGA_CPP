@@ -7,7 +7,9 @@ class Knight
 		BLOCK,
 		CAST,
 		CROUCH,
-		DASH
+		DASH,
+		IDLE = 8,
+		WALK = 12,
 	} state;
 
 public:
@@ -20,6 +22,7 @@ public:
 	void LoadXML(string file);
 
 	void PlayAction();
+	void PlayAction(STATE state);
 
 private:
 	Texture* texture;
@@ -28,5 +31,11 @@ private:
 	Rect* rect;
 
 	int curAction;
+
+	double speed;
+
+	Texture* land;
+
+	CannonBallManager* cannonBalls;
 };
 

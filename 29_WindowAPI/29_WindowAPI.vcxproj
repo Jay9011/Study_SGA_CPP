@@ -151,6 +151,7 @@
     <ClInclude Include="Animation.h" />
     <ClInclude Include="AnimationScene.h" />
     <ClInclude Include="ArkanoidScene.h" />
+    <ClInclude Include="BitMap.h" />
     <ClInclude Include="Block.h" />
     <ClInclude Include="BlockManager.h" />
     <ClInclude Include="Bullet.h" />
@@ -210,6 +211,7 @@
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="AnimationScene.cpp" />
     <ClCompile Include="ArkanoidScene.cpp" />
+    <ClCompile Include="BitMap.cpp" />
     <ClCompile Include="Block.cpp" />
     <ClCompile Include="BlockManager.cpp" />
     <ClCompile Include="Bullet.cpp" />

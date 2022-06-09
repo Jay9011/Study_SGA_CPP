@@ -222,6 +222,9 @@
     <ClInclude Include="EffectManager.h">
       <Filter>Framework</Filter>
     </ClInclude>
+    <ClInclude Include="BitMap.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PaintScene.cpp">
@@ -384,6 +387,9 @@
       <Filter>GameObject\Character</Filter>
     </ClCompile>
     <ClCompile Include="EffectManager.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="BitMap.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
   </ItemGroup>

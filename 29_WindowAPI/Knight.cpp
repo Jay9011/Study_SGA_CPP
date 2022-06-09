@@ -3,6 +3,8 @@
 
 Knight::Knight()
 	: state(ATTACK)
+	, curAction(0)
+	, speed(100)
 {
 	texture = TextureManager::Get()->AddTexture("Knight", L"Textures/Knight_All.png");
 
@@ -12,6 +14,13 @@ Knight::Knight()
 
 	actions[state]->IsLoop() = true;
 	actions[state]->Play();
+
+	land = TextureManager::Get()->Find("Mountain");
+
+	actions[IDLE]->IsLoop() = true;
+	actions[WALK]->IsLoop() = true;
+
+	cannonBalls = new CannonBallManager(30);
 }
 
 Knight::~Knight()
@@ -25,38 +34,37 @@ Knight::~Knight()
 
 void Knight::Update()
 {
-	if (KEY_DOWN('1'))
+	if (KEY_PRESS(VK_LEFT))
 	{
-		state = ATTACK;
-		actions[state]->Play();
+		rect->Pos() += V_LEFT * speed * Time::Delta();
+		PlayAction(WALK);
 	}
-	else if (KEY_DOWN('2'))
+	if (KEY_PRESS(VK_RIGHT))
 	{
-		state = BLOCK;
-		actions[state]->Play();
-	}
-	else if (KEY_DOWN('3'))
-	{
-		state = CAST;
-		actions[state]->Play();
-	}
-	else if (KEY_DOWN('4'))
-	{
-		state = CROUCH;
-		actions[state]->Play();
-	}
-	else if (KEY_DOWN('5'))
-	{
-		state = DASH;
-		actions[state]->Play();
+		rect->Pos() += V_RIGHT * speed * Time::Delta();
+		PlayAction(WALK);
 	}
 
+	if (KEY_UP(VK_LEFT) || KEY_UP(VK_RIGHT))
+		PlayAction(IDLE);
+
+	if (KEY_DOWN(VK_SPACE))
+	{
+		cannonBalls->Fire(rect->Pos(), V_RUP, 100);
+	}
+
+	rect->Pos().y = land->GetLandY(rect->Pos().x) - (rect->Size().y * .5);
+	
 	actions[state]->Update();
+
+	cannonBalls->Update();
 }
 
 void Knight::Render()
 {
 	texture->Render(rect, actions[state]->GetXMLFrame());
+
+	cannonBalls->Render(backDC);
 }
 
 void Knight::LoadXML(string file)
@@ -102,5 +110,14 @@ void Knight::PlayAction()
 {
 	++curAction %= 14;
 	state = (STATE)curAction;
+	actions[state]->Play();
+}
+
+void Knight::PlayAction(STATE state)
+{
+	if (this->state == state)
+		return;
+
+	this->state = state;
 	actions[state]->Play();
 }

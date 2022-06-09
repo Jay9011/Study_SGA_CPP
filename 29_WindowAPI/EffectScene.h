@@ -12,5 +12,6 @@ public:
 
 private:
 	//CEffect* effect;
-
+	Object* mountain;
+	Knight* knight;
 };
