@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:acdc2b668e283d762724495eebbfa575:2b26e9e29906363f3077b1dae81f97c5:daeac3ba05d4f6b5b0b0019f677d01e6$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+pX => x pos of the pivot point (relative to sprite width)
+pY => y pos of the pivot point (relative to sprite height)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+with polygon mode enabled:
+vertices   => points in sprite coordinate system (x0,y0,x1,y1,x2,y2, ...)
+verticesUV => points in sheet coordinate system (x0,y0,x1,y1,x2,y2, ...)
+triangles  => sprite triangulation, 3 vertex indices per triangle
+-->
+<TextureAtlas imagePath="Numbers.png" width="97" height="1555">
+    <sprite n="Result_0.png" x="1" y="1" w="95" h="154" pX="0.5" pY="0.5"/>
+    <sprite n="Result_1.png" x="1" y="157" w="95" h="154" pX="0.5" pY="0.5"/>
+    <sprite n="Result_2.png" x="1" y="313" w="95" h="154" pX="0.5" pY="0.5"/>
+    <sprite n="Result_3.png" x="1" y="469" w="95" h="154" pX="0.5" pY="0.5"/>
+    <sprite n="Result_4.png" x="1" y="625" w="95" h="154" pX="0.5" pY="0.5"/>
+    <sprite n="Result_5.png" x="1" y="781" w="95" h="153" pX="0.5" pY="0.5"/>
+    <sprite n="Result_6.png" x="1" y="936" w="95" h="153" pX="0.5" pY="0.5"/>
+    <sprite n="Result_7.png" x="1" y="1091" w="95" h="153" pX="0.5" pY="0.5"/>
+    <sprite n="Result_8.png" x="1" y="1246" w="95" h="153" pX="0.5" pY="0.5"/>
+    <sprite n="Result_9.png" x="1" y="1401" w="95" h="153" pX="0.5" pY="0.5"/>
+</TextureAtlas>

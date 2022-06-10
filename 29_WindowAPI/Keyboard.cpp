@@ -38,7 +38,7 @@ Keyboard* Keyboard::Get()
 */
 bool Keyboard::Up(DWORD _key)
 {
-	if (GetAsyncKeyState(_key))
+	if (GetAsyncKeyState(_key) & 0x8000)
 	{
 		keyUp[_key] = true;
 	}
@@ -56,7 +56,7 @@ bool Keyboard::Up(DWORD _key)
 
 bool Keyboard::Down(DWORD _key)
 {
-	if (GetAsyncKeyState(_key))
+	if (GetAsyncKeyState(_key) & 0x8000)
 	{
 		if (!keyDown[_key])
 		{
