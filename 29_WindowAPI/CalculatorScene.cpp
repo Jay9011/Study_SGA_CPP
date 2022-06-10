@@ -114,8 +114,17 @@ void CalculatorScene::OperatorChange(OPERATOR _oper)
 
 void CalculatorScene::AccNumber(int _num)
 {
-	tmpNum *= 10;
-	tmpNum += _num;
+	if (OPERATOR::RESULT == tmpOper)
+	{
+		tmpNum = _num;
+		tmpOper = OPERATOR::NONE;
+	}
+	else
+	{
+		tmpNum *= 10;
+		tmpNum += _num;
+	}
+
 	SetShowingNum(tmpNum);
 }
 
