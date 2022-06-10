@@ -24,6 +24,8 @@ public:
 	void PlayAction();
 	void PlayAction(STATE state);
 
+	void SetIDLE() { PlayAction(IDLE); }
+
 private:
 	Texture* texture;
 	vector<Animation*> actions;

@@ -15,10 +15,14 @@ EffectScene::EffectScene()
 	knight = new Knight();
 
 	// Sound
-	System_Create(&system);	// 시스템 받아오기
-	system->init(1, FMOD_INIT_NORMAL, nullptr); // 시스템 구축
-	system->createSound("Sounds/Bom-Ming-Bom-Ming.wav", FMOD_DEFAULT, nullptr, &sound); // 사운드 읽기
-	
+	//System_Create(&system);	// 시스템 받아오기
+	//system->init(1, FMOD_INIT_NORMAL, nullptr); // 시스템 구축
+	//system->createSound("Sounds/Bom-Ming-Bom-Ming.wav", FMOD_DEFAULT, nullptr, &sound); // 사운드 읽기
+
+	SoundManager::Get()->AddSound("Bom-Ming-Bom-Ming", "Sounds/Bom-Ming-Bom-Ming.wav", false);
+
+	SoundManager::Get()->AddSound("BGM1", "Sounds/Mega Man 2 [RockMan 2 - Dr. Wily no Nazo] [1].mp3", true);
+	SoundManager::Get()->Play("BGM1", .1f);
 }
 
 EffectScene::~EffectScene()
@@ -36,11 +40,12 @@ void EffectScene::Update()
 		EffectManager::Get()->Play("Effect4", mousePos);
 	}
 
-	if (KEY_DOWN(VK_F1))
-	{
-		system->playSound(sound, nullptr, false, &channel);
-		channel->setVolume(.5f);
-	}
+	//if (KEY_DOWN(VK_F1))
+	//{
+	//	/*system->playSound(sound, nullptr, false, &channel);
+	//	channel->setVolume(.5f);*/
+	//	SoundManager::Get()->Play("Bom-Ming-Bom-Ming", .3f);
+	//}
 
 
 	//effect->Update();

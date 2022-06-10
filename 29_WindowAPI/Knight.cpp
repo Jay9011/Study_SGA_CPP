@@ -2,7 +2,7 @@
 #include "Knight.h"
 
 Knight::Knight()
-	: state(ATTACK)
+	: state(IDLE)
 	, curAction(0)
 	, speed(100)
 {
@@ -50,6 +50,8 @@ void Knight::Update()
 
 	if (KEY_DOWN(VK_SPACE))
 	{
+		PlayAction(ATTACK);
+		actions[ATTACK]->SetEndEvent(bind(&Knight::SetIDLE, this));
 		cannonBalls->Fire(rect->Pos(), V_RUP, 100);
 	}
 

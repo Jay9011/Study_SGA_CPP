@@ -29,8 +29,8 @@ void CannonBall::Update()
 
 	ball->Pos() += direction * speed;
 
-	/*gravity += 0.98;
-	ball->Pos().y += gravity;*/
+	gravity += 0.98;
+	ball->Pos().y += gravity;
 
 	/*
 	*	공이 화면에 튕기는 설정
@@ -78,6 +78,8 @@ void CannonBall::Update()
 		SelectObject(land->GetMemDC(), hPen);
 		SelectObject(land->GetMemDC(), hBrush);
 		Ellipse(land->GetMemDC(), ball->Left(), ball->Top(), ball->Right(), ball->Bottom());
+
+		SoundManager::Get()->Play("Bom-Ming-Bom-Ming", .1f);
 	}
 }
 
@@ -95,7 +97,7 @@ void CannonBall::Fire(Vector2 pos, double angle, double power)
 	ball->Pos() = pos;
 	this->angle = angle;
 
-	/*gravity = 0;*/
+	gravity = 0;
 	speed = power * 0.1;
 }
 
@@ -105,6 +107,6 @@ void CannonBall::Fire(Vector2 pos, Vector2 dir, double power)
 	ball->Pos() = pos;
 	this->direction = dir;
 
-	/*gravity = 0;*/
+	gravity = 0;
 	speed = power * 0.1;
 }

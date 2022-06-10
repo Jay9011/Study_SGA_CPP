@@ -78,6 +78,7 @@ using namespace std;
 #include "Animation.h"
 #include "Effect.h"
 #include "EffectManager.h"
+#include "SoundManager.h"
 
 //Utility
 #include "Math.h"
