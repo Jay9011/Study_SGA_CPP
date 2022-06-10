@@ -75,11 +75,11 @@ void Time::Update()
 
 void Time::Render()
 {
-	wstring str;
+	/*wstring str;
 	
 	str = L"FPS : " + to_wstring(frameRate);
 	TextOut(backDC, 0, 0, str.c_str(), str.size());
 
 	str = L"runningTime : " + to_wstring(runningTime);
-	TextOut(backDC, 0, 20, str.c_str(), str.size());
+	TextOut(backDC, 0, 20, str.c_str(), str.size());*/
 }

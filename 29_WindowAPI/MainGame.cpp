@@ -30,7 +30,8 @@ MainGame::MainGame()
 	//scene = new TextureScene();
 	//scene = new AnimationScene();
 	//scene = new XMLScene();
-	scene = new EffectScene();
+	//scene = new EffectScene();
+	scene = new CalculatorScene();
 
 }
 
