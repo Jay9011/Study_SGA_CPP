@@ -20,6 +20,12 @@
 // 링커의 종속성에 추가
 #pragma comment(lib, "Gdiplus.lib")
 
+#include "inc/fmod.hpp"
+#pragma comment(lib, "lib/fmod_vc.lib")
+
+using namespace FMOD;
+
+
 #include <iostream>
 #include <string>
 #include <stdlib.h>

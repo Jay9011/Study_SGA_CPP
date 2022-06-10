@@ -13,6 +13,12 @@ EffectScene::EffectScene()
 	mountain->GetRect()->Pos() = { WIN_CENTER_X, WIN_CENTER_Y };
 
 	knight = new Knight();
+
+	// Sound
+	System_Create(&system);	// 시스템 받아오기
+	system->init(1, FMOD_INIT_NORMAL, nullptr); // 시스템 구축
+	system->createSound("Sounds/Bom-Ming-Bom-Ming.wav", FMOD_DEFAULT, nullptr, &sound); // 사운드 읽기
+	
 }
 
 EffectScene::~EffectScene()
@@ -29,6 +35,13 @@ void EffectScene::Update()
 		//effect->Play(mousePos);
 		EffectManager::Get()->Play("Effect4", mousePos);
 	}
+
+	if (KEY_DOWN(VK_F1))
+	{
+		system->playSound(sound, nullptr, false, &channel);
+		channel->setVolume(.5f);
+	}
+
 
 	//effect->Update();
 	knight->Update();
