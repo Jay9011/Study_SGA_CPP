@@ -14,7 +14,8 @@ Button::Button(Texture* up, Texture* down, Texture* over, Vector2 pos)
 
 Button::~Button()
 {
-	delete rect;
+	if(rect != nullptr)
+		delete rect;
 }
 
 void Button::Update()

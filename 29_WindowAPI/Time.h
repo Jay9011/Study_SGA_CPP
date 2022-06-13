@@ -33,5 +33,10 @@ private:
 
 	double oneSecCount;
 	double runningTime;
+
+	double timeScale;
+
+	// V-Sync
+	double scanningRate; // ¡÷ªÁ¿≤
 };
 

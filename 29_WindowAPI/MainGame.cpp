@@ -15,6 +15,7 @@ MainGame::MainGame()
 
 	Gdiplus::GdiplusStartup(&token, &input, nullptr);
 
+	  SceneManager::Create();
 	TextureManager::Create();
 	 EffectManager::Create();
 		  Keyboard::Create();
@@ -31,19 +32,24 @@ MainGame::MainGame()
 	//scene = new AnimationScene();
 	//scene = new XMLScene();
 	//scene = new EffectScene();
-	scene = new CalculatorScene();
+	//scene = new CalculatorScene();
 
+	SceneManager::Get()->Add("XMLScene"   , new XMLScene);
+	SceneManager::Get()->Add("EffectScene", new EffectScene);
+
+	SceneManager::Get()->ChangeScene("XMLScene");
 }
 
 MainGame::~MainGame()
 {
-	delete scene;
+	//delete scene;
 	
 	  SoundManager::Delete();
 	          Time::Delete();
 		  Keyboard::Delete();
 	 EffectManager::Delete();
 	TextureManager::Delete();
+	  SceneManager::Delete();
 
 	Gdiplus::GdiplusShutdown(token);
 }
@@ -51,10 +57,10 @@ MainGame::~MainGame()
 void MainGame::Update()
 {
 	EffectManager::Get()->Update();
-	         Time::Get()->Update();
 	 SoundManager::Get()->Update();
-
-	scene->Update();
+	//scene->Update();
+	 SceneManager::Get()->Update();
+	         Time::Get()->Update();
 }
 
 void MainGame::Render(HDC hdc)
@@ -65,7 +71,9 @@ void MainGame::Render(HDC hdc)
 			//SRCCOPY
 		  );
 
-	scene->Render(backDC);
+	//scene->Render(backDC);
+	 SceneManager::Get()->Render(backDC);
+
 	EffectManager::Get()->Render();
 	         Time::Get()->Render();
 

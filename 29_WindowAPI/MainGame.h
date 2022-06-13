@@ -10,7 +10,7 @@ public:
 	void Render(HDC hdc);
 
 private:
-	Scene* scene;
+	//Scene* scene;
 
 	//HDC		backDC;
 	HBITMAP hBitmap;

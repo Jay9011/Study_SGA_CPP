@@ -27,6 +27,8 @@ public:
 
 	Texture* Find(string key);
 
+	void DeleteTexture(string key);
+
 private:
 	static TextureManager* instance;
 

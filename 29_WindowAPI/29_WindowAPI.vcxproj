@@ -192,6 +192,7 @@
     <ClInclude Include="Rect.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SGAArkanoidScene.h" />
     <ClInclude Include="SGABall.h" />
     <ClInclude Include="SGABar.h" />
@@ -257,6 +258,7 @@
     <ClCompile Include="Plane.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="Rect.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SGAArkanoidScene.cpp" />
     <ClCompile Include="SGABall.cpp" />
     <ClCompile Include="SGABar.cpp" />

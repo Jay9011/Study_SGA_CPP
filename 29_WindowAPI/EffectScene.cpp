@@ -3,11 +3,52 @@
 
 EffectScene::EffectScene()
 {
+}
+
+EffectScene::~EffectScene()
+{
+	Release();
+}
+
+void EffectScene::Update()
+{
+	//effect->Update();
+	knight->Update();
+
+	if (KEY_DOWN(VK_LBUTTON))
+	{
+		//effect->Play(mousePos);
+		EffectManager::Get()->Play("Effect4", mousePos);
+	}
+
+	if (KEY_DOWN(VK_RBUTTON))
+	{
+		SceneManager::Get()->ChangeScene("XMLScene");
+	}
+
+	//if (KEY_DOWN(VK_F1))
+	//{
+	//	/*system->playSound(sound, nullptr, false, &channel);
+	//	channel->setVolume(.5f);*/
+	//	SoundManager::Get()->Play("Bom-Ming-Bom-Ming", .3f);
+	//}
+}
+
+void EffectScene::Render(HDC hdc)
+{
+	mountain->Render();
+	  knight->Render();
+	//effect->Render();
+}
+
+void EffectScene::Initialize()
+{
 	Texture* texture = TextureManager::Get()->AddTexture("Effect4", L"Textures/effect4.png", 4, 4);
 
 	//effect = new CEffect(texture);
 	EffectManager::Get()->AddEffect("Effect4", texture, 30);
 
+	TextureManager::Get()->DeleteTexture("Mountain");
 	Texture* bitmap = TextureManager::Get()->AddBitMap("Mountain", L"Textures/mountain_large.bmp", WIN_WIDTH, WIN_HEIGHT);
 	mountain = new Object(bitmap);
 	mountain->GetRect()->Pos() = { WIN_CENTER_X, WIN_CENTER_Y };
@@ -25,36 +66,14 @@ EffectScene::EffectScene()
 	SoundManager::Get()->Play("BGM1", .1f);
 }
 
-EffectScene::~EffectScene()
+void EffectScene::Release()
 {
 	//delete effect;
-	delete mountain;
-	delete knight;
-}
+	if (mountain != nullptr)
+		delete mountain;
+	mountain = nullptr;
 
-void EffectScene::Update()
-{
-	if (KEY_DOWN(VK_LBUTTON))
-	{
-		//effect->Play(mousePos);
-		EffectManager::Get()->Play("Effect4", mousePos);
-	}
-
-	//if (KEY_DOWN(VK_F1))
-	//{
-	//	/*system->playSound(sound, nullptr, false, &channel);
-	//	channel->setVolume(.5f);*/
-	//	SoundManager::Get()->Play("Bom-Ming-Bom-Ming", .3f);
-	//}
-
-
-	//effect->Update();
-	knight->Update();
-}
-
-void EffectScene::Render(HDC hdc)
-{
-	mountain->Render();
-	  knight->Render();
-	//effect->Render();
+	if (knight != nullptr)
+		delete knight;
+	knight = nullptr;
 }

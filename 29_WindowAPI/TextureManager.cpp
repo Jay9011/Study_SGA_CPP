@@ -94,3 +94,11 @@ Texture* TextureManager::Find(string key)
 
 	return nullptr;
 }
+
+void TextureManager::DeleteTexture(string key)
+{
+	if (textures.count(key) == 0)
+		return;
+
+	textures.erase(key);
+}

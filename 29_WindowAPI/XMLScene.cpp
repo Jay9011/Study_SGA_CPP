@@ -3,9 +3,30 @@
 
 XMLScene::XMLScene()
 {
-	knight = new Knight();
+}
 
-	Texture* up   = TextureManager::Get()->AddTexture("Up",   L"textures/btn-med-up.png");
+XMLScene::~XMLScene()
+{
+	Release();
+}
+
+void XMLScene::Update()
+{
+	//knight->Update();
+	button->Update();
+}
+
+void XMLScene::Render(HDC hdc)
+{
+	//knight->Render();
+	button->Render();
+}
+
+void XMLScene::Initialize()
+{
+	//knight = new Knight();
+
+	Texture* up = TextureManager::Get()->AddTexture("Up", L"textures/btn-med-up.png");
 	Texture* down = TextureManager::Get()->AddTexture("Down", L"textures/btn-med-down.png");
 	Texture* over = TextureManager::Get()->AddTexture("Over", L"textures/btn-med-over.png");
 
@@ -13,25 +34,17 @@ XMLScene::XMLScene()
 	button->SetEvent(bind(&XMLScene::ClickEvent, this));
 }
 
-XMLScene::~XMLScene()
+void XMLScene::Release()
 {
-	delete knight;
-	delete button;
-}
+	//delete knight;
+	if(button != nullptr)
+		delete button;
 
-void XMLScene::Update()
-{
-	knight->Update();
-	button->Update();
-}
-
-void XMLScene::Render(HDC hdc)
-{
-	knight->Render();
-	button->Render();
+	button = nullptr;
 }
 
 void XMLScene::ClickEvent()
 {
-	knight->PlayAction();
+	//knight->PlayAction();
+	SceneManager::Get()->ChangeScene("EffectScene");
 }

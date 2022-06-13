@@ -52,10 +52,10 @@ using namespace std;
 
 #define PI	3.1415926536
 
-//#define	WIN_WIDTH	1280	// 설정한 윈도우 가로
-//#define	WIN_HEIGHT	720		// 설정한 윈도우 세로
-#define	WIN_WIDTH		600
-#define	WIN_HEIGHT		800
+#define	WIN_WIDTH	1280	// 설정한 윈도우 가로
+#define	WIN_HEIGHT	720		// 설정한 윈도우 세로
+//#define	WIN_WIDTH		600
+//#define	WIN_HEIGHT		800
 #define WIN_CENTER_X	WIN_WIDTH  * 0.5
 #define WIN_CENTER_Y	WIN_HEIGHT * 0.5
 
@@ -123,6 +123,8 @@ using namespace Math;
 
 //Scene
 #include "Scene.h"
+#include "SceneManager.h"
+
 #include "PaintScene.h"
 #include "CollisionScene.h"
 #include "FortressScene.h"

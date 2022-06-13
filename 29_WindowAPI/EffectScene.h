@@ -10,6 +10,9 @@ public:
 	virtual void Update() override;
 	virtual void Render(HDC hdc) override;
 
+	virtual void Initialize() override;
+	virtual void Release() override;
+
 private:
 	//CEffect* effect;
 	Object* mountain;
