@@ -17,5 +17,11 @@ public:
 private:
 	//Knight* knight;
 	Button* button;
+
+	Texture* texture;
+	Rect*    rect;
+
+	int  alpha;
+	bool isIncrease;
 };
 

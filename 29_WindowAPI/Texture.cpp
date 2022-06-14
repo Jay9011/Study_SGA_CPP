@@ -93,3 +93,11 @@ void Texture::Render(Rect* rect, RECT xmlFrame)
 		&attributes
 	);
 }
+
+void Texture::AlphaRender(Rect* rect, UINT alpha)
+{
+}
+
+void Texture::AlphaRender(Rect* rect, POINT curFrame, UINT alpha)
+{
+}

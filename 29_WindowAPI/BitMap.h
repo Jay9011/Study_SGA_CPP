@@ -6,8 +6,11 @@ public:
 	BitMap(wstring _file, long _width, long _height, long _frameX, long _frameY, COLORREF _transColor = COLOR_MAGENTA);
 	~BitMap();
 
-	void Render(Rect* rect) override;
-	void Render(Rect* rect, POINT curFrame) override;
+	virtual void Render(Rect* rect) override;
+	virtual void Render(Rect* rect, POINT curFrame) override;
+	
+	virtual void AlphaRender(Rect* rect, UINT alpha) override;
+	virtual void AlphaRender(Rect* rect, POINT curFrame, UINT alpha) override;
 
 	double GetLandY(double posX) override;
 	HDC GetMemDC() override { return this->memDC; }
@@ -17,5 +20,10 @@ private:
 	HBITMAP bitmap;
 
 	COLORREF transColor;
+
+	HDC     alphaDC;
+	HBITMAP alphaBitmap;
+
+	BLENDFUNCTION blendFunction;
 };
 

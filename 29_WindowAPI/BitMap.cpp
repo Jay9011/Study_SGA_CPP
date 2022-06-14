@@ -5,7 +5,9 @@ BitMap::BitMap(wstring _file, long _width, long _height, COLORREF _transColor)
 	: transColor(_transColor)
 {
 	HDC hdc = GetDC(hWnd);
-	memDC = CreateCompatibleDC(hdc);
+	memDC   = CreateCompatibleDC(hdc);
+	alphaDC     = CreateCompatibleDC(hdc);
+	alphaBitmap = CreateCompatibleBitmap(hdc, _width, _height);
 	ReleaseDC(hWnd, hdc);
 
 	bitmap = (HBITMAP)LoadImage
@@ -17,7 +19,8 @@ BitMap::BitMap(wstring _file, long _width, long _height, COLORREF _transColor)
 		LR_LOADFROMFILE
 	);
 
-	SelectObject(memDC, bitmap);
+	SelectObject(memDC  , bitmap);
+	SelectObject(alphaDC, alphaBitmap);
 
 	originSize = { _width, _height };
 	frameSize  = { _width, _height };
@@ -28,7 +31,9 @@ BitMap::BitMap(wstring _file, long _width, long _height, long _frameX, long _fra
 	: transColor(_transColor)
 {
 	HDC hdc = GetDC(hWnd);
-	memDC = CreateCompatibleDC(hdc);
+	memDC   = CreateCompatibleDC(hdc);
+	alphaDC     = CreateCompatibleDC(hdc);
+	alphaBitmap = CreateCompatibleBitmap(hdc, _width, _height);
 	ReleaseDC(hWnd, hdc);
 
 	bitmap = (HBITMAP)LoadImage
@@ -40,7 +45,8 @@ BitMap::BitMap(wstring _file, long _width, long _height, long _frameX, long _fra
 		LR_LOADFROMFILE
 	);
 
-	SelectObject(memDC, bitmap);
+	SelectObject(memDC  , bitmap);
+	SelectObject(alphaDC, alphaBitmap);
 
 	originSize = { _width          , _height           };
 	frameSize  = { _width / _frameX, _height / _frameY };
@@ -83,6 +89,49 @@ void BitMap::Render(Rect* rect, POINT curFrame)
 		frameSize.x, frameSize.y,
 		transColor
 	);
+}
+
+void BitMap::AlphaRender(Rect* rect, UINT alpha)
+{
+	blendFunction.SourceConstantAlpha = (BYTE)alpha;
+
+	BitBlt
+	(
+		alphaDC,
+		0, 0,
+		frameSize.x, frameSize.y,
+		backDC,
+		0, 0,
+		SRCCOPY
+	);
+
+	GdiTransparentBlt
+	(
+		alphaDC,
+		0, 0,
+		frameSize.x, frameSize.y,
+		memDC,
+		0, 0,
+		frameSize.x, frameSize.y,
+		transColor
+	);
+
+	GdiAlphaBlend
+	(
+		backDC,
+		rect->Left(),
+		rect->Top(),
+		rect->Size().x,
+		rect->Size().y,
+		alphaDC,
+		0, 0,
+		frameSize.x, frameSize.y,
+		blendFunction
+	);
+}
+
+void BitMap::AlphaRender(Rect* rect, POINT curFrame, UINT alpha)
+{
 }
 
 double BitMap::GetLandY(double posX)

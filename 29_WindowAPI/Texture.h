@@ -12,6 +12,9 @@ public:
 	virtual void Render(Rect* rect, POINT curFrame);
 	virtual void Render(Rect* rect, RECT xmlFrame);
 
+	virtual void AlphaRender(Rect* rect, UINT alpha);
+	virtual void AlphaRender(Rect* rect, POINT curFrame, UINT alpha);
+
 	POINT	GetMaxFrame()  { return maxFrame; }
 	Vector2 GetFrameSize() { return Vector2((double)frameSize.x, (double)frameSize.y); }
 

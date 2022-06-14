@@ -14,11 +14,26 @@ void XMLScene::Update()
 {
 	//knight->Update();
 	button->Update();
+
+	if (isIncrease)
+	{
+		++alpha;
+
+		if (alpha >= 255)
+			isIncrease = false;
+	}
+	else
+	{
+		--alpha;
+		if (alpha <= 0)
+			isIncrease = true;
+	}
 }
 
 void XMLScene::Render(HDC hdc)
 {
 	//knight->Render();
+	texture->AlphaRender(rect, alpha);
 	button->Render();
 }
 
@@ -32,6 +47,9 @@ void XMLScene::Initialize()
 
 	button = new Button(up, down, over, { WIN_CENTER_X, WIN_HEIGHT * 0.9 });
 	button->SetEvent(bind(&XMLScene::ClickEvent, this));
+
+	texture = TextureManager::Get()->AddBitMap("Mountain", L"Textures/mountain_large.bmp", WIN_WIDTH, WIN_HEIGHT);
+	rect    = new Rect({ WIN_CENTER_X, WIN_CENTER_Y }, { WIN_WIDTH, WIN_HEIGHT });
 }
 
 void XMLScene::Release()
@@ -41,6 +59,11 @@ void XMLScene::Release()
 		delete button;
 
 	button = nullptr;
+
+	if (rect != nullptr)
+		delete rect;
+	
+	rect = nullptr;
 }
 
 void XMLScene::ClickEvent()

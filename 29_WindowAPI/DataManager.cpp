@@ -95,9 +95,8 @@ void DataManager::LoadData()
 			}
 		}
 
-		// 키가 중복되어 있으면 넘어간다.
 		if (itemDatas.count(key) > 0)
-			continue;
+			return;
 		
 		// 데이터 추가
 		itemDatas.emplace(key, data);
