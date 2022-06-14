@@ -13,6 +13,8 @@
 
 #include <bitset>
 
+#include <fstream>
+
 // GDI+
 #include <Ole2.h>
 #include <gdiplus.h>
@@ -72,6 +74,7 @@ using namespace std;
 #include "Line.h"
 
 //Framework
+#include "DataManager.h"
 #include "Texture.h"
 #include "BitMap.h"
 #include "TextureManager.h"

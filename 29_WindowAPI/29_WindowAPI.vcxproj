@@ -169,6 +169,7 @@
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="CollisionScene.h" />
+    <ClInclude Include="DataManager.h" />
     <ClInclude Include="Effect.h" />
     <ClInclude Include="EffectManager.h" />
     <ClInclude Include="EffectScene.h" />
@@ -232,6 +233,7 @@
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="CollisionScene.cpp" />
+    <ClCompile Include="DataManager.cpp" />
     <ClCompile Include="Effect.cpp" />
     <ClCompile Include="EffectManager.cpp" />
     <ClCompile Include="EffectScene.cpp" />

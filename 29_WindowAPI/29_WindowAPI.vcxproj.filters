@@ -49,6 +49,9 @@
     <Filter Include="GameObject\Character">
       <UniqueIdentifier>{6daa3311-5bfb-474f-9fbd-4e6f9244d6b1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scene\Scenes">
+      <UniqueIdentifier>{fc1e8ddc-9b99-4f54-bda8-ac3eebb45457}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -60,9 +63,6 @@
     <ClInclude Include="Scene.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="PaintScene.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
     <ClInclude Include="MainGame.h">
       <Filter>MainGame</Filter>
     </ClInclude>
@@ -71,9 +71,6 @@
     </ClInclude>
     <ClInclude Include="Framework.h">
       <Filter>Utility</Filter>
-    </ClInclude>
-    <ClInclude Include="CollisionScene.h">
-      <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="Point.h">
       <Filter>Object</Filter>
@@ -92,12 +89,6 @@
     </ClInclude>
     <ClInclude Include="Vector2.h">
       <Filter>Utility</Filter>
-    </ClInclude>
-    <ClInclude Include="FortressScene.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="ArkanoidScene.h">
-      <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="AKPlayer.h">
       <Filter>GameObject\ArkanoidObject</Filter>
@@ -123,9 +114,6 @@
     <ClInclude Include="Collision.h">
       <Filter>Utility</Filter>
     </ClInclude>
-    <ClInclude Include="SGAArkanoidScene.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
     <ClInclude Include="CannonBall.h">
       <Filter>GameObject\Fortress</Filter>
     </ClInclude>
@@ -147,14 +135,8 @@
     <ClInclude Include="SGABrickManager.h">
       <Filter>GameObject\SGAArkanoid</Filter>
     </ClInclude>
-    <ClInclude Include="ImageScene.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
     <ClInclude Include="Texture.h">
       <Filter>Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureScene.h">
-      <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="TextureManager.h">
       <Filter>Framework</Filter>
@@ -183,9 +165,6 @@
     <ClInclude Include="Time.h">
       <Filter>Utility</Filter>
     </ClInclude>
-    <ClInclude Include="AnimationScene.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
     <ClInclude Include="Mario.h">
       <Filter>GameObject\Mario</Filter>
     </ClInclude>
@@ -204,17 +183,11 @@
     <ClInclude Include="XML.h">
       <Filter>Framework</Filter>
     </ClInclude>
-    <ClInclude Include="XMLScene.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
     <ClInclude Include="Knight.h">
       <Filter>GameObject\Character</Filter>
     </ClInclude>
     <ClInclude Include="Button.h">
       <Filter>GameObject\Character</Filter>
-    </ClInclude>
-    <ClInclude Include="EffectScene.h">
-      <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="Effect.h">
       <Filter>GameObject\Character</Filter>
@@ -225,20 +198,50 @@
     <ClInclude Include="BitMap.h">
       <Filter>Framework</Filter>
     </ClInclude>
-    <ClInclude Include="CalculatorScene.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
     <ClInclude Include="SoundManager.h">
       <Filter>Framework</Filter>
     </ClInclude>
+    <ClInclude Include="DataManager.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
     <ClInclude Include="SceneManager.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationScene.h">
+      <Filter>Scene\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="ArkanoidScene.h">
+      <Filter>Scene\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="CalculatorScene.h">
+      <Filter>Scene\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionScene.h">
+      <Filter>Scene\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="EffectScene.h">
+      <Filter>Scene\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="FortressScene.h">
+      <Filter>Scene\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageScene.h">
+      <Filter>Scene\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="PaintScene.h">
+      <Filter>Scene\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="SGAArkanoidScene.h">
+      <Filter>Scene\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureScene.h">
+      <Filter>Scene\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="XMLScene.h">
+      <Filter>Scene\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="PaintScene.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
     <ClCompile Include="MainGame.cpp">
       <Filter>MainGame</Filter>
     </ClCompile>
@@ -247,9 +250,6 @@
     </ClCompile>
     <ClCompile Include="Framework.cpp">
       <Filter>Utility</Filter>
-    </ClCompile>
-    <ClCompile Include="CollisionScene.cpp">
-      <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="Point.cpp">
       <Filter>Object</Filter>
@@ -268,12 +268,6 @@
     </ClCompile>
     <ClCompile Include="Vector2.cpp">
       <Filter>Utility</Filter>
-    </ClCompile>
-    <ClCompile Include="FortressScene.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="ArkanoidScene.cpp">
-      <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="AKPlayer.cpp">
       <Filter>GameObject\ArkanoidObject</Filter>
@@ -299,9 +293,6 @@
     <ClCompile Include="Collision.cpp">
       <Filter>Utility</Filter>
     </ClCompile>
-    <ClCompile Include="SGAArkanoidScene.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
     <ClCompile Include="CannonBall.cpp">
       <Filter>GameObject\Fortress</Filter>
     </ClCompile>
@@ -323,14 +314,8 @@
     <ClCompile Include="SGABrickManager.cpp">
       <Filter>GameObject\SGAArkanoid</Filter>
     </ClCompile>
-    <ClCompile Include="ImageScene.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
     <ClCompile Include="Texture.cpp">
       <Filter>Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="TextureScene.cpp">
-      <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="TextureManager.cpp">
       <Filter>Framework</Filter>
@@ -359,9 +344,6 @@
     <ClCompile Include="Time.cpp">
       <Filter>Utility</Filter>
     </ClCompile>
-    <ClCompile Include="AnimationScene.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
     <ClCompile Include="Mario.cpp">
       <Filter>GameObject\Mario</Filter>
     </ClCompile>
@@ -380,17 +362,11 @@
     <ClCompile Include="XML.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
-    <ClCompile Include="XMLScene.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
     <ClCompile Include="Knight.cpp">
       <Filter>GameObject\Character</Filter>
     </ClCompile>
     <ClCompile Include="Button.cpp">
       <Filter>GameObject\Character</Filter>
-    </ClCompile>
-    <ClCompile Include="EffectScene.cpp">
-      <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="Effect.cpp">
       <Filter>GameObject\Character</Filter>
@@ -401,14 +377,47 @@
     <ClCompile Include="BitMap.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
-    <ClCompile Include="CalculatorScene.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
     <ClCompile Include="SoundManager.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
+    <ClCompile Include="DataManager.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
     <ClCompile Include="SceneManager.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationScene.cpp">
+      <Filter>Scene\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="ArkanoidScene.cpp">
+      <Filter>Scene\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="CalculatorScene.cpp">
+      <Filter>Scene\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionScene.cpp">
+      <Filter>Scene\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="EffectScene.cpp">
+      <Filter>Scene\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="FortressScene.cpp">
+      <Filter>Scene\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageScene.cpp">
+      <Filter>Scene\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="PaintScene.cpp">
+      <Filter>Scene\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="SGAArkanoidScene.cpp">
+      <Filter>Scene\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureScene.cpp">
+      <Filter>Scene\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="XMLScene.cpp">
+      <Filter>Scene\Scenes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

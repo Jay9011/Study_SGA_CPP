@@ -21,6 +21,7 @@ MainGame::MainGame()
 		  Keyboard::Create();
 	          Time::Create();
 	  SoundManager::Create();
+	   DataManager::Create();
 	{}
 	//scene = new PaintScene();
 	//scene = new CollisionScene();
@@ -43,7 +44,7 @@ MainGame::MainGame()
 MainGame::~MainGame()
 {
 	//delete scene;
-	
+	   DataManager::Delete();
 	  SoundManager::Delete();
 	          Time::Delete();
 		  Keyboard::Delete();
