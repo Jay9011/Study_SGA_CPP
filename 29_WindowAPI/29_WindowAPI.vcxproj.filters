@@ -240,6 +240,9 @@
     <ClInclude Include="XMLScene.h">
       <Filter>Scene\Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainGame.cpp">
@@ -419,6 +422,9 @@
     <ClCompile Include="XMLScene.cpp">
       <Filter>Scene\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="29_WindowAPI.rc">
@@ -434,7 +440,11 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="Textures\Knight_Attack.xml" />
-    <Xml Include="Textures\Knight_All.xml" />
+    <Xml Include="Textures\Knight_Attack.xml">
+      <Filter>리소스 파일</Filter>
+    </Xml>
+    <Xml Include="Textures\Knight_All.xml">
+      <Filter>리소스 파일</Filter>
+    </Xml>
   </ItemGroup>
 </Project>

@@ -164,6 +164,7 @@
     <ClInclude Include="BulletManager.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="CalculatorScene.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="CannonBall.h" />
     <ClInclude Include="CannonBallManager.h" />
     <ClInclude Include="Circle.h" />
@@ -228,6 +229,7 @@
     <ClCompile Include="BulletManager.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="CalculatorScene.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CannonBall.cpp" />
     <ClCompile Include="CannonBallManager.cpp" />
     <ClCompile Include="Circle.cpp" />

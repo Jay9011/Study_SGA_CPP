@@ -82,6 +82,7 @@ using namespace std;
 #include "Effect.h"
 #include "EffectManager.h"
 #include "SoundManager.h"
+#include "Camera.h"
 
 //Utility
 #include "Math.h"
