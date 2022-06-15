@@ -96,8 +96,60 @@ void Texture::Render(Rect* rect, RECT xmlFrame)
 
 void Texture::AlphaRender(Rect* rect, UINT alpha)
 {
+	destRect.X      = rect->Left();
+	destRect.Y      = rect->Top();
+	destRect.Width  = rect->Size().x;
+	destRect.Height = rect->Size().y;
+
+	Gdiplus::ColorMatrix matrix =
+	{
+	//   R    G    B        A
+		1.f, 0.f, 0.f,           0.f, 0.f,
+		0.f, 1.f, 0.f,           0.f, 0.f,
+		0.f, 0.f, 1.f,           0.f, 0.f,
+		0.f, 0.f, 0.f, alpha / 255.f, 0.f,
+		0.f, 0.f, 0.f,           0.f, 1.f,
+	};
+	attributes.SetColorMatrix(&matrix);
+
+	graphics->DrawImage
+	(
+		image,
+		destRect,
+		0, 0,
+		image->GetWidth(), image->GetHeight(),
+		Gdiplus::Unit::UnitPixel,
+		&attributes
+	);
 }
 
 void Texture::AlphaRender(Rect* rect, POINT curFrame, UINT alpha)
 {
+	destRect.X = rect->Left();
+	destRect.Y = rect->Top();
+	destRect.Width = rect->Size().x;
+	destRect.Height = rect->Size().y;
+
+	Gdiplus::ColorMatrix matrix =
+	{
+		//   R    G    B        A
+			1.f, 0.f, 0.f,           0.f, 0.f,
+			0.f, 1.f, 0.f,           0.f, 0.f,
+			0.f, 0.f, 1.f,           0.f, 0.f,
+			0.f, 0.f, 0.f, alpha / 255.f, 0.f,
+			0.f, 0.f, 0.f,           0.f, 1.f,
+	};
+	attributes.SetColorMatrix(&matrix);
+
+	graphics->DrawImage
+	(
+		image,
+		destRect,
+		frameSize.x * curFrame.x,
+		frameSize.y * curFrame.y,
+		frameSize.x,
+		frameSize.y,
+		Gdiplus::Unit::UnitPixel,
+		&attributes
+	);
 }

@@ -21,6 +21,10 @@ private:
 	Texture* texture;
 	Rect*    rect;
 
+	Texture* siva;
+	Rect*    sivaRect;
+	POINT    curFrame;
+
 	int  alpha;
 	bool isIncrease;
 };

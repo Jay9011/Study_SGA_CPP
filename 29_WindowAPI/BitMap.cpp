@@ -101,7 +101,7 @@ void BitMap::AlphaRender(Rect* rect, UINT alpha)
 		0, 0,
 		frameSize.x, frameSize.y,
 		backDC,
-		0, 0,
+		rect->Left(), rect->Top(),
 		SRCCOPY
 	);
 
@@ -132,6 +132,41 @@ void BitMap::AlphaRender(Rect* rect, UINT alpha)
 
 void BitMap::AlphaRender(Rect* rect, POINT curFrame, UINT alpha)
 {
+	blendFunction.SourceConstantAlpha = (BYTE)alpha;
+
+	BitBlt
+	(
+		alphaDC,
+		frameSize.x * curFrame.x, frameSize.y * curFrame.y,
+		frameSize.x, frameSize.y,
+		backDC,
+		rect->Left(), rect->Top(),
+		SRCCOPY
+	);
+
+	GdiTransparentBlt
+	(
+		alphaDC,
+		0, 0,
+		originSize.x, originSize.y,
+		memDC,
+		0, 0,
+		originSize.x, originSize.y,
+		transColor
+	);
+
+	GdiAlphaBlend
+	(
+		backDC,
+		rect->Left(),
+		rect->Top(),
+		rect->Size().x,
+		rect->Size().y,
+		alphaDC,
+		frameSize.x * curFrame.x, frameSize.y * curFrame.y,
+		frameSize.x, frameSize.y,
+		blendFunction
+	);
 }
 
 double BitMap::GetLandY(double posX)

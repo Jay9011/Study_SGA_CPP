@@ -28,6 +28,8 @@ void XMLScene::Update()
 		if (alpha <= 0)
 			isIncrease = true;
 	}
+
+	++curFrame.x %= siva->GetMaxFrame().x;
 }
 
 void XMLScene::Render(HDC hdc)
@@ -35,6 +37,7 @@ void XMLScene::Render(HDC hdc)
 	//knight->Render();
 	texture->AlphaRender(rect, alpha);
 	button->Render();
+	siva->AlphaRender(sivaRect, curFrame, alpha);
 }
 
 void XMLScene::Initialize()
@@ -48,8 +51,12 @@ void XMLScene::Initialize()
 	button = new Button(up, down, over, { WIN_CENTER_X, WIN_HEIGHT * 0.9 });
 	button->SetEvent(bind(&XMLScene::ClickEvent, this));
 
-	texture = TextureManager::Get()->AddBitMap("Mountain", L"Textures/mountain_large.bmp", WIN_WIDTH, WIN_HEIGHT);
+	//texture = TextureManager::Get()->AddBitMap("Mountain", L"Textures/mountain_large.bmp", WIN_WIDTH, WIN_HEIGHT);
+	texture = TextureManager::Get()->AddTexture("Mountain", L"Textures/mountain_large.bmp");
 	rect    = new Rect({ WIN_CENTER_X, WIN_CENTER_Y }, { WIN_WIDTH, WIN_HEIGHT });
+
+	siva     = TextureManager::Get()->AddBitMap("Siva", L"Textures/siva_run.bmp", 448, 104, 8, 2);
+	sivaRect = new Rect({ WIN_CENTER_X, WIN_HEIGHT * 0.6 }, siva->GetFrameSize());
 }
 
 void XMLScene::Release()
