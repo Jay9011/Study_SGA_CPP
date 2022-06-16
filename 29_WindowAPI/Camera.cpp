@@ -36,9 +36,13 @@ Camera* Camera::Get()
 
 void Camera::Update()
 {
+	// Linear intERPolation (Lerp) : 선형보간
+
 	if (target != nullptr)
 	{
-		this->pos = target->GetRect()->Pos() - offset;
+		Vector2 dest = target->GetRect()->Pos() - offset;
+
+		pos = pos + ((dest - pos) * Time::Delta());
 	}
 	else
 	{
