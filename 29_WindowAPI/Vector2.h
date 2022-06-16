@@ -42,4 +42,7 @@ public:
 
 	void	operator *= (const double& other);
 	void	operator /= (const double& other);
+
+	bool    operator == (const Vector2& other);
+	bool    operator != (const Vector2& other);
 };

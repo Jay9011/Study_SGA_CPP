@@ -10,7 +10,8 @@ public:
 
 private:
 	double speed;
+	double angle;
 
 	Animation* animation;
-
+	
 };
