@@ -240,8 +240,14 @@
     <ClInclude Include="XMLScene.h">
       <Filter>Scene\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="Camera.h">
+    <ClInclude Include="Missile.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraScene.h">
+      <Filter>Scene\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Framework</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -422,8 +428,14 @@
     <ClCompile Include="XMLScene.cpp">
       <Filter>Scene\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="Camera.cpp">
+    <ClCompile Include="Missile.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraScene.cpp">
+      <Filter>Scene\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Framework</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

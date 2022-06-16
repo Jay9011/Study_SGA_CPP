@@ -4,8 +4,10 @@
 Camera* Camera::instance = nullptr;
 
 Camera::Camera()
-	: pos({0, 0})
-	, speed(10)
+	: speed(100)
+	, target(nullptr)
+	, pos{ 0, 0 }
+	, offset(WIN_CENTER_X, WIN_CENTER_Y)
 {
 }
 
@@ -34,4 +36,28 @@ Camera* Camera::Get()
 
 void Camera::Update()
 {
+	if (target != nullptr)
+	{
+		this->pos = target->GetRect()->Pos() - offset;
+	}
+	else
+	{
+		if (KEY_PRESS('A'))
+		{
+			this->pos += V_LEFT * speed * Time::Delta();
+		}
+		else if (KEY_PRESS('D'))
+		{
+			this->pos += V_RIGHT * speed * Time::Delta();
+		}
+
+		if (KEY_PRESS('W'))
+		{
+			this->pos += V_UP * speed * Time::Delta();
+		}
+		else if (KEY_PRESS('S'))
+		{
+			this->pos += V_DOWN * speed * Time::Delta();
+		}
+	}
 }

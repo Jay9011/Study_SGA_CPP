@@ -37,8 +37,9 @@ MainGame::MainGame()
 
 	SceneManager::Get()->Add("XMLScene"   , new XMLScene);
 	SceneManager::Get()->Add("EffectScene", new EffectScene);
+	SceneManager::Get()->Add("CameraScene", new CameraScene);
 
-	SceneManager::Get()->ChangeScene("XMLScene");
+	SceneManager::Get()->ChangeScene("CameraScene");
 }
 
 MainGame::~MainGame()

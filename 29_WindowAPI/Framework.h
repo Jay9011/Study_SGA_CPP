@@ -123,6 +123,7 @@ using namespace Math;
 //GameObject - Character
 #include "Knight.h"
 #include "Button.h"
+#include "Missile.h"
 
 
 //Scene
@@ -140,6 +141,7 @@ using namespace Math;
 #include "XMLScene.h"
 #include "EffectScene.h"
 #include "CalculatorScene.h"
+#include "CameraScene.h"
 
 #include "MainGame.h"
 
