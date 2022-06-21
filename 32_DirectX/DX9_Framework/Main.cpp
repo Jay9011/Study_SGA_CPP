@@ -70,6 +70,23 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         &device
     );
 
+    // Vertex (정점) : 3D 공간 상의 한 점.
+    struct Vertex
+    {
+        D3DXVECTOR4 position;
+        D3DCOLOR    color;
+    };
+
+    Vertex vertex;
+    vertex.position = { 100, 100, 0, 1 };
+    vertex.color    = 0xFFFF0000;
+
+    // Flexible Vertex Format
+    // XYZRHW = 2차원 좌표, RHW (Reciprocal Homogeneous W) = 1/w
+    // XYZ    = 3차원 좌표
+    DWORD fvf = D3DFVF_XYZRHW | D3DFVF_DIFFUSE;
+
+    // Vector4 (x, y, z, w) -> (x * 1/w, y * 1/w, z * 1/w, w * 1/w = 1)
 
     while (msg.message != WM_QUIT)
     {
