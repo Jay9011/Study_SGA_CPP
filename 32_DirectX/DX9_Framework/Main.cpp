@@ -4,6 +4,9 @@
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
+HWND hWnd;
+
+
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
@@ -49,12 +52,23 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     LPDIRECT3DDEVICE9 device;
 
     // Device 객체의 속성을 결정하는 구조체
-    D3DPRESENT_PARAMETERS param;
+    D3DPRESENT_PARAMETERS param{};
     
     param.Windowed               = true;  // 창모드 결정( 창모드 : true, 전체화면 : false )
     param.SwapEffect             = D3DSWAPEFFECT_DISCARD;
-    param.EnableAutoDepthStencil ;
-    param.AutoDepthStencilFormat ;
+    param.EnableAutoDepthStencil = true;
+    param.AutoDepthStencilFormat = D3DFMT_D16;
+
+    // 받아온 하드웨어 정보와 초기화시킨 속성을 이용해서 Device 객체를 만든다.
+    d3d->CreateDevice
+    (
+        D3DADAPTER_DEFAULT,
+        D3DDEVTYPE_HAL,
+        hWnd,
+        D3DCREATE_HARDWARE_VERTEXPROCESSING,
+        &param,
+        &device
+    );
 
 
     while (msg.message != WM_QUIT)
@@ -70,7 +84,24 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         // 일반 반복 작업
         else
         {
-            
+            // device 초기화 작업
+            device->Clear
+            (
+                0,
+                nullptr,
+                D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER,
+                0xFFFFFF00,
+                1.f,
+                0
+            );
+
+            device->BeginScene();
+
+            // RENDER
+
+            device->EndScene();
+
+            device->Present(nullptr, nullptr, nullptr, nullptr);
         }
     }
 
@@ -117,7 +148,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
+   hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
 
    if (!hWnd)
