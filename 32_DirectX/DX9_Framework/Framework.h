@@ -9,9 +9,41 @@
 #include <malloc.h>
 #include <memory.h>
 #include <tchar.h>
-
+// Direct3D
 #include <d3d9.h>
 #include <d3dx9.h>
 
+
+/*
+* FrameWork
+*/
+#include "Framework/Device.h"
+
+// Singleton Manager
+#include "Framework/Manager.h"
+
+
+/*
+* Scene
+*/
+#include "Scene/IScene.h"
+//
+#include "Scene/VertexScene/VertexScene.h"
+
+
+#include "MainGame.h"
+
+
+/*
+*	Define
+*/
+#define DEVICE Manager::Get()->GetDevice()->GetDevice()
+
+
+/*
+*	lib
+*/
 #pragma comment(lib, "d3d9.lib")
 #pragma comment(lib, "d3dx9.lib")
+
+extern HWND hWnd;

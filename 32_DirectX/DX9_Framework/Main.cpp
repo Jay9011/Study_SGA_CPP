@@ -6,7 +6,6 @@
 // 전역 변수:
 HWND hWnd;
 
-
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
@@ -42,51 +41,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_DX9FRAMEWORK));
     MSG msg{};
 
-    /*
-    *   Direct 3D 설정
-    */
-    // 시스템 하드웨어 장치의 정보를 받아오는 객체
-    LPDIRECT3D9 d3d = Direct3DCreate9(D3D_SDK_VERSION);
-    
-    // 3D 그래픽을 만들고 그리는데 필요한 정보를 받아오는 객체
-    LPDIRECT3DDEVICE9 device;
-
-    // Device 객체의 속성을 결정하는 구조체
-    D3DPRESENT_PARAMETERS param{};
-    
-    param.Windowed               = true;  // 창모드 결정( 창모드 : true, 전체화면 : false )
-    param.SwapEffect             = D3DSWAPEFFECT_DISCARD;
-    param.EnableAutoDepthStencil = true;
-    param.AutoDepthStencilFormat = D3DFMT_D16;
-
-    // 받아온 하드웨어 정보와 초기화시킨 속성을 이용해서 Device 객체를 만든다.
-    d3d->CreateDevice
-    (
-        D3DADAPTER_DEFAULT,
-        D3DDEVTYPE_HAL,
-        hWnd,
-        D3DCREATE_HARDWARE_VERTEXPROCESSING,
-        &param,
-        &device
-    );
-
-    // Vertex (정점) : 3D 공간 상의 한 점.
-    struct Vertex
-    {
-        D3DXVECTOR4 position;
-        D3DCOLOR    color;
-    };
-
-    Vertex vertex;
-    vertex.position = { 100, 100, 0, 1 };
-    vertex.color    = 0xFFFF0000;
-
-    // Flexible Vertex Format
-    // XYZRHW = 2차원 좌표, RHW (Reciprocal Homogeneous W) = 1/w
-    // XYZ    = 3차원 좌표
-    DWORD fvf = D3DFVF_XYZRHW | D3DFVF_DIFFUSE;
-
-    // Vector4 (x, y, z, w) -> (x * 1/w, y * 1/w, z * 1/w, w * 1/w = 1)
+    Manager::Create();
+    MainGame* mainGame = new MainGame;
 
     while (msg.message != WM_QUIT)
     {
@@ -102,25 +58,27 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         else
         {
             // device 초기화 작업
-            device->Clear
+            DEVICE->Clear
             (
                 0,
                 nullptr,
                 D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER,
-                0xFFFFFF00,
+                0xFF787878,
                 1.f,
                 0
             );
-
-            device->BeginScene();
+            DEVICE->BeginScene();
 
             // RENDER
+            mainGame->Render();
 
-            device->EndScene();
-
-            device->Present(nullptr, nullptr, nullptr, nullptr);
+            DEVICE->EndScene();
+            DEVICE->Present(nullptr, nullptr, nullptr, nullptr);
         }
     }
+    delete mainGame;
+    Manager::Delete();
+
 
     return (int) msg.wParam;
 }
