@@ -3,7 +3,8 @@
 
 MainGame::MainGame()
 {
-	scene = new VertexScene;
+	//scene = new VertexScene;
+	scene = new WVPScene;
 }
 
 MainGame::~MainGame()
