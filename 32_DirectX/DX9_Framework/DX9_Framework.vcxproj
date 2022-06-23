@@ -90,8 +90,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Framework\Device.h" />
-    <ClInclude Include="Framework\Manager.h" />
+    <ClInclude Include="Scene\Scenes\WVPScene.h" />
+    <ClInclude Include="System\Device.h" />
+    <ClInclude Include="System\Keyboard.h" />
+    <ClInclude Include="System\Manager.h" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="Framework.h" />
     <ClInclude Include="MainGame.h" />
@@ -101,12 +103,14 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Framework\Device.cpp" />
+    <ClCompile Include="Scene\Scenes\WVPScene.cpp" />
+    <ClCompile Include="System\Device.cpp" />
     <ClCompile Include="Framework.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Framework\Manager.cpp" />
+    <ClCompile Include="System\Keyboard.cpp" />
+    <ClCompile Include="System\Manager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="Scene\VertexScene\VertexScene.cpp" />

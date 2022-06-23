@@ -18,8 +18,10 @@ private:
 *  Member
 */
 public:
-	Device* GetDevice() { return device; }
+	Device*   GetDevice()   { return device; }
+	Keyboard* GetKeyboard() { return keyboard; }
 
 private:
-	Device* device;
+	Device*   device;
+	Keyboard* keyboard;
 };

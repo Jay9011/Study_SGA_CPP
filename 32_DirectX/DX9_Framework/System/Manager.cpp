@@ -5,10 +5,12 @@ Manager* Manager::instance = nullptr;
 
 Manager::Manager()
 {
-	device = new Device;
+	device   = new Device;
+	keyboard = new Keyboard;
 }
 
 Manager::~Manager()
 {
 	delete device;
+	delete keyboard;
 }

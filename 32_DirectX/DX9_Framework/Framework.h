@@ -9,19 +9,21 @@
 #include <malloc.h>
 #include <memory.h>
 #include <tchar.h>
+#include <string>
+#include <vector>
+#include <map>
 // Direct3D
 #include <d3d9.h>
 #include <d3dx9.h>
 
-
 /*
-* FrameWork
+* System
 */
-#include "Framework/Device.h"
+#include "System/Device.h"
+#include "System/Keyboard.h"
 
 // Singleton Manager
-#include "Framework/Manager.h"
-
+#include "System/Manager.h"
 
 /*
 * Scene
@@ -29,21 +31,27 @@
 #include "Scene/IScene.h"
 //
 #include "Scene/VertexScene/VertexScene.h"
+#include "Scene/Scenes/WVPScene.h"
 
 
 #include "MainGame.h"
-
-
-/*
-*	Define
-*/
-#define DEVICE Manager::Get()->GetDevice()->GetDevice()
-
 
 /*
 *	lib
 */
 #pragma comment(lib, "d3d9.lib")
 #pragma comment(lib, "d3dx9.lib")
+
+/*
+*	Define
+*/
+#define DEVICE Manager::Get()->GetDevice()->GetDevice()
+#define WIN_WIDTH 1280
+#define WIN_HEIGHT 720
+
+/*
+*	using
+*/
+using namespace std;
 
 extern HWND hWnd;
