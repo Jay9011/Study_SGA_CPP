@@ -17,7 +17,6 @@
 #include <string>
 #include <vector>
 #include <map>
-
 // Direct3D
 #include <d3d9.h>
 #include <d3dx9.h>
@@ -25,9 +24,14 @@
 /*
 *	Define
 */
-#define DEVICE		Manager::Get()->GetDevice()->GetDevice()
 #define WIN_WIDTH	1280
 #define WIN_HEIGHT	720
+// D3D Device
+#define DEVICE		Manager::Get()->GetDevice()->GetDevice()
+// Keyboard
+#define KEYPRESS(p)	Manager::Get()->GetKeyboard()->Press(p)
+#define KEYDOWN(p)	Manager::Get()->GetKeyboard()->Down(p)
+#define KEYUP(p)	Manager::Get()->GetKeyboard()->Up(p)
 
 extern HWND hWnd;
 

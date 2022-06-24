@@ -57,6 +57,15 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         // 일반 반복 작업
         else
         {
+            /*
+            *   Update
+            */
+            Manager::Get()->Update();
+                  mainGame->Update();
+
+            /*
+            *   Render
+            */
             // device 초기화 작업
             DEVICE->Clear
             (
@@ -67,6 +76,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                 1.f,
                 0
             );
+
             DEVICE->BeginScene();
 
             // RENDER

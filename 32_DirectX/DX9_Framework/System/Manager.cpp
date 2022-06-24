@@ -14,3 +14,8 @@ Manager::~Manager()
 	delete device;
 	delete keyboard;
 }
+
+void Manager::Update()
+{
+	keyboard->Update();
+}

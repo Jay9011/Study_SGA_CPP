@@ -28,4 +28,14 @@ private:
 	vector<Vertex> vertices;
 
 	D3DXMATRIX projection;
+	D3DXMATRIX world;
+	D3DXMATRIX view;
+
+	D3DXMATRIX S, R, T;
+
+	D3DXVECTOR2 pos;
+	D3DXVECTOR2 scale;
+	double      angle;
+
+	D3DXVECTOR2 pivot;
 };

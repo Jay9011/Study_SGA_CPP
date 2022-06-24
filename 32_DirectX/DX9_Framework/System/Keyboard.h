@@ -11,8 +11,8 @@ public:
 	void Update();
 
 	bool  Down(DWORD key) { return keyMap[key] == DOWN;  };
-	bool Press(DWORD key) { return keyMap[key] == UP;    };
-	bool    Up(DWORD key) { return keyMap[key] == PRESS; };
+	bool Press(DWORD key) { return keyMap[key] == PRESS; };
+	bool    Up(DWORD key) { return keyMap[key] == UP;    };
 
 
 private:

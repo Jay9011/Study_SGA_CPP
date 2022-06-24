@@ -24,4 +24,10 @@ public:
 private:
 	Device*   device;
 	Keyboard* keyboard;
+
+/*
+*	Update
+*/
+public:
+	void Update();
 };
