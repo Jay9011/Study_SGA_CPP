@@ -23,9 +23,25 @@ Device::Device()
         &param,
         &device
     );
+
+    SetProjection();
 }
 
 Device::~Device()
 {
     d3d->Release();
+}
+
+void Device::SetProjection()
+{
+    D3DXMatrixOrthoOffCenterLH
+    (
+        &projection,
+        0.f, WIN_WIDTH,
+        WIN_HEIGHT, 0.f,
+        -1.f, 1.f
+    );
+
+    device->SetTransform(D3DTS_PROJECTION, &projection);
+    device->SetRenderState(D3DRS_LIGHTING, false);
 }
