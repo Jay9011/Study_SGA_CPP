@@ -10,8 +10,6 @@ public:
 
     LPDIRECT3DDEVICE9 GetDevice() { return device; }
 
-    void SetProjection();
-
 private:
     
     // 시스템 하드웨어 장치의 정보를 받아오는 객체
@@ -19,6 +17,4 @@ private:
 
     // 3D 그래픽을 만들고 그리는데 필요한 정보를 받아오는 객체
     LPDIRECT3DDEVICE9 device;
-
-    D3DXMATRIX projection;
 };

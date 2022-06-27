@@ -90,8 +90,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="GameObject\Planet.h" />
-    <ClInclude Include="Scene\Scenes\SolarSystemScene.h" />
     <ClInclude Include="Scene\Scenes\WVPScene.h" />
     <ClInclude Include="System\Device.h" />
     <ClInclude Include="System\Keyboard.h" />
@@ -102,12 +100,9 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scene\IScene.h" />
     <ClInclude Include="Scene\VertexScene\VertexScene.h" />
-    <ClInclude Include="System\Transform.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GameObject\Planet.cpp" />
-    <ClCompile Include="Scene\Scenes\SolarSystemScene.cpp" />
     <ClCompile Include="Scene\Scenes\WVPScene.cpp" />
     <ClCompile Include="System\Device.cpp" />
     <ClCompile Include="Framework.cpp">
@@ -119,7 +114,6 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="Scene\VertexScene\VertexScene.cpp" />
-    <ClCompile Include="System\Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX9_Framework.rc" />
