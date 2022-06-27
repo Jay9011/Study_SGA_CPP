@@ -38,4 +38,8 @@ private:
 	double      angle;
 
 	D3DXVECTOR2 pivot;
+
+	D3DXVECTOR2 up;
+	D3DXVECTOR2 right;
+
 };

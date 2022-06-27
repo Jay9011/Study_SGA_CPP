@@ -33,6 +33,8 @@ WVPScene::WVPScene()
 	// View
 	D3DXMatrixIdentity(&view);
 	DEVICE->SetTransform(D3DTS_VIEW, &view);
+
+
 }
 
 WVPScene::~WVPScene()
@@ -45,22 +47,26 @@ void WVPScene::Update()
 	if (KEYPRESS(VK_LEFT))
 	{
 		//--world._41;
-		--pos.x;
+		//--pos.x;
+		pos -= right;
 	}
 	if (KEYPRESS(VK_RIGHT))
 	{
 		//++world._41;
-		++pos.x;
+		//++pos.x;
+		pos += right;
 	}
 	if (KEYPRESS(VK_UP))
 	{
 		//--world._42;
-		--pos.y;
+		//--pos.y;
+		pos -= up;
 	}
 	if (KEYPRESS(VK_DOWN))
 	{
 		//++world._42;
-		++pos.y;
+		//++pos.y;
+		pos += up;
 	}
 	D3DXMatrixTranslation(&T, pos.x, pos.y, 0.f);
 	
@@ -119,6 +125,13 @@ void WVPScene::Update()
 		--view._42;
 	DEVICE->SetTransform(D3DTS_VIEW, &view);
 
+	/*
+	*	πÊ«‚∫§≈Õ
+	*/
+	right.x = world._11;
+	right.y = world._12;
+	up.x = world._21;
+	up.y = world._22;
 }
 
 void WVPScene::Render()
