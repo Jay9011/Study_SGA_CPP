@@ -14,7 +14,7 @@ public:
 	void SetVerticesColor(size_t index, D3DCOLOR color) { if (index < vertices.size() - 1) vertices[index].color = color; }
 
 private:
-	vector<Vertex> vertices;
+	vector<VertexColor> vertices;
 
 	float radius;
 	float rotationSpeed;	// 자전 속도

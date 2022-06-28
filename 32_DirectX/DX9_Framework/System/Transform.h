@@ -1,8 +1,8 @@
 #pragma once
 
-struct Vertex
+struct VertexColor
 {
-	Vertex(float x, float y, D3DCOLOR color)
+	VertexColor(float x, float y, D3DCOLOR color)
 	{
 		this->position = { x, y, 0 };
 		this->color = color;
@@ -12,6 +12,20 @@ struct Vertex
 	D3DCOLOR	color;
 
 	static const DWORD fvf = D3DFVF_XYZ | D3DFVF_DIFFUSE;	// static const 로 초기화하면 h에서 초기화할 수 있지만 이후 변경할 수 없다.
+};
+
+struct VertexTexture
+{
+	VertexTexture(float x, float y, float u, float v)
+	{
+		this->position = { x, y, 0 };
+		this->uv       = { u, v };
+	}
+
+	D3DXVECTOR3 position;
+	D3DXVECTOR2 uv;
+
+	static const DWORD fvf = D3DFVF_XYZ | D3DFVF_TEX1;
 };
 
 class Transform

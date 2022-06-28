@@ -14,8 +14,8 @@ Planet::Planet(D3DCOLOR color, D3DCOLOR center_color, float radius, float rotati
 	revolutionSpeed(revolutionSpeed),
 	sectorCount(sectorCount)
 {
-	vector<Vertex> circle;
-	circle.push_back(Vertex(0, 0, center_color));
+	vector<VertexColor> circle;
+	circle.push_back(VertexColor(0, 0, center_color));
 
 	float angle_size = 2.f * PI / sectorCount;
 
@@ -28,7 +28,7 @@ Planet::Planet(D3DCOLOR color, D3DCOLOR center_color, float radius, float rotati
 		p.x = cos(a) * radius;
 		p.y = -sin(a) * radius;
 
-		circle.push_back(Vertex(p.x, p.y, color));
+		circle.push_back(VertexColor(p.x, p.y, color));
 	}
 	// Triangle List ∏¶ ¿€º∫
 	for (size_t i = 0; i < sectorCount; i++)
@@ -63,8 +63,8 @@ void Planet::Render()
 {
 	SetWorld();
 
-	DEVICE->SetFVF(Vertex::fvf);
-	DEVICE->DrawPrimitiveUP(D3DPT_TRIANGLELIST, sectorCount, vertices.data(), sizeof(Vertex));
+	DEVICE->SetFVF(VertexColor::fvf);
+	DEVICE->DrawPrimitiveUP(D3DPT_TRIANGLELIST, sectorCount, vertices.data(), sizeof(VertexColor));
 }
 
 void Planet::UpdateWorld()

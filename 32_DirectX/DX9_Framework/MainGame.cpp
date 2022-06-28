@@ -5,7 +5,8 @@ MainGame::MainGame()
 {
 	//scene = new VertexScene;
 	//scene = new WVPScene;
-	scene = new SolarSystemScene;
+	//scene = new SolarSystemScene;
+	scene = new TextureScene;
 }
 
 MainGame::~MainGame()

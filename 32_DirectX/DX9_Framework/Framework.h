@@ -69,6 +69,7 @@ using namespace std;
 #include "Scene/VertexScene/VertexScene.h"
 #include "Scene/Scenes/WVPScene.h"
 #include "Scene/Scenes/SolarSystemScene.h"
+#include "Scene/Scenes/TextureScene.h"
 
 
 #include "MainGame.h"
