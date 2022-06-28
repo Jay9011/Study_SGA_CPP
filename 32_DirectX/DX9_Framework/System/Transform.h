@@ -22,7 +22,11 @@ public:
 
 	virtual void UpdateWorld();
 	
-	void SetWorld();
+	void  SetWorld();
+	const D3DMATRIX* GetWorld()       const { return &world; }
+	const D3DMATRIX* GetScale()       const { return &S; }
+	const D3DMATRIX* GetRotation()    const { return &R; }
+	const D3DMATRIX* GetTranslation() const { return &T; }
 	void SetParent(Transform* parent) { this->parent = parent; };
 
 public:

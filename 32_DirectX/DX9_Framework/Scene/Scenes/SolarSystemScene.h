@@ -11,6 +11,8 @@ public:
 
 private:
 	Planet* sun;
+	Planet* earth;
+	Planet* moon;
 
 
 };

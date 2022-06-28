@@ -69,5 +69,28 @@ void Planet::Render()
 
 void Planet::UpdateWorld()
 {
+	// Local Space 에서 자기 자신의 연산을 먼저 끝낸 후
 	Transform::UpdateWorld();
+
+	// World Space 기준으로 연산을 해준다.
+	if (parent != nullptr)
+	{
+		D3DXMATRIX revolution;
+		D3DXMatrixRotationZ(&revolution, revolutionAngle);
+
+		D3DXMATRIX pTranslation;
+		/*D3DXMatrixIdentity(&pTranslation);
+		pTranslation._41 = parent->GetWorld()->_41;
+		pTranslation._42 = parent->GetWorld()->_42;
+		pTranslation._43 = parent->GetWorld()->_43;*/
+		D3DXMatrixTranslation(
+			&pTranslation,
+			parent->GetWorld()->_41,
+			parent->GetWorld()->_42,
+			parent->GetWorld()->_43
+		);
+
+		//this->world *= parent->GetWorld();
+		this->world *= revolution * pTranslation;	// S * R * T
+	}
 }
