@@ -16,6 +16,11 @@ struct VertexColor
 
 struct VertexTexture
 {
+	VertexTexture()
+	{
+		this->position = { 0, 0, 0 };
+		this->uv       = { 0, 0 };
+	}
 	VertexTexture(float x, float y, float u, float v)
 	{
 		this->position = { x, y, 0 };

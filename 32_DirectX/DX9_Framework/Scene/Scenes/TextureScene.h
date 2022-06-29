@@ -15,4 +15,5 @@ private:
 	vector<VertexTexture> vertices;
 	vector<UINT>          indices;
 
+	Transform transform;
 };
