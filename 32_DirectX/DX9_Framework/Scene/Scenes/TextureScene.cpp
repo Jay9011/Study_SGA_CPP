@@ -47,7 +47,7 @@ TextureScene::TextureScene()
 	//indices.push_back(1);
 	//indices.push_back(3);
 
-	IDLE = TEXTURE->Add(L"Textures/IDLE.jpg");
+	IDLE = TEXTURE->Add(L"Textures/mario_all.png", Vector2(0.f, 0.f), Vector2(0.f, 0.f), Vector2(.5f, 1.f));
 	transform.pos = { 400, 400 };
 }
 

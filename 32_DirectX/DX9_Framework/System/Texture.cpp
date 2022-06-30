@@ -43,7 +43,18 @@ void Texture::Render()
 	DEVICE->SetFVF(VertexTexture::fvf);
 	DEVICE->SetTexture(0, texture);
 
+	/*
+	*	SRC  : 원본 = 이미지
+	*	DEST : 배경 = 이미지 뒤의 다른 Texture도 포함
+	*/
+	DEVICE->SetRenderState(D3DRS_ALPHABLENDENABLE, true);
+	DEVICE->SetRenderState(D3DRS_BLENDOP  , D3DBLENDOP_ADD);
+	DEVICE->SetRenderState(D3DRS_SRCBLEND , D3DBLEND_SRCALPHA);
+	DEVICE->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
+
 	DEVICE->DrawIndexedPrimitiveUP(D3DPT_TRIANGLELIST, 0, vertexCount, indexCount / 3, indices, D3DFMT_INDEX16, vertices, sizeof(VertexTexture));
+
+	DEVICE->SetRenderState(D3DRS_ALPHABLENDENABLE, false);
 }
 
 void Texture::SetData()
