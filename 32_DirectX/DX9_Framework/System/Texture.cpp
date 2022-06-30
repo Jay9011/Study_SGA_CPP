@@ -1,7 +1,7 @@
 #include "Framework.h"
 #include "Texture.h"
 
-Texture::Texture(LPDIRECT3DTEXTURE9 texture, Vector2 start, Vector2 end, Vector2 pivot = Vector2(.5f, .5f)) :
+Texture::Texture(LPDIRECT3DTEXTURE9 texture, Vector2 start, Vector2 end, Vector2 pivot) :
 	texture(texture),
 	pivot(pivot)
 {
@@ -15,14 +15,16 @@ Texture::Texture(LPDIRECT3DTEXTURE9 texture, Vector2 start, Vector2 end, Vector2
 	uvStart.x = start.x / size.x;
 	uvStart.y = start.y / size.y;
 
-	uvEnd.x = end.x / size.x;
-	uvEnd.y = end.y / size.y;
+	uvEnd.x = (end.x == 0.0f) ? 1.0f : end.x / size.x;
+	uvEnd.y = (end.y == 0.0f) ? 1.0f : end.y / size.y;
 
 	SetData();
 }
 
 Texture::~Texture()
 {
+	texture->Release();
+
 	if (vertices != nullptr)
 	{
 		delete[] vertices;

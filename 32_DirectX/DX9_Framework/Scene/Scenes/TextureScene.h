@@ -16,4 +16,6 @@ private:
 	vector<UINT>          indices;
 
 	Transform transform;
+
+	Texture* IDLE;
 };

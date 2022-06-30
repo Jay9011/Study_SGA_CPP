@@ -12,42 +12,43 @@ TextureScene::TextureScene()
 	UINT height = surface.Height;*/
 
 
-	D3DXIMAGE_INFO  info;
-	D3DXCreateTextureFromFileEx
-	(
-		DEVICE,
-		L"Textures/IDLE.jpg",
-		D3DX_DEFAULT_NONPOW2,
-		D3DX_DEFAULT_NONPOW2,
-		D3DX_FROM_FILE,
-		0,
-		D3DFMT_A8R8G8B8,
-		D3DPOOL_DEFAULT,
-		D3DX_FILTER_NONE,
-		D3DX_FILTER_NONE,
-		0xFFFF00FF,
-		&info,
-		nullptr,
-		&texture
-	);
+	//D3DXIMAGE_INFO  info;
+	//D3DXCreateTextureFromFileEx
+	//(
+	//	DEVICE,
+	//	L"Textures/IDLE.jpg",
+	//	D3DX_DEFAULT_NONPOW2,
+	//	D3DX_DEFAULT_NONPOW2,
+	//	D3DX_FROM_FILE,
+	//	0,
+	//	D3DFMT_A8R8G8B8,
+	//	D3DPOOL_DEFAULT,
+	//	D3DX_FILTER_NONE,
+	//	D3DX_FILTER_NONE,
+	//	0xFFFF00FF,
+	//	&info,
+	//	nullptr,
+	//	&texture
+	//);
 
-	int width  = info.Width;
-	int height = info.Height;
+	//int width  = info.Width;
+	//int height = info.Height;
 
-	vertices.push_back(VertexTexture(-width * .5f, -height * .5f, 0.f, 0.f));
-	vertices.push_back(VertexTexture(+width * .5f, -height * .5f, 1.f, 0.f));
-	vertices.push_back(VertexTexture(-width * .5f, +height * .5f, 0.f, 1.f));
-	vertices.push_back(VertexTexture(+width * .5f, +height * .5f, 1.f, 1.f));
+	//vertices.push_back(VertexTexture(-width * .5f, -height * .5f, 0.f, 0.f));
+	//vertices.push_back(VertexTexture(+width * .5f, -height * .5f, 1.f, 0.f));
+	//vertices.push_back(VertexTexture(-width * .5f, +height * .5f, 0.f, 1.f));
+	//vertices.push_back(VertexTexture(+width * .5f, +height * .5f, 1.f, 1.f));
 
-	// index 로 도형 그리기 (공간 절약)
-	indices.push_back(0);
-	indices.push_back(1);
-	indices.push_back(2);
-	indices.push_back(2);
-	indices.push_back(1);
-	indices.push_back(3);
+	//// index 로 도형 그리기 (공간 절약)
+	//indices.push_back(0);
+	//indices.push_back(1);
+	//indices.push_back(2);
+	//indices.push_back(2);
+	//indices.push_back(1);
+	//indices.push_back(3);
 
-
+	IDLE = TEXTURE->Add(L"Textures/IDLE.jpg");
+	transform.pos = { 400, 400 };
 }
 
 TextureScene::~TextureScene()
@@ -76,12 +77,14 @@ void TextureScene::Update()
 
 void TextureScene::Render()
 {
-	DEVICE->SetFVF(VertexTexture::fvf);
-	DEVICE->SetTexture(0, texture);
+	/*DEVICE->SetFVF(VertexTexture::fvf);
+	DEVICE->SetTexture(0, texture);*/
 
 	transform.SetWorld();
 
-	DEVICE->DrawIndexedPrimitiveUP(
+	IDLE->Render();
+
+	/*DEVICE->DrawIndexedPrimitiveUP(
 		D3DPT_TRIANGLELIST, 
 		0, 
 		vertices.size(), 
@@ -90,5 +93,5 @@ void TextureScene::Render()
 		D3DFMT_INDEX32, 
 		vertices.data(), 
 		sizeof(VertexTexture)
-	);
+	);*/
 }

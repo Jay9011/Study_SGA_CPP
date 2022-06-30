@@ -104,6 +104,7 @@
     <ClInclude Include="Scene\IScene.h" />
     <ClInclude Include="Scene\VertexScene\VertexScene.h" />
     <ClInclude Include="System\Texture.h" />
+    <ClInclude Include="System\TextureManager.h" />
     <ClInclude Include="System\Transform.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -123,6 +124,7 @@
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="Scene\VertexScene\VertexScene.cpp" />
     <ClCompile Include="System\Texture.cpp" />
+    <ClCompile Include="System\TextureManager.cpp" />
     <ClCompile Include="System\Transform.cpp" />
   </ItemGroup>
   <ItemGroup>

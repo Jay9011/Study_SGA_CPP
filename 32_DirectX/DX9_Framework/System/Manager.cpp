@@ -7,12 +7,14 @@ Manager::Manager()
 {
 	device   = new Device;
 	keyboard = new Keyboard;
+	textures = new TextureManager;
 }
 
 Manager::~Manager()
 {
-	delete device;
+	delete textures;
 	delete keyboard;
+	delete device;
 }
 
 void Manager::Update()

@@ -28,8 +28,9 @@
 #define WIN_HEIGHT	720
 #define WIN_CENTER_X	WIN_WIDTH * 0.5
 #define WIN_CENTER_Y	WIN_HEIGHT * 0.5
-// D3D Device
+// Get Instance
 #define DEVICE		Manager::Get()->GetDevice()->GetDevice()
+#define TEXTURE		Manager::Get()->GetTextures()
 // Keyboard
 #define KEYPRESS(p)	Manager::Get()->GetKeyboard()->Press(p)
 #define KEYDOWN(p)	Manager::Get()->GetKeyboard()->Down(p)
@@ -52,6 +53,8 @@ using namespace std;
 #include "System/Device.h"
 #include "System/Keyboard.h"
 #include "System/Transform.h"
+#include "System/Texture.h"
+#include "System/TextureManager.h"
 
 // Singleton Manager
 #include "System/Manager.h"
