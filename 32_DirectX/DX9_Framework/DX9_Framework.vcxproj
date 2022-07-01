@@ -91,9 +91,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="GameObject\Planet.h" />
+    <ClInclude Include="Scene\Scenes\CollisionScene.h" />
     <ClInclude Include="Scene\Scenes\SolarSystemScene.h" />
     <ClInclude Include="Scene\Scenes\TextureScene.h" />
     <ClInclude Include="Scene\Scenes\WVPScene.h" />
+    <ClInclude Include="System\Collider.h" />
+    <ClInclude Include="System\Collider\ColliderBox.h" />
     <ClInclude Include="System\Device.h" />
     <ClInclude Include="System\Keyboard.h" />
     <ClInclude Include="System\Manager.h" />
@@ -110,9 +113,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObject\Planet.cpp" />
+    <ClCompile Include="Scene\Scenes\CollisionScene.cpp" />
     <ClCompile Include="Scene\Scenes\SolarSystemScene.cpp" />
     <ClCompile Include="Scene\Scenes\TextureScene.cpp" />
     <ClCompile Include="Scene\Scenes\WVPScene.cpp" />
+    <ClCompile Include="System\Collider.cpp" />
+    <ClCompile Include="System\Collider\ColliderBox.cpp" />
     <ClCompile Include="System\Device.cpp" />
     <ClCompile Include="Framework.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

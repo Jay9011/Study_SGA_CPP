@@ -1,10 +1,16 @@
 ﻿#include "Framework.h"
 #include "Main.h"
 
+#if _DEBUG
+#define new new(_NORMAL_BLOCK, __FILE__, __LINE__)
+#define malloc(s) __malloc_dbg(s, _NORMAL_BLOCK, __FILE__, __LINE__)
+#endif // _DEBUG
+
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
 HWND hWnd;
+D3DXVECTOR2 mousePos;
 
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
@@ -23,6 +29,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 {
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
+
+    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+    //_CrtSetBreakAlloc(230);
 
     // 전역 문자열을 초기화합니다.
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
@@ -184,6 +193,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             HDC hdc = BeginPaint(hWnd, &ps);
             EndPaint(hWnd, &ps);
         }
+        break;
+    case WM_MOUSEMOVE:
+        mousePos.x = LOWORD(lParam);
+        mousePos.y = HIWORD(lParam);
         break;
     case WM_DESTROY:
         PostQuitMessage(0);

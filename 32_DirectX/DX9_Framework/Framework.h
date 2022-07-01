@@ -44,6 +44,7 @@ typedef D3DXVECTOR4	Vector4;
 typedef D3DXMATRIX	Matrix;
 
 extern HWND hWnd;
+extern D3DXVECTOR2 mousePos;
 
 using namespace std;
 
@@ -55,7 +56,9 @@ using namespace std;
 #include "System/Transform.h"
 #include "System/Texture.h"
 #include "System/TextureManager.h"
-
+#include "System/Collider.h"
+// Collider
+#include "System/Collider/ColliderBox.h"
 // Singleton Manager
 #include "System/Manager.h"
 
@@ -73,6 +76,7 @@ using namespace std;
 #include "Scene/Scenes/WVPScene.h"
 #include "Scene/Scenes/SolarSystemScene.h"
 #include "Scene/Scenes/TextureScene.h"
+#include "Scene/Scenes/CollisionScene.h"
 
 
 #include "MainGame.h"

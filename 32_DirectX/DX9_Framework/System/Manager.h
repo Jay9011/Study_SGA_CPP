@@ -6,7 +6,7 @@ class Manager
 */
 private:
 	Manager();
-	~Manager();
+	virtual ~Manager();
 public:
 	static void     Create() { if (instance == nullptr) instance = new Manager; }
 	static void     Delete() { delete instance; }
