@@ -10,7 +10,7 @@ public:
 	virtual void Render() override;
 
 private:
-	Texture*     idle;
+	Texture*     idleTexture;
 	Transform    idleTransform;
 	ColliderBox* idleCollider;
 
