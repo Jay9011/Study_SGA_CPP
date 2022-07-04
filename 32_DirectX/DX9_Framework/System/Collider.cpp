@@ -40,3 +40,8 @@ bool Collider::Collision(D3DXVECTOR2 position)
 {
 	return false;
 }
+
+bool Collider::Collision(ColliderBox* other)
+{
+	return false;
+}

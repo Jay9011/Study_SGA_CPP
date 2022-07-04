@@ -1,4 +1,15 @@
 #pragma once
+
+struct OBBDesc
+{
+	D3DXVECTOR2 position;
+	D3DXVECTOR2 up;
+	D3DXVECTOR2 right;
+
+	float width;
+	float height;
+};
+
 class ColliderBox : public Collider
 {
 public:
@@ -10,9 +21,12 @@ public:
 	void Update() override;
 
 	bool Collision(D3DXVECTOR2 position) override;
+	bool Collision(ColliderBox* other) override;
 
 	void SetOffset(D3DXVECTOR2 offset) override;
 	void SetVertex();
+
+	OBBDesc GetOBB();
 
 	float Left()   { return pos.x - size.x * .5f + offset.x; }
 	float Right()  { return pos.x + size.x * .5f + offset.x; }

@@ -14,5 +14,7 @@ private:
 	Transform    idleTransform;
 	ColliderBox* idleCollider;
 
-
+	Texture*	 idle2Texture;
+	Transform    idle2Transform;
+	ColliderBox* idle2Collider;
 };
