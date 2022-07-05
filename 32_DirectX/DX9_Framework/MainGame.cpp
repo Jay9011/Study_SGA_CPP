@@ -17,6 +17,9 @@ MainGame::~MainGame()
 
 void MainGame::Update()
 {
+	if (KEYDOWN(VK_TAB))
+		Collider::HiddenInGame();
+
 	scene->Update();
 }
 

@@ -12,9 +12,11 @@ public:
 private:
 	Texture*     idleTexture;
 	Transform    idleTransform;
-	ColliderBox* idleCollider;
+	//ColliderBox* idleCollider;
+	ColliderCircle* idleCollider;
 
 	Texture*	 idle2Texture;
 	Transform    idle2Transform;
-	ColliderBox* idle2Collider;
+	//ColliderBox* idle2Collider;
+	ColliderCircle* idle2Collider;
 };

@@ -49,10 +49,10 @@ bool ColliderBox::Collision(ColliderBox* other)
 	D3DXVECTOR2 distance = rThis.position - rOther.position;
 	D3DXVECTOR2 axes[4] =
 	{
-		rThis.up,
 		rThis.right,
-		rOther.up,
-		rOther.right
+		rThis.up,
+		rOther.right,
+		rOther.up
 	};
 
 	D3DXVECTOR2 vectors[4] =
@@ -103,10 +103,11 @@ OBBDesc ColliderBox::GetOBB()
 {
 	OBBDesc desc;
 
-	desc.position = this->pos + this->offset;
+	//desc.position = this->pos + this->offset;
+	D3DXVec2TransformCoord(&desc.position, &offset, &world);
 	
-	desc.up    = { this->world._11, this->world._12 };
-	desc.right = { this->world._21, this->world._22 };
+	desc.right = { this->world._11, this->world._12 };
+	desc.up    = { this->world._21, this->world._22 };
 
 	D3DXVec2Normalize(&desc.up   , &desc.up   );
 	D3DXVec2Normalize(&desc.right, &desc.right);

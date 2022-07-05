@@ -1,5 +1,6 @@
 #pragma once
 class ColliderBox;
+class ColliderCircle;
 class Collider : public Transform
 {
 public:
@@ -12,7 +13,7 @@ public:
 
 	virtual bool Collision(D3DXVECTOR2 position);
 	virtual bool Collision(ColliderBox* other);
-	//virtual bool Collision(ColliderCircle* other);
+	virtual bool Collision(ColliderCircle* other);
 
 	virtual void SetOffset(D3DXVECTOR2 offset) { this->offset = offset; }
 

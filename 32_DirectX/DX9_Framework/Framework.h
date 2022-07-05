@@ -51,14 +51,17 @@ using namespace std;
 /*
 * System
 */
+#include "System/Math.h"
+#include "System/Time.h"
 #include "System/Device.h"
 #include "System/Keyboard.h"
 #include "System/Transform.h"
 #include "System/Texture.h"
 #include "System/TextureManager.h"
-#include "System/Collider.h"
 // Collider
+#include "System/Collider.h"
 #include "System/Collider/ColliderBox.h"
+#include "System/Collider/ColliderCircle.h"
 // Singleton Manager
 #include "System/Manager.h"
 

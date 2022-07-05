@@ -45,3 +45,8 @@ bool Collider::Collision(ColliderBox* other)
 {
 	return false;
 }
+
+bool Collider::Collision(ColliderCircle* other)
+{
+	return false;
+}
