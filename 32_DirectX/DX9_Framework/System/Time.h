@@ -2,7 +2,7 @@
 class Time
 {
 public:
-	Time();
+	Time(LPDIRECT3DDEVICE9 device);
 	~Time();
 
 public:
@@ -31,5 +31,8 @@ private:
 
 	// V-Sync
 	double scanningRate; // 주사율
+
+	// Text 출력
+	LPD3DXFONT font;
 };
 

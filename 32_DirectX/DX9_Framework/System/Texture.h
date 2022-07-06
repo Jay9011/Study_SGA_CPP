@@ -3,6 +3,7 @@ class Texture
 {
 public:
 	Texture(LPDIRECT3DTEXTURE9 texture, Vector2 start, Vector2 end, Vector2 pivot = Vector2(.5f, .5f));
+	Texture(LPDIRECT3DTEXTURE9 texture, int maxFrameX, int maxFrameY, int frameX, int frameY, Vector2 pivot = Vector2(.5f, .5f));
 	~Texture();
 
 	void Render();

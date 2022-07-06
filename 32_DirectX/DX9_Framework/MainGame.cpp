@@ -7,7 +7,8 @@ MainGame::MainGame()
 	//scene = new WVPScene;
 	//scene = new SolarSystemScene;
 	//scene = new TextureScene;
-	scene = new CollisionScene;
+	//scene = new CollisionScene;
+	scene = new AnimationScene;
 }
 
 MainGame::~MainGame()

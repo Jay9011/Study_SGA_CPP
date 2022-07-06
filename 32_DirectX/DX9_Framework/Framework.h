@@ -17,6 +17,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <functional>
 // Direct3D
 #include <d3d9.h>
 #include <d3dx9.h>
@@ -31,6 +32,7 @@
 // Get Instance
 #define DEVICE		Manager::Get()->GetDevice()->GetDevice()
 #define TEXTURE		Manager::Get()->GetTextures()
+#define KEYBOARD	Manager::Get()->GetKeyboard()
 // Keyboard
 #define KEYPRESS(p)	Manager::Get()->GetKeyboard()->Press(p)
 #define KEYDOWN(p)	Manager::Get()->GetKeyboard()->Down(p)
@@ -58,6 +60,7 @@ using namespace std;
 #include "System/Transform.h"
 #include "System/Texture.h"
 #include "System/TextureManager.h"
+#include "System/Animation/Animation.h"
 // Collider
 #include "System/Collider.h"
 #include "System/Collider/ColliderBox.h"
@@ -69,6 +72,7 @@ using namespace std;
 * Object
 */
 #include "GameObject/Planet.h"
+#include "GameObject/Mario.h"
 
 /*
 * Scene
@@ -80,6 +84,7 @@ using namespace std;
 #include "Scene/Scenes/SolarSystemScene.h"
 #include "Scene/Scenes/TextureScene.h"
 #include "Scene/Scenes/CollisionScene.h"
+#include "Scene/Scenes/AnimationScene.h"
 
 
 #include "MainGame.h"

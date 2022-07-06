@@ -89,6 +89,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             DEVICE->BeginScene();
 
             // RENDER
+            Manager::Get()->Render();
             mainGame->Render();
 
             DEVICE->EndScene();

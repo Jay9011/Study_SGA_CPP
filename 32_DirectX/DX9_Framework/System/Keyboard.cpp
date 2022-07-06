@@ -54,23 +54,23 @@ void Keyboard::Update()
 void Keyboard::Move(Transform& transform, float speed)
 {
 	if (Press(VK_LEFT))
-		transform.pos += D3DXVECTOR2(-1,  0) * speed;
+		transform.pos += D3DXVECTOR2(-1,  0) * speed * Time::Delta();
 	if (Press(VK_RIGHT))
-		transform.pos += D3DXVECTOR2(+1,  0) * speed;
+		transform.pos += D3DXVECTOR2(+1,  0) * speed * Time::Delta();
 	if (Press(VK_UP))
-		transform.pos += D3DXVECTOR2( 0, -1) * speed;
+		transform.pos += D3DXVECTOR2(0, -1) * speed * Time::Delta();
 	if (Press(VK_DOWN))
-		transform.pos += D3DXVECTOR2( 0, +1) * speed;
+		transform.pos += D3DXVECTOR2(0, +1) * speed * Time::Delta();
 }
 
 void Keyboard::MoveASDW(Transform& transform, float speed)
 {
 	if (Press('A'))
-		transform.pos += D3DXVECTOR2(-1, 0) * speed;
+		transform.pos += D3DXVECTOR2(-1, 0) * speed * Time::Delta();
 	if (Press('D'))
-		transform.pos += D3DXVECTOR2(+1, 0) * speed;
+		transform.pos += D3DXVECTOR2(+1, 0) * speed * Time::Delta();
 	if (Press('W'))
-		transform.pos += D3DXVECTOR2(0, -1) * speed;
+		transform.pos += D3DXVECTOR2(0, -1) * speed * Time::Delta();
 	if (Press('S'))
-		transform.pos += D3DXVECTOR2(0, +1) * speed;
+		transform.pos += D3DXVECTOR2(0, +1) * speed * Time::Delta();
 }

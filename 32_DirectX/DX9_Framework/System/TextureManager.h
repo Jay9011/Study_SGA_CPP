@@ -6,6 +6,7 @@ public:
 	~TextureManager();
 
 	Texture* Add(wstring path, Vector2 start = { 0.f, 0.f }, Vector2 end = { 0.f, 0.f }, Vector2 pivot = { .5f, .5f });
+	Texture* Add(wstring path, int maxFrameX, int maxFrameY, int frameX, int frameY, Vector2 pivot = { .5f, .5f });
 
 private:
 	map<wstring, Texture*> textures;

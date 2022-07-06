@@ -21,6 +21,26 @@ Texture::Texture(LPDIRECT3DTEXTURE9 texture, Vector2 start, Vector2 end, Vector2
 	SetData();
 }
 
+Texture::Texture(LPDIRECT3DTEXTURE9 texture, int maxFrameX, int maxFrameY, int frameX, int frameY, Vector2 pivot) :
+	texture(texture),
+	pivot(pivot)
+{
+	D3DSURFACE_DESC surface;
+	texture->GetLevelDesc(0, &surface);
+
+	size = Vector2(surface.Width / maxFrameX, surface.Height / maxFrameY);
+
+	halfSize = size * .5f;
+
+	uvStart.x = frameX / (float)maxFrameX;
+	uvStart.y = frameY / (float)maxFrameY;
+
+	uvEnd.x = frameX + 1 / (float)maxFrameX;
+	uvEnd.y = frameY + 1 / (float)maxFrameY;
+
+	SetData();
+}
+
 Texture::~Texture()
 {
 	texture->Release();
