@@ -35,16 +35,14 @@ Texture::Texture(LPDIRECT3DTEXTURE9 texture, int maxFrameX, int maxFrameY, int f
 	uvStart.x = frameX / (float)maxFrameX;
 	uvStart.y = frameY / (float)maxFrameY;
 
-	uvEnd.x = frameX + 1 / (float)maxFrameX;
-	uvEnd.y = frameY + 1 / (float)maxFrameY;
+	uvEnd.x = (frameX + 1) / (float)maxFrameX;
+	uvEnd.y = (frameY + 1) / (float)maxFrameY;
 
 	SetData();
 }
 
 Texture::~Texture()
 {
-	texture->Release();
-
 	if (vertices != nullptr)
 	{
 		delete[] vertices;

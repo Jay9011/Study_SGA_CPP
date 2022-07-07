@@ -3,6 +3,8 @@
 
 MainGame::MainGame()
 {
+	DEVICE->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
+
 	//scene = new VertexScene;
 	//scene = new WVPScene;
 	//scene = new SolarSystemScene;

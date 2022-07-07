@@ -16,7 +16,10 @@ public:
 	void Render();
 
 	void Move();
-	void Jump();
+	void SetWeapon();
+
+	void SetAnimation();
+	void SetAction(State state);
 
 private:
 	vector<Animation*> actions;
@@ -26,5 +29,8 @@ private:
 
 	bool isRight;
 	bool isJump;
+
+	Texture*  weaponTexture;
+	Transform weaponTrans;
 
 };
