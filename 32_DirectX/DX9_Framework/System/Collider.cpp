@@ -19,13 +19,20 @@ Collider::~Collider()
 
 void Collider::Update()
 {
-	this->pos = target->pos + offset;
+	if (!isActive)
+		return;
+
+	if (target != nullptr)
+		this->pos = target->pos + offset;
 
 	UpdateWorld();
 }
 
 void Collider::Render()
 {
+	if (!isActive)
+		return;
+
 	if (hiddenInGame)
 		return;
 

@@ -20,6 +20,8 @@ public:
 	void Pause();
 	void Stop();
 
+	void SetEndEvent(function<void()> EndEvent) { this->EndEvent = EndEvent; }
+
 private:
 	vector<Texture*> actions;
 	

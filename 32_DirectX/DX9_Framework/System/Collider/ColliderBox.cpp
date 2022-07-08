@@ -22,13 +22,17 @@ ColliderBox::~ColliderBox()
 
 void ColliderBox::Update()
 {
-	this->angle = target->angle;
+	if (target != nullptr)
+		this->angle = target->angle;
 
 	Collider::Update();
 }
 
 bool ColliderBox::Collision(D3DXVECTOR2 position)
 {
+	if (!isActive)
+		return false;
+
 	if (
 		position.x > Left()  &&
 		position.x < Right() &&
@@ -43,6 +47,9 @@ bool ColliderBox::Collision(D3DXVECTOR2 position)
 
 bool ColliderBox::Collision(ColliderBox* other)
 {
+	if (!isActive)
+		return false;
+
 	OBBDesc rThis  =  this->GetOBB();
 	OBBDesc rOther = other->GetOBB();
 

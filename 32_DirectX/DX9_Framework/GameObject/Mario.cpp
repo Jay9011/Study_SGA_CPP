@@ -2,7 +2,7 @@
 #include "Mario.h"
 
 Mario::Mario() :
-	state(IDLE), speed(100.f), jumpSpeed(0), isRight(true), isJump(false)
+	state(IDLE), speed(100.f), jumpSpeed(0), isRight(true), isJump(false), isPlayer(false)
 {
 	pos = { WIN_CENTER_X, WIN_CENTER_Y };
 
@@ -10,10 +10,15 @@ Mario::Mario() :
 	actions[state]->Play();
 
 	SetWeapon();
+
+	collider = new ColliderBox({ 50, 50 }, this);
+	collider->HitEvent() = bind(&Mario::Damage, this);
 }
 
 Mario::~Mario()
 {
+	delete collider;
+
 	for (Animation* action : actions)
 	{
 		delete action;
@@ -27,6 +32,8 @@ void Mario::Update()
 
 	actions[state]->Update();
 	UpdateWorld();
+
+	collider->Update();
 }
 
 void Mario::Render()
@@ -36,10 +43,15 @@ void Mario::Render()
 
 	weaponTrans.SetWorld();
 	weaponTexture->Render();
+
+	collider->Render();
 }
 
 void Mario::Move()
 {
+	if (!isPlayer)
+		return;
+
 	if (KEYPRESS(VK_LEFT))
 	{
 		pos += V_LEFT * speed * Time::Delta();
@@ -74,12 +86,19 @@ void Mario::Move()
 
 void Mario::SetWeapon()
 {
+	if (!isPlayer)
+		return;
+
 	weaponTrans.pos = this->pos;
 
 	D3DXVECTOR2 dir = mousePos - this->pos;
 	weaponTrans.angle = atan2(dir.y, dir.x) + (PI * 0.75);
 	
 	weaponTrans.UpdateWorld();
+}
+
+void Mario::Damage()
+{
 }
 
 void Mario::SetAnimation()

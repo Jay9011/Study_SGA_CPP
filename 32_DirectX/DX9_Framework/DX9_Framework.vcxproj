@@ -90,6 +90,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="GameObject\Knight.h" />
     <ClInclude Include="GameObject\Mario.h" />
     <ClInclude Include="GameObject\Planet.h" />
     <ClInclude Include="Scene\Scenes\AnimationScene.h" />
@@ -115,9 +116,11 @@
     <ClInclude Include="System\TextureManager.h" />
     <ClInclude Include="System\Time.h" />
     <ClInclude Include="System\Transform.h" />
+    <ClInclude Include="System\XML.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GameObject\Knight.cpp" />
     <ClCompile Include="GameObject\Mario.cpp" />
     <ClCompile Include="GameObject\Planet.cpp" />
     <ClCompile Include="Scene\Scenes\AnimationScene.cpp" />
@@ -144,6 +147,7 @@
     <ClCompile Include="System\TextureManager.cpp" />
     <ClCompile Include="System\Time.cpp" />
     <ClCompile Include="System\Transform.cpp" />
+    <ClCompile Include="System\XML.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX9_Framework.rc" />

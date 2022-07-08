@@ -45,15 +45,18 @@
 #define V_UP    Vector2( 0 , -1)
 #define V_DOWN  Vector2( 0 , +1)
 
+using namespace std;
+
 typedef D3DXVECTOR2	Vector2;
 typedef D3DXVECTOR3	Vector3;
 typedef D3DXVECTOR4	Vector4;
 typedef D3DXMATRIX	Matrix;
 
+const wstring texturePath = L"Textures/";
+const string  knightPath  = "Textures/Knight/";
+
 extern HWND hWnd;
 extern D3DXVECTOR2 mousePos;
-
-using namespace std;
 
 /*
 * System
@@ -66,6 +69,7 @@ using namespace std;
 #include "System/Texture.h"
 #include "System/TextureManager.h"
 #include "System/Animation/Animation.h"
+#include "System/XML.h"
 // Collider
 #include "System/Collider.h"
 #include "System/Collider/ColliderBox.h"
@@ -78,6 +82,7 @@ using namespace std;
 */
 #include "GameObject/Planet.h"
 #include "GameObject/Mario.h"
+#include "GameObject/Knight.h"
 
 /*
 * Scene

@@ -17,9 +17,12 @@ public:
 
 	void Move();
 	void SetWeapon();
+	void Damage();
 
 	void SetAnimation();
 	void SetAction(State state);
+
+	Collider* GetCollider() { return collider; }
 
 private:
 	vector<Animation*> actions;
@@ -27,10 +30,13 @@ private:
 	float speed;
 	float jumpSpeed;
 
+	bool isPlayer;
 	bool isRight;
 	bool isJump;
 
 	Texture*  weaponTexture;
 	Transform weaponTrans;
 
+
+	Collider* collider;
 };

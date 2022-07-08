@@ -11,4 +11,5 @@ public:
 
 private:
 	Mario* mario;
+	Knight* knight;
 };
