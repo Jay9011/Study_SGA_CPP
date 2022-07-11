@@ -10,6 +10,7 @@ Collider::Collider() :
 Collider::Collider(Transform* target) :
 	target(target)
 	, offset(0, 0)
+	, isActive(true)
 {
 }
 
@@ -55,5 +56,21 @@ bool Collider::Collision(ColliderBox* other)
 
 bool Collider::Collision(ColliderCircle* other)
 {
+	return false;
+}
+// dynamic_cast : DownCasting을 하는 명령어, 다운캐스팅 실패 시 nullptr 반환
+bool Collider::Collision(Collider* other)
+{
+	if (!isActive)
+		return false;
+
+	ColliderBox* box = dynamic_cast<ColliderBox*>(other);
+	if (box != nullptr)
+		return Collision(box);
+
+	ColliderCircle* circle = dynamic_cast<ColliderCircle*>(other);
+	if (circle != nullptr)
+		return Collision(circle);
+
 	return false;
 }

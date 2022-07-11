@@ -1,6 +1,8 @@
 #include "Framework.h"
 #include "Device.h"
 
+Device* Device::instance = nullptr;
+
 Device::Device()
 {
 	d3d = Direct3DCreate9(D3D_SDK_VERSION);

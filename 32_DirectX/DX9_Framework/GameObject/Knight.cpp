@@ -14,8 +14,10 @@ Knight::Knight() :
 
 	actions[state]->Play();
 
-	weaponCollider = new ColliderBox({ 100, 150 }, this);
+	weaponCollider = new ColliderBox({ 150, 100 }, this);
+	weaponOffset = { 40, 10 };
 	weaponCollider->SetOffset(weaponOffset);
+	weaponCollider->IsActive() = false;
 }
 
 Knight::~Knight()
@@ -35,12 +37,16 @@ void Knight::Update()
 
 	actions[state]->Update();
 	UpdateWorld();
+
+	weaponCollider->Update();
 }
 
 void Knight::Render()
 {
 	SetWorld();
 	actions[state]->Render();
+
+	weaponCollider->Render();
 }
 
 void Knight::Move()
@@ -54,6 +60,8 @@ void Knight::Move()
 			isRight = !isRight;
 
 			scale.x *= -1;
+			weaponOffset.x *= -1;
+			weaponCollider->SetOffset(weaponOffset);
 		}
 
 		if (!isAttacking)
@@ -68,7 +76,10 @@ void Knight::Move()
 			isRight = !isRight;
 
 			scale.x *= -1;
+			weaponOffset.x *= -1;
+			weaponCollider->SetOffset(weaponOffset);
 		}
+
 		if (!isAttacking)
 			SetAction(WALK);
 	}
@@ -77,6 +88,7 @@ void Knight::Move()
 		if (!isAttacking)
 			SetAction(IDLE);
 	}
+	
 }
 
 void Knight::Attack()
@@ -87,6 +99,14 @@ void Knight::Attack()
 		isAttacking = true;
 		weaponCollider->IsActive() = true;
 	}
+
+	for (Collider* enemy : enemies)
+	{
+		if (weaponCollider->Collision(enemy))
+		{
+			enemy->HitEventPlay();
+		}
+	}
 }
 
 void Knight::EndAttack()
@@ -94,6 +114,8 @@ void Knight::EndAttack()
 	isAttacking = false;
 
 	SetAction(IDLE);
+
+	weaponCollider->IsActive() = false;
 }
 
 void Knight::LoadXML(string fileName, Type type, float speed)

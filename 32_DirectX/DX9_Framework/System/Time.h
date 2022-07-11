@@ -2,7 +2,7 @@
 class Time
 {
 public:
-	Time(LPDIRECT3DDEVICE9 device);
+	Time();
 	~Time();
 
 public:

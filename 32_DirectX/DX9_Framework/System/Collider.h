@@ -15,9 +15,12 @@ public:
 	virtual bool Collision(ColliderBox* other);
 	virtual bool Collision(ColliderCircle* other);
 
+	bool Collision(Collider* other);
+
 	virtual void SetOffset(D3DXVECTOR2 offset) { this->offset = offset; }
 
 	function<void()>& HitEvent() { return hitEvent; }
+	void HitEventPlay() { hitEvent(); }
 
 	bool& IsActive() { return isActive; }
 

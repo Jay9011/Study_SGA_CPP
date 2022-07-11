@@ -50,6 +50,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_DX9FRAMEWORK));
     MSG msg{};
 
+    Device::Create();
     Manager::Create();
     MainGame* mainGame = new MainGame;
 
@@ -98,7 +99,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     }
     delete mainGame;
     Manager::Delete();
-
+    Device::Delete();
 
     return (int) msg.wParam;
 }

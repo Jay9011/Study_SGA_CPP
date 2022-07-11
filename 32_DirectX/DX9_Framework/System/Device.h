@@ -4,10 +4,16 @@
 */
 class Device
 {
-public:
+private:
 	Device();
 	~Device();
+    static Device* instance;
+public:
+    static void Create() { if (instance == nullptr) instance = new Device; }
+    static void Delete() { delete instance; }
+    static Device* Get() { return instance; }
 
+public:
     LPDIRECT3DDEVICE9 GetDevice() { return device; }
 
     void SetProjection();

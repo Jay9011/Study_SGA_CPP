@@ -3,7 +3,7 @@
 
 double Time::timeElapsed = 0;
 
-Time::Time(LPDIRECT3DDEVICE9 device)
+Time::Time()
 	: curTick(0)
 	, lastTick(0)
 	, ticksPerSecond(0)
@@ -30,7 +30,7 @@ Time::Time(LPDIRECT3DDEVICE9 device)
 	wstring str = L"πŸ≈¡√º";
 	wcscpy_s(desc.FaceName, str.c_str());
 
-	D3DXCreateFontIndirect(device, &desc, &font);
+	D3DXCreateFontIndirect(DEVICE, &desc, &font);
 }
 
 Time::~Time()

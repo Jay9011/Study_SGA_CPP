@@ -5,6 +5,8 @@ AnimationScene::AnimationScene()
 {
 	mario = new Mario;
 	knight = new Knight;
+	
+	knight->AddEnemy(mario->GetCollider());
 }
 
 AnimationScene::~AnimationScene()

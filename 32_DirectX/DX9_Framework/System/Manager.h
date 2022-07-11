@@ -18,13 +18,11 @@ private:
 *  Member
 */
 public:
-	Device*         GetDevice()   { return device; }
 	Keyboard*       GetKeyboard() { return keyboard; }
 	TextureManager* GetTextures() { return textures; }
 	Time*           GetTime()     { return time; }
 
 private:
-	Device*         device;
 	Keyboard*       keyboard;
 	TextureManager* textures;
 	Time*           time;

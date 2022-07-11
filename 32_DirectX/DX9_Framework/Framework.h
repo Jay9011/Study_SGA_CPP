@@ -30,7 +30,7 @@
 #define WIN_CENTER_X	WIN_WIDTH * 0.5
 #define WIN_CENTER_Y	WIN_HEIGHT * 0.5
 // Get Instance
-#define DEVICE		Manager::Get()->GetDevice()->GetDevice()
+#define DEVICE		Device::Get()->GetDevice()
 #define TEXTURE		Manager::Get()->GetTextures()
 #define KEYBOARD	Manager::Get()->GetKeyboard()
 // Keyboard

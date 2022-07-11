@@ -33,6 +33,7 @@ private:
 	bool isPlayer;
 	bool isRight;
 	bool isJump;
+	bool isDamagedAnimPlay;
 
 	Texture*  weaponTexture;
 	Transform weaponTrans;

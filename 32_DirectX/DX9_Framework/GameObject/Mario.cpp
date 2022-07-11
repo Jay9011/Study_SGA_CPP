@@ -2,7 +2,7 @@
 #include "Mario.h"
 
 Mario::Mario() :
-	state(IDLE), speed(100.f), jumpSpeed(0), isRight(true), isJump(false), isPlayer(false)
+	state(IDLE), speed(100.f), jumpSpeed(0), isRight(true), isJump(false), isPlayer(false), isDamagedAnimPlay(false)
 {
 	pos = { WIN_CENTER_X, WIN_CENTER_Y };
 
@@ -99,6 +99,12 @@ void Mario::SetWeapon()
 
 void Mario::Damage()
 {
+	if (isDamagedAnimPlay)
+		return;
+
+	actions[JUMP]->SetEndEvent([this]() {SetAction(IDLE); isDamagedAnimPlay = false; });
+	SetAction(JUMP);
+	isDamagedAnimPlay = true;
 }
 
 void Mario::SetAnimation()
