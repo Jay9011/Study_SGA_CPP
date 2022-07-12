@@ -21,6 +21,8 @@
 // Direct3D
 #include <d3d9.h>
 #include <d3dx9.h>
+// AntTweakBar
+#include <AntTweakBar.h>
 
 /*
 *	Define
@@ -70,6 +72,7 @@ extern D3DXVECTOR2 mousePos;
 #include "System/TextureManager.h"
 #include "System/Animation/Animation.h"
 #include "System/XML.h"
+#include "System/TweakBar.h"
 // Collider
 #include "System/Collider.h"
 #include "System/Collider/ColliderBox.h"
@@ -95,6 +98,7 @@ extern D3DXVECTOR2 mousePos;
 #include "Scene/Scenes/TextureScene.h"
 #include "Scene/Scenes/CollisionScene.h"
 #include "Scene/Scenes/AnimationScene.h"
+#include "Scene/Scenes/ShaderScene.h"
 
 
 #include "MainGame.h"

@@ -45,13 +45,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;C:\Projects\C\Jay9011\SGA\32_DirectX\DX9_Framework\Lib;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;C:\Projects\C\Jay9011\SGA\32_DirectX\DX9_Framework\Lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;C:\Projects\C\Jay9011\SGA\32_DirectX\DX9_Framework\Lib;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;C:\Projects\C\Jay9011\SGA\32_DirectX\DX9_Framework\Lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -93,8 +93,10 @@
     <ClInclude Include="GameObject\Knight.h" />
     <ClInclude Include="GameObject\Mario.h" />
     <ClInclude Include="GameObject\Planet.h" />
+    <ClInclude Include="Lib\AntTweakBar.h" />
     <ClInclude Include="Scene\Scenes\AnimationScene.h" />
     <ClInclude Include="Scene\Scenes\CollisionScene.h" />
+    <ClInclude Include="Scene\Scenes\ShaderScene.h" />
     <ClInclude Include="Scene\Scenes\SolarSystemScene.h" />
     <ClInclude Include="Scene\Scenes\TextureScene.h" />
     <ClInclude Include="Scene\Scenes\WVPScene.h" />
@@ -116,6 +118,7 @@
     <ClInclude Include="System\TextureManager.h" />
     <ClInclude Include="System\Time.h" />
     <ClInclude Include="System\Transform.h" />
+    <ClInclude Include="System\TweakBar.h" />
     <ClInclude Include="System\XML.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -125,6 +128,7 @@
     <ClCompile Include="GameObject\Planet.cpp" />
     <ClCompile Include="Scene\Scenes\AnimationScene.cpp" />
     <ClCompile Include="Scene\Scenes\CollisionScene.cpp" />
+    <ClCompile Include="Scene\Scenes\ShaderScene.cpp" />
     <ClCompile Include="Scene\Scenes\SolarSystemScene.cpp" />
     <ClCompile Include="Scene\Scenes\TextureScene.cpp" />
     <ClCompile Include="Scene\Scenes\WVPScene.cpp" />
@@ -147,6 +151,7 @@
     <ClCompile Include="System\TextureManager.cpp" />
     <ClCompile Include="System\Time.cpp" />
     <ClCompile Include="System\Transform.cpp" />
+    <ClCompile Include="System\TweakBar.cpp" />
     <ClCompile Include="System\XML.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +160,20 @@
   <ItemGroup>
     <Image Include="DX9_Framework.ico" />
     <Image Include="small.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Shaders\Test.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">2.0</ShaderModel>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">2.0</ShaderModel>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Lib\AntTweakBar.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="Lib\AntTweakBar.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

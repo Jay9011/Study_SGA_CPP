@@ -99,6 +99,15 @@
     <ClInclude Include="GameObject\Knight.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Scene\Scenes\ShaderScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\AntTweakBar.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="System\TweakBar.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -176,6 +185,12 @@
     <ClCompile Include="GameObject\Knight.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Scene\Scenes\ShaderScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="System\TweakBar.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX9_Framework.rc">
@@ -189,5 +204,14 @@
     <Image Include="DX9_Framework.ico">
       <Filter>리소스 파일</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Shaders\Test.hlsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Lib\AntTweakBar.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="Lib\AntTweakBar.lib" />
   </ItemGroup>
 </Project>

@@ -50,8 +50,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_DX9FRAMEWORK));
     MSG msg{};
 
-    Device::Create();
-    Manager::Create();
+      Device::Create();
+     Manager::Create();
+    TweakBar::Create();
     MainGame* mainGame = new MainGame;
 
     while (msg.message != WM_QUIT)
@@ -92,14 +93,16 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             // RENDER
             Manager::Get()->Render();
             mainGame->Render();
+            TweakBar::Get()->Render();
 
             DEVICE->EndScene();
             DEVICE->Present(nullptr, nullptr, nullptr, nullptr);
         }
     }
     delete mainGame;
-    Manager::Delete();
-    Device::Delete();
+    TweakBar::Delete();
+     Manager::Delete();
+      Device::Delete();
 
     return (int) msg.wParam;
 }
@@ -180,6 +183,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
+    TweakBar::Get()->InputProc(hWnd, message, wParam, lParam);
+
     switch (message)
     {
     case WM_COMMAND:
