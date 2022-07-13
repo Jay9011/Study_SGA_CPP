@@ -2,7 +2,7 @@
 #include "ShaderScene.h"
 
 ShaderScene::ShaderScene() :
-	color(1.0f, 0.0f, 0.0f, 1.0f)
+	color(1.0f, 1.0f, 1.0f, 1.0f)
 {
 	texture = TEXTURE->Add(L"Textures/IDLE.jpg");
 
@@ -35,7 +35,7 @@ void ShaderScene::Render()
 	shader->SetFloatArray("Color", (float*)&color, 4);
 
 	shader->Begin(nullptr, 0);
-	shader->BeginPass(0);
+	shader->BeginPass(1);
 	// Shader 적용 시작
 
 	airplane->Render();

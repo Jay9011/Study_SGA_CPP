@@ -105,6 +105,8 @@
     <ClInclude Include="System\Collider\ColliderBox.h" />
     <ClInclude Include="System\Collider\ColliderCircle.h" />
     <ClInclude Include="System\Device.h" />
+    <ClInclude Include="System\Effect.h" />
+    <ClInclude Include="System\EffectManager.h" />
     <ClInclude Include="System\Keyboard.h" />
     <ClInclude Include="System\Manager.h" />
     <ClInclude Include="Main.h" />
@@ -114,6 +116,7 @@
     <ClInclude Include="Scene\IScene.h" />
     <ClInclude Include="Scene\VertexScene\VertexScene.h" />
     <ClInclude Include="System\Math.h" />
+    <ClInclude Include="System\Shader.h" />
     <ClInclude Include="System\Texture.h" />
     <ClInclude Include="System\TextureManager.h" />
     <ClInclude Include="System\Time.h" />
@@ -141,12 +144,15 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="System\Effect.cpp" />
+    <ClCompile Include="System\EffectManager.cpp" />
     <ClCompile Include="System\Keyboard.cpp" />
     <ClCompile Include="System\Manager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="Scene\VertexScene\VertexScene.cpp" />
     <ClCompile Include="System\Math.cpp" />
+    <ClCompile Include="System\Shader.cpp" />
     <ClCompile Include="System\Texture.cpp" />
     <ClCompile Include="System\TextureManager.cpp" />
     <ClCompile Include="System\Time.cpp" />

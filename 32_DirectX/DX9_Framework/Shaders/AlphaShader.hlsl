@@ -25,4 +25,14 @@ technique tech
 
 		PixelShader = compile ps_2_0 main();
 	}
+
+	pass p1 // Additive
+	{
+		AlphaBlendEnable = true;
+		BlendOp   = Add;
+		SrcBlend  = SrcAlpha;
+		DestBlend = One;
+
+		PixelShader = compile ps_2_0 main();
+	}
 }
