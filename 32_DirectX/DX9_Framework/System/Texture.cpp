@@ -43,17 +43,8 @@ Texture::Texture(LPDIRECT3DTEXTURE9 texture, int maxFrameX, int maxFrameY, int f
 
 Texture::~Texture()
 {
-	if (vertices != nullptr)
-	{
-		delete[] vertices;
-		vertices = nullptr;
-	}
-
-	if (indices != nullptr)
-	{
-		delete[] indices;
-		indices = nullptr;
-	}
+	vertexBuffer->Release();
+	 indexBuffer->Release();
 }
 
 void Texture::Render()
@@ -65,12 +56,16 @@ void Texture::Render()
 	*	SRC  : 원본 = 이미지
 	*	DEST : 배경 = 이미지 뒤의 다른 Texture도 포함
 	*/
-	DEVICE->SetRenderState(D3DRS_ALPHABLENDENABLE, true);
-	DEVICE->SetRenderState(D3DRS_BLENDOP  , D3DBLENDOP_ADD);
-	DEVICE->SetRenderState(D3DRS_SRCBLEND , D3DBLEND_SRCALPHA);
-	DEVICE->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
+	//DEVICE->SetRenderState(D3DRS_ALPHABLENDENABLE, true);
+	//DEVICE->SetRenderState(D3DRS_BLENDOP  , D3DBLENDOP_ADD);
+	//DEVICE->SetRenderState(D3DRS_SRCBLEND , D3DBLEND_SRCALPHA);
+	//DEVICE->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
 
-	DEVICE->DrawIndexedPrimitiveUP(D3DPT_TRIANGLELIST, 0, vertexCount, indexCount / 3, indices, D3DFMT_INDEX16, vertices, sizeof(VertexTexture));
+	//DEVICE->DrawIndexedPrimitiveUP(D3DPT_TRIANGLELIST, 0, vertexCount, indexCount / 3, indices, D3DFMT_INDEX16, vertices, sizeof(VertexTexture));
+	DEVICE->SetStreamSource(0, vertexBuffer, 0, sizeof(VertexTexture));
+	DEVICE->SetIndices(indexBuffer);
+
+	DEVICE->DrawIndexedPrimitive(D3DPT_TRIANGLELIST, 0, 0, vertexCount, 0, indexCount / 3);
 
 	DEVICE->SetRenderState(D3DRS_ALPHABLENDENABLE, false);
 }
@@ -88,4 +83,42 @@ void Texture::SetData()
 	indexCount = 6;
 	indices = new WORD[indexCount]{ 0, 1, 2, 2, 1, 3 };
 
+	/*
+	* 버텍스 버퍼 사용
+	*/
+	UINT vertexSize = vertexCount * sizeof(VertexTexture);
+
+	DEVICE->CreateVertexBuffer(vertexSize, 0, VertexTexture::fvf, D3DPOOL_DEFAULT, &vertexBuffer, nullptr);
+
+	void* vertexData = nullptr;
+	vertexBuffer->Lock(0, vertexSize, &vertexData, 0);
+	memcpy(vertexData, vertices, vertexSize);
+	vertexBuffer->Unlock();
+
+	/*
+	* 인덱스 버퍼 사용
+	*/
+	UINT indexSize = indexCount * sizeof(WORD);
+
+	DEVICE->CreateIndexBuffer(indexSize, 0, D3DFMT_INDEX16, D3DPOOL_DEFAULT, &indexBuffer, nullptr);
+
+	void* indexData = nullptr;
+	indexBuffer->Lock(0, indexSize, &indexData, 0);
+	memcpy(indexData, indices, indexSize);
+	indexBuffer->Unlock();
+
+	/*
+	* 버퍼를 사용해서 GPU에 데이터를 넘겼기 때문에 삭제해도 무관하다.
+	*/
+	if (vertices != nullptr)
+	{
+		delete[] vertices;
+		vertices = nullptr;
+	}
+
+	if (indices != nullptr)
+	{
+		delete[] indices;
+		indices = nullptr;
+	}
 }

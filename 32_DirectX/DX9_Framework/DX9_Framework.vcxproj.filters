@@ -207,6 +207,7 @@
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shaders\Test.hlsl" />
+    <FxCompile Include="Shaders\AlphaShader.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Lib\AntTweakBar.dll" />
