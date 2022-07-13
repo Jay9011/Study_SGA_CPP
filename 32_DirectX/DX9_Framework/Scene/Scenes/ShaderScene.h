@@ -11,6 +11,8 @@ private:
 	Texture*  texture;
 	Transform transform;
 
+	Texture* airplane;
+
 	D3DXCOLOR color;
 
 public:

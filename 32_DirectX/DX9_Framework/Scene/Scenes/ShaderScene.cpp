@@ -8,10 +8,12 @@ ShaderScene::ShaderScene() :
 
 	transform.pos = { WIN_CENTER_X, WIN_CENTER_Y };
 
-	D3DXCreateEffectFromFile(DEVICE, L"Shaders/Test.hlsl", nullptr, nullptr, D3DXSHADER_DEBUG, nullptr, &shader, nullptr);
+	D3DXCreateEffectFromFile(DEVICE, L"Shaders/AlphaShader.hlsl", nullptr, nullptr, D3DXSHADER_DEBUG, nullptr, &shader, nullptr);
 
 	TwBar* bar = TweakBar::Get()->GetBar();
 	TwAddVarRW(bar, "Color", TW_TYPE_COLOR4F, &color, "");
+
+	airplane = TEXTURE->Add(L"Textures/airplane.png");
 }
 
 ShaderScene::~ShaderScene()
@@ -28,13 +30,17 @@ void ShaderScene::Render()
 {
 	transform.SetWorld();
 
+	texture->Render();
+
 	shader->SetFloatArray("Color", (float*)&color, 4);
 
 	shader->Begin(nullptr, 0);
 	shader->BeginPass(0);
+	// Shader 적용 시작
 
-	texture->Render();
+	airplane->Render();
 
+	// Shader 적용 끝
 	shader->EndPass();
 	shader->End();
 }
