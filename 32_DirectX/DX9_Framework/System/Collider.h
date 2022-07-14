@@ -1,6 +1,8 @@
 #pragma once
+
 class ColliderBox;
 class ColliderCircle;
+
 class Collider : public Transform
 {
 public:
@@ -11,34 +13,32 @@ public:
 	virtual void Update();
 	virtual void Render();
 
-	virtual bool Collision(D3DXVECTOR2 position);
+	virtual bool Collision(Vector2 position);
 	virtual bool Collision(ColliderBox* other);
 	virtual bool Collision(ColliderCircle* other);
 
 	bool Collision(Collider* other);
 
-	virtual void SetOffset(D3DXVECTOR2 offset) { this->offset = offset; }
+	virtual void SetOffset(Vector2 offset) { this->offset = offset; }
+
+	static void HiddenInGame() { hiddenInGame = !hiddenInGame; }
 
 	function<void()>& HitEvent() { return hitEvent; }
-	void HitEventPlay() { hitEvent(); }
 
 	bool& IsActive() { return isActive; }
 
 protected:
-	bool isActive;
-
 	Transform* target;
+
 	vector<VertexColor> vertices;
-	D3DXVECTOR2 offset;	// 위치 보정을 위한 값
-	function<void()> hitEvent;
 
+	Vector2 offset; //위치 보정을 위한 값
 
-/*
-*  Options
-*/
-protected:
 	static bool hiddenInGame;
-public:
-	static const bool& HiddenInGame() { return hiddenInGame = !hiddenInGame; }
 
+
+	bool isActive;
+	
+public:
+	function<void()> hitEvent;
 };

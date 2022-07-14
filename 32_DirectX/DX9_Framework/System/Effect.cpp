@@ -1,11 +1,11 @@
 #include "Framework.h"
 #include "Effect.h"
 
-Effect::Effect(wstring file, int maxFrameX, int maxFrameY, float speed) :
-	isActive(false)
-	, isAdditive(false)
-	, color(1.0f, 1.0f, 1.0f, 1.0f)
+Effect::Effect(wstring file, int maxFrameX, int maxFrameY, bool isAdditive, float speed)
+	:isActive(false), isAdditive(isAdditive), color(1.0f, 1.0f, 1.0f, 1.0f)
 {
+	file = L"Textures/Effects/" + file;
+
 	vector<Texture*> actions;
 
 	for (int y = 0; y < maxFrameY; y++)
@@ -17,6 +17,7 @@ Effect::Effect(wstring file, int maxFrameX, int maxFrameY, float speed) :
 	}
 
 	animation = new Animation(actions, END, speed);
+	animation->SetEndEvent(bind(&Effect::End, this));
 
 	shader = Shader::Add(L"AlphaShader");
 }
@@ -50,10 +51,17 @@ void Effect::Render()
 	shader->End();
 }
 
-void Effect::Play(Vector2 pos)
+void Effect::Play(Vector2 pos, D3DXCOLOR color)
 {
 	isActive = true;
-	this->pos = pos;
+
+	this->pos   = pos;
+	this->color = color;
 
 	animation->Play();
+}
+
+void Effect::End()
+{
+	isActive = false;
 }

@@ -1,16 +1,11 @@
 ﻿#include "Framework.h"
 #include "Main.h"
 
-#if _DEBUG
-#define new new(_NORMAL_BLOCK, __FILE__, __LINE__)
-#define malloc(s) __malloc_dbg(s, _NORMAL_BLOCK, __FILE__, __LINE__)
-#endif // _DEBUG
-
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
 HWND hWnd;
-D3DXVECTOR2 mousePos;
+Vector2 mousePos;
 
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
@@ -30,8 +25,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
-    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
-    //_CrtSetBreakAlloc(230);
+    // TODO: 여기에 코드를 입력합니다.
 
     // 전역 문자열을 초기화합니다.
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
@@ -44,17 +38,16 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         return FALSE;
     }
 
-    /*
-    *  기본 메시지 루프
-    */
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_DX9FRAMEWORK));
-    MSG msg{};
 
+    MSG msg = {};
+     
       Device::Create();
      Manager::Create();
     TweakBar::Create();
-    MainGame* mainGame = new MainGame;
 
+    MainGame* mainGame = new MainGame;
+    
     while (msg.message != WM_QUIT)
     {
         if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
@@ -65,47 +58,43 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                 DispatchMessage(&msg);
             }
         }
-        // 일반 반복 작업
         else
         {
-            /*
-            *   Update
-            */
             Manager::Get()->Update();
                   mainGame->Update();
 
-            /*
-            *   Render
-            */
-            // device 초기화 작업
             DEVICE->Clear
             (
                 0,
                 nullptr,
                 D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER,
-                0xFF787878,
-                1.f,
+                0xFF555555,
+                1.0f,
                 0
-            );
+            );           
 
             DEVICE->BeginScene();
 
-            // RENDER
-            Manager::Get()->Render();
-            mainGame->Render();
+             Manager::Get()->Render();
+                   mainGame->Render();  
             TweakBar::Get()->Render();
 
+
             DEVICE->EndScene();
+
             DEVICE->Present(nullptr, nullptr, nullptr, nullptr);
         }
     }
+    
     delete mainGame;
+
     TweakBar::Delete();
      Manager::Delete();
       Device::Delete();
 
     return (int) msg.wParam;
 }
+
 
 //
 //  함수: MyRegisterClass()
@@ -148,15 +137,16 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
    RECT rect = { 0, 0, WIN_WIDTH, WIN_HEIGHT };
+
    AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
-   
+
    hWnd = CreateWindowW
    (
-       szWindowClass,
-       szTitle,
+       szWindowClass, 
+       szTitle, 
        WS_OVERLAPPEDWINDOW,
-       CW_USEDEFAULT, 0,
-       rect.right - rect.left, rect.bottom - rect.top,
+       CW_USEDEFAULT, 0, 
+       rect.right - rect.left, rect.bottom - rect.top, 
        nullptr, nullptr, hInstance, nullptr
    );
 
@@ -208,6 +198,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         {
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
+            // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
             EndPaint(hWnd, &ps);
         }
         break;

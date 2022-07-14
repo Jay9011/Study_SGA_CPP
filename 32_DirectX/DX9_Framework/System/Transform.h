@@ -11,7 +11,7 @@ struct VertexColor
 	D3DXVECTOR3 position;
 	D3DCOLOR	color;
 
-	static const DWORD fvf = D3DFVF_XYZ | D3DFVF_DIFFUSE;	// static const 로 초기화하면 h에서 초기화할 수 있지만 이후 변경할 수 없다.
+	static const DWORD fvf = D3DFVF_XYZ | D3DFVF_DIFFUSE;
 };
 
 struct VertexTexture
@@ -21,14 +21,15 @@ struct VertexTexture
 		this->position = { 0, 0, 0 };
 		this->uv       = { 0, 0 };
 	}
+
 	VertexTexture(float x, float y, float u, float v)
 	{
 		this->position = { x, y, 0 };
-		this->uv       = { u, v };
+		this->uv       = { u, v } ;
 	}
 
-	D3DXVECTOR3 position;
-	D3DXVECTOR2 uv;
+	Vector3 position;
+	Vector2	uv;
 
 	static const DWORD fvf = D3DFVF_XYZ | D3DFVF_TEX1;
 };
@@ -40,28 +41,27 @@ public:
 	virtual ~Transform();
 
 	virtual void UpdateWorld();
-	
-	void  SetWorld();
-	const D3DMATRIX* GetWorld()       const { return &world; }
-	const D3DMATRIX* GetScale()       const { return &S; }
-	const D3DMATRIX* GetRotation()    const { return &R; }
-	const D3DMATRIX* GetTranslation() const { return &T; }
-	void SetParent(Transform* parent) { this->parent = parent; };
+
+	void SetWorld();
+
+	void SetParent(Transform* parent) { this->parent = parent; }
+
+	Matrix* GetWorld()       { return &world; }
+	Matrix* GetScale()       { return &S; }
+	Matrix* GetRotation()    { return &R; }
+	Matrix* GetTranslation() { return &T; }
 
 public:
-	D3DXVECTOR2 pos;
-	D3DXVECTOR2 scale;
-	float       angle;
+	Vector2 pos;
+	Vector2 scale;
+	float   angle;
 
 protected:
-	D3DXMATRIX world;
+	Matrix world;
 
-	D3DXMATRIX S;	// scaling
-	D3DXMATRIX R;	// rotation
-	D3DXMATRIX T;	// translation
+	Matrix S, R, T;
 
-	D3DXVECTOR2 pivot;
+	Vector2 pivot;
 
 	Transform* parent;
-
 };

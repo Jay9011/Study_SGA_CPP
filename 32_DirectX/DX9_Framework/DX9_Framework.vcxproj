@@ -94,16 +94,19 @@
     <ClInclude Include="GameObject\Mario.h" />
     <ClInclude Include="GameObject\Planet.h" />
     <ClInclude Include="Lib\AntTweakBar.h" />
-    <ClInclude Include="Scene\Scenes\AnimationScene.h" />
-    <ClInclude Include="Scene\Scenes\CollisionScene.h" />
-    <ClInclude Include="Scene\Scenes\ShaderScene.h" />
-    <ClInclude Include="Scene\Scenes\SolarSystemScene.h" />
-    <ClInclude Include="Scene\Scenes\TextureScene.h" />
-    <ClInclude Include="Scene\Scenes\WVPScene.h" />
-    <ClInclude Include="System\Animation\Animation.h" />
+    <ClInclude Include="Scene\AnimationScene.h" />
+    <ClInclude Include="Scene\CollisionScene.h" />
+    <ClInclude Include="Scene\MultiShaderScene.h" />
+    <ClInclude Include="Scene\Scene.h" />
+    <ClInclude Include="Scene\ShaderScene.h" />
+    <ClInclude Include="Scene\SolarSystemScene.h" />
+    <ClInclude Include="Scene\TextureScene.h" />
+    <ClInclude Include="Scene\VertexScene.h" />
+    <ClInclude Include="Scene\WVPScene.h" />
+    <ClInclude Include="System\Animation.h" />
     <ClInclude Include="System\Collider.h" />
-    <ClInclude Include="System\Collider\ColliderBox.h" />
-    <ClInclude Include="System\Collider\ColliderCircle.h" />
+    <ClInclude Include="System\ColliderBox.h" />
+    <ClInclude Include="System\ColliderCircle.h" />
     <ClInclude Include="System\Device.h" />
     <ClInclude Include="System\Effect.h" />
     <ClInclude Include="System\EffectManager.h" />
@@ -114,7 +117,6 @@
     <ClInclude Include="MainGame.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scene\IScene.h" />
-    <ClInclude Include="Scene\VertexScene\VertexScene.h" />
     <ClInclude Include="System\Math.h" />
     <ClInclude Include="System\Shader.h" />
     <ClInclude Include="System\Texture.h" />
@@ -129,16 +131,18 @@
     <ClCompile Include="GameObject\Knight.cpp" />
     <ClCompile Include="GameObject\Mario.cpp" />
     <ClCompile Include="GameObject\Planet.cpp" />
-    <ClCompile Include="Scene\Scenes\AnimationScene.cpp" />
-    <ClCompile Include="Scene\Scenes\CollisionScene.cpp" />
-    <ClCompile Include="Scene\Scenes\ShaderScene.cpp" />
-    <ClCompile Include="Scene\Scenes\SolarSystemScene.cpp" />
-    <ClCompile Include="Scene\Scenes\TextureScene.cpp" />
-    <ClCompile Include="Scene\Scenes\WVPScene.cpp" />
-    <ClCompile Include="System\Animation\Animation.cpp" />
+    <ClCompile Include="Scene\AnimationScene.cpp" />
+    <ClCompile Include="Scene\CollisionScene.cpp" />
+    <ClCompile Include="Scene\MultiShaderScene.cpp" />
+    <ClCompile Include="Scene\ShaderScene.cpp" />
+    <ClCompile Include="Scene\SolarSystemScene.cpp" />
+    <ClCompile Include="Scene\TextureScene.cpp" />
+    <ClCompile Include="Scene\VertexScene.cpp" />
+    <ClCompile Include="Scene\WVPScene.cpp" />
+    <ClCompile Include="System\Animation.cpp" />
     <ClCompile Include="System\Collider.cpp" />
-    <ClCompile Include="System\Collider\ColliderBox.cpp" />
-    <ClCompile Include="System\Collider\ColliderCircle.cpp" />
+    <ClCompile Include="System\ColliderBox.cpp" />
+    <ClCompile Include="System\ColliderCircle.cpp" />
     <ClCompile Include="System\Device.cpp" />
     <ClCompile Include="Framework.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -150,7 +154,6 @@
     <ClCompile Include="System\Manager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainGame.cpp" />
-    <ClCompile Include="Scene\VertexScene\VertexScene.cpp" />
     <ClCompile Include="System\Math.cpp" />
     <ClCompile Include="System\Shader.cpp" />
     <ClCompile Include="System\Texture.cpp" />
@@ -166,6 +169,38 @@
   <ItemGroup>
     <Image Include="DX9_Framework.ico" />
     <Image Include="small.ico" />
+    <Image Include="Textures\airplane.png" />
+    <Image Include="Textures\background.bmp" />
+    <Image Include="Textures\ball.png" />
+    <Image Include="Textures\bigbang.jpg" />
+    <Image Include="Textures\BrickBlock.png" />
+    <Image Include="Textures\BrickBlocks.png" />
+    <Image Include="Textures\btn-med-down.png" />
+    <Image Include="Textures\btn-med-over.png" />
+    <Image Include="Textures\btn-med-up.png" />
+    <Image Include="Textures\BTS.bmp" />
+    <Image Include="Textures\Effects\effect2.jpg" />
+    <Image Include="Textures\Effects\effect3.png" />
+    <Image Include="Textures\Effects\effect4.png" />
+    <Image Include="Textures\Effects\effect5.png" />
+    <Image Include="Textures\IDLE.jpg" />
+    <Image Include="Textures\Items.png" />
+    <Image Include="Textures\Knight\Knight_Attack.png" />
+    <Image Include="Textures\Knight\Knight_IDLE.png" />
+    <Image Include="Textures\Knight\Knight_Walk.png" />
+    <Image Include="Textures\Knight_All.png" />
+    <Image Include="Textures\Knight_Attack.png" />
+    <Image Include="Textures\mario_all.png" />
+    <Image Include="Textures\mario_cloud.png" />
+    <Image Include="Textures\mario_tile1.png" />
+    <Image Include="Textures\missilePF.png" />
+    <Image Include="Textures\mountain_large.bmp" />
+    <Image Include="Textures\output-onlinepngtools.png" />
+    <Image Include="Textures\rainbow.png" />
+    <Image Include="Textures\siva_run.bmp" />
+    <Image Include="Textures\space.jpg" />
+    <Image Include="Textures\ufo.png" />
+    <Image Include="Textures\록맨.bmp" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shaders\AlphaShader.hlsl">
@@ -173,6 +208,18 @@
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">2.0</ShaderModel>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">2.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Shaders\GrayScaleShader.hlsl">
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">2.0</ShaderModel>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">2.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+    </FxCompile>
+    <FxCompile Include="Shaders\MultiShader.hlsl">
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">2.0</ShaderModel>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">2.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
     </FxCompile>
     <FxCompile Include="Shaders\Test.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
@@ -186,6 +233,13 @@
   </ItemGroup>
   <ItemGroup>
     <Library Include="Lib\AntTweakBar.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Textures\Knight\Knight_Attack.xml" />
+    <Xml Include="Textures\Knight\Knight_IDLE.xml" />
+    <Xml Include="Textures\Knight\Knight_Walk.xml" />
+    <Xml Include="Textures\Knight_All.xml" />
+    <Xml Include="Textures\Knight_Attack.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

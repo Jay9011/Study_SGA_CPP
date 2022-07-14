@@ -7,23 +7,30 @@ Manager::Manager()
 {
 	keyboard = new Keyboard;
 	textures = new TextureManager;
-	time     = new Time();
+	time	 = new Time();
+	effects  = new EffectManager;
 }
 
 Manager::~Manager()
 {
-	delete time;
-	delete textures;
 	delete keyboard;
+	delete textures;
+	delete time;
+	delete effects;
+
+	Shader::Delete();
 }
 
 void Manager::Update()
 {
 	keyboard->Update();
-	time->Update();
+	    time->Update();
+     effects->Update();
 }
 
 void Manager::Render()
 {
-	time->Render();
+	effects->Render();
+	   time->Render();
 }
+

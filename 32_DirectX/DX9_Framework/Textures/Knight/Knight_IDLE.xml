@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:46365c0a214bf3b5f14a5d78dcfd749e:dafaaced9314b7dfd8e3ab2da35a86bc:0aa07fdfb6ab73827f139273bccf3e82$ -->
+<!-- $TexturePacker:SmartUpdate:9ff52dc27bcb67b5b83409765d6d7da3:dafaaced9314b7dfd8e3ab2da35a86bc:000f10bd8fa539da1bf33d4e50aa4e63$ -->
 <!--Format:
 n  => name of the sprite
 x  => sprite x pos in texture
@@ -19,7 +19,7 @@ vertices   => points in sprite coordinate system (x0,y0,x1,y1,x2,y2, ...)
 verticesUV => points in sheet coordinate system (x0,y0,x1,y1,x2,y2, ...)
 triangles  => sprite triangulation, 3 vertex indices per triangle
 -->
-<TextureAtlas imagePath="Knight_IDLE.png" width="1542" height="516">
+<TextureAtlas imagePath="Knight_Idle.png" width="1542" height="516">
     <sprite n="Knight_idle_01.png" x="1" y="1" w="512" h="256" pX="0.5" pY="0.5"/>
     <sprite n="Knight_idle_02.png" x="515" y="1" w="512" h="256" pX="0.5" pY="0.5"/>
     <sprite n="Knight_idle_03.png" x="1029" y="1" w="512" h="256" pX="0.5" pY="0.5"/>

@@ -1,37 +1,24 @@
 #include "Framework.h"
 #include "Planet.h"
 
-Planet::Planet(D3DCOLOR color, float radius, float rotationSpeed, float revolutionSpeed, UINT sectorCount) :
-	Planet(color, color, radius, rotationSpeed, revolutionSpeed, sectorCount)
-{
-	
-}
-
-Planet::Planet(D3DCOLOR color, D3DCOLOR center_color, float radius, float rotationSpeed, float revolutionSpeed, UINT sectorCount) :
-	radius(radius),
-	rotationSpeed(rotationSpeed),
-	revolutionAngle(0),
-	revolutionSpeed(revolutionSpeed),
-	sectorCount(sectorCount)
+Planet::Planet(D3DCOLOR color, float radius, float rotationSpeed, float revolutionSpeed, UINT sectorCount)
+	: radius(radius), rotationSpeed(rotationSpeed), revolutionSpeed(revolutionSpeed), sectorCount(sectorCount), revolutionAngle(0)
 {
 	vector<VertexColor> circle;
-	circle.push_back(VertexColor(0, 0, center_color));
+	circle.push_back(VertexColor(0, 0, color));
 
-	float angle_size = 2.f * PI / sectorCount;
-
-	// 각 점들의 위치를 저장
-	for (size_t i = 0; i < sectorCount; i++)
+	for (UINT i = 0; i < sectorCount; i++)
 	{
-		float a = angle_size * i;
+		float a = PI * 2.0f / sectorCount * i;
 
 		Vector2 p;
-		p.x = cos(a) * radius;
+		p.x =  cos(a) * radius;
 		p.y = -sin(a) * radius;
-
+		
 		circle.push_back(VertexColor(p.x, p.y, color));
 	}
-	// Triangle List 를 작성
-	for (size_t i = 0; i < sectorCount; i++)
+
+	for (UINT i = 0; i < sectorCount; i++)
 	{
 		vertices.push_back(circle[0]);
 
@@ -69,28 +56,28 @@ void Planet::Render()
 
 void Planet::UpdateWorld()
 {
-	// Local Space 에서 자기 자신의 연산을 먼저 끝낸 후
 	Transform::UpdateWorld();
 
-	// World Space 기준으로 연산을 해준다.
 	if (parent != nullptr)
 	{
-		D3DXMATRIX revolution;
+		Matrix revolution;
 		D3DXMatrixRotationZ(&revolution, revolutionAngle);
 
-		D3DXMATRIX pTranslation;
-		/*D3DXMatrixIdentity(&pTranslation);
-		pTranslation._41 = parent->GetWorld()->_41;
-		pTranslation._42 = parent->GetWorld()->_42;
-		pTranslation._43 = parent->GetWorld()->_43;*/
-		D3DXMatrixTranslation(
-			&pTranslation,
-			parent->GetWorld()->_41,
-			parent->GetWorld()->_42,
-			parent->GetWorld()->_43
+		Matrix pTranslation;
+		//D3DXMatrixIdentity(&pTranslation);
+		//pTranslation._41 = parent->GetWorld()->_41;
+		//pTranslation._42 = parent->GetWorld()->_42;
+		D3DXMatrixTranslation
+		(
+			&pTranslation, 
+			parent->GetWorld()->_41, 
+			parent->GetWorld()->_42, 
+			0.0f
 		);
 
-		//this->world *= parent->GetWorld();
-		this->world *= revolution * pTranslation;	// S * R * T
+
+		//this->world *= *parent->GetWorld();
+		
+		this->world *= revolution * pTranslation;
 	}
 }

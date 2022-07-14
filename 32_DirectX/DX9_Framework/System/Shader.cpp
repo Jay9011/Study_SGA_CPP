@@ -5,7 +5,8 @@ map<wstring, Shader*> Shader::shaders = {};
 
 Shader::Shader(wstring file)
 {
-	D3DXCreateEffectFromFile(DEVICE, file.c_str(), nullptr, nullptr, D3DXSHADER_DEBUG, nullptr, &shader, nullptr);
+	D3DXCreateEffectFromFile(DEVICE, file.c_str(), nullptr, nullptr, D3DXSHADER_DEBUG,
+		nullptr, &shader, nullptr);
 }
 
 Shader::~Shader()
@@ -31,10 +32,10 @@ void Shader::Delete()
 		delete pair.second;
 }
 
-void Shader::Begin(int _passIndex)
+void Shader::Begin(int passIndex)
 {
 	shader->Begin(nullptr, 0);
-	shader->BeginPass(_passIndex);
+	shader->BeginPass(passIndex);
 }
 
 void Shader::End()
@@ -43,22 +44,22 @@ void Shader::End()
 	shader->End();
 }
 
-void Shader::SetInt(string _param, int _data)
+void Shader::SetInt(string param, int data)
 {
-	shader->SetInt(_param.c_str(), _data);
+	shader->SetInt(param.c_str(), data);
 }
 
-void Shader::SetFloat(string _param, float _data)
+void Shader::SetFloat(string param, float data)
 {
-	shader->SetFloat(_param.c_str(), _data);
+	shader->SetFloat(param.c_str(), data);
 }
 
-void Shader::SetArray(string _param, void* _data, int _count)
+void Shader::SetArray(string param, void* data, int count)
 {
-	shader->SetFloatArray(_param.c_str(), (float*)_data, _count);
+	shader->SetFloatArray(param.c_str(), (float*)data, count);
 }
 
-void Shader::SetTexture(string _param, LPDIRECT3DTEXTURE9 _texture)
+void Shader::SetTexture(string param, LPDIRECT3DTEXTURE9 texture)
 {
-	shader->SetTexture(_param.c_str(), _texture);
+	shader->SetTexture(param.c_str(), texture);
 }

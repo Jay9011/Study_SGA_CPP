@@ -1,29 +1,28 @@
 #include "Framework.h"
 #include "Knight.h"
 
-Knight::Knight() : 
-	speed(100), isRight(true), isAttacking(false), state(IDLE)
+Knight::Knight()
+	:speed(100), isRight(true), isAttacking(false), state(IDLE)
 {
-	pos = { WIN_CENTER_X, WIN_CENTER_Y };
-	scale = { .3f, .3f };
+	pos   = { WIN_CENTER_X, WIN_CENTER_Y };
+	scale = { 0.3f, 0.3f };
 
-	LoadXML("Knight_IDLE.xml", LOOP);
-	LoadXML("Knight_Walk.xml", LOOP);
+	LoadXML("Knight_Idle.xml",   LOOP);
+	LoadXML("Knight_Walk.xml",   LOOP);
 	LoadXML("Knight_Attack.xml", END);
+
 	actions[ATTACK]->SetEndEvent(bind(&Knight::EndAttack, this));
 
 	actions[state]->Play();
 
-	weaponCollider = new ColliderBox({ 150, 100 }, this);
-	weaponOffset = { 40, 10 };
+	weaponCollider = new ColliderBox({ 150, 150 }, this);
+	weaponOffset = { 40, 0 };
+
 	weaponCollider->SetOffset(weaponOffset);
-	weaponCollider->IsActive() = false;
 }
 
 Knight::~Knight()
 {
-	delete weaponCollider;
-
 	for (Animation* action : actions)
 		delete action;
 
@@ -32,7 +31,7 @@ Knight::~Knight()
 
 void Knight::Update()
 {
-	Move();
+	  Move();
 	Attack();
 
 	actions[state]->Update();
@@ -51,21 +50,21 @@ void Knight::Render()
 
 void Knight::Move()
 {
+	if (isAttacking)
+		return;
+
 	if (KEYPRESS(VK_LEFT))
 	{
-		pos += V_LEFT * speed * Time::Delta();
+		pos += V_LEFT  * speed * Time::Delta();
 
 		if (isRight)
 		{
 			isRight = !isRight;
 
 			scale.x *= -1;
-			weaponOffset.x *= -1;
-			weaponCollider->SetOffset(weaponOffset);
 		}
 
-		if (!isAttacking)
-			SetAction(WALK);
+		SetAction(WALK);
 	}
 	if (KEYPRESS(VK_RIGHT))
 	{
@@ -76,19 +75,13 @@ void Knight::Move()
 			isRight = !isRight;
 
 			scale.x *= -1;
-			weaponOffset.x *= -1;
-			weaponCollider->SetOffset(weaponOffset);
 		}
 
-		if (!isAttacking)
-			SetAction(WALK);
+		SetAction(WALK);
 	}
+
 	if (KEYUP(VK_LEFT) || KEYUP(VK_RIGHT))
-	{
-		if (!isAttacking)
-			SetAction(IDLE);
-	}
-	
+		SetAction(IDLE);
 }
 
 void Knight::Attack()
@@ -96,26 +89,26 @@ void Knight::Attack()
 	if (KEYDOWN(VK_SPACE))
 	{
 		SetAction(ATTACK);
+
 		isAttacking = true;
+
 		weaponCollider->IsActive() = true;
+
+		//TODO: Weapon 방향 설정, Offset 설정
+		if (isRight)
+			weaponCollider->pos = this->pos + weaponOffset;
+		else
+		{
+			weaponCollider->pos = this->pos - weaponOffset;
+		}
 	}
 
+	//TODO: Enemy Collision시 HitEvent 호출
 	for (Collider* enemy : enemies)
 	{
 		if (weaponCollider->Collision(enemy))
-		{
-			enemy->HitEventPlay();
-		}
+			enemy->hitEvent();
 	}
-}
-
-void Knight::EndAttack()
-{
-	isAttacking = false;
-
-	SetAction(IDLE);
-
-	weaponCollider->IsActive() = false;
 }
 
 void Knight::LoadXML(string fileName, Type type, float speed)
@@ -125,6 +118,7 @@ void Knight::LoadXML(string fileName, Type type, float speed)
 	document->LoadFile((knightPath + fileName).c_str());
 
 	XmlElement* atlas = document->FirstChildElement();
+
 	string imageName = atlas->Attribute("imagePath");
 
 	imageName = knightPath + imageName;
@@ -138,9 +132,9 @@ void Knight::LoadXML(string fileName, Type type, float speed)
 
 	while (sprite != nullptr)
 	{
-		D3DXVECTOR2 start = { sprite-> FloatAttribute("x"), sprite-> FloatAttribute("y") };
-		D3DXVECTOR2 end   = { sprite-> FloatAttribute("w"), sprite-> FloatAttribute("h") };
-		D3DXVECTOR2 pivot = { sprite-> FloatAttribute("pX"), sprite-> FloatAttribute("pY") };
+		Vector2 start = { sprite->FloatAttribute("x"),  sprite->FloatAttribute("y")  };
+		Vector2   end = { sprite->FloatAttribute("w"),  sprite->FloatAttribute("h")  };
+		Vector2 pivot = { sprite->FloatAttribute("pX"), sprite->FloatAttribute("pY") };
 
 		end += start;
 
@@ -154,6 +148,7 @@ void Knight::LoadXML(string fileName, Type type, float speed)
 	delete document;
 }
 
+
 void Knight::SetAction(State state)
 {
 	if (this->state == state)
@@ -161,4 +156,13 @@ void Knight::SetAction(State state)
 
 	this->state = state;
 	actions[state]->Play();
+}
+
+void Knight::EndAttack()
+{
+	isAttacking = false;
+
+	SetAction(IDLE);
+
+	weaponCollider->IsActive() = false;
 }

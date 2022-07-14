@@ -1,4 +1,5 @@
 #pragma once
+
 class Mario : public Transform
 {
 	enum State
@@ -11,16 +12,17 @@ class Mario : public Transform
 public:
 	Mario();
 	~Mario();
-
+	
 	void Update();
 	void Render();
 
 	void Move();
 	void SetWeapon();
-	void Damage();
 
 	void SetAnimation();
 	void SetAction(State state);
+
+	void Damage();
 
 	Collider* GetCollider() { return collider; }
 
@@ -30,14 +32,21 @@ private:
 	float speed;
 	float jumpSpeed;
 
-	bool isPlayer;
 	bool isRight;
 	bool isJump;
-	bool isDamagedAnimPlay;
 
-	Texture*  weaponTexture;
+	Texture*  weaponTex;
 	Transform weaponTrans;
 
+	bool isPlayer;
 
 	Collider* collider;
+	
+	//MultiShader
+	Texture* rainbow;
+
+	Shader*  marioShader;
+	Shader* weaponShader;
+
+	D3DXCOLOR color;
 };

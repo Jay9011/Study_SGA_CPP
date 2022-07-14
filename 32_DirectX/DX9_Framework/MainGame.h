@@ -1,4 +1,5 @@
 #pragma once
+
 class MainGame
 {
 public:
@@ -8,8 +9,6 @@ public:
 	void Update();
 	void Render();
 
-
 private:
-	IScene* scene;
-
+	Scene* scene;
 };

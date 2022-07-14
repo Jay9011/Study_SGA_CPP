@@ -11,7 +11,8 @@ MainGame::MainGame()
 	//scene = new TextureScene;
 	//scene = new CollisionScene;
 	//scene = new AnimationScene;
-	scene = new ShaderScene;
+	//scene = new ShaderScene;
+	scene = new MultiShaderScene;
 }
 
 MainGame::~MainGame()
@@ -31,3 +32,4 @@ void MainGame::Render()
 {
 	scene->Render();
 }
+

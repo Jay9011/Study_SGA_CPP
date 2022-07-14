@@ -1,30 +1,32 @@
 #pragma once
-/*
-*   Direct 3D 가져온 후 Device 인터페이스 생성
-*/
+
 class Device
 {
-private:
 	Device();
 	~Device();
-    static Device* instance;
 public:
-    static void Create() { if (instance == nullptr) instance = new Device; }
-    static void Delete() { delete instance; }
-    static Device* Get() { return instance; }
+	static void Create()
+	{
+		if (instance == nullptr)
+			instance = new Device;
+	}
 
-public:
-    LPDIRECT3DDEVICE9 GetDevice() { return device; }
+	static void Delete() { delete instance; }
 
-    void SetProjection();
+	static Device* Get() { return instance; }
+
+	LPDIRECT3DDEVICE9 GetDevice() { return device; }
+
+	void SetProjection();
 
 private:
-    
-    // 시스템 하드웨어 장치의 정보를 받아오는 객체
-    LPDIRECT3D9 d3d;
+	static Device* instance;
 
-    // 3D 그래픽을 만들고 그리는데 필요한 정보를 받아오는 객체
-    LPDIRECT3DDEVICE9 device;
+	//시스템 하드웨어 장치의 정보를 받아오는 객체
+	LPDIRECT3D9 d3d;
 
-    D3DXMATRIX projection;
+	//3D 그래픽을 만들고 그리는데 필요한 객체
+	LPDIRECT3DDEVICE9 device;
+
+	Matrix projection;
 };

@@ -1,4 +1,5 @@
 #pragma once
+
 class Knight : public Transform
 {
 	enum State
@@ -17,11 +18,12 @@ public:
 
 	void Move();
 	void Attack();
-	void EndAttack();
 
 	void LoadXML(string fileName, Type type, float speed = 0.1f);
 
 	void SetAction(State state);
+
+	void EndAttack();
 
 	void AddEnemy(Collider* collider) { enemies.push_back(collider); }
 

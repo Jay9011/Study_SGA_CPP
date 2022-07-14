@@ -1,35 +1,39 @@
 #include "Framework.h"
 #include "Math.h"
 
-float Math::Distance(D3DXVECTOR2 p1, D3DXVECTOR2 p2)
+float Math::Distance(Vector2 p1, Vector2 p2)
 {
+	float distance;
+
 	float x = p1.x - p2.x;
 	float y = p1.y - p2.y;
-	return sqrt(pow(x, 2) + pow(y, 2));
+
+	distance = sqrt(pow(x, 2) + pow(y, 2));
+
+	return distance;
 }
 
 float Math::DegreeToRadian(float degree)
 {
-	return degree / 180.f * PI;
+	return degree * PI / 180.0f;
 }
 
 float Math::RadianToDegree(float radian)
 {
-	return radian / PI * 180.f;
+	return radian * 180.0f / PI;
 }
 
-int Math::Random(const int& _min, const int& _max)
+int Math::Random(const int& min, const int& max)
 {
-	return rand() % (_max - _min) + _min;
+	return rand() % (max - min) + min;
 }
 
-float Math::Random(const float& _min, const float& _max)
+float Math::Random(const float& min, const float& max)
 {
-	// min ~ max
-	// min = min + (max - min) * 0;
-	// max = min + (max - min) * 1;
-
 	float val = (float)rand() / RAND_MAX;
 
-	return _min + (_max - _min) * val;
+	return min + (max - min) * val;
+	//min ~ max
+	//min = min + (max - min) * 0;
+	//max = min + (max - min) * 1;
 }

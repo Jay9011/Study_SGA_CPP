@@ -1,4 +1,5 @@
 #pragma once
+
 #define MAX_KEY 256
 
 class Transform;
@@ -11,13 +12,12 @@ public:
 
 	void Update();
 
-	bool  Down(DWORD key) { return keyMap[key] == DOWN;  };
-	bool Press(DWORD key) { return keyMap[key] == PRESS; };
-	bool    Up(DWORD key) { return keyMap[key] == UP;    };
+	bool  Down(DWORD key) { return keyMap[key] == DOWN; }
+	bool    Up(DWORD key) { return keyMap[key] == UP; }
+	bool Press(DWORD key) { return keyMap[key] == PRESS; }
 
-	void Move(Transform& transform, float speed);
-	void MoveASDW(Transform& transform, float speed);
-
+	void Move(Transform* transform, float speed);
+	void MoveASDW(Transform* transform, float speed);
 
 private:
 	enum KeyState
@@ -28,9 +28,7 @@ private:
 		PRESS
 	};
 
-	byte keyOldState[MAX_KEY];
 	byte keyState[MAX_KEY];
+	byte keyOldState[MAX_KEY];
 	byte keyMap[MAX_KEY];
-
-
 };

@@ -36,28 +36,16 @@
     <ClInclude Include="Scene\IScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\VertexScene\VertexScene.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="MainGame.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="System\Keyboard.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\Scenes\WVPScene.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene\Scenes\SolarSystemScene.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="System\Transform.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="GameObject\Planet.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene\Scenes\TextureScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="System\Texture.h">
@@ -69,37 +57,19 @@
     <ClInclude Include="System\Collider.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="System\Collider\ColliderBox.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene\Scenes\CollisionScene.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="System\Collider\ColliderCircle.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="System\Math.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="System\Time.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="System\Animation\Animation.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="GameObject\Mario.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene\Scenes\AnimationScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="System\XML.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="GameObject\Knight.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene\Scenes\ShaderScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Lib\AntTweakBar.h">
@@ -117,6 +87,42 @@
     <ClInclude Include="System\EffectManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Scene\AnimationScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\CollisionScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\MultiShaderScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Scene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\ShaderScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\SolarSystemScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\TextureScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\VertexScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\WVPScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Animation.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="System\ColliderBox.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="System\ColliderCircle.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -131,28 +137,16 @@
     <ClCompile Include="System\Manager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\VertexScene\VertexScene.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="MainGame.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="System\Keyboard.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\Scenes\WVPScene.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene\Scenes\SolarSystemScene.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="System\Transform.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="GameObject\Planet.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene\Scenes\TextureScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="System\Texture.cpp">
@@ -164,37 +158,19 @@
     <ClCompile Include="System\Collider.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="System\Collider\ColliderBox.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene\Scenes\CollisionScene.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="System\Collider\ColliderCircle.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="System\Math.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="System\Time.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="System\Animation\Animation.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="GameObject\Mario.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene\Scenes\AnimationScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="System\XML.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="GameObject\Knight.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene\Scenes\ShaderScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="System\TweakBar.cpp">
@@ -207,6 +183,39 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="System\EffectManager.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\AnimationScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\CollisionScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\MultiShaderScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\ShaderScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\SolarSystemScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\TextureScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\VertexScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\WVPScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Animation.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="System\ColliderBox.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="System\ColliderCircle.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -222,15 +231,120 @@
     <Image Include="DX9_Framework.ico">
       <Filter>리소스 파일</Filter>
     </Image>
+    <Image Include="Textures\airplane.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\background.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\ball.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\bigbang.jpg">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\BrickBlock.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\BrickBlocks.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\btn-med-down.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\btn-med-over.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\btn-med-up.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\BTS.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\IDLE.jpg">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\Items.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\Knight_All.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\Knight_Attack.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\mario_all.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\mario_cloud.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\mario_tile1.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\missilePF.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\mountain_large.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\output-onlinepngtools.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\rainbow.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\siva_run.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\space.jpg">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\ufo.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\록맨.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\Knight\Knight_Attack.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\Knight\Knight_IDLE.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\Knight\Knight_Walk.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\Effects\effect2.jpg">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\Effects\effect3.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\Effects\effect4.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Textures\Effects\effect5.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shaders\Test.hlsl" />
     <FxCompile Include="Shaders\AlphaShader.hlsl" />
+    <FxCompile Include="Shaders\GrayScaleShader.hlsl" />
+    <FxCompile Include="Shaders\MultiShader.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Lib\AntTweakBar.dll" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="Lib\AntTweakBar.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Textures\Knight_All.xml" />
+    <Xml Include="Textures\Knight_Attack.xml" />
+    <Xml Include="Textures\Knight\Knight_Attack.xml" />
+    <Xml Include="Textures\Knight\Knight_IDLE.xml" />
+    <Xml Include="Textures\Knight\Knight_Walk.xml" />
   </ItemGroup>
 </Project>

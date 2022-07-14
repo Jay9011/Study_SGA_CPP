@@ -1,23 +1,25 @@
 #pragma once
+
 class Time
 {
 public:
 	Time();
 	~Time();
 
-public:
-	static double Delta() { return timeElapsed; }
-
 	void Update();
 	void Render();
 
 	UINT GetFPS() { return frameRate; }
 
+	static double Delta() { return timeElapsed; }
+
 private:
-	// 1프레임당 경과 시간
+	//1프레임당 경과 시간
 	static double timeElapsed;
 
-	INT64 curTick;
+	double timeScale; //1tick에 걸리는 시간
+
+	INT64  curTick;
 	INT64 lastTick;
 	INT64 ticksPerSecond;
 
@@ -25,14 +27,11 @@ private:
 	UINT frameRate;
 
 	double oneSecCount;
+
 	double runningTime;
 
-	double timeScale;
+	double scanningRate;
 
-	// V-Sync
-	double scanningRate; // 주사율
-
-	// Text 출력
+	//Text 출력
 	LPD3DXFONT font;
 };
-

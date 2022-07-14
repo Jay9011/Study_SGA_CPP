@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:1b4bfdc894aac5392a9ac5954c89521e:cdcb0f8b7b9ea47d7e08bd94dbe8916d:edb0a8c09d809108eb1686c9a349fddb$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+pX => x pos of the pivot point (relative to sprite width)
+pY => y pos of the pivot point (relative to sprite height)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+with polygon mode enabled:
+vertices   => points in sprite coordinate system (x0,y0,x1,y1,x2,y2, ...)
+verticesUV => points in sheet coordinate system (x0,y0,x1,y1,x2,y2, ...)
+triangles  => sprite triangulation, 3 vertex indices per triangle
+-->
+<TextureAtlas imagePath="Knight_All.png" width="1806" height="1170">
+  <attack>
+    <sprite n="Knight_attack_01.png" x="1" y="1" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_attack_02.png" x="259" y="1" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_attack_03.png" x="517" y="1" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_attack_04.png" x="775" y="1" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_attack_05.png" x="1033" y="1" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_attack_06.png" x="1291" y="1" w="256" h="128" pX="0.5" pY="0.5"/>
+  </attack>
+  <block>
+    <sprite n="Knight_block_01.png" x="1549" y="1" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_block_02.png" x="1" y="131" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_block_03.png" x="259" y="131" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_block_04.png" x="517" y="131" w="256" h="128" pX="0.5" pY="0.5"/>
+  </block>
+  <cast>
+    <sprite n="Knight_cast_01.png" x="775" y="131" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_cast_02.png" x="1033" y="131" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_cast_03.png" x="1291" y="131" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_cast_04.png" x="1549" y="131" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_cast_05.png" x="1" y="261" w="256" h="128" pX="0.5" pY="0.5"/>
+  </cast>
+  <crouch>
+    <sprite n="Knight_crouch_0.png" x="259" y="261" w="256" h="128" pX="0.5" pY="0.5"/>
+  </crouch>
+  <dash>
+    <sprite n="Knight_dash_01.png" x="517" y="261" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_dash_02.png" x="775" y="261" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_dash_03.png" x="1033" y="261" w="256" h="128" pX="0.5" pY="0.5"/>
+  </dash>
+  <die>
+    <sprite n="Knight_die_01.png" x="1291" y="261" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_die_02.png" x="1549" y="261" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_die_03.png" x="1" y="391" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_die_04.png" x="259" y="391" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_die_05.png" x="517" y="391" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_die_06.png" x="775" y="391" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_die_07.png" x="1033" y="391" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_die_08.png" x="1291" y="391" w="256" h="128" pX="0.5" pY="0.5"/>
+  </die>
+  <dizzy>
+    <sprite n="Knight_dizzy_01.png" x="1549" y="391" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_dizzy_02.png" x="1" y="521" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_dizzy_03.png" x="259" y="521" w="256" h="128" pX="0.5" pY="0.5"/>
+  </dizzy>
+  <hurt>
+    <sprite n="Knight_hurt_01.png" x="517" y="521" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_hurt_02.png" x="775" y="521" w="256" h="128" pX="0.5" pY="0.5"/>
+  </hurt>
+  <idle>
+    <sprite n="Knight_idle_01.png" x="1033" y="521" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_idle_02.png" x="1291" y="521" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_idle_03.png" x="1549" y="521" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_idle_04.png" x="1" y="651" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_idle_05.png" x="259" y="651" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_idle_06.png" x="517" y="651" w="256" h="128" pX="0.5" pY="0.5"/>
+  </idle>
+  <jump>
+    <sprite n="Knight_jump_01.png" x="775" y="651" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_jump_02.png" x="1033" y="651" w="256" h="128" pX="0.5" pY="0.5"/>
+  </jump>
+  <jumpAttack>
+    <sprite n="Knight_jumpAttack_01.png" x="1291" y="651" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_jumpAttack_02.png" x="1549" y="651" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_jumpAttack_03.png" x="1" y="781" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_jumpAttack_04.png" x="259" y="781" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_jumpAttack_05.png" x="517" y="781" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_jumpAttack_06.png" x="775" y="781" w="256" h="128" pX="0.5" pY="0.5"/>
+  </jumpAttack>
+  <strike>
+    <sprite n="Knight_strike_01.png" x="1033" y="781" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_strike_02.png" x="1291" y="781" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_strike_03.png" x="1549" y="781" w="256" h="128" pX="0.5" pY="0.5"/>
+  </strike>
+  <walk>
+    <sprite n="Knight_walk_01.png" x="1" y="911" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_walk_02.png" x="259" y="911" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_walk_03.png" x="517" y="911" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_walk_04.png" x="775" y="911" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_walk_05.png" x="1033" y="911" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_walk_06.png" x="1291" y="911" w="256" h="128" pX="0.5" pY="0.5"/>
+  </walk>
+  <win>
+    <sprite n="Knight_win_01.png" x="1549" y="911" w="256" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="Knight_win_02.png" x="1" y="1041" w="256" h="128" pX="0.5" pY="0.5"/>
+  </win>
+</TextureAtlas>
