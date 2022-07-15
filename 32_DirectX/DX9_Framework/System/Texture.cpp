@@ -7,6 +7,8 @@ Texture::Texture(LPDIRECT3DTEXTURE9 texture, Vector2 start, Vector2 end, Vector2
 	D3DSURFACE_DESC surface;
 	texture->GetLevelDesc(0, &surface);
 
+	imageSize = Vector2(surface.Width, surface.Height);
+
 	size = Vector2(surface.Width, surface.Height);
 
 	halfSize = size * 0.5f;
@@ -25,6 +27,8 @@ Texture::Texture(LPDIRECT3DTEXTURE9 texture, int maxFrameX, int maxFrameY, int f
 {
 	D3DSURFACE_DESC surface;
 	texture->GetLevelDesc(0, &surface);
+
+	imageSize = Vector2(surface.Width, surface.Height);
 
 	size = Vector2(surface.Width / maxFrameX, surface.Height / maxFrameY);
 

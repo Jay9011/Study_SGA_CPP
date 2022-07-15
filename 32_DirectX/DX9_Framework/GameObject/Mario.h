@@ -49,4 +49,7 @@ private:
 	Shader* weaponShader;
 
 	D3DXCOLOR color;
+
+	int passIndex;
+	int weight;
 };

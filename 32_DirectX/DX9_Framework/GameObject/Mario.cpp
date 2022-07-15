@@ -2,7 +2,7 @@
 #include "Mario.h"
 
 Mario::Mario()
-	:state(IDLE), speed(100.0f), jumpSpeed(0), isRight(true), isJump(false), isPlayer(true), color(1.0f, 1.0f, 1.0f, 1.0f)
+	:state(IDLE), speed(100.0f), jumpSpeed(0), isRight(true), isJump(false), isPlayer(true), color(1.0f, 1.0f, 1.0f, 1.0f), passIndex(0)
 {
 	pos = { WIN_CENTER_X, WIN_CENTER_Y };
 
@@ -18,7 +18,13 @@ Mario::Mario()
 	rainbow = TEXTURE->Add(L"Textures/rainbow.png");
 
 	 marioShader = Shader::Add(L"MultiShader");
-	weaponShader = Shader::Add(L"AlphaShader");
+	//weaponShader = Shader::Add(L"AlphaShader");
+	weaponShader = Shader::Add(L"OutlineShader");
+
+	TwBar* bar = TweakBar::Get()->GetBar();
+	TwAddVarRW(bar, "Color"    , TW_TYPE_COLOR4F, &color, "");
+	TwAddVarRW(bar, "PassIndex", TW_TYPE_INT32  , &passIndex, "");
+	TwAddVarRW(bar, "Weight"   , TW_TYPE_INT32  , &weight, "");
 }
 
 Mario::~Mario()
@@ -53,7 +59,7 @@ void Mario::Render()
 	marioShader->SetArray("uvStart", &uvStart, 2);
 	marioShader->SetArray("uvEnd"  , &uvEnd  , 2);
 
-	marioShader->Begin();
+	marioShader->Begin(passIndex);
 
 	actions[state]->Render();
 
@@ -61,8 +67,10 @@ void Mario::Render()
 
 	weaponTrans.SetWorld();
 
-
+	Vector2 imageSize = weaponTex->GetImageSize();
 	weaponShader->SetArray("Color", &color, 4);
+	weaponShader->SetArray("ImageSize", &imageSize, 2);
+	weaponShader->SetInt("Weight", weight);
 	weaponShader->Begin();
 
 	weaponTex->Render();

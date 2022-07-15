@@ -333,6 +333,7 @@
     <FxCompile Include="Shaders\AlphaShader.hlsl" />
     <FxCompile Include="Shaders\GrayScaleShader.hlsl" />
     <FxCompile Include="Shaders\MultiShader.hlsl" />
+    <FxCompile Include="Shaders\OutlineShader.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Lib\AntTweakBar.dll" />

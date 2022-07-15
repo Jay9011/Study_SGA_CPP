@@ -23,6 +23,8 @@ public:
 	Vector2 GetUVStart() { return uvStart; }
 	Vector2 GetUVEnd()   { return uvEnd; }
 
+	Vector2 GetImageSize() { return imageSize; }
+
 private:
 	VertexTexture* vertices;
 	WORD*          indices;
@@ -39,6 +41,8 @@ private:
 	Vector2 uvEnd;
 
 	Vector2 pivot;
+
+	Vector2 imageSize;
 
 	//Buffer
 	LPDIRECT3DVERTEXBUFFER9 vertexBuffer;
