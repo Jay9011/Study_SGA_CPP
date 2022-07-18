@@ -4,6 +4,9 @@
 MultiShaderScene::MultiShaderScene()
 {
 	mario = new Mario;
+	background = new Object(L"Textures/IDLE.jpg", Vector2(WIN_WIDTH * 2, WIN_HEIGHT * 2));
+	camera = new Camera;
+	//camera->SetTarget(mario);
 }
 
 MultiShaderScene::~MultiShaderScene()
@@ -13,11 +16,14 @@ MultiShaderScene::~MultiShaderScene()
 
 void MultiShaderScene::Update()
 {
-	mario->Update();
+	background->Update();
+	     mario->Update();
+		camera->Update();
 }
 
 void MultiShaderScene::Render()
 {
-	mario->Render();
+	background->Render();
+	     mario->Render();
 }
 

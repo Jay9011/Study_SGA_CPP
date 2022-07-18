@@ -98,7 +98,7 @@
   <ItemGroup>
     <ClInclude Include="GameObject\Knight.h" />
     <ClInclude Include="GameObject\Mario.h" />
-    <ClInclude Include="GameObject\Object.h" />
+    <ClInclude Include="System\Object.h" />
     <ClInclude Include="GameObject\Planet.h" />
     <ClInclude Include="Lib\AntTweakBar.h" />
     <ClInclude Include="Scene\AnimationScene.h" />
@@ -138,7 +138,7 @@
   <ItemGroup>
     <ClCompile Include="GameObject\Knight.cpp" />
     <ClCompile Include="GameObject\Mario.cpp" />
-    <ClCompile Include="GameObject\Object.cpp" />
+    <ClCompile Include="System\Object.cpp" />
     <ClCompile Include="GameObject\Planet.cpp" />
     <ClCompile Include="Scene\AnimationScene.cpp" />
     <ClCompile Include="Scene\CollisionScene.cpp" />

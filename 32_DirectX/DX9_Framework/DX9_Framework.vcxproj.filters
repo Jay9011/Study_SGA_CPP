@@ -126,7 +126,7 @@
     <ClInclude Include="System\Camera.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject\Object.h">
+    <ClInclude Include="System\Object.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -227,7 +227,7 @@
     <ClCompile Include="System\Camera.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject\Object.cpp">
+    <ClCompile Include="System\Object.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

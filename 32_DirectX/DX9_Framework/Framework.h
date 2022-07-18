@@ -54,7 +54,6 @@ typedef D3DXMATRIX  Matrix;
 const  string  knightPath =  "Textures/Knight/";
 const wstring texturePath = L"Textures/";
 
-#include "GameObject/Object.h"
 #include "System/Device.h"
 #include "System/Keyboard.h"
 #include "System/Transform.h"
@@ -68,6 +67,8 @@ const wstring texturePath = L"Textures/";
 #include "System/TweakBar.h"
 #include "System/Effect.h"
 #include "System/EffectManager.h"
+#include "System/Object.h"
+#include "System/Camera.h"
 
 #include "System/Collider.h"
 #include "System/ColliderBox.h"

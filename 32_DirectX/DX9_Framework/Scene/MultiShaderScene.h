@@ -13,4 +13,6 @@ private:
 	Mario* mario;
 
 	Object* background;
+
+	Camera* camera;
 };
