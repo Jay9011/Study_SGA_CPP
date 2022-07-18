@@ -11,4 +11,6 @@ public:
 
 private:
 	Mario* mario;
+
+	Object* background;
 };

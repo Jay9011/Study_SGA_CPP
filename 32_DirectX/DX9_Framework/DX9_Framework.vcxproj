@@ -68,6 +68,9 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <FxCompile>
+      <ShaderModel>2.0</ShaderModel>
+    </FxCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -88,10 +91,14 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <FxCompile>
+      <ShaderModel>2.0</ShaderModel>
+    </FxCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="GameObject\Knight.h" />
     <ClInclude Include="GameObject\Mario.h" />
+    <ClInclude Include="GameObject\Object.h" />
     <ClInclude Include="GameObject\Planet.h" />
     <ClInclude Include="Lib\AntTweakBar.h" />
     <ClInclude Include="Scene\AnimationScene.h" />
@@ -104,6 +111,7 @@
     <ClInclude Include="Scene\VertexScene.h" />
     <ClInclude Include="Scene\WVPScene.h" />
     <ClInclude Include="System\Animation.h" />
+    <ClInclude Include="System\Camera.h" />
     <ClInclude Include="System\Collider.h" />
     <ClInclude Include="System\ColliderBox.h" />
     <ClInclude Include="System\ColliderCircle.h" />
@@ -130,6 +138,7 @@
   <ItemGroup>
     <ClCompile Include="GameObject\Knight.cpp" />
     <ClCompile Include="GameObject\Mario.cpp" />
+    <ClCompile Include="GameObject\Object.cpp" />
     <ClCompile Include="GameObject\Planet.cpp" />
     <ClCompile Include="Scene\AnimationScene.cpp" />
     <ClCompile Include="Scene\CollisionScene.cpp" />
@@ -140,6 +149,7 @@
     <ClCompile Include="Scene\VertexScene.cpp" />
     <ClCompile Include="Scene\WVPScene.cpp" />
     <ClCompile Include="System\Animation.cpp" />
+    <ClCompile Include="System\Camera.cpp" />
     <ClCompile Include="System\Collider.cpp" />
     <ClCompile Include="System\ColliderBox.cpp" />
     <ClCompile Include="System\ColliderCircle.cpp" />
@@ -203,6 +213,10 @@
     <Image Include="Textures\록맨.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <FxCompile Include="Shaders\ObjectShader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+    </FxCompile>
     <FxCompile Include="Shaders\OutlineShader.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>

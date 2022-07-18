@@ -123,6 +123,12 @@
     <ClInclude Include="System\ColliderCircle.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="System\Camera.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Object.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -216,6 +222,12 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="System\ColliderCircle.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Camera.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Object.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -334,6 +346,7 @@
     <FxCompile Include="Shaders\GrayScaleShader.hlsl" />
     <FxCompile Include="Shaders\MultiShader.hlsl" />
     <FxCompile Include="Shaders\OutlineShader.hlsl" />
+    <FxCompile Include="Shaders\ObjectShader.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Lib\AntTweakBar.dll" />

@@ -17,6 +17,7 @@ public:
 	void Render();
 
 	void SetData();
+	void SetSize(Vector2 size);
 
 	LPDIRECT3DTEXTURE9 GetTexture() { return texture; }
 

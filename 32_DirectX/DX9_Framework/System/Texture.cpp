@@ -144,3 +144,13 @@ void Texture::SetData()
 	delete[] indices;
 	//
 }
+
+void Texture::SetSize(Vector2 size)
+{
+	this->size = size;
+
+	vertexBuffer->Release();
+	 indexBuffer->Release();
+
+	SetData();
+}
