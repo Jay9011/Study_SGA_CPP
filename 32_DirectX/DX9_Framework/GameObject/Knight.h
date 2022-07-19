@@ -29,6 +29,7 @@ public:
 
 private:
 	vector<Animation*> actions;
+	Shader* shader;
 
 	float speed;
 

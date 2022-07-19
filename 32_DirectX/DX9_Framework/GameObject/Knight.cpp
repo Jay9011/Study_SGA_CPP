@@ -19,6 +19,8 @@ Knight::Knight()
 	weaponOffset = { 40, 0 };
 
 	weaponCollider->SetOffset(weaponOffset);
+
+	shader = Shader::Add(L"ObjectShader");
 }
 
 Knight::~Knight()
@@ -43,7 +45,9 @@ void Knight::Update()
 void Knight::Render()
 {
 	SetWorld();
+	shader->Begin();
 	actions[state]->Render();
+	shader->End();
 
 	weaponCollider->Render();
 }
@@ -96,11 +100,16 @@ void Knight::Attack()
 
 		//TODO: Weapon 방향 설정, Offset 설정
 		if (isRight)
-			weaponCollider->pos = this->pos + weaponOffset;
+		{
+			weaponOffset.x = 40;
+		}
 		else
 		{
-			weaponCollider->pos = this->pos - weaponOffset;
+			weaponOffset.x = -40;
 		}
+
+		weaponCollider->SetOffset(weaponOffset);
+		weaponCollider->Update();
 	}
 
 	//TODO: Enemy Collision시 HitEvent 호출

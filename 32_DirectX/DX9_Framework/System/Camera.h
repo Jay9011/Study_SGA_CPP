@@ -14,8 +14,8 @@ public:
 	void SetBackground(Object* background) 
 	{ 
 		this->background = background;
-		bgLT = background->pos - background->GetTexture()->GetImageSize() * 0.5;
-		bgRB = background->pos + background->GetTexture()->GetImageSize() * 0.5;
+		bgLT = background->pos - background->GetTexture()->GetSize() * 0.5;
+		bgRB = background->pos + background->GetTexture()->GetSize() * 0.5;
 	}
 
 private:

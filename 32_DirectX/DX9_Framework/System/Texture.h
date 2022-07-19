@@ -24,7 +24,8 @@ public:
 	Vector2 GetUVStart() { return uvStart; }
 	Vector2 GetUVEnd()   { return uvEnd; }
 
-	Vector2 GetImageSize() { return imageSize; }
+	Vector2 GetImageSize() { return imageSize; }	// 원본 사이즈
+	Vector2 GetSize()      { return size; }	// 변환 후 사이즈
 
 private:
 	VertexTexture* vertices;

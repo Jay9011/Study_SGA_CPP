@@ -29,18 +29,30 @@ void Camera::FreeMode()
 		if (KEYPRESS('A'))
 		{
 			pos += V_RIGHT * speed * Time::Delta();
+
+			if (pos.x > -bgLT.x)
+				pos.x = -bgLT.x;
 		}
 		if (KEYPRESS('D'))
 		{
 			pos += V_LEFT * speed * Time::Delta();
+
+			if (pos.x < WIN_WIDTH - bgRB.x)
+				pos.x = WIN_WIDTH - bgRB.x;
 		}
 		if (KEYPRESS('W'))
 		{
 			pos += V_DOWN * speed * Time::Delta();
+
+			if (pos.y > -bgLT.y)
+				pos.y = -bgLT.y;
 		}
 		if (KEYPRESS('S'))
 		{
 			pos += V_UP * speed * Time::Delta();
+
+			if (pos.y < WIN_HEIGHT - bgRB.y)
+				pos.y = WIN_HEIGHT - bgRB.y;
 		}
 		
 	}
