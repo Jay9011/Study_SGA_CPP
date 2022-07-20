@@ -18,6 +18,7 @@ public:
 	void SetFloat  (string param, float data);
 	void SetArray  (string param, void* data, int count);
 	void SetTexture(string param, LPDIRECT3DTEXTURE9 texture);
+	void SetMatrix (string param, Matrix* matrix);
 
 private:
 	LPD3DXEFFECT shader;

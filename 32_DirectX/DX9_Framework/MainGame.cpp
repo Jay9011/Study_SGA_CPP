@@ -10,9 +10,10 @@ MainGame::MainGame()
 	//scene = new SolarSystemScene;
 	//scene = new TextureScene;
 	//scene = new CollisionScene;
-	scene = new AnimationScene;
+	//scene = new AnimationScene;
 	//scene = new ShaderScene;
 	//scene = new MultiShaderScene;
+	scene = new VertexShaderScene;
 }
 
 MainGame::~MainGame()

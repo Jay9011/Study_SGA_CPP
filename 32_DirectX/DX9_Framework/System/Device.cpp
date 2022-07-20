@@ -46,7 +46,7 @@ void Device::SetProjection()
         -1.0f, 1.0f
     );
 
-    device->SetTransform(D3DTS_PROJECTION, &projection);
+    //device->SetTransform(D3DTS_PROJECTION, &projection);
 
     device->SetRenderState(D3DRS_LIGHTING, false);
 }

@@ -10,6 +10,9 @@ public:
 
 	Texture* GetTexture() { return texture; }
 
+	void    SetShader(Shader* shader) { this->shader = shader; }
+	Shader* GetShader()               { return shader; }
+
 private:
 	Shader* shader;
 	Texture* texture;

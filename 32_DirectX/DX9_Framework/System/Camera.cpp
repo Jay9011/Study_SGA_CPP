@@ -19,7 +19,7 @@ void Camera::Update()
 
 	UpdateWorld();
 
-	DEVICE->SetTransform(D3DTS_VIEW, &world);
+	//DEVICE->SetTransform(D3DTS_VIEW, &world);
 }
 
 void Camera::FreeMode()

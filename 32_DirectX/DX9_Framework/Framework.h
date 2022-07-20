@@ -89,6 +89,7 @@ const wstring texturePath = L"Textures/";
 #include "Scene/AnimationScene.h"
 #include "Scene/ShaderScene.h"
 #include "Scene/MultiShaderScene.h"
+#include "Scene/VertexShaderScene.h"
 
 #include "MainGame.h"
 

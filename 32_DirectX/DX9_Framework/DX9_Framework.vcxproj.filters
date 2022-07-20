@@ -129,6 +129,9 @@
     <ClInclude Include="System\Object.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Scene\VertexShaderScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -228,6 +231,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="System\Object.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\VertexShaderScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -347,6 +353,7 @@
     <FxCompile Include="Shaders\MultiShader.hlsl" />
     <FxCompile Include="Shaders\OutlineShader.hlsl" />
     <FxCompile Include="Shaders\ObjectShader.hlsl" />
+    <FxCompile Include="Shaders\VertexShader.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Lib\AntTweakBar.dll" />

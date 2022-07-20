@@ -18,6 +18,7 @@ public:
 	LPDIRECT3DDEVICE9 GetDevice() { return device; }
 
 	void SetProjection();
+	Matrix GetProjection() { return projection; }
 
 private:
 	static Device* instance;

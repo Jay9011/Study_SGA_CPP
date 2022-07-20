@@ -63,3 +63,8 @@ void Shader::SetTexture(string param, LPDIRECT3DTEXTURE9 texture)
 {
 	shader->SetTexture(param.c_str(), texture);
 }
+
+void Shader::SetMatrix(string param, Matrix* matrix)
+{
+	shader->SetMatrix(param.c_str(), matrix);
+}
