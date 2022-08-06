@@ -3,11 +3,12 @@
 
 VertexShaderScene::VertexShaderScene()
 {
-	IDLE = new Object(L"Textures/IDLE.jpg");
+	IDLE = new Object(L"Textures/IDLE.jpg", { WIN_WIDTH * 2, WIN_HEIGHT * 2 });
 	IDLE->SetShader(Shader::Add(L"VertexShader"));
 	IDLE->pos = { WIN_CENTER_X, WIN_CENTER_Y };
 
 	camera = new Camera;
+	camera->SetBackground(IDLE);
 }
 
 VertexShaderScene::~VertexShaderScene()

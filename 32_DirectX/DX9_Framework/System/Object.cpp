@@ -22,7 +22,7 @@ void Object::Update()
 
 void Object::Render()
 {
-	SetWorld();
+	//SetWorld();
 
 	shader->Begin();
 	texture->Render();

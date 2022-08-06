@@ -41,8 +41,10 @@ void VertexScene::Render()
 {
     DEVICE->SetFVF(fvf);
 
+    DEVICE->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
     DEVICE->DrawPrimitiveUP(D3DPT_TRIANGLELIST, 2, &vertices, sizeof(Vertex));
     //Polygon
     //Back Face Culling
+    DEVICE->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
 }
 
